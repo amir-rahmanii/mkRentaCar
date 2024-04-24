@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    @font-face {
+        font-family:"Light";
+        src: url(../public/Fonts/Montserrat-Light.ttf);
+        font-display: swap;
+    }
+    @font-face {
+        font-family:"medium";
+        src: url(../public/Fonts/Montserrat-Medium.ttf);
+        font-display: swap;
+    }
+    @font-face {
+        font-family:"bold";
+        src: url(../public/Fonts/Montserrat-Bold.ttf);
+        font-display: swap;
+    }
+    @font-face {
+        font-family:"italic";
+        src: url(../public/Fonts/Montserrat-Italic.ttf);
+        font-display: swap;
+    }
+    @font-face {
+        font-family:"bolditalic";
+        src: url(../public/Fonts/Montserrat-BoldItalic.ttf);
+        font-display: swap;
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #EBB100;
+    border-radius: 5px;
+}
+ 
