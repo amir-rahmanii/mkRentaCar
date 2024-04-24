@@ -30,6 +30,11 @@
         font-display: swap;
     }
 }
+@layer components {
+    .buttons {
+        @apply bg-neutral-700 text-white hover:bg-orangeCus transition-all duration-300;
+    }
+}
 
 /* width */
 ::-webkit-scrollbar {
