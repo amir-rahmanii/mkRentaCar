@@ -3,6 +3,8 @@ import { SlArrowDown } from "react-icons/sl";
 import { BsTelephone } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
+import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     const [showSubGroup, setShowSubGroup] = useState(false)
@@ -19,9 +21,9 @@ export default function Header() {
                     </div>
                     {/* subGroup Language */}
                     <div className={`absolute bg-black z-50 text-left flex flex-col text-xs/[30px] p-2 w-[150px] child-hover:text-orangeCus transition-all duration-300 child:transition-all child:duration-300 ${showSubGroup ? 'top-[37px]' : 'top-[-200px]'}`}>
-                        <a href='#'>English</a>
-                        <a href='#'> العربية </a>
-                        <a href='#'> Русский </a>
+                        <Link to='#'>English</Link>
+                        <Link to='#'> العربية </Link>
+                        <Link to='#'> Русский </Link>
                     </div>
                 </div>
 
@@ -42,18 +44,18 @@ export default function Header() {
                         </div>
 
                         {/* input search */}
-                        <div className={`flex items-center gap-1.5 bg-neutral-700  text-white rounded-[15px] py-1.5 px-3 ${showBorderInputSearch ? 'border-4 border-[#031C3F]' : '' }`}>
-                            <input type="text" className=' bg-neutral-700 outline-none' onBlur={() => setshowBorderInputSearch(false)} onFocus={() => setshowBorderInputSearch(true)} />
-                            <a href="#">
+                        <div className={`flex items-center  gap-1.5 bg-neutral-700  text-white rounded-[15px] py-1.5 px-3 ${showBorderInputSearch ? 'border-4 border-[#031C3F]' : '' }`}>
+                            <input type="text" placeholder='Search' className=' bg-neutral-700 w-32 outline-none' onBlur={() => setshowBorderInputSearch(false)} onFocus={() => setshowBorderInputSearch(true)} />
+                            <Link to="#">
                             <IoSearch className='w-[21px] h-[25px]' />
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Book Now */}
-                        <a href='#' className='buttons text-[13px]/[35px] px-[5px] xl:px-[11px] flex gap-1.5 items-center tracking-[1px]'>
+                        <Button link='#' classes='text-[13px]/[35px] px-[5px] xl:px-[11px] gap-1.5 tracking-[1px]'>
                                 <span>Book</span>
                                 <span>Now</span>
-                        </a>
+                        </Button>
 
                     </div>
                 </div>
