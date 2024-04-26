@@ -10,237 +10,237 @@ export default function Menu() {
       <div className='container'>
         <div className='flex items-center justify-between'>
           {/* Menu  */}
-          <ul className='flex uppercase'>
+          <ul className='flex'>
             <li className='pb-0.5'>
-              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2 px-[15px]'>
-                <span>All Cars</span>
+              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2 px-[13px] lg:px-[15px]'>
+                <span>ALL CARS</span>
               </Button>
             </li>
             <li className='pb-0.5 relative group'>
-              <Button link='#' classes='text-[15px]/[22.5px] gap-2.5 tracking-[0.375px] py-2 px-[15px] border-b border-white '>
-                <span>our Cars</span>
+              <Button link='#' classes='text-[15px]/[22.5px] gap-2.5 tracking-[0.375px] py-2  px-[13px] lg:px-[15px] border-b border-white '>
+                <span>OUR CARS</span>
                 <SlArrowDown className='w-2.5 h-4' />
               </Button>
-              <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-5  gap-0.5 w-[1120px] top-[41px] z-50 left-0 text-white px-2 font-medium'>
+              <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-5  gap-0.5 w-[840px] lg:w-[900px] xl:w-[1120px] top-[41px] z-50 left-0 text-white px-2 font-medium'>
                 <li>
                   <Link to='#'>
                     <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>suv cars</span>
+                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
                     <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>suv cars</span>
+                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
                     <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>suv cars</span>
+                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
                     <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>suv cars</span>
+                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
                     <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>suv cars</span>
+                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
                     <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>suv cars</span>
+                      <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
                     </div>
                   </Link>
                 </li>
               </ul>
             </li>
             <li className='pb-0.5 relative group'>
-              <Button link='#' classes='text-[15px]/[22.5px] gap-2.5 tracking-[0.375px] py-2 px-[15px]'>
-                <span>car Brands</span>
+              <Button link='#' classes='text-[15px]/[22.5px] gap-2.5 tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
+                <span>CAR BRANDS</span>
                 <SlArrowDown className='w-2.5 h-4' />
               </Button>
-              <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-6 gap-px w-[1050px] top-[41px] z-50 left-0 text-white px-2 font-bold'>
+              <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-6 gap-px w-[730px] lg:w-[850px] xl:w-[1050px] top-[41px] z-50 left-0 text-white px-2 font-bold'>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
                 <li>
                   <Link to='#'>
-                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-[13px]">
+                    <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
                       <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>Ferrari</span>
+                      <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
                     </div>
                   </Link>
                 </li>
               </ul>
             </li>
             <li className='pb-0.5'>
-              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2 px-[15px]'>
-                <span>Daily offers</span>
+              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
+                <span>DAILY OFFERS</span>
               </Button>
             </li>
             <li className='pb-0.5'>
-              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2 px-[15px]'>
-                <span>about us</span>
+              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
+                <span>ABOUT US</span>
               </Button>
             </li>
             <li className='pb-0.5'>
-              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2 px-[15px]'>
-                <span>activities</span>
+              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
+                <span>ACTIVITIES</span>
               </Button>
             </li>
             <li className='pb-0.5'>
-              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2 px-[15px]'>
-                <span>blog</span>
+              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
+                <span>BLOG</span>
               </Button>
             </li>
             <li className='pb-0.5'>
-              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2 px-[15px]'>
-                <span>contact us</span>
+              <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
+                <span>CONTACT US</span>
               </Button>
             </li>
           </ul>
