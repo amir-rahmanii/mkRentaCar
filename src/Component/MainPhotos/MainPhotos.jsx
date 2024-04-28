@@ -8,7 +8,7 @@ export default function MainPhotos() {
     const [allOfCarBrands, setAllOfCarBrands] = useState(' All Car Brands')
     const [showAllOfCarBrands, setShowAllOfCarBrands] = useState(false)
     return (
-        <div className="bg-[url('https://mkrentacar.com/public/uploads/Banner/j4juq3hjUl.jpg')] bg-[center_top] w-full h-[300px] xs:h-auto aspect-[2/1] bg-no-repeat bg-cover flex justify-center items-end text-white font-light pb-1 md:pb-8">
+        <div className="bg-[url('https://mkrentacar.com/public/uploads/Banner/j4juq3hjUl.jpg')] bg-[center_top] w-full h-[300px] xs:h-auto aspect-[2/1] bg-no-repeat bg-cover flex justify-center items-end text-white font-light pb-3 md:pb-8">
             <div>
                 <p className='text-center text-[45px]/[54px] hidden md:block'>Luxury Car Rental In Dubai</p>
                 <div className='mt-2.5 text-[18px]/[27px] font-medium hidden md:block'>
@@ -27,7 +27,7 @@ export default function MainPhotos() {
                                 </div>
                             </div>
 
-                            <div className={`bg-black absolute overflow-auto flex-col w-[150px] md:w-[285px] h-[90px] child:px-[5px] child:py-0.5 child:cursor-pointer child-hover:bg-orangeCus child:transition-all child:duration-300 border border-white ${showTypeOfCar ? 'flex' : 'hidden'}`}>
+                            <div className={`bg-black absolute overflow-auto flex-col w-[150px] z-10 md:w-[285px] h-[90px] child:px-[5px] child:py-0.5 child:cursor-pointer child-hover:bg-orangeCus child:transition-all child:duration-300 border border-white ${showTypeOfCar ? 'flex' : 'hidden'}`}>
                                 <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>All Car Type</span>
                                 <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>SUV Cars</span>
                                 <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>Sports Cars</span>
@@ -47,7 +47,7 @@ export default function MainPhotos() {
                                 </div>
                             </div>
 
-                            <div className={`bg-black absolute overflow-auto flex-col w-[150px] md:w-[285px] h-[90px] child:px-[5px] child:py-0.5 child:cursor-pointer child-hover:bg-orangeCus child:transition-all child:duration-300 border border-white ${showAllOfCarBrands ? 'flex' : 'hidden'}`}>
+                            <div className={`bg-black absolute overflow-auto flex-col w-[150px] z-10 md:w-[285px] h-[90px] child:px-[5px] child:py-0.5 child:cursor-pointer child-hover:bg-orangeCus child:transition-all child:duration-300 border border-white ${showAllOfCarBrands ? 'flex' : 'hidden'}`}>
                                 <span onClick={(e) => setAllOfCarBrands(e.target.innerHTML)}>All Car Brands</span>
                             </div>
                         </div>

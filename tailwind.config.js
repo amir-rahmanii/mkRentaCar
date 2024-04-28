@@ -28,7 +28,8 @@ export default {
         "bolditalic" : "bolditalic"
       },
       colors : {
-        'orangeCus' : "#EBB100"
+        'orangeCus' : "#EBB100",
+        'orangeCus2' : "#ED8413"
       }
     },
   },

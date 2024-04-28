@@ -265,14 +265,14 @@ export default function Menu() {
 
       {/* menu mobile */}
 
-      <div className='bg-[#1D232D] block md:hidden relative pt-[18px] pb-5'>
+      <div className='bg-[#1D232D] block md:hidden relative pt-[18px] pb-5 '>
         <div className='container'>
           <div className='flex justify-between items-center'>
             <Link to='#'>
               <img className='w-[120px] h-[45px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="imglogo" />
             </Link>
-            <div onClick={() => setShowNavBarMobile(true)} className='bg-[#ED8413]  px-[7.5px] py-[3px] cursor-pointer group hover:bg-[#293957] transition-all duration-300'>
-              <FaBars className='w-[15px] h-[25px] text-white group-hover:text-[#ED8413] transition-all duration-300' />
+            <div onClick={() => setShowNavBarMobile(true)} className='bg-orangeCus2  px-[7.5px] py-[3px] cursor-pointer group hover:bg-[#293957] transition-all duration-300'>
+              <FaBars className='w-[15px] h-[25px] text-white group-hover:text-orbg-orangeCus2 transition-all duration-300' />
             </div>
 
           </div>
@@ -284,33 +284,33 @@ export default function Menu() {
           </div>
           <ul className='font-bold border-t border-[#393939] text-white'>
             <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ALL CARS</Link>
+              <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ALL CARS</Link>
             </li>
               {/* OUR CARS */}
             <li className='py-2.5 border-b border-[#393939]'>
               <div onClick={() => setshowSubNenuOurCars(prevState => !prevState)} className='flex items-center justify-between cursor-pointer'>
-                <Link to='#' className={`block hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuOurCars ? 'text-[#ED8413]' : ''}`}>OUR CARS</Link>
+                <Link to='#' className={`block hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuOurCars ? 'text-orbg-orangeCus2' : ''}`}>OUR CARS</Link>
                {showSubNenuOurCars ? <FaMinus /> : <FaPlus />  } 
               </div>
 
               <ul className={`border-t border-[#393939] mt-2.5 flex-col divide-y divide-[#393939] ${showSubNenuOurCars ? "flex" : "hidden"}`}>
                 <li className='py-2.5 px-2.5 group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
                 </li>
               </ul>
             </li>
@@ -318,81 +318,81 @@ export default function Menu() {
               {/* CAR BRANDS */}
             <li className='py-2.5 border-b border-[#393939]'>
               <div onClick={() => setshowSubNenuCarBrans(prevState => !prevState)} className='flex items-center justify-between cursor-pointer'>
-                <Link to='#' className={`block hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuCarBrans ? 'text-[#ED8413]' : ''}`}>CAR BRANDS</Link>
+                <Link to='#' className={`block hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuCarBrans ? 'text-orbg-orangeCus2' : ''}`}>CAR BRANDS</Link>
                {showSubNenuCarBrans ? <FaMinus /> : <FaPlus />  } 
               </div>
               <ul className={`border-t border-[#393939] mt-2.5 flex-col divide-y divide-[#393939] ${showSubNenuCarBrans ? "flex" : "hidden"}`}>
                 <li className='py-2.5 px-2.5 group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5 group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5 group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
                 <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
+                  <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
                 </li>
               </ul>
             </li>
            
             <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>DAILY OFFERS</Link>
+              <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>DAILY OFFERS</Link>
             </li>
             <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ABOUT US</Link>
+              <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ABOUT US</Link>
             </li>
             <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ACTIVITIES</Link>
+              <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ACTIVITIES</Link>
             </li>
             <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>BLOG</Link>
+              <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>BLOG</Link>
             </li>
             <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-[#ED8413] transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>CONTACT US</Link>
+              <Link to='#' className='group-hover:text-orbg-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>CONTACT US</Link>
             </li>
           </ul>
         </div>
