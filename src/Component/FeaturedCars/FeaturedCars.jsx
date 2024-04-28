@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function FeaturedCars() {
   return (
-    <div className='bg-[#111111] pt-5 md:pt-[65px] font-bold'>
+    <div className='bg-[#111111] pt-5 md:pt-[40px] font-bold'>
         <div className='container'>
             <div className='text-white flex flex-col items-center justify-center gap-[15px]'>
              <p className='text-lg/[21px] font-medium text-center'>Featured Cars</p>

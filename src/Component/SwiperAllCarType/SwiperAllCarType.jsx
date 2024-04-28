@@ -15,7 +15,7 @@ import { Pagination } from 'swiper/modules';
 export default function SwiperAllCarType() {
     const pagination = {
         clickable: true,
-        renderBullet: function (className) {
+        renderBullet: function (index , className) {
             return '<span class="' + className + '"></span>';
         },
     };
