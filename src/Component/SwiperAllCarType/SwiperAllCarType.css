@@ -3,9 +3,9 @@
   height: 10px;
   text-align: center;
   opacity: 1;
-  background: #616161;
+  background-color: #616161;
 }
 
 .swiper-pagination-bullet-active {
-  background: #EBB100;
+  background-color: #EBB100;
 }
