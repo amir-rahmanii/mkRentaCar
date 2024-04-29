@@ -32,7 +32,7 @@ export default function CarBox(props) {
 
                 {/* Buttons */}
                 <div className='font-medium text-white flex justify-between mt-5'>
-                    <Button link='#' classes='border text-xs/[18px] py-[5px] px-[7px] rounded-md'>
+                    <Button link='#' classes='bg-neutral-700 border text-xs/[18px] py-[5px] px-[7px] rounded-md'>
                         <span>Send Enquiry</span>
                     </Button>
 

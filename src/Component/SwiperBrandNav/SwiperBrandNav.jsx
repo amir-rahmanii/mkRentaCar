@@ -86,9 +86,7 @@ const SwiperBrandNav = () => {
                             setValueOfBrand(e.target.textContent)
                         }} className='w-[190px]'>
                             <Button link='#' classes={`gap-1  py-2.5 ${ValueOfBrand == "AUDI" ? "bg-orangeCus" : "bg-neutral-700"}`}>
-
                                 <img className='w-[40px] h-[25px]' src="https://mkrentacar.com/public/uploads/brand/0cID35vkiB.png" alt="1" />
-
                                 <span className='text-xs'>AUDI</span>
                             </Button>
                         </SwiperSlide>

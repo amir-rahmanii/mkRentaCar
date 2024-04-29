@@ -5,6 +5,7 @@ import MainPhotos from '../../Component/MainPhotos/MainPhotos'
 import SwiperBrand from '../../Component/SwiperBrand/SwiperBrand'
 import FeaturedCars from '../../Component/FeaturedCars/FeaturedCars'
 import SwiperBrandNav from '../../Component/SwiperBrandNav/SwiperBrandNav'
+import LuxuryCar from '../../Component/LuxuryCar/LuxuryCar'
 
 
 export default function Index() {
@@ -16,6 +17,7 @@ export default function Index() {
     <SwiperBrand />
     <FeaturedCars />
     <SwiperBrandNav />
+    <LuxuryCar />
     </>
   )
 }
