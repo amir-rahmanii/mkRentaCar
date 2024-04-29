@@ -45,7 +45,7 @@ export default function Header() {
                             </div>
 
                             {/* Book Now */}
-                            <Button link='#' classes='text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px]'>
+                            <Button link='#' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px]'>
                                 <span>Book Now</span>
                             </Button>
 
@@ -67,7 +67,7 @@ export default function Header() {
                         </Link>
                         <div>
                             {/* Book Now */}
-                            <Button link='#' classes='text-[10px]/[29px] w-[100px] px-[15px] tracking-[1px]'>
+                            <Button link='#' classes='bg-neutral-700 text-[10px]/[29px] w-[100px] px-[15px] tracking-[1px]'>
                                 <span>BOOK NOW</span>
                             </Button>
                         </div>

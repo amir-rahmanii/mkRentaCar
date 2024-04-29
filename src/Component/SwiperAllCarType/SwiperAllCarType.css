@@ -8,4 +8,8 @@
 
 .swiper-pagination-bullet-active {
   background-color: #EBB100;
+  width: 30px;
+  border-radius: 5px;
+  
+
 }

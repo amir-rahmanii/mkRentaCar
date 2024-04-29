@@ -3,9 +3,9 @@ import Header from '../../Component/Header/Header'
 import Menu from '../../Component/Menu/Menu'
 import MainPhotos from '../../Component/MainPhotos/MainPhotos'
 import SwiperBrand from '../../Component/SwiperBrand/SwiperBrand'
-import SwiperAllCarType from '../../Component/SwiperAllCarType/SwiperAllCarType'
 import FeaturedCars from '../../Component/FeaturedCars/FeaturedCars'
 import SwiperBrandNav from '../../Component/SwiperBrandNav/SwiperBrandNav'
+
 
 export default function Index() {
   return (
@@ -14,7 +14,6 @@ export default function Index() {
     <Menu />
     <MainPhotos />
     <SwiperBrand />
-    <SwiperAllCarType />
     <FeaturedCars />
     <SwiperBrandNav />
     </>

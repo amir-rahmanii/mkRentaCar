@@ -55,7 +55,7 @@ export default function MainPhotos() {
                     </div>
 
                     {/* searchBox Handler */}
-                    <Button link="#" classes='text-[15px]/[40px] rounded-md md:rounded-none font-light tracking-[1px] w-full md:w-[228px]' >
+                    <Button link="#" classes='bg-neutral-700 text-[15px]/[40px] rounded-md md:rounded-none font-light tracking-[1px] w-full md:w-[228px]' >
                         <span>Search</span>
                     </Button>
 
