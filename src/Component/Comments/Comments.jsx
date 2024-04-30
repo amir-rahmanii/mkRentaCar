@@ -22,7 +22,7 @@ export default function Comments() {
         },
     };
     return (
-        <div className='bg-black font-medium'>
+        <div className='bg-black pt-5 md:py-5 font-medium'>
             <div className='container'>
                 <div className='text-white mb-3 md:mb-8 flex flex-col items-center justify-center gap-[15px] font-medium'>
                     <p className='text-lg/[21px] font-medium text-center'>Latest Testimonial</p>

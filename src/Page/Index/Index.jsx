@@ -8,7 +8,9 @@ import SwiperBrandNav from '../../Component/SwiperBrandNav/SwiperBrandNav'
 import LuxuryCar from '../../Component/LuxuryCar/LuxuryCar'
 import OurRendalPackage from '../../Component/OurRendalPackage/OurRendalPackage'
 import Comments from '../../Component/Comments/Comments'
+import Blogs from '../../Component/Blogs/Blogs'
 
+import Video from '../../Component/Video/Video'
 
 export default function Index() {
   return (
@@ -26,6 +28,8 @@ export default function Index() {
       <FeaturedCars title="Featured Cars" select="Select An Exotic & Convertible Car Brand" body="We have exotic cars that will help you experience the royal life that Dubai has to offer." />
       <SwiperBrandNav />
       <Comments />
+      <Blogs />
+      <Video />
     </>
   )
 }
