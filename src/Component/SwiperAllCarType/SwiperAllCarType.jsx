@@ -12,12 +12,12 @@ import './SwiperAllCarType.css';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
-export default function SwiperAllCarType({children}) {
+export default function SwiperAllCarType({children  , bgcolor}) {
 
 
     return (
         <>
-            <div className='bg-[#111111] font-medium py-3.5 md:py-5'>
+            <div className={`${bgcolor} font-medium py-3.5 md:pt-5 md:pb-0`}>
                 <div className='container'>
                    {children}
                 </div>

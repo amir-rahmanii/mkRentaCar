@@ -29,7 +29,8 @@ export default {
       },
       colors : {
         'orangeCus' : "#EBB100",
-        'orangeCus2' : "#ED8413"
+        'orangeCus2' : "#ED8413",
+        "blackBack" : "#111111"
       }
     },
   },

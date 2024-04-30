@@ -19,7 +19,7 @@ export default function SwiperBrand() {
         },
     };
     return (
-        <div className='bg-[#111111] font-medium py-3.5 md:py-5'>
+        <div className='bg-blackBack font-medium py-3.5 md:pt-5 md:pb-0'>
             <div className='container'>
                 <Swiper
                     // install Swiper modules

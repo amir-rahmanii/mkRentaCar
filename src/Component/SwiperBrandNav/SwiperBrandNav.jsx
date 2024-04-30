@@ -46,7 +46,7 @@ const SwiperBrandNav = () => {
     };
 
     return (
-        <div className='py-[30px] bg-[#111111] font-medium text-white'>
+        <div className='py-[30px] bg-blackBack font-medium text-white'>
             <div className='container'>
                 <div className='flex gap-[20px] mb-3 md:mb-5 items-center justify-between'>
                     <button onClick={goPrev} className='w-[30px] h-[30px] bg-[#454545] flex justify-center items-center p-2'><IoIosArrowBack /></button>
