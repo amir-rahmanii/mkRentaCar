@@ -11,6 +11,7 @@ import Comments from '../../Component/Comments/Comments'
 import Blogs from '../../Component/Blogs/Blogs'
 
 import Video from '../../Component/Video/Video'
+import Footer from '../../Component/Footer/Footer'
 
 export default function Index() {
   return (
@@ -30,6 +31,7 @@ export default function Index() {
       <Comments />
       <Blogs />
       <Video />
+      <Footer />
     </>
   )
 }

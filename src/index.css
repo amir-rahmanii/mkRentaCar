@@ -34,6 +34,10 @@
     .buttons {
         @apply  text-white hover:bg-orangeCus transition-all duration-300 flex items-center justify-center;
     }
+
+    .luxuryCars{
+        background-image: url('../public/images/1.png');
+    }
 }
 
 /* width */
