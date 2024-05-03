@@ -12,6 +12,7 @@ import Blogs from '../../Component/Blogs/Blogs'
 
 import Video from '../../Component/Video/Video'
 import Footer from '../../Component/Footer/Footer'
+import CopyRight from '../../Component/CopyRight/CopyRight'
 
 export default function Index() {
   return (
@@ -32,6 +33,7 @@ export default function Index() {
       <Blogs />
       <Video />
       <Footer />
+      <CopyRight />
     </>
   )
 }

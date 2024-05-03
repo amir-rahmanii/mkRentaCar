@@ -5,32 +5,32 @@ import { FaYoutube } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-export default function SocialMedia() {
+export default function SocialMedia({border}) {
     return (
-        <div className='hidden xl:flex px-3 items-center gap-5 pb-0.5'>
-            <div>
+        <div className={`${border ? 'flex gap-2' : 'hidden xl:flex gap-5 '}  md:px-3 items-center pb-0.5`}>
+            <div className={`${border ? "bg-[#454545] p-2 rounded-full" : ""}`}>
                 <Link to="#">
-                    <FaFacebookF className='w-5 h-5 text-white hover:text-orangeCus transition-all duration-300' />
+                    <FaFacebookF className={`${border ? 'w-4 h-4' : "w-5 h-5"} text-white hover:text-orangeCus transition-all duration-300`} />
                 </Link>
             </div>
-            <div>
+            <div className={`${border ? "bg-[#454545] p-2 rounded-full" : ""}`}>
                 <Link to="#">
-                    <TiSocialInstagram className='w-5 h-5 text-white hover:text-orangeCus transition-all duration-300' />
+                    <TiSocialInstagram className={`${border ? 'w-4 h-4' : "w-5 h-5"} text-white hover:text-orangeCus transition-all duration-300`} />
                 </Link>
             </div>
-            <div>
+            <div className={`${border ? "bg-[#454545] p-2 rounded-full" : ""}`}>
                 <Link to="#">
-                    <FaYoutube className='w-5 h-5 text-white hover:text-orangeCus transition-all duration-300' />
+                    <FaYoutube className={`${border ? 'w-4 h-4' : "w-5 h-5"} text-white hover:text-orangeCus transition-all duration-300`} />
                 </Link>
             </div>
-            <div>
+            <div className={`${border ? "bg-[#454545] p-2 rounded-full" : ""}`}>
                 <Link to="#">
-                    <FaGoogle className='w-5 h-5 text-white hover:text-orangeCus transition-all duration-300' />
+                    <FaGoogle className={`${border ? 'w-4 h-4' : "w-5 h-5"} text-white hover:text-orangeCus transition-all duration-300`} />
                 </Link>
             </div>
-            <div>
+            <div className={`${border ? "bg-[#454545] p-2 rounded-full" : ""}`}>
                 <Link to="#">
-                    <FaTiktok className='w-5 h-5 text-white hover:text-orangeCus transition-all duration-300' />
+                    <FaTiktok className={`${border ? 'w-4 h-4' : "w-5 h-5"} text-white hover:text-orangeCus transition-all duration-300`} />
                 </Link>
             </div>
         </div>
