@@ -63,12 +63,12 @@ export default function Footer() {
                         {/* about us */}
                         <div className='px-3 flex flex-col gap-3 font-medium'>
                             {/* Mobile */}
-                            <div>
+                            <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
                                     <img className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/call-icon.png" alt="1" />
-                                    <span className='text-sm/[26px] font-bold'>Mobile:</span>
+                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Mobile:</span>
                                 </div>
-                                <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
+                                <div className='flex flex-col child:text-sm/[26px] ml-[45px] child:group-hover:text-orangeCus2 child:cursor-pointer child:transition-all child:duration-300'>
                                     <span>+971589595959</span>
                                     <span>+971558009990</span>
                                     <span>+971524349551 - French</span>
@@ -76,23 +76,23 @@ export default function Footer() {
                                 </div>
                             </div>
                             {/* Address */}
-                            <div>
+                            <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
                                     <img className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/location.png" alt="1" />
-                                    <span className='text-sm/[26px] font-bold'>Address:</span>
+                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Address:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
-                                    <span>39 Al Rasaas Rd-  Al Quoz, Dubai </span>
+                                    <span className='group-hover:text-orangeCus2 transition-all duration-300 cursor-pointer'>39 Al Rasaas Rd-  Al Quoz, Dubai </span>
                                 </div>
                             </div>
                             {/* Timing */}
-                            <div>
+                            <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
                                     <img className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/service-24-7.png" alt="1" />
-                                    <span className='text-sm/[26px] font-bold'>Timing:</span>
+                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Timing:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
-                                    <span>24/7 service</span>
+                                    <span className='group-hover:text-orangeCus2 transition-all duration-300 cursor-pointer'>24/7 service</span>
                                 </div>
                             </div>
 
