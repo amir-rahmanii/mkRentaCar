@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../Button/Button'
 import { SlArrowDown } from "react-icons/sl";
 import SocialMedia from '../SocialMedia/SocialMedia';
@@ -13,246 +13,66 @@ export default function Menu() {
   const [showNavBarMobile, setShowNavBarMobile] = useState(false)
   const [showSubNenuOurCars, setshowSubNenuOurCars] = useState(false)
   const [showSubNenuCarBrans, setshowSubNenuCarBrans] = useState(false)
+  const [allMenuItem, setAllMenuItem] = useState([])
+
+
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/menus`)
+      .then(res => res.json())
+      .then(result => {
+        setAllMenuItem(result)
+      })
+  }, [])
 
   return (
     <>
+      {/* Desktop Menu */}
       <div className='bg-neutral-700 font-light hidden md:block'>
         <div className='container'>
           <div className='flex items-center justify-between'>
             {/* Menu  */}
             <ul className='flex'>
-              <li className='pb-0.5'>
-                <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2 px-[13px] lg:px-[15px]'>
-                  <span>ALL CARS</span>
-                </Button>
-              </li>
-              <li className='pb-0.5 relative group'>
-                <Button link='#' classes='text-[15px]/[22.5px] gap-2.5 tracking-[0.375px] py-2  px-[13px] lg:px-[15px] border-b border-white '>
-                  <span>OUR CARS</span>
-                  <SlArrowDown className='w-2.5 h-4' />
-                </Button>
-                <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-5  gap-0.5 w-[840px] lg:w-[900px] xl:w-[1120px] top-[41px] z-50 left-0 text-white px-2 font-medium'>
-                  <li>
-                    <Link to='#'>
-                      <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                        <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                        <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                        <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                        <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                        <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="bg-[url('https://mkrentacar.com/public/uploads/model/cNXf16GRBA.png')] bg-no-repeat bg-cover w-auto h-[107px] relative rounded-md">
-                        <span className='absolute top-[64px] left-[10px] tracking-[0.35px] text-[14px]'>SUV CARS</span>
-                      </div>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li className='pb-0.5 relative group'>
-                <Button link='#' classes='text-[15px]/[22.5px] gap-2.5 tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
-                  <span>CAR BRANDS</span>
-                  <SlArrowDown className='w-2.5 h-4' />
-                </Button>
-                <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-6 gap-px w-[730px] lg:w-[850px] xl:w-[1050px] top-[41px] z-50 left-0 text-white px-2 font-bold'>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to='#'>
-                      <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-2 lg:gap-[13px]">
-                        <img loading='lazy' src="https://mkrentacar.com/public/uploads/brand/iM54DZNMuw.png" alt="alt1" className="w-7 h-9" />
-                        <span className='top-[64px] left-[10px] tracking-[0.35px] text-[13px]'>FERRARI</span>
-                      </div>
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li className='pb-0.5'>
-                <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
-                  <span>DAILY OFFERS</span>
-                </Button>
-              </li>
-              <li className='pb-0.5'>
-                <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
-                  <span>ABOUT US</span>
-                </Button>
-              </li>
-              <li className='pb-0.5'>
-                <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
-                  <span>ACTIVITIES</span>
-                </Button>
-              </li>
-              <li className='pb-0.5'>
-                <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
-                  <span>BLOG</span>
-                </Button>
-              </li>
-              <li className='pb-0.5'>
-                <Button link='#' classes='text-[15px]/[22.5px] tracking-[0.375px] py-2  px-[13px] lg:px-[15px]'>
-                  <span>CONTACT US</span>
-                </Button>
-              </li>
+              {allMenuItem.map((menu) => (
+                <li key={menu.id} className={`pb-0.5 ${menu.submenus != 0 ? 'relative group' : ''} `}>
+                  <Button link={menu.href == 'car-brands' ? '#' : `/${menu.href}`} classes={`text-[15px]/[22.5px]  tracking-[0.375px] py-2  px-[13px] lg:px-[15px] ${menu.submenus.length != 0 ? ' gap-2.5' : ''} ${menu.href == "cars" ? 'border-b border-white' : ''}  `}>
+                    <span>{menu.title.toUpperCase()}</span>
+                    {menu.submenus.length != 0 && (
+                      <SlArrowDown className='w-2.5 h-4' />
+                    )}
+                  </Button>
+                  {(menu.submenus.length != 0 && menu.href == "cars") && (
+                    <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-5  gap-0.5 w-[840px] lg:w-[900px] xl:w-[1120px] top-[41px] z-50 left-0 text-white px-2 font-medium'>
+                      {menu.submenus.map((submenu) => (
+                        <li key={submenu.id}>
+                          <Link to={`/cars/${submenu.href}`}>
+                            <div className="w-auto h-[107px] relative rounded-md">
+                              <img loading='lazy' src={submenu.cover} alt="img sub menu" />
+                              <span className='absolute xl:top-[64px] md:top-12 left-[10px] tracking-[0.35px] text-[14px]'>{submenu.title.toUpperCase()}</span>
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {(menu.submenus.length != 0 && menu.href == "car-brands") && (
+                    <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-6 gap-px w-[730px] lg:w-[850px] xl:w-[1050px] top-[41px] z-50 left-0 text-white px-2 font-bold'>
+                      {menu.submenus.map((submenu) => (
+                        <li key={submenu.id}>
+                          <Link to={submenu.href}>
+                            <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-1 xl:gap-2 lg:gap-[13px]">
+                              <img loading='lazy' src={submenu.cover} alt="alt1" className="w-5 h-7 xl:w-7 xl:h-8" />
+                              <span className='top-[64px] left-[10px] tracking-[0.35px]  text-[9px] lg:text-[11px] xl:text-[13px]'>{submenu.title.toUpperCase()}</span>
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+
+              ))}
             </ul>
 
             {/* Social Media */}
@@ -260,16 +80,16 @@ export default function Menu() {
             <SocialMedia />
 
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
 
       {/* menu mobile */}
 
-      <div className='bg-[#1D232D] block md:hidden relative pt-[18px] pb-5 '>
+      <div div className='bg-[#1D232D] block md:hidden relative pt-[18px] pb-5 ' >
         <div className='container'>
           <div className='flex justify-between items-center'>
-            <Link to='#'>
-              <img className='w-[120px] h-[45px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="imglogo" />
+            <Link to='/'>
+              <img loading='lazy' className='w-[120px] h-[45px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="imglogo" />
             </Link>
             <div onClick={() => setShowNavBarMobile(true)} className='bg-orangeCus2  px-[7.5px] py-[3px] cursor-pointer group hover:bg-[#293957] transition-all duration-300'>
               <FaBars className='w-[15px] h-[25px] text-white group-hover:text-orangeCus2 transition-all duration-300' />
@@ -282,126 +102,68 @@ export default function Menu() {
             <InputLanguage left={true} />
             <FaXmark onClick={() => setShowNavBarMobile(false)} className='w-[18px] h-[24px] text-white cursor-pointer' />
           </div>
+
+
           <ul className='font-bold border-t border-[#393939] text-white'>
-            <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ALL CARS</Link>
-            </li>
-              {/* OUR CARS */}
-            <li className='py-2.5 border-b border-[#393939]'>
-              <div onClick={() => setshowSubNenuOurCars(prevState => !prevState)} className='flex items-center justify-between cursor-pointer'>
-                <Link to='#' className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuOurCars ? 'text-orangeCus2' : ''}`}>OUR CARS</Link>
-               {showSubNenuOurCars ? <FaMinus /> : <FaPlus />  } 
-              </div>
 
-              <ul className={`border-t border-[#393939] mt-2.5 flex-col divide-y divide-[#393939] ${showSubNenuOurCars ? "flex" : "hidden"}`}>
-                <li className='py-2.5 px-2.5 group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>SUV CARS</Link>
-                </li>
-              </ul>
-            </li>
+            {allMenuItem.map((menu) => (
+              <li key={menu.id} className='py-2.5 border-b border-[#393939]' >
+                <div onClick={
+                  () => {
+                    if (menu.href == "cars") {
+                      setshowSubNenuOurCars(prevState => !prevState)
+                    }
+                    else if (menu.href == "car-brands") {
+                      setshowSubNenuCarBrans(prevState => !prevState)
+                    }
 
-              {/* CAR BRANDS */}
-            <li className='py-2.5 border-b border-[#393939]'>
-              <div onClick={() => setshowSubNenuCarBrans(prevState => !prevState)} className='flex items-center justify-between cursor-pointer'>
-                <Link to='#' className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuCarBrans ? 'text-orangeCus2' : ''}`}>CAR BRANDS</Link>
-               {showSubNenuCarBrans ? <FaMinus /> : <FaPlus />  } 
-              </div>
-              <ul className={`border-t border-[#393939] mt-2.5 flex-col divide-y divide-[#393939] ${showSubNenuCarBrans ? "flex" : "hidden"}`}>
-                <li className='py-2.5 px-2.5 group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5 group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5 group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-                <li className='py-2.5 px-2.5  group'>
-                  <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>FERRARI</Link>
-                </li>
-              </ul>
-            </li>
-           
-            <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>DAILY OFFERS</Link>
-            </li>
-            <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ABOUT US</Link>
-            </li>
-            <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>ACTIVITIES</Link>
-            </li>
-            <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>BLOG</Link>
-            </li>
-            <li className='py-2.5 group  border-b border-[#393939]'>
-              <Link to='#' className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>CONTACT US</Link>
-            </li>
+                  }
+
+                }
+                  className='flex items-center justify-between cursor-pointer'>
+                  <Link to={menu.href == 'cars' || menu.href == 'car-brands' ? '#' : `/${menu.href}`} className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuOurCars && menu.href == "cars" ? 'text-orangeCus2' : ''} ${showSubNenuCarBrans && menu.href == "car-brands" ? 'text-orangeCus2' : ''}`}>{menu.title.toUpperCase()}</Link>
+                  {menu.submenus.length != 0 && (
+                    <span>
+                      {showSubNenuOurCars ? <FaMinus /> : <FaPlus />}
+                    </span>
+                  )}
+                </div>
+                {(menu.submenus.length != 0 && menu.href == "cars") && (
+                  <ul className={`border-t border-[#393939] mt-2.5 flex-col divide-y divide-[#393939] ${showSubNenuOurCars ? "flex" : "hidden"}`}>
+                    {menu.submenus.map((submenu) => (
+                      <li key={submenu.id} className='py-2.5 px-2.5 group'>
+                        <Link to={submenu.href} className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>{submenu.title.toUpperCase()}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {(menu.submenus.length != 0 && menu.href == "car-brands") && (
+                  <ul className={`border-t border-[#393939] mt-2.5 flex-col divide-y divide-[#393939] ${showSubNenuCarBrans ? "flex" : "hidden"}`}>
+                    {menu.submenus.map((submenu) => (
+                      <li key={submenu.id} className='py-2.5 px-2.5 group'>
+                        <Link to={submenu.href} className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>{submenu.title.toUpperCase()}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+
+
+
+            ))}
+
+
           </ul>
+
         </div>
-      </div>
+      </div >
 
 
 
-
-      <div onClick={() => setShowNavBarMobile(false)} className={`bg-black/40 md:hidden fixed inset-0 w-full h-full z-10 transition-all ${showNavBarMobile ? 'visible opacity-100' : 'invisible opacity-0'}`}></div>
+      {/*black side for menu mobile */}
+      <div div onClick={() => setShowNavBarMobile(false)
+      } className={`bg-black/40 md:hidden fixed inset-0 w-full h-full z-10 transition-all ${showNavBarMobile ? 'visible opacity-100' : 'invisible opacity-0'}`}></div>
 
 
 

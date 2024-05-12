@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SlArrowDown } from "react-icons/sl";
 import Button from '../Button/Button';
 
@@ -7,8 +7,20 @@ export default function MainPhotos() {
     const [showTypeOfCar, setShowTypeOfCar] = useState(false)
     const [allOfCarBrands, setAllOfCarBrands] = useState(' All Car Brands')
     const [showAllOfCarBrands, setShowAllOfCarBrands] = useState(false)
+    const [allCarType , setAllCarType] = useState([])
+
+    useEffect(() => {
+    fetch(`http://localhost:5000/carType`)
+    .then(res => res.json())
+    .then(result => {
+        setAllCarType(result)
+    })
+    } , [])
+
     return (
-        <div className="bg-[url('https://mkrentacar.com/public/uploads/Banner/j4juq3hjUl.jpg')] bg-[center_top] w-full h-[300px] xs:h-auto aspect-[2/1] bg-no-repeat bg-cover flex justify-center items-end text-white font-light pb-3 md:pb-8">
+        <div className={`bg-[url('https://mkrentacar.com/public/uploads/Banner/j4juq3hjUl.jpg')] bg-[center_top] w-full h-[300px] xs:h-auto aspect-[2/1] bg-no-repeat bg-cover flex justify-center items-end text-white font-light pb-3 md:pb-8`}>
+
+
             <div>
                 <p className='text-center text-[45px]/[54px] hidden md:block'>Luxury Car Rental In Dubai</p>
                 <div className='mt-2.5 text-[18px]/[27px] font-medium hidden md:block'>
@@ -28,13 +40,10 @@ export default function MainPhotos() {
                             </div>
 
                             <div className={`bg-black absolute overflow-auto flex-col w-[150px] z-10 md:w-[285px] h-[90px] child:px-[5px] child:py-0.5 child:cursor-pointer child-hover:bg-orangeCus child:transition-all child:duration-300 border border-white ${showTypeOfCar ? 'flex' : 'hidden'}`}>
-                                <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>All Car Type</span>
-                                <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>SUV Cars</span>
-                                <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>Sports Cars</span>
-                                <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>Luxury Cars</span>
-                                <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>Exotic Cars</span>
-                                <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>Convertible Cars</span>
-                                <span onClick={(e) => setTypeOfCar(e.target.innerHTML)}>Economy Cars</span>
+                                <span onClick={() =>setTypeOfCar("All Car Type")}>All Car Type</span>
+                                {allCarType.map(type => (
+                                    <span key={type.id} onClick={() =>setTypeOfCar(type.title)}>{type.title}</span>
+                                ))}
                             </div>
                         </div>
 
@@ -64,6 +73,7 @@ export default function MainPhotos() {
 
 
             </div>
+
         </div>
     )
 }
