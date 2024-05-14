@@ -4,11 +4,14 @@ import Menu from '../../Component/Menu/Menu'
 import Footer from '../../Component/Footer/Footer'
 import CopyRight from '../../Component/CopyRight/CopyRight'
 import ScroolTop from '../../Component/ScroolTop/ScroolTop'
-import CarBox from '../../Component/CarBox/CarBox'
-import CarBoxInfo from '../../Component/CarBoxInfo/CarBoxInfo'
+import CarsInfoContainer from '../../Component/CarsInfoContainer/CarsInfoContainer'
+
 
 export default function Cars() {
     const [allCars, setAllCars] = useState([])
+
+
+
 
     const getallcars = () => {
         fetch(`http://localhost:5000/cars`)
@@ -26,11 +29,7 @@ export default function Cars() {
             <Header />
             <Menu />
             <img loading='lazy' src="images/carsimg.png" alt="cars" />
-            <div className='bg-black'>
-                <div className='container'>
-                    <CarBoxInfo />
-                </div>
-            </div>
+            <CarsInfoContainer allCars={allCars} />
             <Footer />
             <CopyRight />
             <ScroolTop />
