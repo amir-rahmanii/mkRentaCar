@@ -38,7 +38,7 @@ const SwiperBrandNav = ({allInputs , allCars , filtered}) => {
             <div className='container'>
                 <div className='flex gap-[20px] mb-3 md:mb-5 items-center justify-between'>
                     {allInputs.length > 6 && (
-                        <button onClick={goPrev} className='w-[30px] h-[30px] bg-[#454545] flex justify-center items-center p-2'><IoIosArrowBack /></button>
+                        <button onClick={goPrev} className='w-[30px] h-[30px] bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
                     )}
 
                     <Swiper
@@ -104,7 +104,7 @@ const SwiperBrandNav = ({allInputs , allCars , filtered}) => {
                     </Swiper>
                 
                     {allInputs.length > 6 && ( 
-                        <button onClick={goNext} className='w-[30px] h-[30px] bg-[#454545] flex justify-center items-center p-2'><IoIosArrowForward /></button>
+                        <button onClick={goNext} className='w-[30px] h-[30px] bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
                     )}
 
                 </div>

@@ -85,7 +85,7 @@ export default function SwiperBrand({allBrands , allCarType}) {
                         {allCarType.map((type) => (
                         <SwiperSlide key={type.id} className='mb-[55px] flex justify-center items-center'>
                             <Link to={`/cars/${type.href}`} className='flex flex-col items-center gap-[15px] w-full xs:w-auto'>
-                                <img className='w-full xs:w-auto h-[200px] xs:h-[150px] rounded-xl' src={type.cover} alt="imgMercedes" />
+                                <img className='w-full xs:w-auto h-[200px] xs:h-[150px] rounded-xl md:w-[300px]' src={type.cover} alt="imgMercedes" />
                                 <p className='text-center text-base text-white hover:text-orangeCus2  transition-all duration-300'>{type.title}</p>
                             </Link>
                         </SwiperSlide>

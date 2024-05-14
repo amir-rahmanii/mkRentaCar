@@ -47,7 +47,7 @@ export default function Menu() {
                         <li key={submenu.id}>
                           <Link to={`/cars/${submenu.href}`}>
                             <div className="w-auto h-[107px] relative rounded-md">
-                              <img loading='lazy' src={submenu.cover} alt="img sub menu" />
+                              <img className='h-[107px] w-[220px]' loading='lazy' src={submenu.cover} alt="img sub menu" />
                               <span className='absolute xl:top-[64px] md:top-12 left-[10px] tracking-[0.35px] text-[14px]'>{submenu.title.toUpperCase()}</span>
                             </div>
                           </Link>

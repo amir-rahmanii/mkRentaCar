@@ -5,6 +5,7 @@ import Footer from '../../Component/Footer/Footer'
 import CopyRight from '../../Component/CopyRight/CopyRight'
 import ScroolTop from '../../Component/ScroolTop/ScroolTop'
 import CarBox from '../../Component/CarBox/CarBox'
+import CarBoxInfo from '../../Component/CarBoxInfo/CarBoxInfo'
 
 export default function Cars() {
     const [allCars, setAllCars] = useState([])
@@ -25,15 +26,9 @@ export default function Cars() {
             <Header />
             <Menu />
             <img loading='lazy' src="images/carsimg.png" alt="cars" />
-            <div className='bg-black py-14'>
+            <div className='bg-black'>
                 <div className='container'>
-                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-x-[15px] md:gap-y-14 gap-[15px] sm:gap-y-6'>
-                        {allCars.map((car) => (
-                            <div key={car.id}>
-                                <CarBox {...car} />
-                            </div>
-                        ))}
-                    </div>
+                    <CarBoxInfo />
                 </div>
             </div>
             <Footer />

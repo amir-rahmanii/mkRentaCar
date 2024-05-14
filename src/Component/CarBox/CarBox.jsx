@@ -8,7 +8,7 @@ export default function CarBox(props) {
         <div className='border-2 border-orangeCus rounded-2xl bg-none overflow-hidden'>
             <div className='bg-blackBack p-2.5 relative'>
                 <Link to={`/cars/${props.href}`}>
-                    <img src={props.img} alt="1" />
+                    <img src={props.cover[0].img} alt="1" />
                 </Link>
                 <div className='bg-orangeCus text-white font-medium text-xs/[23px] px-2 absolute top-[20px] left-0'>
                     <span>SPECIAL OFFER</span>
