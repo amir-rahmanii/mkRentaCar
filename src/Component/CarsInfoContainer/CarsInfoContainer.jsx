@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import CarBoxInfo from "../CarBoxInfo/CarBoxInfo";
 import { SlArrowDown } from "react-icons/sl";
+import DataTableBrand from './DataTableBrand';
+import PaginatedItems from './Pagination/PaginatedItems';
 
-export default function CarsInfoContainer({ allCars }) {
+export default function CarsInfoContainer({ currentItems }) {
     const [FilteredItem, setFilteredItem] = useState('Price High To Low')
     const [showFilteredItem, setShowFilteredItem] = useState(false)
-   
 
 
     return (
@@ -27,31 +28,38 @@ export default function CarsInfoContainer({ allCars }) {
                                 e.preventDefault()
                                 setFilteredItem("Price High To Low")
                             }}>Price High To Low</span>
-                            <span onClick={(e) => {  
-                                e.preventDefault()        
+                            <span onClick={(e) => {
+                                e.preventDefault()
                                 setFilteredItem("Price Low To High")
                             }}>Price Low To High</span>
                         </div>
                     </div>
                 </div>
                 {/* finish filtering */}
-                {FilteredItem == "Price High To Low" && (
-                    <div>
-                        {allCars.slice().sort((priceA, priceB) => priceB.price - priceA.price).map((car) => (
-                            <div key={car.id}>
-                                <CarBoxInfo {...car} />
-                            </div>
-                        ))}
-                    </div>
-                )}
-                {FilteredItem == "Price Low To High" && (
-                    <div>
-                        {allCars.slice().sort((priceA, priceB) => priceA.price - priceB.price).map((car) => (
-                            <div key={car.id}>
-                                <CarBoxInfo {...car} />
-                            </div>
-                        ))}
-                    </div>
+                {currentItems && (
+                <div className='flex flex-col lg:flex-row'>
+    
+                    {FilteredItem == "Price High To Low" && (
+                        <div>
+                            {currentItems.slice().sort((priceA, priceB) => priceB.price - priceA.price).map((car) => (
+                                <div key={car.id}>
+                                    <CarBoxInfo {...car} />
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                    {FilteredItem == "Price Low To High" && (
+                        <div>
+                            {currentItems.slice().sort((priceA, priceB) => priceA.price - priceB.price).map((car) => (
+                                <div key={car.id}>
+                                    <CarBoxInfo {...car} />
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    <DataTableBrand />
+                </div>
                 )}
             </div>
         </div >

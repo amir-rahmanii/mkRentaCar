@@ -79,10 +79,10 @@ export default function Footer() {
                                     <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Mobile:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px] child:group-hover:text-orangeCus2 child:cursor-pointer child:transition-all child:duration-300'>
-                                    <span>+971589595959</span>
-                                    <span>+971558009990</span>
-                                    <span>+971524349551 - French</span>
-                                    <span>+971521640276 - Russian</span>
+                                    <span>+999999999999</span>
+                                    <span>+999999999999</span>
+                                    <span>+999999999999 - French</span>
+                                    <span>+999999999999 - Russian</span>
                                 </div>
                             </div>
                             {/* Address */}

@@ -14,6 +14,7 @@ import Video from '../../Component/Video/Video'
 import Footer from '../../Component/Footer/Footer'
 import CopyRight from '../../Component/CopyRight/CopyRight'
 import ScroolTop from '../../Component/ScroolTop/ScroolTop'
+import PaginatedItems from '../../Component/CarsInfoContainer/Pagination/PaginatedItems'
 
 export default function Index() {
   const [allBrands, setAllBrands] = useState([])

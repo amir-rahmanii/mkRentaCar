@@ -5,10 +5,13 @@ import Cars from "./Page/Cars/Cars"
 
 
 
+
 let routes = [
     {path : '/' , element : <Index />},
     {path : '/all-cars' , element : <AllCars />},
-    {path : '/cars' , element : <Cars />},
+    {path : '/cars' , element : <Cars /> , children:[
+        {path : ':Cartype' , element : <Cars />},
+    ]},
 ]
 
 

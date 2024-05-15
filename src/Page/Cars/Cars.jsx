@@ -5,11 +5,13 @@ import Footer from '../../Component/Footer/Footer'
 import CopyRight from '../../Component/CopyRight/CopyRight'
 import ScroolTop from '../../Component/ScroolTop/ScroolTop'
 import CarsInfoContainer from '../../Component/CarsInfoContainer/CarsInfoContainer'
+import PaginatedItems from '../../Component/CarsInfoContainer/Pagination/PaginatedItems'
+import { useParams } from 'react-router-dom'
 
 
 export default function Cars() {
     const [allCars, setAllCars] = useState([])
-
+    const params = useParams()
 
 
 
@@ -23,13 +25,14 @@ export default function Cars() {
 
     useEffect(() => {
         getallcars()
+        console.log(params.Cartype);
     }, [])
     return (
         <>
             <Header />
             <Menu />
             <img loading='lazy' src="images/carsimg.png" alt="cars" />
-            <CarsInfoContainer allCars={allCars} />
+            <PaginatedItems allCars ={allCars} itemsPerPage={8}  />
             <Footer />
             <CopyRight />
             <ScroolTop />

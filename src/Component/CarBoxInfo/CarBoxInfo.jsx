@@ -39,7 +39,7 @@ export default function CarBoxInfo(props) {
 
   return (
    
-      <div className={`font-light w-auto md:w-[966px] overflow-hidden text-white flex flex-col md:flex-row gap-6 bg-[#454545] p-2.5 shadow-[0_0px_10px_0px_rgba(228,166,0)] hover:outline hover:outline-orangeCus rounded-[15px] mb-[30px]`}>
+      <div className={`font-light w-auto lg:w-[866px] xl:w-[966px] overflow-hidden text-white flex flex-col md:flex-row gap-6 bg-[#454545] p-2.5 shadow-[0_0px_10px_0px_rgba(228,166,0)] hover:outline hover:outline-orangeCus rounded-[15px] mb-[30px]`}>
         {/* Swipers */}
         <div className='flex flex-col'>
           {/* sw1 */}

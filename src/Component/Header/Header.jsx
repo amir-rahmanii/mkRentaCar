@@ -28,12 +28,12 @@ export default function Header() {
                             {/* phone */}
                             <div className='bg-neutral-700 mx-1 xl:mx-3 text-white flex gap-1.5 items-center rounded-[15px] py-[15px] px-2 xl:px-5'>
                                 <BsTelephone className='w-[17px] h-[25px]' />
-                                <span>+9715203141766</span>
+                                <span>+999999999999</span>
                             </div>
                             {/* Whatsapp */}
                             <div className='bg-neutral-700 mx-1  xl:mx-3 text-white flex gap-1.5 items-center rounded-[15px] py-[15px] px-2 xl:px-5'>
                                 <IoLogoWhatsapp className='text-[#25D366] w-[21px] h-[25px]' />
-                                <span>9715583141766</span>
+                                <span>999999999999</span>
                             </div>
 
                             {/* input search */}
