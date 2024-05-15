@@ -15,37 +15,37 @@
           "id": 1,
           "title": "Suv Cars",
           "href": "suv-cars",
-          "cover": "images/typesMenu/suv.png"
+          "cover": "/images/typesMenu/suv.png"
         },
         {
           "id": 2,
           "title": "Sports Cars",
           "href": "sports-cars",
-          "cover": "images/typesMenu/sport.png"
+          "cover": "/images/typesMenu/sport.png"
         },
         {
           "id": 3,
           "title": "Luxury Cars",
           "href": "luxury-cars",
-          "cover": "images/typesMenu/luxury.jpg"
+          "cover": "/images/typesMenu/luxury.jpg"
         },
         {
           "id": 4,
           "title": "Exotic Cars",
           "href": "exotic-cars",
-          "cover": "images/typesMenu/exo.jpg"
+          "cover": "/images/typesMenu/exo.jpg"
         },
         {
           "id": 5,
           "title": "Convertible Cars",
           "href": "convertible-cars",
-          "cover": "images/typesMenu/cono.jpg"
+          "cover": "/images/typesMenu/cono.jpg"
         },
         {
           "id": 6,
           "title": "Economy Cars",
-          "href": "economy-cars",
-          "cover": "images/typesMenu/eco.jpg"
+          "href": "enconomy-cars",
+          "cover": "/images/typesMenu/eco.jpg"
         }
       ]
     },
@@ -58,81 +58,81 @@
           "id": 1,
           "title": "Ferrari",
           "href": "ferrari",
-          "cover": "images/brands/ferrari.png"
+          "cover": "/images/brands/ferrari.png"
         },
         {
           "id": 2,
           "title": "Bmw",
           "href": "bmw",
-          "cover": "images/brands/bmw.png"
+          "cover": "/images/brands/bmw.png"
         },
         {
           "id": 3,
           "title": "Cadilac",
           "href": "cadilac",
-          "cover": "images/brands/cadilac.png"
+          "cover": "/images/brands/cadilac.png"
         },
         {
           "id": 4,
           "title": "Cheverolet",
           "href": "cheverolet",
-          "cover": "images/brands/cheverolet.png"
+          "cover": "/images/brands/cheverolet.png"
         },
         {
           "id": 5,
           "title": "Kia",
           "href": "kia",
-          "cover": "images/brands/kia.png"
+          "cover": "/images/brands/kia.png"
         },
         {
           "id": 6,
           "title": "Lamborghini",
           "href": "lamborghini",
-          "cover": "images/brands/lambo.png"
+          "cover": "/images/brands/lambo.png"
         },
         {
           "id": 7,
           "title": "Landrover",
           "href": "landrover",
-          "cover": "images/brands/landrover.png"
+          "cover": "/images/brands/landrover.png"
         },
        
         {
           "id": 8,
           "title": "Mercedes",
           "href": "mercedes",
-          "cover": "images/brands/mercedes.png"
+          "cover": "/images/brands/mercedes.png"
         },
         {
           "id": 9,
           "title": "Minikoper",
           "href": "minikoper",
-          "cover": "images/brands/minikoper.png"
+          "cover": "/images/brands/minikoper.png"
         },
         {
           "id": 10,
           "title": "Audi",
           "href": "audi",
-          "cover": "images/brands/audi.png"
+          "cover": "/images/brands/audi.png"
         },
         {
           "id": 11,
           "title": "Bentley",
           "href": "bentley",
-          "cover": "images/brands/bentley.png"
+          "cover": "/images/brands/bentley.png"
         },
       
         {
           "id": 12,
           "title": "Porsche",
           "href": "porsche",
-          "cover": "images/brands/porche.png"
+          "cover": "/images/brands/porche.png"
         },
         {
           "id": 13,
           "title": "Rollsroys",
           "href": "rollsroys",
-          "cover": "images/brands/rollsroys.png"
+          "cover": "/images/brands/rollsroys.png"
         }
       ]
     },
@@ -172,37 +172,37 @@
       "id": 1,
       "title": "Suv Cars",
       "href": "suv-cars",
-      "cover": "images/typesMenu/suv.png"
+      "cover": "/images/typesMenu/suv.png"
     },
     {
       "id": 2,
       "title": "Sports Cars",
       "href": "sports-cars",
-      "cover": "images/typesMenu/sport.png"
+      "cover": "/images/typesMenu/sport.png"
     },
     {
       "id": 3,
       "title": "Luxury Cars",
       "href": "luxury-cars",
-      "cover": "images/typesMenu/luxury.jpg"
+      "cover": "/images/typesMenu/luxury.jpg"
     },
     {
       "id": 4,
       "title": "Exotic Cars",
       "href": "exotic-cars",
-      "cover": "images/typesMenu/exo.jpg"
+      "cover": "/images/typesMenu/exo.jpg"
     },
     {
       "id": 5,
       "title": "Convertible Cars",
       "href": "convertible-cars",
-      "cover": "images/typesMenu/cono.jpg"
+      "cover": "/images/typesMenu/cono.jpg"
     },
     {
       "id": 6,
       "title": "Economy Cars",
-      "href": "economy-cars",
-      "cover": "images/typesMenu/eco.jpg"
+      "href": "enconomy-cars",
+      "cover": "/images/typesMenu/eco.jpg"
     }
   ],
   "allBrands": [
@@ -210,81 +210,81 @@
       "id": 1,
       "title": "Ferrari",
       "href": "ferrari",
-      "cover": "images/brands/ferrari.png"
+      "cover": "/images/brands/ferrari.png"
     },
     {
       "id": 2,
       "title": "Bmw",
       "href": "bmw",
-      "cover": "images/brands/bmw.png"
+      "cover": "/images/brands/bmw.png"
     },
     {
       "id": 3,
       "title": "Cadilac",
       "href": "cadilac",
-      "cover": "images/brands/cadilac.png"
+      "cover": "/images/brands/cadilac.png"
     },
     {
       "id": 4,
       "title": "Cheverolet",
       "href": "cheverolet",
-      "cover": "images/brands/cheverolet.png"
+      "cover": "/images/brands/cheverolet.png"
     },
     {
       "id": 5,
       "title": "Kia",
       "href": "kia",
-      "cover": "images/brands/kia.png"
+      "cover": "/images/brands/kia.png"
     },
     {
       "id": 6,
       "title": "Lamborghini",
       "href": "lamborghini",
-      "cover": "images/brands/lambo.png"
+      "cover": "/images/brands/lambo.png"
     },
     {
       "id": 7,
       "title": "Landrover",
       "href": "landrover",
-      "cover": "images/brands/landrover.png"
+      "cover": "/images/brands/landrover.png"
     },
    
     {
       "id": 8,
       "title": "Mercedes",
       "href": "mercedes",
-      "cover": "images/brands/mercedes.png"
+      "cover": "/images/brands/mercedes.png"
     },
     {
       "id": 9,
       "title": "Minikoper",
       "href": "minikoper",
-      "cover": "images/brands/minikoper.png"
+      "cover": "/images/brands/minikoper.png"
     },
     {
       "id": 10,
       "title": "Audi",
       "href": "audi",
-      "cover": "images/brands/audi.png"
+      "cover": "/images/brands/audi.png"
     },
     {
       "id": 11,
       "title": "Bentley",
       "href": "bentley",
-      "cover": "images/brands/bentley.png"
+      "cover": "/images/brands/bentley.png"
     },
   
     {
       "id": 12,
       "title": "Porsche",
       "href": "porsche",
-      "cover": "images/brands/porche.png"
+      "cover": "/images/brands/porche.png"
     },
     {
       "id": 13,
       "title": "Rollsroys",
       "href": "rollsroys",
-      "cover": "images/brands/rollsroys.png"
+      "cover": "/images/brands/rollsroys.png"
     }
   ],
   "cars": [
@@ -292,17 +292,19 @@
       "id": 1,
       "title": "Bentley Bentayga Black",
       "href": "bentleyBentaygaBlack",
+      "hrefCarType" : "suv-cars",
       "price": 2000,
       "priceOffer": 2500,
       "carType": "Suv Cars",
       "brand": "Bentley",
+      "hrefBrand" : "bentley",
       "cover" : [
-        {"id" : 1 , "img" : "images/cars/bentleyBentaygaBlack.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/bentleyBentaygaBlack.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Black",
       "engine": "V8",
@@ -332,17 +334,18 @@
       "id": 2,
       "title": "Bentley Bentayga",
       "href": "bentleyBentayga",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 2250,
       "priceOffer": 2700,
       "brand": "Bentley",
       "cover" : [
-        {"id" : 1 , "img" : "images/cars/bentleyBentayga.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/bentleyBentayga.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Black",
       "engine": "V8",
@@ -373,16 +376,17 @@
       "title": "Bentley Continental Gt",
       "href": "bentleyContinentalGt",
       "carType": "Sports Cars",
+      "hrefCarType" : "sports-cars",
       "price": 2300,
       "priceOffer": 2500,
       "brand": "Bentley",
       "cover" : [
-        {"id" : 1 , "img" : "images/cars/BentleyContinentalGt.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/BentleyContinentalGt.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Black",
       "engine": "V8",
@@ -412,17 +416,18 @@
       "id": 4,
       "title": "Bentley GTC",
       "href": "BentleyGTC",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 2000,
       "priceOffer": 2500,
       "brand": "Bentley",
       "cover" : [
-        {"id" : 1 , "img" : "images/cars/bentleyGTC.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/bentleyGTC.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Black",
       "engine": "V8",
@@ -452,17 +457,18 @@
       "id": 5,
       "title": "Lamborghini Huracan",
       "href": "Lamborghinihuracan",
+      "hrefCarType" : "sports-cars",
       "carType": "Sports Cars",
       "price": 4000,
       "priceOffer": 6500,
       "brand": "Lamborghini",
       "cover" : [
-        {"id" : 1 , "img" : "images/cars/lamborghiniHuracan.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/lamborghiniHuracan.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -492,17 +498,18 @@
       "id": 6,
       "title": "Lamborghini Huracan",
       "href": "Lamborghinihuracan",
+      "hrefCarType" : "enconomy-cars",
       "carType": "Economy Cars",
       "price": 4000,
       "priceOffer": 6500,
       "brand": "Lamborghini",
       "cover" : [
-        {"id" : 1 , "img" : "images/cars/lamborghiniHuracan.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/lamborghiniHuracan.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -532,17 +539,18 @@
       "id": 7,
       "title": "Lamborghini Huracan",
       "href": "Lamborghinihuracan",
+      "hrefCarType" : "convertible-cars",
       "carType": "Convertible Cars",
       "price": 4000,
       "priceOffer": 6500,
       "brand": "Lamborghini",
       "cover" : [
-        {"id" : 1 , "img" : "images/cars/lamborghiniHuracan.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/lamborghiniHuracan.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -572,17 +580,18 @@
       "id": 8,
       "title": "Lamborghini Huracan",
       "href": "Lamborghinihuracan",
+      "hrefCarType" : "convertible-cars",
       "carType": "Convertible Cars",
       "price": 4000,
       "priceOffer": 6500,
       "brand": "Lamborghini",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/lamborghiniHuracan.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/lamborghiniHuracan.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -612,17 +621,18 @@
       "id": 9,
       "title": "Rolls Royce Dawn",
       "href": "Rollsroycedawn",
+      "hrefCarType" : "convertible-cars",
       "carType": "Convertible Cars",
       "price": 3600,
       "priceOffer": 4200,
       "brand": "Rollsroys",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/RollsRoys.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/RollsRoys.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -652,17 +662,18 @@
       "id": 10,
       "title": "Rolls Royce Dawn",
       "href": "Rollsroycedawn",
+      "hrefCarType" : "convertible-cars",
       "carType": "Convertible Cars",
       "price": 3600,
       "priceOffer": 4200,
       "brand": "Rollsroys",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/RollsRoys.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/RollsRoys.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -692,17 +703,18 @@
       "id": 11,
       "title": "Rolls Royce Dawn",
       "href": "Rollsroycedawn",
+      "hrefCarType" : "suv-cars",
       "carType": "Suv Cars",
       "price": 3600,
       "priceOffer": 4200,
       "brand": "Rollsroys",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/RollsRoys.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/RollsRoys.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -732,17 +744,18 @@
       "id": 12,
       "title": "Rolls Royce Dawn",
       "href": "Rollsroycedawn",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 3600,
       "priceOffer": 4200,
       "brand": "Rollsroys",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/RollsRoys.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/RollsRoys.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -772,17 +785,18 @@
       "id": 13,
       "title": "Rolls Royce Dawn",
       "href": "Rollsroycedawn",
+      "hrefCarType" : "convertible-cars",
       "carType": "Convertible Cars",
       "price": 3600,
       "priceOffer": 4200,
       "brand": "Rollsroys",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/RollsRoys.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/RollsRoys.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -812,17 +826,18 @@
       "id": 14,
       "title": "Porsche 911",
       "href": "Porsche911",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 2000,
       "priceOffer": 3500,
       "brand": "Porsche",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/porche911.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/porche911.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -852,17 +867,18 @@
       "id": 15,
       "title": "Porsche 911",
       "href": "Porsche911",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 2000,
       "priceOffer": 3500,
       "brand": "Porsche",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/porche911.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/porche911.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -892,17 +908,18 @@
       "id": 16,
       "title": "Porsche 911",
       "href": "Porsche911",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 2000,
       "priceOffer": 3500,
       "brand": "Porsche",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/porche911.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/porche911.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -932,17 +949,18 @@
       "id": 17,
       "title": "Porsche 911",
       "href": "Porsche911",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 2000,
       "priceOffer": 3500,
       "brand": "Porsche",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/porche911.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/porche911.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -972,17 +990,18 @@
       "id": 18,
       "title": "Porsche 911",
       "href": "Porsche911",
+      "hrefCarType" : "enconomy-cars",
       "carType": "Economy Cars",
       "price": 2000,
       "priceOffer": 3500,
       "brand": "Porsche",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/porche911.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/porche911.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Purple",
       "engine": "V8",
@@ -1012,17 +1031,18 @@
       "id": 19,
       "title": "Mercedes G Wagon",
       "href": "Mercedesgwagon",
+      "hrefCarType" : "suv-cars",
       "carType": "Suv Cars",
       "price": 1500,
       "priceOffer": 2500,
       "brand": "Mercedes",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/mercedes.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/mercedes.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Black",
       "engine": "V8",
@@ -1052,17 +1072,18 @@
       "id": 20,
       "title": "Mercedes G Wagon",
       "href": "Mercedesgwagon",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1500,
       "priceOffer": 2500,
       "brand": "Mercedes",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/mercedes.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/mercedes.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Black",
       "engine": "V8",
@@ -1092,17 +1113,18 @@
       "id": 21,
       "title": "Mercedes G Wagon",
       "href": "Mercedesgwagon",
+      "hrefCarType" : "enconomy-cars",
       "carType": "Economy Cars",
       "price": 1500,
       "priceOffer": 2500,
       "brand": "Mercedes",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/mercedes.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/mercedes.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Black",
       "engine": "V8",
@@ -1132,17 +1154,18 @@
       "id": 22,
       "title": "Mercedes G Wagon",
       "href": "Mercedesgwagon",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 1500,
       "priceOffer": 2500,
       "brand": "Mercedes",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/mercedes.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/mercedes.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Black",
       "engine": "V8",
@@ -1172,17 +1195,18 @@
       "id": 23,
       "title": "Ferrari 488 Spider",
       "href": "Ferrari488spider",
+      "hrefCarType" : "sports-cars",
       "carType": "Sports Cars",
       "price": 3000,
       "priceOffer": 3600,
       "brand": "Ferrari",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/ferrari.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/ferrari.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1212,17 +1236,18 @@
       "id": 24,
       "title": "Ferrari 488 Spider",
       "href": "Ferrari488spider",
+      "hrefCarType" : "sports-cars",
       "carType": "Sports Cars",
       "price": 3000,
       "priceOffer": 3600,
       "brand": "Ferrari",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/ferrari.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/ferrari.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1252,17 +1277,18 @@
       "id": 25,
       "title": "Ferrari 488 Spider",
       "href": "Ferrari488spider",
+      "hrefCarType" : "sports-cars",
       "carType": "Sports Cars",
       "price": 3000,
       "priceOffer": 3600,
       "brand": "Ferrari",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/ferrari.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/ferrari.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1292,17 +1318,18 @@
       "id": 26,
       "title": "Ferrari 488 Spider",
       "href": "Ferrari488spider",
+      "hrefCarType" : "sports-cars",
       "carType": "Sports Cars",
       "price": 3000,
       "priceOffer": 3600,
       "brand": "Ferrari",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/ferrari.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/ferrari.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1332,17 +1359,18 @@
       "id": 27,
       "title": "Landrover Defender V8" ,
       "href": "Landroverdefenderv8",
+      "hrefCarType" : "sports-cars",
       "carType": "Sports Cars",
       "price": 4500,
       "priceOffer": 5200,
       "brand": "Landrover",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/landrover.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/landrover.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1372,17 +1400,18 @@
       "id": 28,
       "title": "Cadilac Scaled" ,
       "href": "Cadilacscaled",
+      "hrefCarType" : "sports-cars",
       "carType": "Sports Cars",
       "price": 2500,
       "priceOffer": 3250,
       "brand": "Cadilac",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/cadillac.jpeg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/cadillac.jpeg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1412,17 +1441,18 @@
       "id": 29,
       "title": "Bmw 420i" ,
       "href": "Bmw420i",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1550,
       "priceOffer": 2550,
       "brand": "Bmw",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/bmw.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/bmw.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1452,17 +1482,18 @@
       "id": 30,
       "title": "Bmw 420i" ,
       "href": "Bmw420i",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1550,
       "priceOffer": 2550,
       "brand": "Bmw",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/bmw.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/bmw.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1492,17 +1523,18 @@
       "id": 31,
       "title": "Bmw 420i" ,
       "href": "Bmw420i",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1550,
       "priceOffer": 2550,
       "brand": "Bmw",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/bmw.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/bmw.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1532,17 +1564,18 @@
       "id": 32,
       "title": "Bmw 420i" ,
       "href": "Bmw420i",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1550,
       "priceOffer": 2550,
       "brand": "Bmw",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/bmw.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/bmw.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1572,17 +1605,18 @@
       "id": 33,
       "title": "Audi A3" ,
       "href": "Audia3",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 3500,
       "priceOffer": 3800,
       "brand": "Audi",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/audi.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/audi.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1612,17 +1646,18 @@
       "id": 34,
       "title": "Audi A3" ,
       "href": "Audia3",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 3500,
       "priceOffer": 3800,
       "brand": "Audi",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/audi.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/audi.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1652,17 +1687,18 @@
       "id": 35,
       "title": "Audi A3" ,
       "href": "Audia3",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 3500,
       "priceOffer": 3800,
       "brand": "Audi",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/audi.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/audi.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1692,17 +1728,18 @@
       "id": 36,
       "title": "Audi A3" ,
       "href": "Audia3",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 3500,
       "priceOffer": 3800,
       "brand": "Audi",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/audi.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/audi.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1732,17 +1769,18 @@
       "id": 37,
       "title": "Kia K5" ,
       "href": "Kiak5",
+      "hrefCarType" : "luxury-cars",
       "carType": "Luxury Cars",
       "price": 250,
       "priceOffer": 350,
       "brand": "Kia",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/kia.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/kia.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1772,17 +1810,18 @@
       "id": 38,
       "title": "Cheverolet Tahoe",
       "href": "Cheverolettahoe",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1500,
       "priceOffer": 2500,
       "brand": "Cheverolet",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/chevrolet.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/chevrolet.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1812,17 +1851,18 @@
       "id": 39,
       "title": "Cheverolet Tahoe",
       "href": "Cheverolettahoe",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1500,
       "priceOffer": 2500,
       "brand": "Cheverolet",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/chevrolet.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/chevrolet.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1852,17 +1892,18 @@
       "id": 40,
       "title": "2023 MiniCoper S",
       "href": "2023MiniCoperS",
+      "hrefCarType" : "exotic-cars",
       "carType": "Exotic Cars",
       "price": 250,
       "priceOffer": 350,
       "brand": "Minikoper",
          "cover" : [
-        {"id" : 1 , "img" : "images/cars/mini.jpg"},
-        {"id" : 2 , "img" : "images/cars/back.jpg"},
-        {"id" : 3 , "img" : "images/cars/farmon.jpg"},
-        {"id" : 4 , "img" : "images/cars/front.jpg"},
-        {"id" : 5 , "img" : "images/cars/inCar.jpg"},
-        {"id" : 6 , "img" : "images/cars/view360.jpg"}
+        {"id" : 1 , "img" : "/images/cars/mini.jpg"},
+        {"id" : 2 , "img" : "/images/cars/back.jpg"},
+        {"id" : 3 , "img" : "/images/cars/farmon.jpg"},
+        {"id" : 4 , "img" : "/images/cars/front.jpg"},
+        {"id" : 5 , "img" : "/images/cars/inCar.jpg"},
+        {"id" : 6 , "img" : "/images/cars/view360.jpg"}
       ],
       "color": "Red",
       "engine": "V8",
@@ -1896,8 +1937,8 @@
     {"id" : 4 , "name" : "ali" , "date" : "2023-08-05" , "body" : "My father has always wanted to drive a Mercedes as he tells me it is the perfect machine. I surprised him on his birthday by renting a Mercedes S-Class. He absolutely enjoyed the feeling of driving through Dubai like royalty. The car rental process was extremely hassle-free at MK Rent a Car."}
   ],
   "blogs" :[
-  {"id" : 1 , "title" : "Lamborghini Rental Packages : Finding" , "href" : "Lamborghini-Rental-Packages" , "cover" : "images/blogs/lamborghini.png" , "body" : "Ever caught yourself fantasising about cruising the streets in a Lamborghini? The sleek curves, the powerful engine, the envy of onlookers—it's a dream many share. But for most, owning a Lamborghini"},
-  {"id" : 2 , "title" : "Rent a Car Now, Pay Later: Introducing" , "href" : "Rent-a-Car-Now" , "cover" : "images/blogs/rent.png" , "body" : "With Tabby, you can enjoy the freedom to book your favorite car from MK Rent A Car's extensive fleet and pay for it in convenient"},
-  {"id" : 3 , "title" : "Top 10 Best Photoshoot Locations with" , "href" : "Top-10-Best-Photoshoot" , "cover" : "images/blogs/top10.png" , "body" : "Dubai is a city filled with stunning backdrops and iconic landmarks, making it the perfect place for a photoshoot with"}
+  {"id" : 1 , "title" : "Lamborghini Rental Packages : Finding" , "href" : "Lamborghini-Rental-Packages" , "cover" : "/images/blogs/lamborghini.png" , "body" : "Ever caught yourself fantasising about cruising the streets in a Lamborghini? The sleek curves, the powerful engine, the envy of onlookers—it's a dream many share. But for most, owning a Lamborghini"},
+  {"id" : 2 , "title" : "Rent a Car Now, Pay Later: Introducing" , "href" : "Rent-a-Car-Now" , "cover" : "/images/blogs/rent.png" , "body" : "With Tabby, you can enjoy the freedom to book your favorite car from MK Rent A Car's extensive fleet and pay for it in convenient"},
+  {"id" : 3 , "title" : "Top 10 Best Photoshoot Locations with" , "href" : "Top-10-Best-Photoshoot" , "cover" : "/images/blogs/top10.png" , "body" : "Dubai is a city filled with stunning backdrops and iconic landmarks, making it the perfect place for a photoshoot with"}
   ]
 }

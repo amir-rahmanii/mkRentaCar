@@ -20,7 +20,7 @@ export default function SwiperBrand({allBrands , allCarType}) {
         },
     };
     return (
-        <div className='bg-blackBack font-medium py-3.5 md:pt-5 md:pb-0'>
+        <div className='bg-blackBack font-medium py-3.5 md:pt-5 md:pb-2'>
             <div className='container'>
                 <Swiper
                     // install Swiper modules
@@ -59,6 +59,8 @@ export default function SwiperBrand({allBrands , allCarType}) {
                 </Swiper>
 
                 {/* Swiper  */}
+                {allCarType && (
+
                 <SwiperAllCarType>
                 <Swiper
                          slidesPerView={1}
@@ -92,6 +94,7 @@ export default function SwiperBrand({allBrands , allCarType}) {
                         ))}
                     </Swiper>
                 </SwiperAllCarType>
+                )}
 
                 {/* Swiper  */}
 
