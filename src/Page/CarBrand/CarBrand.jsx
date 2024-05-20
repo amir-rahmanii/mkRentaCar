@@ -11,6 +11,7 @@ import { useParams } from 'react-router-dom'
 export default function CarBrand() {
     const [allCars, setAllCars] = useState([])
     const [allBrands, setAllBrands] = useState([])
+    const [banerBrandCar , setbanerBrandCar] = useState("")
     const params = useParams()
 
 
@@ -19,30 +20,31 @@ export default function CarBrand() {
             .then(res => res.json())
             .then(result => {
                 setAllBrands(result)
+                let brandFiltered = result.filter(car => car.href == params.brand)
+                setbanerBrandCar(brandFiltered[0].baner)
             })
     }
+ 
 
 
 
     const getallcars = () => {
-        fetch(`http://localhost:5000/cars?hrefBrand=bentley`)
+        fetch(`http://localhost:5000/cars?hrefBrand=${params.brand}`)
             .then(res => res.json())
             .then(result => {
                 setAllCars(result)
             })
     }
-    useEffect(() => {
-        getallbrands()
-    }, [])
 
     useEffect(() => {
         getallcars()
+        getallbrands()
     }, [params])
     return (
         <>
             <Header />
             <Menu />
-            <img loading='lazy' src="/images/carsimg.png" alt="cars" />
+            <img loading='lazy' src={banerBrandCar} alt="cars" />
             <PaginatedItems allCars={allCars} itemsPerPage={8} />
             <SwiperBrand allBrands={allBrands} />
             <Footer />

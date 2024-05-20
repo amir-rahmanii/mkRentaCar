@@ -37,10 +37,9 @@ const SwiperBrandNav = ({allInputs , allCars , filtered}) => {
         <div className='py-[30px] bg-blackBack font-medium text-white'>
             <div className='container'>
                 <div className='flex gap-[20px] mb-3 md:mb-5 items-center justify-between'>
-                    {allInputs.length > 6 && (
+                 
                         <button onClick={goPrev} className='w-[30px] h-[30px] bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
-                    )}
-
+            
                     <Swiper
                         navigation={{ prevEl: '.custom-prev', nextEl: '.custom-next' }}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -103,9 +102,9 @@ const SwiperBrandNav = ({allInputs , allCars , filtered}) => {
                         {/* Add more slides as needed */}
                     </Swiper>
                 
-                    {allInputs.length > 6 && ( 
+                  
                         <button onClick={goNext} className='w-[30px] h-[30px] bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
-                    )}
+                   
 
                 </div>
                 <SwiperAllCarType>

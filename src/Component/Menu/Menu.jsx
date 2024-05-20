@@ -60,7 +60,7 @@ export default function Menu() {
                     <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-6 gap-px w-[730px] lg:w-[850px] xl:w-[1050px] top-[41px] z-50 left-0 text-white px-2 font-bold'>
                       {menu.submenus.map((submenu) => (
                         <li key={submenu.id}>
-                          <Link to={submenu.href}>
+                          <Link to={`/brands/${submenu.href}`}>
                             <div className="w-auto h-[72px] bg-[#1c1c1c] flex items-center p-2.5 gap-1 xl:gap-2 lg:gap-[13px]">
                               <img loading='lazy' src={submenu.cover} alt="alt1" className="w-5 h-7 xl:w-7 xl:h-8" />
                               <span className='top-[64px] left-[10px] tracking-[0.35px]  text-[9px] lg:text-[11px] xl:text-[13px]'>{submenu.title.toUpperCase()}</span>
@@ -85,7 +85,7 @@ export default function Menu() {
 
       {/* menu mobile */}
 
-      <div div className='bg-[#1D232D] block md:hidden relative pt-[18px] pb-5 ' >
+      <div div className='bg-[#1D232D] z-50 block md:hidden relative pt-[18px] pb-5 ' >
         <div className='container'>
           <div className='flex justify-between items-center'>
             <Link to='/'>
@@ -132,7 +132,7 @@ export default function Menu() {
                   <ul className={`border-t border-[#393939] mt-2.5 flex-col divide-y divide-[#393939] ${showSubNenuOurCars ? "flex" : "hidden"}`}>
                     {menu.submenus.map((submenu) => (
                       <li key={submenu.id} className='py-2.5 px-2.5 group'>
-                        <Link to={submenu.href} className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>{submenu.title.toUpperCase()}</Link>
+                        <Link to={`/cars/${submenu.href}`} className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>{submenu.title.toUpperCase()}</Link>
                       </li>
                     ))}
                   </ul>
@@ -142,7 +142,7 @@ export default function Menu() {
                   <ul className={`border-t border-[#393939] mt-2.5 flex-col divide-y divide-[#393939] ${showSubNenuCarBrans ? "flex" : "hidden"}`}>
                     {menu.submenus.map((submenu) => (
                       <li key={submenu.id} className='py-2.5 px-2.5 group'>
-                        <Link to={submenu.href} className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>{submenu.title.toUpperCase()}</Link>
+                        <Link to={`/brands/${submenu.href}`} className='group-hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]'>{submenu.title.toUpperCase()}</Link>
                       </li>
                     ))}
                   </ul>

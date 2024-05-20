@@ -8,6 +8,8 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
+  const [showPrevious , setShowPrevious] = useState(false)
+  const [showNext , setShowNext] = useState(true)
 
 
   // Simulate fetching items from another resources.
@@ -17,6 +19,8 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
   const currentItems = allCars.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(allCars.length / itemsPerPage);
 
+ 
+
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % allCars.length;
@@ -24,6 +28,9 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     );
+    if(event.selected > 0){
+      setShowPrevious(true)
+    }
   };
 
   return (
@@ -44,12 +51,11 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
                 className='flex items-center divide-x-2 divide-white/20 font-medium text-base border'
                 pageClassName='py-3'
                 nextClassName={`py-3`}
-                previousClassName={`py-3`}
+                previousClassName={`py-3 ${pageCount > 1 ? 'block' : 'hidden'}`}
                 pageLinkClassName='py-3 px-4 hover:bg-orangeCus2 cursor-pointer transition-all duration-300'
                 nextLinkClassName='py-3 px-4 hover:bg-orangeCus2 cursor-pointer transition-all duration-300'
                 previousLinkClassName='py-3 px-4 hover:bg-orangeCus2 cursor-pointer transition-all duration-300'
                 activeLinkClassName='bg-orangeCus2'
-                disableInitialCallback={true}
               />
             </div>
           </div>

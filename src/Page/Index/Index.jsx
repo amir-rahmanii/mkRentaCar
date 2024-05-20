@@ -42,6 +42,7 @@ export default function Index() {
       .then(result => {
         setAllCarType(result)
       })
+  
   }
  
   useEffect(() => {

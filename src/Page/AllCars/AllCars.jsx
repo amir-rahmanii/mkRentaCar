@@ -17,6 +17,8 @@ export default function AllCars() {
       })
   }
 
+
+
   useEffect(() => {
     getallcars()
   }, [])

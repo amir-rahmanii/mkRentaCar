@@ -13,6 +13,18 @@ export default function CarsTypeCar() {
     const [allCars, setAllCars] = useState([])
     const [allBrands, setAllBrands] = useState([])
     const params = useParams()
+    const [randomBanerForCarType , setRandomBanerForCarType] = useState('')
+    
+    
+    
+    const getonerandomBanerForCarType = () => {
+        let randomNumber = Math.floor(Math.random() * 6);
+        fetch(`http://localhost:5000/randomBanerForCarType`)
+        .then(res => res.json())
+        .then(result => {
+            setRandomBanerForCarType(result[randomNumber].img)
+        })
+    }
 
 
     const getallbrands = () => {
@@ -35,15 +47,16 @@ export default function CarsTypeCar() {
     useEffect(() => {
         getallbrands()
     }, [])
-
+    
     useEffect(() => {
         getallcars()
+        getonerandomBanerForCarType()
     }, [params])
     return (
         <>
             <Header />
             <Menu />
-            <img loading='lazy' src="/images/carsimg.png" alt="cars" />
+            <img loading='lazy' src={randomBanerForCarType} alt="cars" />
             <PaginatedItems allCars={allCars} itemsPerPage={8} />
             <SwiperBrand allBrands={allBrands} />
             <Footer />

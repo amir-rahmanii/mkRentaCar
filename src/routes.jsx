@@ -13,7 +13,7 @@ let routes = [
     {path : '/all-cars' , element : <AllCars />},
     {path : '/cars' , element : <Cars />  },
     {path : '/cars/:type' , element : <CarsTypeCar /> },
-    {path : '/brand/:brand' , element : <CarBrand />},
+    {path : '/brands/:brand' , element : <CarBrand />},
 ]
 
 
