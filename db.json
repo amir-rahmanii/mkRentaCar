@@ -540,7 +540,7 @@
     {
       "id": 5,
       "title": "Lamborghini Huracan",
-      "href": "Lamborghinihuracan",
+      "href": "LamborghinihuracanA",
       "hrefCarType": "sports-cars",
       "carType": "Sports Cars",
       "price": 4000,
@@ -600,7 +600,7 @@
     {
       "id": 6,
       "title": "Lamborghini Huracan",
-      "href": "Lamborghinihuracan",
+      "href": "LamborghinihuracanB",
       "hrefCarType": "enconomy-cars",
       "carType": "Economy Cars",
       "price": 4000,
@@ -660,7 +660,7 @@
     {
       "id": 7,
       "title": "Lamborghini Huracan",
-      "href": "Lamborghinihuracan",
+      "href": "LamborghinihuracanC",
       "hrefCarType": "convertible-cars",
       "carType": "Convertible Cars",
       "price": 4000,
@@ -720,7 +720,7 @@
     {
       "id": 8,
       "title": "Lamborghini Huracan",
-      "href": "Lamborghinihuracan",
+      "href": "LamborghinihuracanD",
       "hrefCarType": "convertible-cars",
       "carType": "Convertible Cars",
       "price": 4000,
@@ -780,7 +780,7 @@
     {
       "id": 9,
       "title": "Rolls Royce Dawn",
-      "href": "Rollsroycedawn",
+      "href": "RollsroycedawnB",
       "hrefCarType": "convertible-cars",
       "carType": "Convertible Cars",
       "price": 3600,
@@ -840,7 +840,7 @@
     {
       "id": 10,
       "title": "Rolls Royce Dawn",
-      "href": "Rollsroycedawn",
+      "href": "RollsroycedawnB",
       "hrefCarType": "convertible-cars",
       "carType": "Convertible Cars",
       "price": 3600,
@@ -900,7 +900,7 @@
     {
       "id": 11,
       "title": "Rolls Royce Dawn",
-      "href": "Rollsroycedawn",
+      "href": "RollsroycedawnC",
       "hrefCarType": "suv-cars",
       "carType": "Suv Cars",
       "price": 3600,
@@ -960,7 +960,7 @@
     {
       "id": 12,
       "title": "Rolls Royce Dawn",
-      "href": "Rollsroycedawn",
+      "href": "RollsroycedawnD",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 3600,
@@ -1020,7 +1020,7 @@
     {
       "id": 13,
       "title": "Rolls Royce Dawn",
-      "href": "Rollsroycedawn",
+      "href": "RollsroycedawnE",
       "hrefCarType": "convertible-cars",
       "carType": "Convertible Cars",
       "price": 3600,
@@ -1080,7 +1080,7 @@
     {
       "id": 14,
       "title": "Porsche 911",
-      "href": "Porsche911",
+      "href": "Porsche911A",
       "hrefCarType": "luxury-cars",
       "carType": "Luxury Cars",
       "price": 2000,
@@ -1140,7 +1140,7 @@
     {
       "id": 15,
       "title": "Porsche 911",
-      "href": "Porsche911",
+      "href": "Porsche911B",
       "hrefCarType": "luxury-cars",
       "carType": "Luxury Cars",
       "price": 2000,
@@ -1200,7 +1200,7 @@
     {
       "id": 16,
       "title": "Porsche 911",
-      "href": "Porsche911",
+      "href": "Porsche911C",
       "hrefCarType": "luxury-cars",
       "carType": "Luxury Cars",
       "price": 2000,
@@ -1260,7 +1260,7 @@
     {
       "id": 17,
       "title": "Porsche 911",
-      "href": "Porsche911",
+      "href": "Porsche911D",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 2000,
@@ -1320,7 +1320,7 @@
     {
       "id": 18,
       "title": "Porsche 911",
-      "href": "Porsche911",
+      "href": "Porsche911E",
       "hrefCarType": "enconomy-cars",
       "carType": "Economy Cars",
       "price": 2000,
@@ -1380,7 +1380,7 @@
     {
       "id": 19,
       "title": "Mercedes G Wagon",
-      "href": "Mercedesgwagon",
+      "href": "MercedesgwagonA",
       "hrefCarType": "suv-cars",
       "carType": "Suv Cars",
       "price": 1500,
@@ -1440,7 +1440,7 @@
     {
       "id": 20,
       "title": "Mercedes G Wagon",
-      "href": "Mercedesgwagon",
+      "href": "MercedesgwagonB",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1500,
@@ -1500,7 +1500,7 @@
     {
       "id": 21,
       "title": "Mercedes G Wagon",
-      "href": "Mercedesgwagon",
+      "href": "MercedesgwagonC",
       "hrefCarType": "enconomy-cars",
       "carType": "Economy Cars",
       "price": 1500,
@@ -1560,7 +1560,7 @@
     {
       "id": 22,
       "title": "Mercedes G Wagon",
-      "href": "Mercedesgwagon",
+      "href": "MercedesgwagonD",
       "hrefCarType": "luxury-cars",
       "carType": "Luxury Cars",
       "price": 1500,
@@ -1620,7 +1620,7 @@
     {
       "id": 23,
       "title": "Ferrari 488 Spider",
-      "href": "Ferrari488spider",
+      "href": "Ferrari488spiderA",
       "hrefCarType": "sports-cars",
       "carType": "Sports Cars",
       "price": 3000,
@@ -1680,7 +1680,7 @@
     {
       "id": 24,
       "title": "Ferrari 488 Spider",
-      "href": "Ferrari488spider",
+      "href": "Ferrari488spiderB",
       "hrefCarType": "sports-cars",
       "carType": "Sports Cars",
       "price": 3000,
@@ -1740,7 +1740,7 @@
     {
       "id": 25,
       "title": "Ferrari 488 Spider",
-      "href": "Ferrari488spider",
+      "href": "Ferrari488spiderC",
       "hrefCarType": "sports-cars",
       "carType": "Sports Cars",
       "price": 3000,
@@ -1800,7 +1800,7 @@
     {
       "id": 26,
       "title": "Ferrari 488 Spider",
-      "href": "Ferrari488spider",
+      "href": "Ferrari488spiderD",
       "hrefCarType": "sports-cars",
       "carType": "Sports Cars",
       "price": 3000,
@@ -1980,7 +1980,7 @@
     {
       "id": 29,
       "title": "Bmw 420i",
-      "href": "Bmw420i",
+      "href": "Bmw420iA",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1550,
@@ -2040,7 +2040,7 @@
     {
       "id": 30,
       "title": "Bmw 420i",
-      "href": "Bmw420i",
+      "href": "Bmw420iB",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1550,
@@ -2100,7 +2100,7 @@
     {
       "id": 31,
       "title": "Bmw 420i",
-      "href": "Bmw420i",
+      "href": "Bmw420iC",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1550,
@@ -2160,7 +2160,7 @@
     {
       "id": 32,
       "title": "Bmw 420i",
-      "href": "Bmw420i",
+      "href": "Bmw420iD",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1550,
@@ -2220,7 +2220,7 @@
     {
       "id": 33,
       "title": "Audi A3",
-      "href": "Audia3",
+      "href": "Audia3A",
       "hrefCarType": "luxury-cars",
       "carType": "Luxury Cars",
       "price": 3500,
@@ -2280,7 +2280,7 @@
     {
       "id": 34,
       "title": "Audi A3",
-      "href": "Audia3",
+      "href": "Audia3B",
       "hrefCarType": "luxury-cars",
       "carType": "Luxury Cars",
       "price": 3500,
@@ -2340,7 +2340,7 @@
     {
       "id": 35,
       "title": "Audi A3",
-      "href": "Audia3",
+      "href": "Audia3C",
       "hrefCarType": "luxury-cars",
       "carType": "Luxury Cars",
       "price": 3500,
@@ -2400,7 +2400,7 @@
     {
       "id": 36,
       "title": "Audi A3",
-      "href": "Audia3",
+      "href": "Audia3D",
       "hrefCarType": "luxury-cars",
       "carType": "Luxury Cars",
       "price": 3500,
@@ -2520,7 +2520,7 @@
     {
       "id": 38,
       "title": "Cheverolet Tahoe",
-      "href": "Cheverolettahoe",
+      "href": "CheverolettahoeA",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1500,
@@ -2580,7 +2580,7 @@
     {
       "id": 39,
       "title": "Cheverolet Tahoe",
-      "href": "Cheverolettahoe",
+      "href": "CheverolettahoeB",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": 1500,

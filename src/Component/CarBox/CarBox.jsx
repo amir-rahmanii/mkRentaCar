@@ -7,7 +7,7 @@ export default function CarBox(props) {
     return (
         <div className='border-2 border-orangeCus rounded-2xl bg-none overflow-hidden'>
             <div className='bg-blackBack p-2.5 relative'>
-                <Link to={`/cars/${props.href}`}>
+                <Link to={`/cars/${props.hrefCarType}/${props.href}`}>
                     <img src={props.cover[0].img} alt="1" />
                 </Link>
                 <div className='bg-orangeCus text-white font-medium text-xs/[23px] px-2 absolute top-[20px] left-0'>
@@ -17,7 +17,7 @@ export default function CarBox(props) {
 
             <div className='bg-[#454545] text-white px-3 py-2.5 font-light'>
                 {/* car name */}
-                <Link to={`/cars/${props.href}`} className='font-bold text-xl/[30px] my-[5px] hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 hover:underline'>{props.title}</Link>
+                <Link to={`/cars/${props.hrefCarType}/${props.href}`} className='font-bold text-xl/[30px] my-[5px] hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 hover:underline'>{props.title}</Link>
 
                 {/* type of cars */}
                 <p className='tracking-[-0.3px] text-xs/[18px] py-0.5 mb-[5px] mt-2'>{props.carType}</p>
@@ -33,7 +33,7 @@ export default function CarBox(props) {
 
                 {/* Buttons */}
                 <div className='font-medium text-white flex justify-between mt-5'>
-                    <Button link={`/cars/${props.href}`} classes='bg-neutral-700 border text-xs/[18px] py-[5px] px-[7px] rounded-md'>
+                    <Button link={`/cars/${props.hrefCarType}/${props.href}`} classes='bg-neutral-700 border text-xs/[18px] py-[5px] px-[7px] rounded-md'>
                         <span>Send Enquiry</span>
                     </Button>
 

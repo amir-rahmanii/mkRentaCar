@@ -4,18 +4,27 @@ import Menu from '../../Component/Menu/Menu'
 import Footer from '../../Component/Footer/Footer'
 import CopyRight from '../../Component/CopyRight/CopyRight'
 import ScroolTop from '../../Component/ScroolTop/ScroolTop'
+import PaginatedItems from '../../Component/CarsInfoContainer/Pagination/PaginatedItems'
 import SwiperBrand from '../../Component/SwiperBrand/SwiperBrand'
 import { useParams } from 'react-router-dom'
-import CarBoxInfoOne from '../../Component/CarBoxInfoOne/CarBoxInfoOne'
-import TableOneCar from '../../Component/CarBoxInfoOne/TableOneCar'
 
 
-export default function CarsTypeCar() {
+export default function CarInfos() {
     const [allCars, setAllCars] = useState([])
     const [allBrands, setAllBrands] = useState([])
-    const [oneBrand , setOneBrand] = useState("")
     const params = useParams()
-
+    const [randomBanerForCarType , setRandomBanerForCarType] = useState('')
+    
+    
+    
+    const getonerandomBanerForCarType = () => {
+        let randomNumber = Math.floor(Math.random() * 6);
+        fetch(`http://localhost:5000/randomBanerForCarType`)
+        .then(res => res.json())
+        .then(result => {
+            setRandomBanerForCarType(result[randomNumber].img)
+        })
+    }
 
 
     const getallbrands = () => {
@@ -27,40 +36,33 @@ export default function CarsTypeCar() {
     }
 
 
+
     const getallcars = () => {
-        fetch(`http://localhost:5000/cars?href=${params.carInfo}`)
+        fetch(`http://localhost:5000/cars?hrefCarType=${params.type}`)
             .then(res => res.json())
             .then(result => {
                 setAllCars(result)
-                setOneBrand(result[0].hrefBrand)
             })
     }
     useEffect(() => {
-        getallcars()
         getallbrands()
     }, [])
     
+    useEffect(() => {
+        getallcars()
+        getonerandomBanerForCarType()
+    }, [params])
     return (
         <>
             <Header />
-            <div className='bg-black'>
-                <Menu />
-                <img loading='lazy' src='/images/allcars.png' alt="cars" />
-                <div className='container py-14'>
-                    <div className='flex justify-between'>
-                        {allCars.length && (
-                            <CarBoxInfoOne allCars={allCars[0]} />
-                        )}
-                        {allBrands.length && (
-                            <TableOneCar oneBrand={oneBrand} />
-                        )}
-                    </div>
-                </div>
-                <SwiperBrand allBrands={allBrands} />
-            </div>
+            <Menu />
+            <img loading='lazy' src={randomBanerForCarType} alt="cars" />
+            <PaginatedItems allCars={allCars} itemsPerPage={8} />
+            <SwiperBrand allBrands={allBrands} />
             <Footer />
             <CopyRight />
             <ScroolTop />
+
         </>
     )
 }

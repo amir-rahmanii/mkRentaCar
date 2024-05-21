@@ -134,7 +134,7 @@ export default function CarBoxInfo(props) {
         {/* infos */}
         <div className='w-full'>
           {/* name */}
-          <Link to={props.href} className='cursor-pointer font-bold text-[21px]/[25px] hover:text-orangeCus2 transition-all duration-300'>{props.title}</Link>
+          <Link to={`/cars/${props.hrefCarType}/${props.href}`} className='cursor-pointer font-bold text-[21px]/[25px] hover:text-orangeCus2 transition-all duration-300'>{props.title}</Link>
           {/* type of car */}
           <p className='text-sm/[21px] py-2.5'>{props.carType}</p>
 
@@ -181,7 +181,7 @@ export default function CarBoxInfo(props) {
           </div>
 
           <div className='flex flex-col gap-[15px] md:gap-0 md:flex-row text-center justify-between'>
-            <Button link={props.href} classes="shadow-[0_0px_10px_0px_rgba(255,255,255)] py-2.5 px-4 text-[15px]/[22.5px] rounded-md">
+            <Button link={`/cars/${props.hrefCarType}/${props.href}`} classes="shadow-[0_0px_10px_0px_rgba(255,255,255)] py-2.5 px-4 text-[15px]/[22.5px] rounded-md">
               <span>Send Enquiry</span>
             </Button>
 

@@ -8,8 +8,8 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
-  const [showPrevious , setShowPrevious] = useState(false)
-  const [showNext , setShowNext] = useState(true)
+  const [showPrevious, setShowPrevious] = useState(false)
+  const [showNext, setShowNext] = useState(true)
 
 
   // Simulate fetching items from another resources.
@@ -19,7 +19,7 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
   const currentItems = allCars.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(allCars.length / itemsPerPage);
 
- 
+
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
@@ -28,8 +28,19 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     );
-    if(event.selected > 0){
+
+    // For checked page previus
+    if (event.selected > 0) {
       setShowPrevious(true)
+    } else {
+      setShowPrevious(false)
+    }
+
+    // For checked page next
+    if (event.selected + 1 == pageCount) {
+      setShowNext(false)
+    } else {
+      setShowNext(true)
     }
   };
 
@@ -39,7 +50,7 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
         <CarsInfoContainer currentItems={currentItems} />
         <div className='bg-black'>
           <div className='container text-white'>
-            <div className='w-auto lg:w-[866px] xl:w-[966px] flex justify-center pb-[35px]'>
+            <div className={`w-auto ${pageCount === 1 ? 'hidden' : 'flex'} lg:w-[866px] xl:w-[966px] justify-center pb-[35px]`}>
               <ReactPaginate
                 breakLabel="..."
                 nextLabel="Next"
@@ -50,8 +61,8 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
                 renderOnZeroPageCount={null}
                 className='flex items-center divide-x-2 divide-white/20 font-medium text-base border'
                 pageClassName='py-3'
-                nextClassName={`py-3`}
-                previousClassName={`py-3 ${pageCount > 1 ? 'block' : 'hidden'}`}
+                nextClassName={`py-3 ${showNext ? 'block' : 'hidden'} `}
+                previousClassName={`py-3 ${showPrevious ? 'block' : 'hidden'}`}
                 pageLinkClassName='py-3 px-4 hover:bg-orangeCus2 cursor-pointer transition-all duration-300'
                 nextLinkClassName='py-3 px-4 hover:bg-orangeCus2 cursor-pointer transition-all duration-300'
                 previousLinkClassName='py-3 px-4 hover:bg-orangeCus2 cursor-pointer transition-all duration-300'
