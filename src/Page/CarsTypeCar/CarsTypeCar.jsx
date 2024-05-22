@@ -13,7 +13,7 @@ import TableOneCar from '../../Component/CarBoxInfoOne/TableOneCar'
 export default function CarsTypeCar() {
     const [allCars, setAllCars] = useState([])
     const [allBrands, setAllBrands] = useState([])
-    const [oneBrand , setOneBrand] = useState("")
+    const [oneBrand, setOneBrand] = useState("")
     const params = useParams()
 
 
@@ -39,7 +39,7 @@ export default function CarsTypeCar() {
         getallcars()
         getallbrands()
     }, [])
-    
+
     return (
         <>
             <Header />
@@ -47,13 +47,13 @@ export default function CarsTypeCar() {
                 <Menu />
                 <img loading='lazy' src='/images/allcars.png' alt="cars" />
                 <div className='container py-14'>
-                    <div className='flex justify-between'>
-                        {allCars.length && (
-                            <CarBoxInfoOne allCars={allCars[0]} />
-                        )}
-                        {allBrands.length && (
-                            <TableOneCar oneBrand={oneBrand} />
-                        )}
+                    <div className='flex flex-col md:flex-row justify-between'>
+                            {allCars.length && (
+                                <CarBoxInfoOne allCars={allCars[0]} />
+                            )}
+                            {(allBrands.length && allCars.length) && (
+                                <TableOneCar oneBrand={oneBrand} allCars={allCars[0]} />
+                            )}
                     </div>
                 </div>
                 <SwiperBrand allBrands={allBrands} />

@@ -10,15 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "formik": "^2.4.6",
     "json-server": "^1.0.0-alpha.23",
     "react": "^18.2.0",
+    "react-date-picker": "^11.0.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",
     "react-paginate": "^8.2.0",
     "react-player": "^2.16.0",
     "react-router-dom": "^6.23.0",
     "react-scroll": "^1.9.0",
-    "swiper": "^11.1.1"
+    "swiper": "^11.1.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

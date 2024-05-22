@@ -162,7 +162,7 @@ export default function Menu() {
 
 
       {/*black side for menu mobile */}
-      <div div onClick={() => setShowNavBarMobile(false)
+      <div onClick={() => setShowNavBarMobile(false)
       } className={`bg-black/40 md:hidden fixed inset-0 w-full h-full z-10 transition-all ${showNavBarMobile ? 'visible opacity-100' : 'invisible opacity-0'}`}></div>
 
 

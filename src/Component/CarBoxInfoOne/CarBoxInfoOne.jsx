@@ -36,14 +36,14 @@ export default function CarBoxInfoOne({allCars}) {
 
 
     return ( 
-        <div className={`font-light w-auto lg:w-[636px] xl:w-[736px] overflow-hidden text-white flex flex-col gap-3 bg-[#454545] p-[45px] m-[5px] shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px] mb-[30px]`}>
+        <div className={`font-light w-auto md:w-[536px] lg:w-[636px] xl:w-[736px] overflow-hidden text-white flex flex-col gap-3 bg-[#454545] p-[45px] m-[5px] shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px] mb-[30px]`}>
             {/* Swipers */}
             <div className='flex flex-col'>
                 {/* sw1 */}
                 <div className='w-auto'>
                     <div className='mb-3 md:mb-5 relative'>
 
-                        <button onClick={goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[217px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
+                        <button onClick={goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
 
                         <Swiper
                             initialSlide={1}
@@ -80,7 +80,7 @@ export default function CarBoxInfoOne({allCars}) {
                         </Swiper>
 
 
-                        <button onClick={goNextmain} className='w-[30px] h-[30px] z-40 absolute top-[217px] right-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
+                        <button onClick={goNextmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] right-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
 
 
                     </div>
@@ -152,7 +152,7 @@ export default function CarBoxInfoOne({allCars}) {
                 <p className='font-medium text-[18px]/[21px] text-orangeCus py-[8px]'>Technical Specifications</p>
 
 
-                    <div className={`cursor-pointer w-full grid grid-cols-3 gap-x-10 transition-all duration-500`}>
+                    <div className={`w-full grid grid-cols-2 xl:grid-cols-3 gap-x-10 transition-all duration-500`}>
                         <p className='text-[9px]/7 font-medium'>COLOR : <span className='text-orangeCus font-bold text-[11px]'>{allCars.color}</span></p>
                         <p className='text-[9px]/7 font-medium'>ENGINE : <span className='text-orangeCus font-bold text-[11px]'>{allCars.engine}</span></p>
                         <p className='text-[9px]/7 font-medium'>FREE PICKUP-DROP OFF : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Freepickup}</span></p>
