@@ -3,7 +3,7 @@ import { SlArrowDown } from "react-icons/sl";
 import MyCalendar from './MyCalendar';
 import Button from '../Button/Button';
 import { v4 as uuidv4 } from 'uuid';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 export default function TableOneCar({ oneBrand, allCars }) {
@@ -21,6 +21,8 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const [fullYear, setFullYear] = useState({})
 
     const [showSubmitRegestrid, setShowSubmitRegestrid] = useState(false)
+
+    const navigate = useNavigate();
 
     const getallbrand = () => {
         fetch(`http://localhost:5000/allBrands?href=${oneBrands}`)
@@ -46,44 +48,15 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
     useEffect(() => {
         let searchFiltered = countreyCodes.slice().filter(code => code.name.includes(searchValue))
-        console.log(searchFiltered);
         setCountreyCodesSaerched(searchFiltered)
     }, [searchValue])
 
-
-    // const registerRentaCar = () => {
-    //     if (nameValue.length && telephoneValue.length && emailValue && fullYear.year) {
-    //         let newObj = {
-    //             id: uuidv4(),
-    //             name: nameValue,
-    //             telephone: telephoneValue,
-    //             email: emailValue,
-    //             carType: allCars.carType,
-    //             carName: allCars.title,
-    //             carBrand: oneBrandsInfo.title,
-    //             countryCode: countryDialCode,
-    //             country: countryCodeValue,
-    //             dateFull: fullYear
-    //         }
-    //         fetch(`http://localhost:5000/registeredRent`, {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify(newObj)
-    //         })
-    //             .then((res) => {
-    //                 console.log(res);
-    //                 if (res.status === 201) {
-    //                     setShowSubmitRegestrid(true)
-    //                 }
-    //             })
-    //     }
-
-
-
-    // }
-
+    const handleKeyTelephone = (e) => {
+        if ((!(e.key >= '0' && e.key <= '9') && !(e.key == 'Backspace'))) {
+            e.preventDefault()
+        }
+        console.log(e.key);
+    }
 
 
 
@@ -104,7 +77,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
                         <p className='p-[25px] text-[19px]/[22.8px] text-orangeCus'>SEND ENQUIRY</p>
                         <div>
                             <Formik
-                                initialValues={{name:'' ,telephone : '' , email: '' }}
+                                initialValues={{ name: '', telephone: '', email: '' }}
                                 validate={values => {
                                     const errors = {};
                                     if (!values.email) {
@@ -114,18 +87,59 @@ export default function TableOneCar({ oneBrand, allCars }) {
                                     ) {
                                         errors.email = 'Invalid email address';
                                     }
+
+
+                                    if (!values.name) {
+                                        errors.name = 'Required';
+                                    } else if (values.name.length < 3 || values.name.length > 20) {
+                                        errors.name = 'Invalid name address';
+                                    }
+
+                                    if (!values.telephone) {
+                                        errors.telephone = 'Required';
+                                    } else if (values.telephone.length < 6 || values.telephone.length > 15) {
+                                        errors.telephone = 'Invalid telephone address';
+                                    }
+
+
                                     return errors;
                                 }}
                                 onSubmit={(values, { setSubmitting }) => {
-                                    setTimeout(() => {
-                                        alert(JSON.stringify(values, null, 2));
-                                        setSubmitting(false);
-                                    }, 400);
+                        
+                                        let newObj = {
+                                            id: uuidv4(),
+                                            name: values.name,
+                                            telephone: values.telephone,
+                                            email: values.email,
+                                            carType: allCars.carType,
+                                            carName: allCars.title,
+                                            carBrand: oneBrandsInfo.title,
+                                            countryCode: countryDialCode,
+                                            country: countryCodeValue,
+                                            dateFull: fullYear
+                                        }
+                                        fetch(`http://localhost:5000/registeredRent`, {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type": "application/json"
+                                            },
+                                            body: JSON.stringify(newObj)
+                                        })
+                                            .then((res) => {
+                                                console.log(res);
+                                                if (res.status === 201) {
+                                                    setShowSubmitRegestrid(true)
+                                                    values.name =""
+                                                    values.telephone =""
+                                                    values.email =""
+                                                }
+                                            })
+                
                                 }}
                             >
                                 {({ isSubmitting }) => (
                                     <Form className='flex flex-col items-center gap-6 w-full p-[25px] text-base' >
-                                        <Field className="px-4 py-2.5 w-full text-black/70" type="text" name="name" placeholder='Name' />
+                                        <Field className="px-4 py-2.5 w-full text-black/70 outline-none" type="text" name="name" placeholder='Name' />
                                         <ErrorMessage className='text-red-600' name="name" component="div" />
 
 
@@ -167,10 +181,10 @@ export default function TableOneCar({ oneBrand, allCars }) {
                                         </div>
                                         {/* Contry code */}
 
-                                        <Field className="px-4 py-2.5 w-full text-black/70" type="text" name="telephone" placeholder='telephone' />
+                                        <Field className="px-4 py-2.5 w-full text-black/70 outline-none" type="text" onKeyDown={handleKeyTelephone} name="telephone" placeholder='telephone' />
                                         <ErrorMessage className='text-red-600' name="telephone" component="div" />
 
-                                        <Field className="px-4 py-2.5 w-full text-black/70" type="email" name="email" placeholder='Email' />
+                                        <Field className="px-4 py-2.5 w-full text-black/70 outline-none" type="email" name="email" placeholder='Email' />
                                         <ErrorMessage className='text-red-600' name="email" component="div" />
 
                                         <MyCalendar setFullYear={setFullYear} />
@@ -188,12 +202,15 @@ export default function TableOneCar({ oneBrand, allCars }) {
             </div >
             <div onClick={() => setShowSubmitRegestrid(false)} className={`bg-black/40 fixed inset-0 w-full h-full z-50 transition-all  ${showSubmitRegestrid ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
                 <div className='flex h-screen z-50 justify-center items-center '>
-                    <div className='flex flex-col z-50 w-[500px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
+                    <div className='flex flex-col z-50 w-auto m-4 sm:w-[500px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
                         <p className='text-orangeCus2 font-bold text-[25px]'>successfully registered</p>
-                        {/* <p className='pt-1.5'><span className='font-medium text-orangeCus'>{allCars.title}</span> rental has been successfully registered and our colleagues will call your number <span className='text-orangeCus font-medium'>( {telephoneValue} )</span> in the next 24 hours.</p> */}
+                        <p className='pt-1.5'><span className='font-medium text-orangeCus'>{allCars.title}</span> rental has been successfully registered and our colleagues will call your number in the next 24 hours.</p>
                         <p className='pt-1.5'>By referring to this section <Link className='text-blue-600 font-medium'>rules</Link> , you can read the rules for renting a car</p>
                         <p className='pt-1.5'>If you have a problem with the registration and need more explanations, contact our support. <span className='text-orangeCus font-medium'>(+9999999999)</span></p>
-                        <button onClick={() => setShowSubmitRegestrid(false)} className='bg-green-600 mt-3 p-2 rounded-md'>Ok</button>
+                        <button onClick={() => {
+                            setShowSubmitRegestrid(false)
+                            navigate('/')
+                            }} className='bg-green-600 mt-3 p-2 rounded-md'>Ok</button>
                     </div>
                 </div>
             </div>
