@@ -18,8 +18,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const [searchValue, setSearchValue] = useState('')
 
     //for Date
-    const [fullYear, setFullYear] = useState({})
-
+    const [fullYear, setFullYear] = useState(new Date())
     const [showSubmitRegestrid, setShowSubmitRegestrid] = useState(false)
 
     const navigate = useNavigate();
@@ -105,36 +104,40 @@ export default function TableOneCar({ oneBrand, allCars }) {
                                     return errors;
                                 }}
                                 onSubmit={(values, { setSubmitting }) => {
-                        
-                                        let newObj = {
-                                            id: uuidv4(),
-                                            name: values.name,
-                                            telephone: values.telephone,
-                                            email: values.email,
-                                            carType: allCars.carType,
-                                            carName: allCars.title,
-                                            carBrand: oneBrandsInfo.title,
-                                            countryCode: countryDialCode,
-                                            country: countryCodeValue,
-                                            dateFull: fullYear
-                                        }
-                                        fetch(`http://localhost:5000/registeredRent`, {
-                                            method: "POST",
-                                            headers: {
-                                                "Content-Type": "application/json"
-                                            },
-                                            body: JSON.stringify(newObj)
+
+                                    let newObj = {
+                                        id: uuidv4(),
+                                        name: values.name,
+                                        telephone: values.telephone,
+                                        email: values.email,
+                                        carType: allCars.carType,
+                                        carName: allCars.title,
+                                        carBrand: oneBrandsInfo.title,
+                                        carimg: allCars.cover[0].img,
+                                        price: allCars.price,
+                                        countryCode: countryDialCode,
+                                        country: countryCodeValue,
+                                        register: 0,
+                                        dateFull: fullYear
+                                    }
+                                    fetch(`http://localhost:5000/registeredRent`, {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify(newObj)
+                                    })
+                                        .then((res) => {
+                                            console.log(res);
+                                            if (res.status === 201) {
+                                                setShowSubmitRegestrid(true)
+                                                values.name = ""
+                                                values.telephone = ""
+                                                values.email = ""
+                                            }
                                         })
-                                            .then((res) => {
-                                                console.log(res);
-                                                if (res.status === 201) {
-                                                    setShowSubmitRegestrid(true)
-                                                    values.name =""
-                                                    values.telephone =""
-                                                    values.email =""
-                                                }
-                                            })
-                
+
+
                                 }}
                             >
                                 {({ isSubmitting }) => (
@@ -187,7 +190,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
                                         <Field className="px-4 py-2.5 w-full text-black/70 outline-none" type="email" name="email" placeholder='Email' />
                                         <ErrorMessage className='text-red-600' name="email" component="div" />
 
-                                        <MyCalendar setFullYear={setFullYear} />
+                                        <MyCalendar fullYear={fullYear} setFullYear={setFullYear} />
 
                                         <button className='bg-neutral-700 text-sm w-[160px] px-4 py-2.5 rounded-sm tracking-[1px] text-white hover:bg-orangeCus transition-all duration-300 flex items-center justify-center' type="submit" disabled={isSubmitting}>
                                             Book Now
@@ -202,7 +205,9 @@ export default function TableOneCar({ oneBrand, allCars }) {
             </div >
             <div onClick={() => setShowSubmitRegestrid(false)} className={`bg-black/40 fixed inset-0 w-full h-full z-50 transition-all  ${showSubmitRegestrid ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
                 <div className='flex h-screen z-50 justify-center items-center '>
-                    <div className='flex flex-col z-50 w-auto m-4 sm:w-[500px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
+                    <div onClick={(e) => {
+                        e.stopPropagation()
+                    }} className='flex flex-col z-50 w-auto m-4 sm:w-[500px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
                         <p className='text-orangeCus2 font-bold text-[25px]'>successfully registered</p>
                         <p className='pt-1.5'><span className='font-medium text-orangeCus'>{allCars.title}</span> rental has been successfully registered and our colleagues will call your number in the next 24 hours.</p>
                         <p className='pt-1.5'>By referring to this section <Link className='text-blue-600 font-medium'>rules</Link> , you can read the rules for renting a car</p>
@@ -210,7 +215,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
                         <button onClick={() => {
                             setShowSubmitRegestrid(false)
                             navigate('/')
-                            }} className='bg-green-600 mt-3 p-2 rounded-md'>Ok</button>
+                        }} className='bg-green-600 mt-3 p-2 rounded-md'>Ok</button>
                     </div>
                 </div>
             </div>

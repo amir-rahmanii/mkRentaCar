@@ -28,7 +28,7 @@ export default function Header() {
                             {/* phone */}
                             <div className='bg-neutral-700 mx-1 xl:mx-3 text-white flex gap-1.5 items-center rounded-[15px] py-[15px] px-2 xl:px-5'>
                                 <BsTelephone className='w-[17px] h-[25px]' />
-                                <span>+999999999999</span>
+                                <Link to={`tel:+999999999999`}>+999999999999</Link>
                             </div>
                             {/* Whatsapp */}
                             <div className='bg-neutral-700 mx-1  xl:mx-3 text-white flex gap-1.5 items-center rounded-[15px] py-[15px] px-2 xl:px-5'>

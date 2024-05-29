@@ -4900,55 +4900,41 @@
   ],
   "registeredRent": [
     {
-      "id": "4573027f-bf23-4b89-a441-744033d763d9",
-      "name": "Afghan",
-      "telephone": "22555441177",
-      "email": "hamidreza11833@gmail.com",
-      "carType": "Luxury Cars",
-      "carName": "Bentley Bentayga",
-      "carBrand": "Bentley",
-      "countryCode": "+93",
-      "country": "Afghanistan",
-      "dateFull": {
-        "year": 2024,
-        "month": 4,
-        "date": 23,
-        "day": 4
-      }
+      "id": "8f42a439-a4ca-4db4-8874-6d8be840fc90",
+      "name": "Javad",
+      "telephone": "09124785847",
+      "email": "fd@gmail.com",
+      "carType": "Sports Cars",
+      "carName": "Ferrari 488 Spider",
+      "carBrand": "Ferrari",
+      "carimg": "/images/cars/ferrari.jpg",
+      "price": 3000,
+      "countryCode": "+244",
+      "country": "Angola",
+      "register": 1,
+      "dateFull": "2024-05-31T20:30:00.000Z"
     },
     {
-      "id": "4350e01b-a77c-4b3d-97de-38df092a4641",
+      "id": "41344731-7dda-46f8-987e-24679318cb88",
       "name": "امیررضا رحمانی",
       "telephone": "09305440433",
       "email": "amirbabble@gmail.com",
-      "carType": "Luxury Cars",
-      "carName": "Audi A3",
-      "carBrand": "Audi",
-      "countryCode": "+93",
-      "country": "Afghanistan",
-      "dateFull": {
-        "year": 2024,
-        "month": 4,
-        "date": 30,
-        "day": 4
-      }
-    },
+      "carType": "Sports Cars",
+      "carName": "Ferrari 488 Spider",
+      "carBrand": "Ferrari",
+      "carimg": "/images/cars/ferrari.jpg",
+      "price": 3000,
+      "countryCode": "+971",
+      "country": "United Arab Emirates",
+      "register": 1,
+      "dateFull": "2024-05-01T20:30:00.000Z"
+    }
+  ],
+  "admin": [
     {
-      "id": "eb64ecb3-80e5-4d9c-8e55-8d0eb463afc7",
-      "name": "hamid",
-      "telephone": "322225454",
-      "email": "hamidreza11833@gmail.com",
-      "carType": "Convertible Cars",
-      "carName": "Rolls Royce Dawn",
-      "carBrand": "Rollsroys",
-      "countryCode": "+93",
-      "country": "Afghanistan",
-      "dateFull": {
-        "year": 2024,
-        "month": 4,
-        "date": 25,
-        "day": 6
-      }
+      "id": "1",
+      "email": "amirbabble@gmail.com",
+      "password": "12345678"
     }
   ]
 }
