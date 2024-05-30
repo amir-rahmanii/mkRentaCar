@@ -36,7 +36,7 @@ export default function CarBoxInfoOne({allCars}) {
 
 
     return ( 
-        <div className={`font-light w-auto md:w-[536px] lg:w-[636px] xl:w-[736px] overflow-hidden text-white flex flex-col gap-3 bg-[#454545] p-[45px] m-[5px] shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px] mb-[30px]`}>
+        <div className={`font-light w-auto md:w-[536px] lg:w-[636px] xl:w-[736px] overflow-hidden text-white flex flex-col gap-3 bg-[#454545] p-4 md:p-[45px] m-[5px] shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px] mb-[30px]`}>
             {/* Swipers */}
             <div className='flex flex-col'>
                 {/* sw1 */}

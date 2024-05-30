@@ -132,7 +132,7 @@ const SwiperBrandNav = ({allInputs , allCars , filtered}) => {
                     >
                         {(allCars && filtered) && (
                             <div>
-                                {allCars.filter(car => car.brand == valueOfBrand).map(car => (
+                                {allCars.filter(car => car.isRegister === 1).filter(car => car.brand == valueOfBrand).map(car => (
                                     <SwiperSlide key={car.id} className='mb-[55px] flex justify-center items-center'>
                                         <CarBox {...car} />
                                     </SwiperSlide>
@@ -141,7 +141,7 @@ const SwiperBrandNav = ({allInputs , allCars , filtered}) => {
                         )}
                         {(allCars && !filtered) && (
                             <div>
-                                {allCars.filter(car => car.carType == valueOfType).map(car => (
+                                {allCars.filter(car => car.isRegister === 1).filter(car => car.carType == valueOfType).map(car => (
                                     <SwiperSlide key={car.id} className='mb-[55px] flex justify-center items-center'>
                                         <CarBox {...car} />
                                     </SwiperSlide>

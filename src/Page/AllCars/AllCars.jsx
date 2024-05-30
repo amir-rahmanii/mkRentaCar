@@ -30,7 +30,7 @@ export default function AllCars() {
       <div className='bg-black py-14'>
         <div className='container'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-x-[15px] md:gap-y-14 gap-[15px] sm:gap-y-6'>
-            {allCars.map((car) => (
+            {allCars.filter(car => car.isRegister === 1).map((car) => (
               <div key={car.id}>
                 <CarBox  {...car} />
               </div>

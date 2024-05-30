@@ -151,7 +151,7 @@ export default function CarBoxInfo(props) {
 
 
           <div className='flex justify-between' >
-            <div onClick={() => setShowMoreOption(prevstate => !prevstate)} className={` ${showMoreOption ? "h-[350px]" : "h-[65px] overflow-hidden"} cursor-pointer w-full grid grid-cols-2 gap-x-20 transition-all duration-500`}>
+            <div onClick={() => setShowMoreOption(prevstate => !prevstate)} className={` ${showMoreOption ? "h-[400px]" : "h-[65px] overflow-hidden"} cursor-pointer w-full grid grid-cols-2 gap-x-8 md:gap-x-20 transition-all duration-500`}>
               <p className='text-[9px]/7 font-medium'>COLOR : <span className='text-orangeCus font-bold text-[11px]'>{props.color}</span></p>
               <p className='text-[9px]/7 font-medium'>ENGINE : <span className='text-orangeCus font-bold text-[11px]'>{props.engine}</span></p>
               <p className='text-[9px]/7 font-medium'>FREE PICKUP-DROP OFF : <span className='text-orangeCus font-bold text-[11px]'>{props.Freepickup}</span></p>

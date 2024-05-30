@@ -35,6 +35,57 @@ export default function AdminRegidters() {
         setAllRental(result.reverse())
       })
   }
+  const getAllregisteredRentOld = () => {
+    fetch(`http://localhost:5000/registeredRent`)
+      .then(res => res.json())
+      .then(result => {
+        setAllRental(result)
+      })
+  }
+  const getAllregisteredRentHightoLow = () => {
+    fetch(`http://localhost:5000/registeredRent?_sort=price`)
+      .then(res => res.json())
+      .then(result => {
+        setAllRental(result.reverse())
+      })
+  }
+  const getAllregisteredRentLowtoHigh = () => {
+    fetch(`http://localhost:5000/registeredRent?_sort=price`)
+      .then(res => res.json())
+      .then(result => {
+        setAllRental(result)
+      })
+  }
+  const getAllregisteredRentisRegistered = () => {
+    fetch(`http://localhost:5000/registeredRent?register=1`)
+      .then(res => res.json())
+      .then(result => {
+        setAllRental(result)
+      })
+  }
+  const getAllregisteredRentisNoRegistered = () => {
+    fetch(`http://localhost:5000/registeredRent?register=0`)
+      .then(res => res.json())
+      .then(result => {
+        setAllRental(result)
+      })
+  }
+  const changeFilterdAction = () => {
+    if(filteredValue == "Default"){
+      getAllregisteredRent()
+    }else if(filteredValue == "Old Rental"){
+      getAllregisteredRentOld()
+    }else if(filteredValue == "Price High to Low"){
+      getAllregisteredRentHightoLow()
+    }else if(filteredValue == "Price Low to High"){
+      getAllregisteredRentLowtoHigh()
+    }else if(filteredValue == "Is Register"){
+      getAllregisteredRentisRegistered()
+    }else{
+      getAllregisteredRentisNoRegistered()
+    }
+  }
+
 
 
   useEffect(() => {
@@ -55,7 +106,7 @@ export default function AdminRegidters() {
     })
       .then((res) => {
         setShowIsRegestr(false)
-        getAllregisteredRent()
+        changeFilterdAction()
       })
   }
 
@@ -73,7 +124,8 @@ export default function AdminRegidters() {
     })
       .then((res) => {
         setShowIsRegestrNo(false)
-        getAllregisteredRent()
+        changeFilterdAction()
+
       })
   }
 
@@ -85,7 +137,8 @@ export default function AdminRegidters() {
     })
       .then((res) => {
         setDeleteUserShow(false)
-        getAllregisteredRent()
+        changeFilterdAction()
+
       })
   }
 
@@ -104,16 +157,53 @@ export default function AdminRegidters() {
     })
       .then((res) => {
         setUpdateUserShow(false)
-        getAllregisteredRent()
+        changeFilterdAction()
+
       })
   }
+
+  //Filtered Default
+  const defaultFiltered = () => {
+    setFilteredValue("Default")
+    getAllregisteredRent()
+  }
+
+  //Filtered Old
+  const oldDefaultFiltered = () => {
+    setFilteredValue("Old Rental")
+    getAllregisteredRentOld()
+  }
+
+  //Price High to low
+  const priceHighFiltered = () => {
+    setFilteredValue("Price High to Low")
+    getAllregisteredRentHightoLow()
+  }
+  //Price low to High
+  const priceLowFiltered = () => {
+    setFilteredValue("Price Low to High")
+    getAllregisteredRentLowtoHigh()
+  }
+
+  //isRegisterFiltered
+  const isRegisterFiltered = () => {
+    setFilteredValue("Is Register")
+    getAllregisteredRentisRegistered()
+  }
+
+  //isNoRegisterFiltered
+  const isNoRegisterFiltered = () => {
+    setFilteredValue("Is No Register")
+    getAllregisteredRentisNoRegistered()
+  }
+
 
 
   return (
     <>
       <div className='px-4 font-medium'>
-        <div className='flex justify-between shadow-lg px-2 items-center'>
-          <p className='text-[25px] mt-4 mb-6 font-bold  p-3 text-center rounded-md'>List rental Cars</p>
+        <div className='flex justify-between shadow-lg px-4 items-center'>
+          <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md'>List rental Cars</p>
           {/* Contry code */}
           <div onClick={() => setShowFiltered(prevstate => !prevstate)} className='w-[200px]'>
             <div className='w-[200px] bg-[#cccccc] cursor-pointer h-[42px] px-[5px] border  border-bg-[#cccccc] flex justify-between items-center'>
@@ -125,19 +215,31 @@ export default function AdminRegidters() {
               </div>
             </div>
 
-            <div className={`bg-[#cccccc] absolute overflow-auto flex-col z-10 w-[200px] child:px-[5px] child:py-1 child:cursor-pointer text-black/70 child:transition-all child:duration-300 border border-white ${showFiltered ? 'flex' : 'hidden'}`}>
-              <div onClick={() => setFilteredValue("Default")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+            <div className={`bg-[#cccccc] absolute overflow-auto flex-col z-10 w-[200px] child:px-[5px] child:py-2 child:cursor-pointer text-black/70 child:transition-all child:duration-300 border border-white ${showFiltered ? 'flex' : 'hidden'}`}>
+              <div onClick={defaultFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
                 <span className={`line-clamp-1`} >Default</span>
               </div>
-              <div onClick={() => setFilteredValue("Old Rental")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+              <div onClick={oldDefaultFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
                 <span className={`line-clamp-1`} >Old Rental</span>
+              </div>
+              <div onClick={priceHighFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+                <span className={`line-clamp-1`} >Price High to Low</span>
+              </div>
+              <div onClick={priceLowFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+                <span className={`line-clamp-1`} >Price Low to High</span>
+              </div>
+              <div onClick={isRegisterFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+                <span className={`line-clamp-1`} >Is Register</span>
+              </div>
+              <div onClick={isNoRegisterFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+                <span className={`line-clamp-1`} >Is No Register</span>
               </div>
             </div>
           </div>
           {/* Contry code */}
 
         </div>
-        <div className='shadow-lg p-4 rounded-lg'>
+        <div className='shadow-lg p-4 rounded-lg overflow-auto h-[520px] mb-5'>
           <table className='w-full text-center border-collapse border border-slate-500 '>
             <thead className='font-bold'>
               <tr className='child:p-4 child:text-orangeCus2 child:bg-[#454545]'>
@@ -161,7 +263,7 @@ export default function AdminRegidters() {
                   <td className='border border-slate-600'>{user.email}</td>
                   <td className='border border-slate-600'><Link to={`tel:${user.countryCode + user.telephone}`}>{user.countryCode + user.telephone}</Link></td>
                   <td className='border border-slate-600'>{user.country}</td>
-                  <td className='border border-slate-600'>{user.dateFull.slice(0 , 10)}</td>
+                  <td className='border border-slate-600'>{user.dateFull.slice(0, 10)}</td>
                   <td className='border border-slate-600'>
                     <button className='bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                       setInfoCar({ name: user.carName, carType: user.carType, carBrand: user.carBrand, carImg: user.carimg, price: user.price })
@@ -308,7 +410,7 @@ export default function AdminRegidters() {
           <div onClick={(e) => {
             e.stopPropagation()
           }} className='flex flex-col z-50 w-auto m-4 sm:w-[400px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <p className='text-orangeCus2 font-bold text-[25px]'>Delete User rental</p>
+            <p className='text-orangeCus2 font-bold text-[25px]'>Update User rental</p>
             <p className='text-[20px] mt-5'>Do you want to change the car rental date?</p>
             <MyCalendar fullYear={fullYear} setFullYear={setFullYear} />
             <div className='flex gap-4 mt-5'>

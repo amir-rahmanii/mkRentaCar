@@ -48,7 +48,7 @@ export default function CarsInfoContainer({ currentItems }) {
 
                         {FilteredItem == "Price High To Low" && (
                             <div>
-                                {currentItems.slice().sort((priceA, priceB) => priceB.price - priceA.price).map((car) => (
+                                {currentItems.filter(car => car.isRegister === 1).slice().sort((priceA, priceB) => priceB.price - priceA.price).map((car) => (
                                     <div key={car.id}>
                                         <CarBoxInfo {...car} />
                                     </div>
@@ -57,7 +57,7 @@ export default function CarsInfoContainer({ currentItems }) {
                         )}
                         {FilteredItem == "Price Low To High" && (
                             <div>
-                                {currentItems.slice().sort((priceA, priceB) => priceA.price - priceB.price).map((car) => (
+                                {currentItems.filter(car => car.isRegister === 1).slice().sort((priceA, priceB) => priceA.price - priceB.price).map((car) => (
                                     <div key={car.id}>
                                         <CarBoxInfo {...car} />
                                     </div>
