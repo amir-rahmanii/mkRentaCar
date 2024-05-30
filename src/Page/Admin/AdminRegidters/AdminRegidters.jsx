@@ -92,6 +92,10 @@ export default function AdminRegidters() {
     getAllregisteredRent()
   }, [])
 
+  useEffect(() => {
+    changeFilterdAction()
+  } , [filteredValue])
+
 
   //  For register
   const registeredUser = () => {
@@ -162,49 +166,12 @@ export default function AdminRegidters() {
       })
   }
 
-  //Filtered Default
-  const defaultFiltered = () => {
-    setFilteredValue("Default")
-    getAllregisteredRent()
-  }
-
-  //Filtered Old
-  const oldDefaultFiltered = () => {
-    setFilteredValue("Old Rental")
-    getAllregisteredRentOld()
-  }
-
-  //Price High to low
-  const priceHighFiltered = () => {
-    setFilteredValue("Price High to Low")
-    getAllregisteredRentHightoLow()
-  }
-  //Price low to High
-  const priceLowFiltered = () => {
-    setFilteredValue("Price Low to High")
-    getAllregisteredRentLowtoHigh()
-  }
-
-  //isRegisterFiltered
-  const isRegisterFiltered = () => {
-    setFilteredValue("Is Register")
-    getAllregisteredRentisRegistered()
-  }
-
-  //isNoRegisterFiltered
-  const isNoRegisterFiltered = () => {
-    setFilteredValue("Is No Register")
-    getAllregisteredRentisNoRegistered()
-  }
-
-
-
   return (
     <>
       <div className='px-4 font-medium'>
-        <div className='flex justify-between shadow-lg px-4 items-center'>
-          <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md'>List rental Cars</p>
-          {/* Contry code */}
+        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg mx-4'>
+          <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2'>List rental Cars</p>
+          {/* filter */}
           <div onClick={() => setShowFiltered(prevstate => !prevstate)} className='w-[200px]'>
             <div className='w-[200px] bg-[#cccccc] cursor-pointer h-[42px] px-[5px] border  border-bg-[#cccccc] flex justify-between items-center'>
               <div className='flex items-center'>
@@ -216,30 +183,31 @@ export default function AdminRegidters() {
             </div>
 
             <div className={`bg-[#cccccc] absolute overflow-auto flex-col z-10 w-[200px] child:px-[5px] child:py-2 child:cursor-pointer text-black/70 child:transition-all child:duration-300 border border-white ${showFiltered ? 'flex' : 'hidden'}`}>
-              <div onClick={defaultFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+              <div onClick={() => setFilteredValue("Default")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
                 <span className={`line-clamp-1`} >Default</span>
               </div>
-              <div onClick={oldDefaultFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+              <div onClick={() => setFilteredValue("Old Rental")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
                 <span className={`line-clamp-1`} >Old Rental</span>
               </div>
-              <div onClick={priceHighFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+              <div onClick={() => setFilteredValue("Price High to Low")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
                 <span className={`line-clamp-1`} >Price High to Low</span>
               </div>
-              <div onClick={priceLowFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+              <div onClick={() => setFilteredValue("Price Low to High")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
                 <span className={`line-clamp-1`} >Price Low to High</span>
               </div>
-              <div onClick={isRegisterFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+              <div onClick={() => setFilteredValue("Is Register")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
                 <span className={`line-clamp-1`} >Is Register</span>
               </div>
-              <div onClick={isNoRegisterFiltered} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
+              <div onClick={() => setFilteredValue("Is No Register")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
                 <span className={`line-clamp-1`} >Is No Register</span>
               </div>
             </div>
           </div>
-          {/* Contry code */}
+          {/* filter */}
 
         </div>
-        <div className='shadow-lg p-4 rounded-lg overflow-auto h-[520px] mb-5'>
+        {allRental.length > 0 ? (
+          <div className='shadow-lg p-4 rounded-lg overflow-auto h-[430px] mb-5'>
           <table className='w-full text-center border-collapse border border-slate-500 '>
             <thead className='font-bold'>
               <tr className='child:p-4 child:text-orangeCus2 child:bg-[#454545]'>
@@ -311,6 +279,10 @@ export default function AdminRegidters() {
             </tbody>
           </table>
         </div>
+        ) : (
+          <h2 className='bg-black/80 text-orangeCus2 text-[30px] text-center p-5 font-bold rounded-lg mt-5'>This filter was not found 😩</h2>
+        )}
+        
       </div>
 
       {/* info cars */}

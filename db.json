@@ -2485,7 +2485,7 @@
       "Doors": 2,
       "Luggage": 2,
       "SecurityType": "Credit Card & Cash",
-      "isRegister": 0,
+      "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
       "MileageDailyKM": "250km",
       "CostofExtraKm": "—",
@@ -4935,7 +4935,7 @@
       "price": 250,
       "countryCode": "+968",
       "country": "Oman",
-      "register": 0,
+      "register": 1,
       "dateFull": "2024-06-07T20:30:00.000Z"
     }
   ],
