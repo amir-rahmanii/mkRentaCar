@@ -6,8 +6,10 @@ import { IoCarSport } from "react-icons/io5";
 
 export default function Sidebar() {
     return (
-        <div className='bg-gradient-to-r from-purple-700 to-purple-900 w-52 h-full text-white font-medium p-4'>
-            <h2 className='text-[25px] text-center font-bold'>Admin Panel</h2>
+        <div className='bg-[#454545] w-72 h-full text-white font-medium p-4'>
+            <div className='flex justify-center'>
+            <img className='w-[155px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="logo" />
+            </div>
             <div className='mt-5'>
                 <ul className='divide-y-2 divide-white/30 text-[24px] flex flex-col gap-1 overflow-auto child:p-2 child:rounded-md'>
                     <NavLink to='/dashbord' className='bg-black mb-5 flex items-center gap-2'>Home <FaHome /> </NavLink>

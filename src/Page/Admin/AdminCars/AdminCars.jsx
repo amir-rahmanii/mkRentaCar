@@ -8,6 +8,7 @@ import { TiTick } from "react-icons/ti";
 import { BiShow } from "react-icons/bi";
 import { FaRegEdit } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
+import AddCars from '../../../Component/Admins/AddCars/AddCars';
 
 
 export default function AdminCars() {
@@ -30,7 +31,7 @@ export default function AdminCars() {
   const [filteredValue, setFilteredValue] = useState("Default")
   //showFilteredBrand
   const [showFilteredBrand, setShowFilteredBrand] = useState(false)
-  const [filteredValueBrand, setFilteredValueBrand] = useState("All Cars")
+  const [filteredValueBrand, setFilteredValueBrand] = useState([])
   //Update Car
   const [updateCarShow, setUpdateCarShow] = useState(false)
 
@@ -41,6 +42,8 @@ export default function AdminCars() {
   //All brands
   const [allBrands, setAllBrands] = useState([])
 
+  //Add new car
+  const [showAddNewCar, setShowAddNewCar,] = useState(false)
 
   const getAllBrands = () => {
     fetch(`http://localhost:5000/allBrands`)
@@ -51,94 +54,69 @@ export default function AdminCars() {
   }
 
   const getAllCars = () => {
-    if (filteredValueBrand == "All Cars") {
       fetch(`http://localhost:5000/cars`)
         .then(res => res.json())
         .then(result => {
-          setAllcars(result.reverse())
+        let newArray =  result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+        setAllcars(newArray)
         })
-    } else {
-      fetch(`http://localhost:5000/cars?brand=${filteredValueBrand}`)
-        .then(res => res.json())
-        .then(result => {
-          setAllcars(result.reverse())
-        })
-    }
   }
+
   const getAllCarsOld = () => {
-    if (filteredValueBrand == "All Cars") {
       fetch(`http://localhost:5000/cars`)
         .then(res => res.json())
         .then(result => {
-          setAllcars(result)
+          let newArray =  result.filter(item => filteredValueBrand.includes(item.brand));
+          setAllcars(newArray)
         })
-    } else {
-      fetch(`http://localhost:5000/cars?brand=${filteredValueBrand}`)
-        .then(res => res.json())
-        .then(result => {
-          setAllcars(result)
-        })
-    }
   }
   const getAllcarsHightoLow = () => {
-    if (filteredValueBrand == "All Cars") {
       fetch(`http://localhost:5000/cars?_sort=price`)
         .then(res => res.json())
         .then(result => {
-          setAllcars(result.reverse())
+          let newArray =  result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+          setAllcars(newArray)
         })
-    } else {
-      fetch(`http://localhost:5000/cars?_sort=price&brand=${filteredValueBrand}`)
-        .then(res => res.json())
-        .then(result => {
-          setAllcars(result.reverse())
-        })
-    }
   }
   const getAllcarsLowtoHigh = () => {
-    if (filteredValueBrand == "All Cars") {
       fetch(`http://localhost:5000/cars?_sort=price`)
         .then(res => res.json())
         .then(result => {
-          setAllcars(result)
+          let newArray = result.filter(item => filteredValueBrand.includes(item.brand));
+          setAllcars(newArray)
         })
-    } else {
-      fetch(`http://localhost:5000/cars?_sort=price&brand=${filteredValueBrand}`)
-        .then(res => res.json())
-        .then(result => {
-          setAllcars(result)
-        })
-    }
   }
   const getAllcarsisRegistered = () => {
-    if (filteredValueBrand == "All Cars") {
       fetch(`http://localhost:5000/cars?isRegister=1`)
         .then(res => res.json())
         .then(result => {
-          setAllcars(result)
+          let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+          setAllcars(newArray)
         })
-    } else {
-      fetch(`http://localhost:5000/cars?isRegister=1&brand=${filteredValueBrand}`)
-        .then(res => res.json())
-        .then(result => {
-          setAllcars(result)
-        })
-    }
   }
   const getAllcarsisNoRegistered = () => {
-    if (filteredValueBrand == "All Cars") {
       fetch(`http://localhost:5000/cars?isRegister=0`)
         .then(res => res.json())
         .then(result => {
-          setAllcars(result)
+          let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+          setAllcars(newArray)
         })
-    } else {
-      fetch(`http://localhost:5000/cars?isRegister=0&brand=${filteredValueBrand}`)
-        .then(res => res.json())
-        .then(result => {
-          setAllcars(result)
+  }
+
+  const filterPriceCars = () => {
+      let arrayPushedFilters = []
+      fetch(`http://localhost:5000/allBrands`)
+      .then(res => res.json())
+      .then(result => {
+        result.filter(data => {
+          if(data.searchFilter){
+            arrayPushedFilters.push(data.title)
+          }
+          })
+          setFilteredValueBrand(arrayPushedFilters)
+          setShowFilteredBrand(false)
+          changeFilterdAction()
         })
-    }
   }
 
   const changeFilterdAction = () => {
@@ -161,7 +139,23 @@ export default function AdminCars() {
   useEffect(() => {
     getAllCars()
     getAllBrands()
+    filterPriceCars()
   }, [])
+
+  //chageInputBranding
+  const chageInputBranding = (e , id) => {
+    let itemValue = e.target.checked
+    fetch(`http://localhost:5000/allBrands/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        searchFilter: itemValue
+      })
+    })
+      .then(res => res.json())
+  }
 
 
   //  For register
@@ -263,29 +257,9 @@ export default function AdminCars() {
         <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg mx-4'>
           <p className='text-[25px] mt-4 mb-6 font-bold text-center text-orangeCus2'>List registration Cars</p>
           <div className=' flex gap-4'>
-            {/* Filter brand */}
-            <div onClick={() => setShowFilteredBrand(prevstate => !prevstate)} className='w-[200px]'>
-              <div className='w-[200px] bg-[#cccccc] cursor-pointer h-[42px] px-[5px] border  border-bg-[#cccccc] flex justify-between items-center'>
-                <div className='flex items-center'>
-                  <span className='text-black/70 line-clamp-1'>{filteredValueBrand}</span>
-                </div>
-                <div className='bg-[#cccccc] w-5 h-5 flex items-center justify-center rounded-full'>
-                  <SlArrowDown />
-                </div>
-              </div>
-
-              <div className={`bg-[#cccccc] absolute overflow-auto h-[200px] flex-col z-10 w-[200px] child:px-[5px] child:py-2 child:cursor-pointer text-black/70 child:transition-all child:duration-300 border border-white ${showFilteredBrand ? 'flex' : 'hidden'}`}>
-                <div onClick={() => { setFilteredValueBrand("All Cars") }} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
-                  <span className={`line-clamp-1`} >All Cars</span>
-                </div>
-                {allBrands.map((brand) => (
-                  <div onClick={() => { setFilteredValueBrand(brand.title) }} key={brand.id} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
-                    <span className={`line-clamp-1`} >{brand.title}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Filter brand */}
+            <button onClick={() => setShowFilteredBrand(true)} className='bg-orangeCus2 p-2 text-white rounded-lg'>
+              Filter Brand
+            </button>
             {/* Filter */}
             <div onClick={() => setShowFiltered(prevstate => !prevstate)} className='w-[200px]'>
               <div className='w-[200px] bg-[#cccccc] cursor-pointer h-[42px] px-[5px] border  border-bg-[#cccccc] flex justify-between items-center'>
@@ -324,22 +298,21 @@ export default function AdminCars() {
 
         </div>
         <div className='mx-4 my-2'>
-          <button className='text-orangeCus2 p-2 rounded-md text-[25px] font-bold bg-[#454545] flex justify-center items-center gap-2'>Add New Car <FaPlus /> </button>
+          <button onClick={() => setShowAddNewCar(true)} className='text-orangeCus2 p-2 rounded-md text-[25px] font-bold bg-[#454545] flex justify-center items-center gap-2'>Add New Car <FaPlus /> </button>
         </div>
         {allcars.length > 0 ? (
-          <div className='shadow-lg p-4 rounded-lg overflow-auto h-[430px]'>
+          <div className='shadow-lg mx-4 rounded-lg overflow-auto h-[430px]'>
             <table className='w-full text-center border-collapse border border-slate-500 '>
               <thead className='font-bold'>
-                <tr className='child:p-4 child:text-orangeCus2 child:bg-[#454545]'>
+                <tr className='child:p-4 child:text-orangeCus2 sticky top-0 child:bg-[#454545]'>
                   <th className='border border-slate-600'>Row</th>
                   <th className='border border-slate-600'>Name</th>
-                  <th className='border border-slate-600'>Href</th>
                   <th className='border border-slate-600'>PriceOf_Price</th>
                   <th className='border border-slate-600'>Car Type</th>
                   <th className='border border-slate-600'>Brand</th>
                   <th className='border border-slate-600'>Body</th>
                   <th className='border border-slate-600'>InfoCars</th>
-                  <th className='border border-slate-600'>Register</th>
+                  <th className='border border-slate-600'>Status</th>
                   <th className='border border-slate-600'>Update</th>
                   <th className='border border-slate-600'>Delete</th>
                 </tr>
@@ -349,8 +322,7 @@ export default function AdminCars() {
                   <tr key={car.id} className='child:p-2'>
                     <td className={`border border-slate-600 ${car.isRegister ? "bg-green-400" : "bg-red-400"}`}>{index + 1}</td>
                     <td className='border border-slate-600 '>{car.title}</td>
-                    <td className='border border-slate-600'>{car.href}</td>
-                    <td className='border border-slate-600'><span className='line-through font-light text-sm'>{car.priceOffer}</span> _ {car.price}</td>
+                    <td className='border border-slate-600'><span className='line-through font-light text-sm'>{car.priceOffer}</span> _ {car.price} AED</td>
                     <td className='border border-slate-600'>{car.carType}</td>
                     <td className='border border-slate-600'>{car.brand}</td>
                     <td className='border border-slate-600'>
@@ -443,6 +415,8 @@ export default function AdminCars() {
               <div className='text-white flex flex-col gap-2'>
                 <p className='text-orangeCus2 font-medium text-[25px]'>Technical Specifications</p>
                 <div className={`overflow-hidden cursor-pointer w-full grid grid-cols-2 gap-x-20 transition-all duration-500`}>
+                  <p className='text-[9px]/7 font-medium'>Car Name : <span className='text-orangeCus font-bold text-[11px]'>{infocar.title}</span></p>
+                  <p className='text-[9px]/7 font-medium'>Href : <span className='text-orangeCus font-bold text-[11px]'>{infocar.href}</span></p>
                   <p className='text-[9px]/7 font-medium'>Href CarType : <span className='text-orangeCus font-bold text-[11px]'>{infocar.hrefCarType}</span></p>
                   <p className='text-[9px]/7 font-medium'>Href CarBrand : <span className='text-orangeCus font-bold text-[11px]'>{infocar.hrefBrand}</span></p>
                   <p className='text-[9px]/7 font-medium'>COLOR : <span className='text-orangeCus font-bold text-[11px]'>{infocar.color}</span></p>
@@ -600,6 +574,54 @@ export default function AdminCars() {
                 Cancel
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+
+
+      {/*filter brand Car*/}
+      <div onClick={() => {
+        setShowFilteredBrand(false)
+      }} className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${showFilteredBrand ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
+        <div className='flex h-screen z-50 justify-center items-center '>
+          <div onClick={(e) => {
+            e.stopPropagation()
+          }} className='flex flex-col z-50 w-[650px] m-4 p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
+            <p className='text-orangeCus2 font-bold text-[25px]'>Filter Brand {infocar.title} Info</p>
+            <p className='text-[20px] mt-5'>Choose your brands.</p>
+            <div className='grid grid-cols-3 gap-4 mt-4'>
+              {allBrands.map((brand) => (
+                <div className='flex items-center gap-2' key={brand.id}>
+                  <input type="checkbox" className="w-[14px] h-[14px] accent-orangeCus" defaultChecked={brand.searchFilter} onChange={(e) => chageInputBranding(e , brand.id)} />
+                  <img className='w-[20px] h-[20px]' src={brand.cover} alt="img" />
+                  <p className='text-xl'>{brand.title}</p>
+                </div>
+              ))}
+
+            </div>
+            <div className='flex gap-4 mt-4'>
+              <button onClick={filterPriceCars} className='bg-green-600 w-full p-2 rounded-lg'>
+                Filter
+              </button>
+            </div>
+            <div className='flex gap-4 mt-2'>
+              <button onClick={() => setShowFilteredBrand(false)} className='bg-red-600 w-full p-2 rounded-lg'>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Add New Car */}
+      <div className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${showAddNewCar ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
+        <div className='flex h-screen z-50 justify-center items-center '>
+          <div className='flex flex-col z-50 w-[1150px] overflow-auto h-[550px] m-4 p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
+            <p className='text-orangeCus2 font-bold text-[25px]'>Add Car</p>
+           <AddCars />
+              <button onClick={() => setShowAddNewCar(false)} className='bg-red-600 w-full p-2 rounded-lg'>
+                Cancel
+              </button>
           </div>
         </div>
       </div>

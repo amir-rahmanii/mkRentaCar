@@ -90,13 +90,13 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
                                     if (!values.name) {
                                         errors.name = 'Required';
-                                    } else if (values.name.length < 3 || values.name.length > 20) {
+                                    } else if (!/^[A-Z]{2,25}$/i.test(values.name)) {
                                         errors.name = 'Invalid name address';
                                     }
 
                                     if (!values.telephone) {
                                         errors.telephone = 'Required';
-                                    } else if (values.telephone.length < 6 || values.telephone.length > 15) {
+                                    } else if (!/^[0-9]{11}$/i.test(values.telephone)) {
                                         errors.telephone = 'Invalid telephone address';
                                     }
 

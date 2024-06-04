@@ -207,10 +207,10 @@ export default function AdminRegidters() {
 
         </div>
         {allRental.length > 0 ? (
-          <div className='shadow-lg p-4 rounded-lg overflow-auto h-[430px] mb-5'>
+          <div className='shadow-lg mx-4 mt-4 rounded-lg overflow-auto h-[430px] mb-5'>
           <table className='w-full text-center border-collapse border border-slate-500 '>
             <thead className='font-bold'>
-              <tr className='child:p-4 child:text-orangeCus2 child:bg-[#454545]'>
+              <tr className='child:p-4 sticky top-0 child:text-orangeCus2 child:bg-[#454545]'>
                 <th className='border border-slate-600'>Row</th>
                 <th className='border border-slate-600'>Name</th>
                 <th className='border border-slate-600'>Email</th>
@@ -218,7 +218,7 @@ export default function AdminRegidters() {
                 <th className='border border-slate-600'>Country</th>
                 <th className='border border-slate-600'>Date</th>
                 <th className='border border-slate-600'>InfoCars</th>
-                <th className='border border-slate-600'>Register</th>
+                <th className='border border-slate-600'>Status</th>
                 <th className='border border-slate-600'>Update</th>
                 <th className='border border-slate-600'>Delete</th>
               </tr>

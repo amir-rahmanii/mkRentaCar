@@ -136,30 +136,12 @@
     },
     {
       "id": "4",
-      "title": "Daily Offers",
-      "href": "daily-offers",
-      "submenus": []
-    },
-    {
-      "id": "5",
-      "title": "About Us",
-      "href": "about-us",
-      "submenus": []
-    },
-    {
-      "id": "6",
-      "title": "Activities",
-      "href": "activities",
-      "submenus": []
-    },
-    {
-      "id": "7",
       "title": "Blog",
       "href": "blog",
       "submenus": []
     },
     {
-      "id": "8",
+      "id": "5",
       "title": "Contact Us",
       "href": "contact-us",
       "submenus": []
@@ -209,6 +191,7 @@
       "title": "Ferrari",
       "href": "ferrari",
       "cover": "/images/brands/ferrari.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/ferrari.png"
     },
     {
@@ -216,6 +199,7 @@
       "title": "Bmw",
       "href": "bmw",
       "cover": "/images/brands/bmw.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/bmw.png"
     },
     {
@@ -223,6 +207,7 @@
       "title": "Cadilac",
       "href": "cadilac",
       "cover": "/images/brands/cadilac.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/cadillac.png"
     },
     {
@@ -230,6 +215,7 @@
       "title": "Cheverolet",
       "href": "cheverolet",
       "cover": "/images/brands/cheverolet.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/chvrolet.png"
     },
     {
@@ -237,6 +223,7 @@
       "title": "Kia",
       "href": "kia",
       "cover": "/images/brands/kia.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/kia.png"
     },
     {
@@ -244,6 +231,7 @@
       "title": "Lamborghini",
       "href": "lamborghini",
       "cover": "/images/brands/lambo.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/lamborghini.png"
     },
     {
@@ -251,6 +239,7 @@
       "title": "Landrover",
       "href": "landrover",
       "cover": "/images/brands/landrover.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/landrover.png"
     },
     {
@@ -258,6 +247,7 @@
       "title": "Mercedes",
       "href": "mercedes",
       "cover": "/images/brands/mercedes.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/mercedes.png"
     },
     {
@@ -265,6 +255,7 @@
       "title": "Minikoper",
       "href": "minikoper",
       "cover": "/images/brands/minikoper.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/minicoper.png"
     },
     {
@@ -272,6 +263,7 @@
       "title": "Audi",
       "href": "audi",
       "cover": "/images/brands/audi.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/audi.png"
     },
     {
@@ -279,6 +271,7 @@
       "title": "Bentley",
       "href": "bentley",
       "cover": "/images/brands/bentley.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/bentley.png"
     },
     {
@@ -286,6 +279,7 @@
       "title": "Porsche",
       "href": "porsche",
       "cover": "/images/brands/porche.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/porche.png"
     },
     {
@@ -293,6 +287,7 @@
       "title": "Rollsroys",
       "href": "rollsroys",
       "cover": "/images/brands/rollsroys.png",
+      "searchFilter": true,
       "baner": "/images/banerBrand/rollsroys.png"
     }
   ],
@@ -1401,8 +1396,8 @@
       "href": "MercedesgwagonB",
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
-      "price": 1500,
-      "priceOffer": 2500,
+      "price": "4500",
+      "priceOffer": "3500",
       "brand": "Mercedes",
       "hrefBrand": "mercedes",
       "cover": [
@@ -4906,7 +4901,7 @@
       "countryCode": "+355",
       "country": "Albania",
       "register": 1,
-      "dateFull": "2024-06-01T20:30:00.000Z"
+      "dateFull": "2024-06-05T20:30:00.000Z"
     },
     {
       "id": "0fed561b-11b4-4750-89c6-c58e51e7005a",
@@ -4936,7 +4931,22 @@
       "countryCode": "+968",
       "country": "Oman",
       "register": 1,
-      "dateFull": "2024-06-07T20:30:00.000Z"
+      "dateFull": "2024-06-22T20:30:00.000Z"
+    },
+    {
+      "id": "aeca85f9-f653-4b01-96cb-3df353f39f69",
+      "name": "Soheil",
+      "telephone": "88888888888",
+      "email": "hamidreza11833@gmail.com",
+      "carType": "Sports Cars",
+      "carName": "Ferrari 488 Spider",
+      "carBrand": "Ferrari",
+      "carimg": "/images/cars/ferrari.jpg",
+      "price": 3000,
+      "countryCode": "+244",
+      "country": "Angola",
+      "register": 1,
+      "dateFull": "2024-06-11T20:30:00.000Z"
     }
   ],
   "admin": [
