@@ -49,7 +49,7 @@ export default function CarBoxInfo(props) {
               <button onClick={goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[110px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
 
               <Swiper
-                initialSlide={1}
+                initialSlide={0}
                 navigation={{ prevEl: '.custom-prevmain', nextEl: '.custom-nextmain' }}
                 onSwiper={(swiper) => (swiperRefMain.current = swiper)}
                 slidesPerView={1}

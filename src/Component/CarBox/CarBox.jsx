@@ -10,9 +10,11 @@ export default function CarBox(props) {
                 <Link to={`/cars/${props.hrefCarType}/${props.href}`}>
                     <img src={props.cover[0].img} alt="1" />
                 </Link>
+                {props.priceOffer !== "0" && (
                 <div className='bg-orangeCus text-white font-medium text-xs/[23px] px-2 absolute top-[20px] left-0'>
                     <span>SPECIAL OFFER</span>
                 </div>
+                )}
             </div>
 
             <div className='bg-[#454545] text-white px-3 py-2.5 font-light'>

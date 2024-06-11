@@ -191,7 +191,7 @@
       "title": "Ferrari",
       "href": "ferrari",
       "cover": "/images/brands/ferrari.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/ferrari.png"
     },
     {
@@ -199,7 +199,7 @@
       "title": "Bmw",
       "href": "bmw",
       "cover": "/images/brands/bmw.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/bmw.png"
     },
     {
@@ -207,7 +207,7 @@
       "title": "Cadilac",
       "href": "cadilac",
       "cover": "/images/brands/cadilac.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/cadillac.png"
     },
     {
@@ -215,7 +215,7 @@
       "title": "Cheverolet",
       "href": "cheverolet",
       "cover": "/images/brands/cheverolet.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/chvrolet.png"
     },
     {
@@ -223,7 +223,7 @@
       "title": "Kia",
       "href": "kia",
       "cover": "/images/brands/kia.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/kia.png"
     },
     {
@@ -239,7 +239,7 @@
       "title": "Landrover",
       "href": "landrover",
       "cover": "/images/brands/landrover.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/landrover.png"
     },
     {
@@ -263,7 +263,7 @@
       "title": "Audi",
       "href": "audi",
       "cover": "/images/brands/audi.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/audi.png"
     },
     {
@@ -271,7 +271,7 @@
       "title": "Bentley",
       "href": "bentley",
       "cover": "/images/brands/bentley.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/bentley.png"
     },
     {
@@ -287,7 +287,7 @@
       "title": "Rollsroys",
       "href": "rollsroys",
       "cover": "/images/brands/rollsroys.png",
-      "searchFilter": true,
+      "searchFilter": false,
       "baner": "/images/banerBrand/rollsroys.png"
     }
   ],
@@ -347,8 +347,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": "Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Hi Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -408,8 +408,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -469,8 +469,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -530,8 +530,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -591,8 +591,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -652,8 +652,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -713,8 +713,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 0,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -774,8 +774,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -835,8 +835,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "250",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -896,8 +896,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -957,8 +957,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1018,8 +1018,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1079,8 +1079,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1140,8 +1140,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1201,8 +1201,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1262,8 +1262,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1323,8 +1323,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1384,8 +1384,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1397,7 +1397,7 @@
       "hrefCarType": "exotic-cars",
       "carType": "Exotic Cars",
       "price": "4500",
-      "priceOffer": "3500",
+      "priceOffer": "0",
       "brand": "Mercedes",
       "hrefBrand": "mercedes",
       "cover": [
@@ -1445,8 +1445,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1506,8 +1506,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 0,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1567,11 +1567,11 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
-      "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
+      "body": " Stradale is a remarkable high-performance hybrid hypercar offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
     },
     {
       "id": "23",
@@ -1628,8 +1628,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1689,8 +1689,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1750,8 +1750,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1811,8 +1811,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1872,8 +1872,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1933,8 +1933,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -1994,8 +1994,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2055,8 +2055,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2116,8 +2116,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2177,8 +2177,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2238,8 +2238,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2299,8 +2299,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2360,8 +2360,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2420,9 +2420,9 @@
       "Luggage": 2,
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
-      "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "PaymentType": "Credit Card & Cash",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2482,8 +2482,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2537,16 +2537,16 @@
       "FullInsurance": "No",
       "FreeCancellation": "Yes",
       "CustomerService": "Yes",
+      "CruiseControl": "Yes",
       "Seats": 2,
       "Doors": 2,
       "Luggage": 2,
-      "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
+      "SecurityType": "Credit Card & Cash",
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
-      "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
     },
     {
@@ -2604,8 +2604,8 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
       "body": " Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V12 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
@@ -2665,11 +2665,11 @@
       "SecurityType": "Credit Card & Cash",
       "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
-      "MileageDailyKM": "250km",
-      "CostofExtraKm": "—",
+      "MileageDailyKM": 250,
+      "CostofExtraKm": 250,
       "SecurityAmountAED": 5000,
       "CruiseControl": "Yes",
-      "body": " Hi Stradale is a remarkable high-performance hybrid hypercar produced  by the renowned Italian automaker, Ferrari. The SF90 Stradale is a  groundbreaking model for Ferrari as it represents the company's first plug-in hybrid production car, combining incredible power, cutting-edge technology, and a stunning design. Key aspects and features commonly associated with  Stradale include: Hybrid Powertrain: The SF90 Stradale is powered by a hybrid powertrain, combining a  twin-turbocharged V8 engine with three electric motors. This setup results in exceptional power output and performance while offering the ability to drive on electric power alone for short distances. Incredible Performance: With a total power output exceeding 1,000 horsepower, the SF90 Stradale accelerates with astonishing speed and delivers remarkable performancefigures, making it one of the most powerful Ferrari production cars."
+      "body": " Hi Stradale is a remarkable"
     }
   ],
   "comments": [
@@ -4886,7 +4886,7 @@
       "countryCode": "+244",
       "country": "Angola",
       "register": 1,
-      "dateFull": "2024-06-22T20:30:00.000Z"
+      "dateFull": "2024-06-20T20:30:00.000Z"
     },
     {
       "id": "73f0dc5f-6ee5-4598-a2f3-d47083ba6421",
@@ -4901,7 +4901,7 @@
       "countryCode": "+355",
       "country": "Albania",
       "register": 1,
-      "dateFull": "2024-06-05T20:30:00.000Z"
+      "dateFull": "2024-06-21T20:30:00.000Z"
     },
     {
       "id": "0fed561b-11b4-4750-89c6-c58e51e7005a",
@@ -4946,7 +4946,7 @@
       "countryCode": "+244",
       "country": "Angola",
       "register": 1,
-      "dateFull": "2024-06-11T20:30:00.000Z"
+      "dateFull": "2024-06-14T20:30:00.000Z"
     }
   ],
   "admin": [

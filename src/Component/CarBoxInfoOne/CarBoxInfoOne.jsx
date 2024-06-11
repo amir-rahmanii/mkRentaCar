@@ -46,7 +46,7 @@ export default function CarBoxInfoOne({allCars}) {
                         <button onClick={goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
 
                         <Swiper
-                            initialSlide={1}
+                            initialSlide={0}
                             navigation={{ prevEl: '.custom-prevmain', nextEl: '.custom-nextmain' }}
                             onSwiper={(swiper) => (swiperRefMain.current = swiper)}
                             slidesPerView={1}
@@ -107,7 +107,7 @@ export default function CarBoxInfoOne({allCars}) {
 
                             {allCars.cover.map((cov) => (
                                 <SwiperSlide key={cov.id} >
-                                    <div onClick={() => setSrcDefaultValueSwiper(cov.img)} className={`border-2 cursor-pointer ${srcDefaultValueSwiper == cov.img ? " border-[#63FA55]" : "border-white"}`}>
+                                    <div onClick={() => setSrcDefaultValueSwiper(cov.img)} className={`border-2  cursor-pointer ${srcDefaultValueSwiper == cov.img ? " border-[#63FA55]" : "border-white"}`}>
                                         <img className='w-auto' src={cov.img} alt="img" />
                                     </div>
                                 </SwiperSlide>

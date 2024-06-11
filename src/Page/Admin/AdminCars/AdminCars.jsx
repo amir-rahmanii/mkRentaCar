@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SlArrowDown } from "react-icons/sl";
 import { MdDelete } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
 import { GiCancel } from "react-icons/gi";
@@ -9,6 +8,8 @@ import { BiShow } from "react-icons/bi";
 import { FaRegEdit } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 import AddCars from '../../../Component/Admins/AddCars/AddCars';
+import Modal from '../../../Component/Admins/Modal/Modal';
+import FilterBar from '../../../Component/Admins/FilterBar/FilterBar';
 
 
 export default function AdminCars() {
@@ -54,69 +55,69 @@ export default function AdminCars() {
   }
 
   const getAllCars = () => {
-      fetch(`http://localhost:5000/cars`)
-        .then(res => res.json())
-        .then(result => {
-        let newArray =  result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+    fetch(`http://localhost:5000/cars`)
+      .then(res => res.json())
+      .then(result => {
+        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
         setAllcars(newArray)
-        })
+      })
   }
 
   const getAllCarsOld = () => {
-      fetch(`http://localhost:5000/cars`)
-        .then(res => res.json())
-        .then(result => {
-          let newArray =  result.filter(item => filteredValueBrand.includes(item.brand));
-          setAllcars(newArray)
-        })
+    fetch(`http://localhost:5000/cars`)
+      .then(res => res.json())
+      .then(result => {
+        let newArray = result.filter(item => filteredValueBrand.includes(item.brand));
+        setAllcars(newArray)
+      })
   }
   const getAllcarsHightoLow = () => {
-      fetch(`http://localhost:5000/cars?_sort=price`)
-        .then(res => res.json())
-        .then(result => {
-          let newArray =  result.reverse().filter(item => filteredValueBrand.includes(item.brand));
-          setAllcars(newArray)
-        })
+    fetch(`http://localhost:5000/cars?_sort=price`)
+      .then(res => res.json())
+      .then(result => {
+        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+        setAllcars(newArray)
+      })
   }
   const getAllcarsLowtoHigh = () => {
-      fetch(`http://localhost:5000/cars?_sort=price`)
-        .then(res => res.json())
-        .then(result => {
-          let newArray = result.filter(item => filteredValueBrand.includes(item.brand));
-          setAllcars(newArray)
-        })
+    fetch(`http://localhost:5000/cars?_sort=price`)
+      .then(res => res.json())
+      .then(result => {
+        let newArray = result.filter(item => filteredValueBrand.includes(item.brand));
+        setAllcars(newArray)
+      })
   }
   const getAllcarsisRegistered = () => {
-      fetch(`http://localhost:5000/cars?isRegister=1`)
-        .then(res => res.json())
-        .then(result => {
-          let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
-          setAllcars(newArray)
-        })
+    fetch(`http://localhost:5000/cars?isRegister=1`)
+      .then(res => res.json())
+      .then(result => {
+        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+        setAllcars(newArray)
+      })
   }
   const getAllcarsisNoRegistered = () => {
-      fetch(`http://localhost:5000/cars?isRegister=0`)
-        .then(res => res.json())
-        .then(result => {
-          let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
-          setAllcars(newArray)
-        })
+    fetch(`http://localhost:5000/cars?isRegister=0`)
+      .then(res => res.json())
+      .then(result => {
+        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+        setAllcars(newArray)
+      })
   }
 
   const filterPriceCars = () => {
-      let arrayPushedFilters = []
-      fetch(`http://localhost:5000/allBrands`)
+    let arrayPushedFilters = []
+    fetch(`http://localhost:5000/allBrands`)
       .then(res => res.json())
       .then(result => {
         result.filter(data => {
-          if(data.searchFilter){
+          if (data.searchFilter) {
             arrayPushedFilters.push(data.title)
           }
-          })
-          setFilteredValueBrand(arrayPushedFilters)
-          setShowFilteredBrand(false)
-          changeFilterdAction()
         })
+        setFilteredValueBrand(arrayPushedFilters)
+        setShowFilteredBrand(false)
+        changeFilterdAction()
+      })
   }
 
   const changeFilterdAction = () => {
@@ -143,7 +144,7 @@ export default function AdminCars() {
   }, [])
 
   //chageInputBranding
-  const chageInputBranding = (e , id) => {
+  const chageInputBranding = (e, id) => {
     let itemValue = e.target.checked
     fetch(`http://localhost:5000/allBrands/${id}`, {
       method: "PATCH",
@@ -261,37 +262,7 @@ export default function AdminCars() {
               Filter Brand
             </button>
             {/* Filter */}
-            <div onClick={() => setShowFiltered(prevstate => !prevstate)} className='w-[200px]'>
-              <div className='w-[200px] bg-[#cccccc] cursor-pointer h-[42px] px-[5px] border  border-bg-[#cccccc] flex justify-between items-center'>
-                <div className='flex items-center'>
-                  <span className='text-black/70 line-clamp-1'>{filteredValue}</span>
-                </div>
-                <div className='bg-[#cccccc] w-5 h-5 flex items-center justify-center rounded-full'>
-                  <SlArrowDown />
-                </div>
-              </div>
-
-              <div className={`bg-[#cccccc] absolute h-[200px] overflow-auto flex-col z-10 w-[200px] child:px-[5px] child:py-2 child:cursor-pointer text-black/70 child:transition-all child:duration-300 border border-white ${showFiltered ? 'flex' : 'hidden'}`}>
-                <div onClick={() => setFilteredValue("Default")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
-                  <span className={`line-clamp-1`} >Default</span>
-                </div>
-                <div onClick={() => setFilteredValue("Old registration")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
-                  <span className={`line-clamp-1`} >Old registration</span>
-                </div>
-                <div onClick={() => setFilteredValue("Price High to Low")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
-                  <span className={`line-clamp-1`} >Price High to Low</span>
-                </div>
-                <div onClick={() => setFilteredValue("Price Low to High")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
-                  <span className={`line-clamp-1`} >Price Low to High</span>
-                </div>
-                <div onClick={() => setFilteredValue("Is Register")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
-                  <span className={`line-clamp-1`} >Is Register</span>
-                </div>
-                <div onClick={() => setFilteredValue("Is No Register")} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' >
-                  <span className={`line-clamp-1`} >Is No Register</span>
-                </div>
-              </div>
-            </div>
+            <FilterBar setShowFiltered={setShowFiltered} showFiltered={showFiltered} setFilteredValue={setFilteredValue} filteredValue={filteredValue} />
             {/* Filter */}
 
           </div>
@@ -395,14 +366,8 @@ export default function AdminCars() {
       </div>
 
       {/* info cars */}
-
-      <div onClick={() => setShowInfoCar(false)} className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${showInfoCar ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
-        <div className='flex h-screen z-50 justify-center items-center '>
-          <div onClick={(e) => {
-            e.stopPropagation()
-          }} className='flex flex-col z-50 w-auto m-4 sm:w-[750px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <p className='text-orangeCus2 font-bold text-[25px]'>{infocar.title} Info</p>
-            <div className='flex items-center gap-12 mt-2'>
+      <Modal width="w-[850px]" height="h-auto" closedBox={showInfoCar} setClosedBox={setShowInfoCar} title={`${infocar.title} Info`}>
+      <div className='flex items-center gap-12 mt-2'>
               {infocar.cover && (
                 <div className='grid grid-cols-2 gap-3'>
                   {infocar.cover.map((car) => (
@@ -445,186 +410,105 @@ export default function AdminCars() {
               </div>
 
             </div>
-            <button onClick={() => {
-              setShowInfoCar(false)
-            }} className='bg-green-600 mt-3 p-2 rounded-md'>Ok</button>
-          </div>
-        </div>
-      </div>
+      </Modal>
 
       {/* is body */}
-      <div onClick={() => setShowBody(false)} className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${showBody ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
-        <div className='flex h-screen z-50 justify-center items-center '>
-          <div onClick={(e) => {
-            e.stopPropagation()
-          }} className='flex flex-col z-50 w-auto m-4 sm:w-[700px] overflow-auto p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <div className='flex items-center justify-between'>
-              <p className='text-orangeCus2 font-bold text-[25px]'>{infocar.title} body</p>
-              <div onClick={() => setEditBodyMode(prevstate => !prevstate)} className='bg-purple-500 font-bold text-[25px] p-3 flex justify-center items-center rounded-lg cursor-pointer'><FaRegEdit /></div>
-            </div>
-            {editBodyMode ? (
-              <textarea value={body} onChange={(e) => setBody(e.target.value)} className='text-[20px] text-black mt-5 h-[300px] overflow-auto'></textarea>
-            ) : (
-              <p className='text-[20px] mt-5 h-[300px] overflow-auto'>{body}</p>
-            )}
-            {editBodyMode && (
-              <button onClick={updateBody} className='bg-purple-500 w-full p-2 mt-4 rounded-lg'>
-                Update
-              </button>
-            )}
-            <button onClick={() => setShowBody(false)} className='bg-green-500 w-full p-2 mt-2 rounded-lg'>
-              ok
-            </button>
-          </div>
+      <Modal width="w-[650px]" height="h-auto" closedBox={showBody} setClosedBox={setShowBody} title={`${infocar.title} body`}>
+        <div className='flex items-center justify-between'>
+          <div onClick={() => setEditBodyMode(prevstate => !prevstate)} className='bg-purple-500 font-bold text-[25px] p-3 flex justify-center items-center rounded-lg cursor-pointer'><FaRegEdit /></div>
         </div>
-      </div>
+        {editBodyMode ? (
+          <textarea value={body} onChange={(e) => setBody(e.target.value)} className='text-[20px] text-black mt-5 h-[300px] overflow-auto'></textarea>
+        ) : (
+          <p className='text-[20px] mt-5 h-[300px] overflow-auto'>{body}</p>
+        )}
+        {editBodyMode && (
+          <button onClick={updateBody} className='bg-purple-500 mx-6 p-2 mt-4 rounded-lg'>
+            Update
+          </button>
+        )}
+      </Modal>
+
 
       {/* is regestired */}
-      <div onClick={() => setShowIsRegestr(false)} className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${showIsRegestr ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
-        <div className='flex h-screen z-50 justify-center items-center '>
-          <div onClick={(e) => {
-            e.stopPropagation()
-          }} className='flex flex-col z-50 w-auto m-4 sm:w-[400px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <p className='text-orangeCus2 font-bold text-[25px]'>{infocar.title} registration</p>
-            <p className='text-[20px] mt-5'>Do you intend to register the carInfo?</p>
-            <div className='flex gap-4 mt-5'>
-              <button onClick={registeredCar} className='bg-green-600 w-full p-2 rounded-lg'>
-                Yes
-              </button>
-              <button onClick={() => setShowIsRegestr(false)} className='bg-red-600 w-full p-2 rounded-lg'>
-                No
-              </button>
-            </div>
-          </div>
+      <Modal width="w-[400px]" height="h-auto" closedBox={showIsRegestr} setClosedBox={setShowIsRegestr} title={`${infocar.title} registration`}>
+        <p className='text-[20px] mt-5'>Do you intend to register the carInfo?</p>
+        <div className='flex gap-4 mt-5'>
+          <button onClick={registeredCar} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+            Yes
+          </button>
         </div>
-      </div>
+      </Modal>
 
       {/* is regestired No */}
-      <div onClick={() => setShowIsRegestrNo(false)} className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${showIsRegestrNo ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
-        <div className='flex h-screen z-50 justify-center items-center '>
-          <div onClick={(e) => {
-            e.stopPropagation()
-          }} className='flex flex-col z-50 w-auto m-4 sm:w-[400px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <p className='text-orangeCus2 font-bold text-[25px]'>{infocar.title} registration</p>
-            <p className='text-[20px] mt-5'>Do you intend to cancel register the carInfo?</p>
-            <div className='flex gap-4 mt-5'>
-              <button onClick={registeredCarNo} className='bg-green-600 w-full p-2 rounded-lg'>
-                Yes
-              </button>
-              <button onClick={() => setShowIsRegestrNo(false)} className='bg-red-600 w-full p-2 rounded-lg'>
-                No
-              </button>
-            </div>
-          </div>
+      <Modal width="w-[400px]" height="h-auto" closedBox={showIsRegestrNo} setClosedBox={setShowIsRegestrNo} title={`${infocar.title} registration`}>
+        <p className='text-[20px] mt-5'>Do you intend to cancel register the carInfo?</p>
+        <div className='flex gap-4 mt-5'>
+          <button onClick={registeredCarNo} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+            Yes
+          </button>
         </div>
-      </div>
+      </Modal>
 
       {/* is Deleted */}
-      <div onClick={() => {
-        setDeleteCarShow(false)
-      }} className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${DeleteCarShow ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
-        <div className='flex h-screen z-50 justify-center items-center '>
-          <div onClick={(e) => {
-            e.stopPropagation()
-          }} className='flex flex-col z-50 w-auto m-4 sm:w-[400px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <p className='text-orangeCus2 font-bold text-[25px]'>Delete {infocar.title}</p>
-            <p className='text-[20px] mt-5'>Do you intend to Delete a Car?</p>
-            <div className='flex gap-4 mt-5'>
-              <button onClick={deleteCar} className='bg-green-600 w-full p-2 rounded-lg'>
-                Yes
-              </button>
-              <button onClick={() => setDeleteCarShow(false)} className='bg-red-600 w-full p-2 rounded-lg'>
-                No
-              </button>
-            </div>
-          </div>
+      <Modal width="w-[400px]" height="h-auto" closedBox={DeleteCarShow} setClosedBox={setDeleteCarShow} title={`Delete ${infocar.title}`}>
+        <p className='text-[20px] mt-5'>Do you intend to Delete a Car?</p>
+        <div className='flex gap-4 mt-5'>
+          <button onClick={deleteCar} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+            Yes
+          </button>
         </div>
-      </div>
+      </Modal>
+
 
       {/*updated Car*/}
-      <div onClick={() => {
-        setUpdateCarShow(false)
-      }} className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${updateCarShow ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
-        <div className='flex h-screen z-50 justify-center items-center '>
-          <div onClick={(e) => {
-            e.stopPropagation()
-          }} className='flex flex-col z-50 w-[550px] m-4 p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <p className='text-orangeCus2 font-bold text-[25px]'>Update {infocar.title} Info</p>
-            <p className='text-[20px] mt-5'>Do you want to change the price?</p>
-            {infocar.price && (
-              <div className='grid grid-cols-2 mt-5'>
-                <div className='flex flex-col gap-2 items-center'>
-                  <label htmlFor="priceOffer">priceOffer</label>
-                  <input type="text" className='text-black p-2 outline-none rounded-md' id='priceOffer' name='priceOffer' value={priceOfferUppdated} onChange={(e) => !isNaN(e.target.value) && setPriceOfferUppdated(e.target.value)} />
-                </div>
-                <div className='flex flex-col gap-2 items-center'>
-                  <label htmlFor="price">price</label>
-                  <input type="text" className='text-black p-2 outline-none rounded-md' id='price' name='price' value={priceUppdated} onChange={(e) => !isNaN(e.target.value) && setPriceUppdated(e.target.value)} />
-                </div>
+      <Modal width="w-[650px]" height="h-auto" closedBox={updateCarShow} setClosedBox={setUpdateCarShow} title={`Update ${infocar.title} Info`}>
+        <p className='text-[20px] mt-5'>Do you want to change the price?</p>
+        {infocar.price && (
+          <div className='grid grid-cols-2 mt-5'>
+            <div className='flex flex-col gap-2 items-center'>
+              <label htmlFor="priceOffer">priceOffer</label>
+              <input type="text" className='text-black p-2 outline-none rounded-md' id='priceOffer' name='priceOffer' value={priceOfferUppdated} onChange={(e) => !isNaN(e.target.value) && setPriceOfferUppdated(e.target.value)} />
+            </div>
+            <div className='flex flex-col gap-2 items-center'>
+              <label htmlFor="price">price</label>
+              <input type="text" className='text-black p-2 outline-none rounded-md' id='price' name='price' value={priceUppdated} onChange={(e) => !isNaN(e.target.value) && setPriceUppdated(e.target.value)} />
+            </div>
 
-              </div>
-            )}
-            <div className='flex gap-4 mt-4'>
-              <button onClick={UpdatePriceCars} className='bg-green-600 w-full p-2 rounded-lg'>
-                Update
-              </button>
-            </div>
-            <div className='flex gap-4 mt-2'>
-              <button onClick={() => setUpdateCarShow(false)} className='bg-red-600 w-full p-2 rounded-lg'>
-                Cancel
-              </button>
-            </div>
           </div>
+        )}
+        <div className='flex gap-4 mt-4'>
+          <button onClick={UpdatePriceCars} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+            Update
+          </button>
         </div>
-      </div>
+      </Modal>
 
 
       {/*filter brand Car*/}
-      <div onClick={() => {
-        setShowFilteredBrand(false)
-      }} className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${showFilteredBrand ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
-        <div className='flex h-screen z-50 justify-center items-center '>
-          <div onClick={(e) => {
-            e.stopPropagation()
-          }} className='flex flex-col z-50 w-[650px] m-4 p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <p className='text-orangeCus2 font-bold text-[25px]'>Filter Brand {infocar.title} Info</p>
-            <p className='text-[20px] mt-5'>Choose your brands.</p>
-            <div className='grid grid-cols-3 gap-4 mt-4'>
-              {allBrands.map((brand) => (
-                <div className='flex items-center gap-2' key={brand.id}>
-                  <input type="checkbox" className="w-[14px] h-[14px] accent-orangeCus" defaultChecked={brand.searchFilter} onChange={(e) => chageInputBranding(e , brand.id)} />
-                  <img className='w-[20px] h-[20px]' src={brand.cover} alt="img" />
-                  <p className='text-xl'>{brand.title}</p>
-                </div>
-              ))}
+      <Modal width="w-[650px]" height="h-auto" closedBox={showFilteredBrand} setClosedBox={setShowFilteredBrand} title="Filter Brand Info">
+        <p className='text-[20px] mt-5'>Choose your brands.</p>
+        <div className='grid grid-cols-3 gap-4 mt-4'>
+          {allBrands.map((brand) => (
+            <div className='flex items-center gap-2' key={brand.id}>
+              <input type="checkbox" className="w-[14px] h-[14px] accent-orangeCus" defaultChecked={brand.searchFilter} onChange={(e) => chageInputBranding(e, brand.id)} />
+              <img className='w-[20px] h-[20px]' src={brand.cover} alt="img" />
+              <p className='text-xl'>{brand.title}</p>
+            </div>
+          ))}
 
-            </div>
-            <div className='flex gap-4 mt-4'>
-              <button onClick={filterPriceCars} className='bg-green-600 w-full p-2 rounded-lg'>
-                Filter
-              </button>
-            </div>
-            <div className='flex gap-4 mt-2'>
-              <button onClick={() => setShowFilteredBrand(false)} className='bg-red-600 w-full p-2 rounded-lg'>
-                Cancel
-              </button>
-            </div>
-          </div>
         </div>
-      </div>
+        <div className='flex gap-4 mt-4'>
+          <button onClick={filterPriceCars} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+            Filter
+          </button>
+        </div>
+      </Modal>
 
       {/* Add New Car */}
-      <div className={`bg-black/40 fixed font-medium inset-0 w-full h-full z-50 transition-all  ${showAddNewCar ? 'visible opacity-100' : 'opacity-0 invisible'}`}>
-        <div className='flex h-screen z-50 justify-center items-center '>
-          <div className='flex flex-col z-50 w-[1150px] overflow-auto h-[550px] m-4 p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-            <p className='text-orangeCus2 font-bold text-[25px]'>Add Car</p>
-           <AddCars />
-              <button onClick={() => setShowAddNewCar(false)} className='bg-red-600 w-full p-2 rounded-lg'>
-                Cancel
-              </button>
-          </div>
-        </div>
-      </div>
+      <Modal width="w-[1300px]" height="h-[550px]" closedBox={showAddNewCar} setClosedBox={setShowAddNewCar} title="Add Car">
+        <AddCars getAllCars={getAllCars} />
+      </Modal>
 
     </>
   )
