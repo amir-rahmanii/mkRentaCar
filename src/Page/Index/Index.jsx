@@ -49,7 +49,6 @@ export default function Index() {
     getallbrands()
     getallcartype()
     getallcars()
-
   }, [])
 
   return (

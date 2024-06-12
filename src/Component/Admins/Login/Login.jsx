@@ -1,25 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useContext } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import AuthContext from '../../../Context/AuthContext';
 
 export default function Login() {
 
-  const [allInfoAdmin , setAllInfoAdmin] = useState([])
-  let navigate = useNavigate()
+  const [allUsers, setAllUsers] = useState([])
+  const [showErrorMessage, setshowErrorMessage] = useState(false)
+  const authContext = useContext(AuthContext)
+
+
+  const getAllUsers = () => {
+    fetch(`http://localhost:5000/users`)
+      .then(res => res.json())
+      .then((result) => {
+        setAllUsers(result)
+      })
+  }
 
   useEffect(() => {
-     fetch(`http://localhost:5000/admin`)
-     .then(res => res.json())
-     .then((result) => {
-      setAllInfoAdmin(result[0])
-      console.log(result[0]);
-     })
-  } , [])
+    getAllUsers()
+  }, [])
 
   return (
     <div className="bg-[url('/images/admin/banner.png')] bg-cover h-screen bg-[center_top] w-full aspect-[2/1] bg-no-repeat flex flex-col items-center  text-white font-light">
-      <img className='w-[132px] h-[50px] mt-16' src="https://mkrentacar.com/public/assets/images/logo.png" alt="img" />
-      <p className='my-4 text-[15px]/[22.5px]'>Admin Login</p>
+      <Link to='/'><img className='w-[132px] h-[50px] mt-16' src="https://mkrentacar.com/public/assets/images/logo.png" alt="img" /></Link>
+      <p className='my-4 text-[15px]/[22.5px]'>Login</p>
       <Formik
         initialValues={{ email: "", password: "" }}
         validate={(values) => {
@@ -37,12 +43,16 @@ export default function Login() {
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
-          if(values.email == allInfoAdmin.email && values.password == allInfoAdmin.password){
-            console.log(values);
-            let newAdminInfo = {email : values.email , password : values.password}
-            localStorage.setItem("admin" ,JSON.stringify(newAdminInfo))
-            navigate('/dashbord')
-          }
+          allUsers.filter((data) => {
+            if (data.email == values.email && data.password == values.password) {
+              authContext.login(data , data.token)
+              window.location.href = "/";
+            }else{
+              setshowErrorMessage(true)
+            }
+          })
+
+
         }}
       >
         {({ isSubmitting }) => (
@@ -67,8 +77,17 @@ export default function Login() {
             <button className='bg-[#45CB85] text-[15px]/[19px] text-white px-[14px] py-2 cursor-pointer mt-7 rounded-md transition-all duration-300 hover:bg-[#3aa76f]' type="submit" disabled={isSubmitting}>
               Sign in
             </button>
+            {showErrorMessage && (
+              <p className='text-red-600 text-[16px]/[19px] pt-1'>Please enter Email and Password Correctly</p>
+            )}
+            <div className='border border-[#003ABC] rounded-full mt-8'>
+              <Link className='text-[#003ABC]' to='/register'>
+                <p className='text-center py-3'>Create an account</p>
+              </Link>
+            </div>
           </Form>
         )}
+
       </Formik>
     </div>
   )

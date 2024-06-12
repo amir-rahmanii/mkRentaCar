@@ -1,34 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Sidebar from '../../../Component/Admins/Sidebar/Sidebar'
 import { Outlet } from 'react-router-dom'
 import Header from '../../../Component/Admins/Header/Header'
+import AuthContext from '../../../Context/AuthContext'
+import Error404 from '../../Error404/Error404'
 
 export default function Dashbord() {
-    const [allinfoAdmin, setAllInfoAdmin] = useState(null)
+    const authContext = useContext(AuthContext);
 
-    useEffect(() => {
-        let staorageItem = localStorage.getItem('admin')
-        if (staorageItem == null) {
-            setAllInfoAdmin(null)
-        } else {
-            setAllInfoAdmin(JSON.parse(staorageItem))
-        }
-    }, [])
     return (
         <>
-
-            {allinfoAdmin == null ? (
-                <h3 className='text-center'>Eror 404</h3>
-            ) : (
-                <div className='flex h-screen w-full'>
-                    <div>
-                        <Sidebar />
-                    </div>
-                    <div className='w-full'> 
-                        <Header />
-                        <Outlet />
-                    </div>
+            {authContext.userInfo[0] ? (
+                <div>
+                    {authContext.userInfo[0].role == "user"  ? (
+                        <Error404 />
+                    ) : (
+                        <div className='flex h-screen w-full'>
+                            <div>
+                                <Sidebar />
+                            </div>
+                            <div className='w-full'>
+                                <Header />
+                                <Outlet />
+                            </div>
+                        </div>
+                    )}
                 </div>
+            ) : (
+                <Error404 />
             )}
 
         </>

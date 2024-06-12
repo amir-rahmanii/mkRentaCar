@@ -1,14 +1,25 @@
-import React, { useState } from 'react'
-import { SlArrowDown } from "react-icons/sl";
+import React, { useState, useContext } from 'react'
 import { BsTelephone } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
 import InputLanguage from '../InputLanguage/InputLanguage';
+import AuthContext from '../../Context/AuthContext';
+import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdArrowDropleft } from "react-icons/io";
+import { HiOutlineLogout } from "react-icons/hi";
 
 export default function Header() {
     const [showBorderInputSearch, setshowBorderInputSearch] = useState(false)
+    const [showWidgetAuth, setShowWidgetAuth] = useState(false)
+    const authContext = useContext(AuthContext)
+
+    const logOutHandler = () => {
+        authContext.logout();
+        window.location.href = "/";
+    }
+
 
     return (
         <>
@@ -45,9 +56,27 @@ export default function Header() {
                             </div>
 
                             {/* Book Now */}
-                            <Button link='#' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px]'>
-                                <span>Book Now</span>
-                            </Button>
+                            {authContext.isLoggedIn ? (
+                                <div className='relative' onClick={() => setShowWidgetAuth(prevstate => !prevstate)}>
+                                    <Button link='#' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] gap-2'>
+                                        <span>{authContext.userInfo[0].username}</span>
+                                        <IoMdArrowDropdown />
+                                    </Button>
+                                    {showWidgetAuth && (
+                                            <button onClick={logOutHandler} className='bg-red-700 absolute top-[40px] text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5'>
+                                                LOG OUT
+                                                <div className='text-[13px]'>
+                                                    <HiOutlineLogout />
+                                                </div>
+                                            </button>
+                                    )}
+                                </div>
+                            ) : (
+                                <Button link='/login' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px]'>
+                                    <span>Sign in</span>
+                                </Button>
+                            )}
+
 
                         </div>
                     </div>
@@ -67,9 +96,28 @@ export default function Header() {
                         </Link>
                         <div>
                             {/* Book Now */}
-                            <Button link='#' classes='bg-neutral-700 text-[10px]/[29px] w-[100px] px-[15px] tracking-[1px]'>
-                                <span>BOOK NOW</span>
-                            </Button>
+                            {authContext.isLoggedIn ? (
+
+                                <div className=' flex justify-center gap-2 items-center' onClick={() => setShowWidgetAuth(prevstate => !prevstate)}>
+                                    {showWidgetAuth && (
+                                        <button onClick={logOutHandler}  className='bg-red-700 text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5'>
+                                            LOG OUT
+                                            <div className='text-[13px]'>
+                                                <HiOutlineLogout />
+                                            </div>
+                                        </button>
+                                    )}
+                                    <Button link='#' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] gap-2'>
+                                        <IoMdArrowDropleft />
+                                        <span>{authContext.userInfo[0].username}</span>
+                                    </Button>
+
+                                </div>
+                            ) : (
+                                <Button link='/login' classes='bg-neutral-700 text-[10px]/[29px] w-[100px] px-[15px] tracking-[1px]'>
+                                    <span>Sign in</span>
+                                </Button>
+                            )}
                         </div>
                     </div>
                 </div>

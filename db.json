@@ -4949,11 +4949,26 @@
       "dateFull": "2024-06-14T20:30:00.000Z"
     }
   ],
-  "admin": [
+  "users": [
     {
-      "id": "1",
+      "id": "f1bc0ccd-fce8-45f5-b134-8cd0778960f3",
+      "username": "hamidreza",
+      "email": "hamidreza11833@gmail.com",
+      "password": "12345678",
+      "cellNumber": "09123452341",
+      "token": "ce99b7ba-5360-4229-a90d-241dc93f84b4",
+      "role": "user",
+      "registeredRent": []
+    },
+    {
+      "id": "2542c63e-cd22-4e8d-9e1f-d1b3acfb6e1e",
+      "username": "amiwrr",
       "email": "amirbabble@gmail.com",
-      "password": "12345678"
+      "password": "12345678",
+      "cellNumber": "09233133131",
+      "token": "0642cded-bf9a-4d07-b435-49d633294dce",
+      "role": "user",
+      "registeredRent": []
     }
   ]
 }
