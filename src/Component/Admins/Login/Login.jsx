@@ -1,6 +1,6 @@
-import React, { useEffect, useState , useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AuthContext from '../../../Context/AuthContext';
 
 export default function Login() {
@@ -33,21 +33,25 @@ export default function Login() {
           if (!values.email) {
             errors.email = "Required";
           } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+            !/^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm.test(values.email)
           ) {
             errors.email = "Invalid email address";
           }
           if (!values.password) {
             errors.password = "Required";
+          } else if (
+            !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/gm.test(values.password)
+          ) {
+            errors.password = "Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one special character:";
           }
           return errors;
         }}
         onSubmit={(values, { setSubmitting }) => {
           allUsers.filter((data) => {
             if (data.email == values.email && data.password == values.password) {
-              authContext.login(data , data.token)
+              authContext.login(data, data.token)
               window.location.href = "/";
-            }else{
+            } else {
               setshowErrorMessage(true)
             }
           })

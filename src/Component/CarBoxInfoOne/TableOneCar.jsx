@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { SlArrowDown } from "react-icons/sl";
 import MyCalendar from './MyCalendar';
-import Button from '../Button/Button';
 import { v4 as uuidv4 } from 'uuid';
 import { Link, useNavigate } from 'react-router-dom';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import AuthContext from '../../Context/AuthContext';
+import Modal from '../Admins/Modal/Modal'
 
 export default function TableOneCar({ oneBrand, allCars }) {
     const [oneBrands, setOneBrands] = useState(oneBrand)
@@ -16,12 +16,15 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const [countreyCodesSaerched, setCountreyCodesSaerched] = useState([])
     const [countryDialCode, setCountryDialCode] = useState("+93")
     const [searchValue, setSearchValue] = useState('')
+    const [showMessageErrorLogin, SetShowMessageErrorLogin] = useState(false)
 
     //for Date
     const [fullYear, setFullYear] = useState(new Date())
     const [showSubmitRegestrid, setShowSubmitRegestrid] = useState(false)
 
     const navigate = useNavigate();
+    const authContext = useContext(AuthContext)
+
 
     const getallbrand = () => {
         fetch(`http://localhost:5000/allBrands?href=${oneBrands}`)
@@ -50,13 +53,55 @@ export default function TableOneCar({ oneBrand, allCars }) {
         setCountreyCodesSaerched(searchFiltered)
     }, [searchValue])
 
-    const handleKeyTelephone = (e) => {
-        if ((!(e.key >= '0' && e.key <= '9') && !(e.key == 'Backspace'))) {
-            e.preventDefault()
-        }
-        console.log(e.key);
-    }
+    const addRentalCar = () => {
+        if (authContext.isLoggedIn) {
+            let newObj = {
+                id: uuidv4(),
+                name: authContext.userInfo[0].username,
+                telephone: authContext.userInfo[0].cellNumber,
+                email: authContext.userInfo[0].email,
+                carType: allCars.carType,
+                carName: allCars.title,
+                carBrand: oneBrandsInfo.title,
+                carimg: allCars.cover[0].img,
+                price: allCars.price,
+                countryCode: countryDialCode,
+                country: countryCodeValue,
+                register: 0,
+                dateFull: fullYear
+            }
+            fetch(`http://localhost:5000/registeredRent`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newObj)
+            })
+                .then((res) => {
+                    if (res.status === 201) {
+                        setShowSubmitRegestrid(true)
+                    }
+                })
 
+            fetch(`http://localhost:5000/users/${authContext.userInfo[0].id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    registeredRent : [newObj]
+            })
+            })
+                .then((res) => {
+                    if (res.status === 201) {
+                        setShowSubmitRegestrid(true)
+                    }
+                })
+
+        } else {
+            SetShowMessageErrorLogin(true);
+        }
+    }
 
 
     return (
@@ -75,129 +120,50 @@ export default function TableOneCar({ oneBrand, allCars }) {
                     <div className='border border-orangeCus mt-[30px]'>
                         <p className='p-[25px] text-[19px]/[22.8px] text-orangeCus'>SEND ENQUIRY</p>
                         <div>
-                            <Formik
-                                initialValues={{ name: '', telephone: '', email: '' }}
-                                validate={values => {
-                                    const errors = {};
-                                    if (!values.email) {
-                                        errors.email = 'Required';
-                                    } else if (
-                                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                                    ) {
-                                        errors.email = 'Invalid email address';
-                                    }
+                            <div className='flex flex-col items-center gap-6 w-full p-[25px] text-base' >
+                                {/* Contry code */}
+                                <div className='relative w-full'>
+                                    <div onClick={() => setShowCountryCode(prevstate => !prevstate)} className='w-full bg-white cursor-pointer h-[42px] px-[5px] border  border-white flex justify-between items-center'>
+                                        <div className='flex items-center'>
+                                            <span className='text-black/70 line-clamp-1'>{countryCodeValue}</span>
+                                            {countryDialCode && (
+                                                <span className='line-clamp-1 text-black/70'>({countryDialCode})</span>
+                                            )}
+                                        </div>
+                                        <div className='bg-white w-5 h-5 flex items-center justify-center rounded-full'>
+                                            <SlArrowDown />
+                                        </div>
+                                    </div>
 
-
-                                    if (!values.name) {
-                                        errors.name = 'Required';
-                                    } else if (!/^[A-Z]{2,25}$/i.test(values.name)) {
-                                        errors.name = 'Invalid name address';
-                                    }
-
-                                    if (!values.telephone) {
-                                        errors.telephone = 'Required';
-                                    } else if (!/^[0-9]{11}$/i.test(values.telephone)) {
-                                        errors.telephone = 'Invalid telephone address';
-                                    }
-
-
-                                    return errors;
-                                }}
-                                onSubmit={(values, { setSubmitting }) => {
-
-                                    let newObj = {
-                                        id: uuidv4(),
-                                        name: values.name,
-                                        telephone: values.telephone,
-                                        email: values.email,
-                                        carType: allCars.carType,
-                                        carName: allCars.title,
-                                        carBrand: oneBrandsInfo.title,
-                                        carimg: allCars.cover[0].img,
-                                        price: allCars.price,
-                                        countryCode: countryDialCode,
-                                        country: countryCodeValue,
-                                        register: 0,
-                                        dateFull: fullYear
-                                    }
-                                    fetch(`http://localhost:5000/registeredRent`, {
-                                        method: "POST",
-                                        headers: {
-                                            "Content-Type": "application/json"
-                                        },
-                                        body: JSON.stringify(newObj)
-                                    })
-                                        .then((res) => {
-                                            console.log(res);
-                                            if (res.status === 201) {
-                                                setShowSubmitRegestrid(true)
-                                                values.name = ""
-                                                values.telephone = ""
-                                                values.email = ""
-                                            }
-                                        })
-
-
-                                }}
-                            >
-                                {({ isSubmitting }) => (
-                                    <Form className='flex flex-col items-center gap-6 w-full p-[25px] text-base' >
-                                        <Field className="px-4 py-2.5 w-full text-black/70 outline-none" type="text" name="name" placeholder='Name' />
-                                        <ErrorMessage className='text-red-600' name="name" component="div" />
-
-
-
-                                        {/* Contry code */}
-                                        <div className='relative w-full'>
-                                            <div onClick={() => setShowCountryCode(prevstate => !prevstate)} className='w-full bg-white cursor-pointer h-[42px] px-[5px] border  border-white flex justify-between items-center'>
-                                                <div className='flex items-center'>
-                                                    <span className='text-black/70 line-clamp-1'>{countryCodeValue}</span>
-                                                    {countryDialCode && (
-                                                        <span className='line-clamp-1 text-black/70'>({countryDialCode})</span>
+                                    <div className={`${showCountryCode ? 'block' : 'hidden'} bg-white absolute overflow-auto flex-col z-10 w-full h-[210px] child:px-[5px] child:py-1 child:cursor-pointer text-black/70 child:transition-all child:duration-300 border border-white`}>
+                                        <div className='border border-black/70 m-2'>
+                                            <input className='w-full outline-none' type="text" placeholder='Search' onChange={(e) => setSearchValue(e.target.value)} />
+                                        </div>
+                                        <div>
+                                            {countreyCodesSaerched.map((code, index) => (
+                                                <div onClick={() => {
+                                                    setCountryCodeValue(code.name)
+                                                    setCountryDialCode(code.dial_code)
+                                                    setShowCountryCode(false)
+                                                }} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' key={index}>
+                                                    <img loading='lazy' className='w-5 h-7 xl:w-7 xl:h-8' src={code.image} alt="img" />
+                                                    <span className={`${countryCodeValue == code.name ? 'text-red-600' : ''} line-clamp-1`}>{code.name}</span>
+                                                    {code.dial_code && (
+                                                        <span className='line-clamp-1'>({code.dial_code})</span>
                                                     )}
                                                 </div>
-                                                <div className='bg-white w-5 h-5 flex items-center justify-center rounded-full'>
-                                                    <SlArrowDown />
-                                                </div>
-                                            </div>
-
-                                            <div className={`${showCountryCode ? 'block' : 'hidden'} bg-white absolute overflow-auto flex-col z-10 w-full h-[210px] child:px-[5px] child:py-1 child:cursor-pointer text-black/70 child:transition-all child:duration-300 border border-white`}>
-                                                <div className='border border-black/70 m-2'>
-                                                    <input className='w-full outline-none' type="text" placeholder='Search' onChange={(e) => setSearchValue(e.target.value)} />
-                                                </div>
-                                                <div>
-                                                    {countreyCodesSaerched.map((code, index) => (
-                                                        <div onClick={() => {
-                                                            setCountryCodeValue(code.name)
-                                                            setCountryDialCode(code.dial_code)
-                                                            setShowCountryCode(false)
-                                                        }} className='flex items-center gap-1 hover:bg-[#5897FB] hover:text-white' key={index}>
-                                                            <img loading='lazy' className='w-5 h-7 xl:w-7 xl:h-8' src={code.image} alt="img" />
-                                                            <span className={`${countryCodeValue == code.name ? 'text-red-600' : ''} line-clamp-1`}>{code.name}</span>
-                                                            {code.dial_code && (
-                                                                <span className='line-clamp-1'>({code.dial_code})</span>
-                                                            )}
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
+                                            ))}
                                         </div>
-                                        {/* Contry code */}
+                                    </div>
+                                </div>
+                                {/* Contry code */}
 
-                                        <Field className="px-4 py-2.5 w-full text-black/70 outline-none" type="text" onKeyDown={handleKeyTelephone} name="telephone" placeholder='telephone' />
-                                        <ErrorMessage className='text-red-600' name="telephone" component="div" />
+                                <MyCalendar fullYear={fullYear} setFullYear={setFullYear} />
 
-                                        <Field className="px-4 py-2.5 w-full text-black/70 outline-none" type="email" name="email" placeholder='Email' />
-                                        <ErrorMessage className='text-red-600' name="email" component="div" />
-
-                                        <MyCalendar fullYear={fullYear} setFullYear={setFullYear} />
-
-                                        <button className='bg-neutral-700 text-sm w-[160px] px-4 py-2.5 rounded-sm tracking-[1px] text-white hover:bg-orangeCus transition-all duration-300 flex items-center justify-center' type="submit" disabled={isSubmitting}>
-                                            Book Now
-                                        </button>
-                                    </Form>
-                                )}
-                            </Formik>
+                                <button onClick={addRentalCar} className='bg-neutral-700 text-sm w-[160px] px-4 py-2.5 rounded-sm tracking-[1px] text-white hover:bg-orangeCus transition-all duration-300 flex items-center justify-center' type="submit">
+                                    Book Now
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )
@@ -219,6 +185,11 @@ export default function TableOneCar({ oneBrand, allCars }) {
                     </div>
                 </div>
             </div>
+
+            {/* is Deleted */}
+            <Modal width="w-[400px]" height="h-auto" closedBox={showMessageErrorLogin} setClosedBox={SetShowMessageErrorLogin} title={`Login Or Register`}>
+                <p className='text-[20px] my-5'>To rent a car, you must first <Link className='text-[#188FFF] font-bold underline' to="/login">login</Link> or <Link className='text-[#188FFF] font-bold line underline' to="/register">register</Link> .</p>
+            </Modal>
         </>
     )
 }

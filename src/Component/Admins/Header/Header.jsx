@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useContext } from 'react'
 import { MdOutlineMessage } from "react-icons/md";
+import AuthContext from '../../../Context/AuthContext';
 
 export default function Header() {
   const [date, setDate] = useState(new Date())
@@ -7,6 +8,7 @@ export default function Header() {
   const [dateMonth, setDateMonth] = useState('')
   const [dateDate, setDateDate] = useState('')
   const [dateDay, setDateDay] = useState('')
+  const authContext = useContext(AuthContext)
   let week = ["Monday", "Tuesday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 
@@ -23,7 +25,7 @@ export default function Header() {
           <img className='w-[50px] h-[50px]' src='/images/adminImage/user.png'></img>
         </div>
         <div className='flex flex-col items-center text-orangeCus2 font-bold'>
-          <p>Amirreza Rahmani</p>
+          <p>{authContext.userInfo[0].username}</p>
         </div>
       </div>
 

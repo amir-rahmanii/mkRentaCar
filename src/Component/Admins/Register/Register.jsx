@@ -29,19 +29,23 @@ export default function Register() {
                     if (!values.username) {
                         errors.username = "Required";
                     } else if (!/^\w{6,15}$/i.test(values.username)) {
-                        errors.username = "Invalid username address";
+                        errors.username = "Minimum 6 characters and Maximum 15 characters ";
                     }
 
                     if (!values.email) {
                         errors.email = "Required";
                     } else if (
-                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                        !/^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm.test(values.email)
                     ) {
                         errors.email = "Invalid email address";
                     }
 
                     if (!values.password) {
                         errors.password = "Required";
+                    } else if (
+                        !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/gm.test(values.password)
+                    ) {
+                        errors.password = "Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one special character:";
                     }
                     return errors;
                 }}

@@ -11,6 +11,7 @@ import DashboardIndex from "./Page/Admin/DashboardIndex/DashboardIndex"
 import AdminCars from "./Page/Admin/AdminCars/AdminCars"
 import AdminCreateRegister from "./Page/Register/AdminCreateRegister"
 import Error404 from "./Page/Error404/Error404"
+import PanelUser from "./Page/PanelUser/PanelUser"
 
 
 
@@ -18,22 +19,25 @@ import Error404 from "./Page/Error404/Error404"
 
 
 let routes = [
-    {path : '/' , element : <Index />},
-    {path : '/all-cars' , element : <AllCars />},
-    {path : '/cars' , element : <Cars />  },
-    {path : '/cars/:type' , element : <CarInfos /> },
-    {path : '/cars/:type/:carInfo' , element : <CarsTypeCar /> },
-    {path : '/brands/:brand' , element : <CarBrand />},
-    {path : '/*' , element : <Error404 />},
+    { path: '/', element: <Index /> },
+    { path: '/all-cars', element: <AllCars /> },
+    { path: '/cars', element: <Cars /> },
+    { path: '/cars/:type', element: <CarInfos /> },
+    { path: '/cars/:type/:carInfo', element: <CarsTypeCar /> },
+    { path: '/brands/:brand', element: <CarBrand /> },
+    { path: '/*', element: <Error404 /> },
 
-    {path : '/login' , element : <AdminLogin />},
-    {path : '/Register' , element : <AdminCreateRegister />},
+    { path: '/login', element: <AdminLogin /> },
+    { path: '/Register', element: <AdminCreateRegister /> },
 
-    {path : '/dashbord' , element: <Dashbord /> , children : [
-        {path : '' , element : <DashboardIndex />},
-        {path : 'registers' , element : <AdminRegidters />},
-        {path : 'cars' , element : <AdminCars />},
-    ]}
+    { path: '/paneluser', element: <PanelUser /> },
+    {
+        path: '/dashbord', element: <Dashbord />, children: [
+            { path: '', element: <DashboardIndex /> },
+            { path: 'registers', element: <AdminRegidters /> },
+            { path: 'cars', element: <AdminCars /> },
+        ]
+    }
 ]
 
 

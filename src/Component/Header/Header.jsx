@@ -63,12 +63,18 @@ export default function Header() {
                                         <IoMdArrowDropdown />
                                     </Button>
                                     {showWidgetAuth && (
-                                            <button onClick={logOutHandler} className='bg-red-700 absolute top-[40px] text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5'>
+                                        <div className='absolute top-[40px] bg-black flex flex-col gap-1'>
+                                            <Link to={"/paneluser"} className='bg-orangeCus2 w-full text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
+                                                MY PANEL
+                                            </Link>
+                                            <button onClick={logOutHandler} className='bg-red-700 w-full  text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
                                                 LOG OUT
                                                 <div className='text-[13px]'>
                                                     <HiOutlineLogout />
                                                 </div>
                                             </button>
+
+                                        </div>
                                     )}
                                 </div>
                             ) : (
@@ -100,14 +106,19 @@ export default function Header() {
 
                                 <div className=' flex justify-center gap-2 items-center' onClick={() => setShowWidgetAuth(prevstate => !prevstate)}>
                                     {showWidgetAuth && (
-                                        <button onClick={logOutHandler}  className='bg-red-700 text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5'>
-                                            LOG OUT
-                                            <div className='text-[13px]'>
-                                                <HiOutlineLogout />
-                                            </div>
-                                        </button>
+                                        <div className='flex gap-2 items-center'>
+                                            <Link to={"/paneluser"} className='bg-orangeCus2 w-[80px] justify-center text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
+                                              PANEL
+                                            </Link>
+                                            <button onClick={logOutHandler} className='bg-red-700 w-[100px] justify-center text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
+                                                LOG OUT
+                                                <div className='text-[13px] hidden md:block'>
+                                                    <HiOutlineLogout />
+                                                </div>
+                                            </button>
+                                        </div>
                                     )}
-                                    <Button link='#' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] gap-2'>
+                                    <Button link='#' classes='bg-neutral-700 w-[80px] text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] gap-2'>
                                         <IoMdArrowDropleft />
                                         <span>{authContext.userInfo[0].username}</span>
                                     </Button>

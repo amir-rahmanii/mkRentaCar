@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Button from '../Button/Button'
 import { SlArrowDown } from "react-icons/sl";
 import SocialMedia from '../SocialMedia/SocialMedia';
@@ -8,12 +8,14 @@ import InputLanguage from '../InputLanguage/InputLanguage';
 import { FaXmark } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
+import AuthContext from '../../Context/AuthContext';
 
 export default function Menu() {
   const [showNavBarMobile, setShowNavBarMobile] = useState(false)
   const [showSubNenuOurCars, setshowSubNenuOurCars] = useState(false)
   const [showSubNenuCarBrans, setshowSubNenuCarBrans] = useState(false)
   const [allMenuItem, setAllMenuItem] = useState([])
+  const authContext = useContext(AuthContext)
 
 
 
@@ -71,8 +73,18 @@ export default function Menu() {
                     </ul>
                   )}
                 </li>
-
               ))}
+              {authContext.userInfo[0] && (
+                <>
+                  {authContext.userInfo[0].role == "admin" && (
+                    <li className='pb-0.5'>
+                      <Button link="/dashbord" classes={`text-[15px]/[22.5px]  tracking-[0.375px] py-2  px-[13px] lg:px-[15px]`}>
+                        <span>DASHBORD</span>
+                      </Button>
+                    </li>
+                  )}
+                </>
+              )}
             </ul>
 
             {/* Social Media */}
@@ -152,8 +164,15 @@ export default function Menu() {
 
 
             ))}
-
-
+            {authContext.userInfo[0] && (
+              <>
+                {authContext.userInfo[0].role == "admin" && (
+                     <li className='py-2.5 border-b border-[#393939]' >
+                       <Link to={'/dashbord'} className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]`}>DASHBORD</Link>
+                     </li>
+                )}
+              </>
+            )}
           </ul>
 
         </div>

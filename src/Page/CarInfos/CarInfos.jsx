@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Header from '../../Component/Header/Header'
 import Menu from '../../Component/Menu/Menu'
 import Footer from '../../Component/Footer/Footer'
@@ -13,19 +13,18 @@ export default function CarInfos() {
     const [allCars, setAllCars] = useState([])
     const [allBrands, setAllBrands] = useState([])
     const params = useParams()
-    const [randomBanerForCarType , setRandomBanerForCarType] = useState('')
-    
-    
-    
+    const [randomBanerForCarType, setRandomBanerForCarType] = useState('')
+
+
+
     const getonerandomBanerForCarType = () => {
         let randomNumber = Math.floor(Math.random() * 6);
         fetch(`http://localhost:5000/randomBanerForCarType`)
-        .then(res => res.json())
-        .then(result => {
-            setRandomBanerForCarType(result[randomNumber].img)
-        })
+            .then(res => res.json())
+            .then(result => {
+                setRandomBanerForCarType(result[randomNumber].img)
+            })
     }
-
 
     const getallbrands = () => {
         fetch(`http://localhost:5000/allBrands`)
@@ -47,7 +46,7 @@ export default function CarInfos() {
     useEffect(() => {
         getallbrands()
     }, [])
-    
+
     useEffect(() => {
         getallcars()
         getonerandomBanerForCarType()
