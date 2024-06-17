@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
 import './AddCars.css'
 
-export default function AddCars({getAllCars }) {
+export default function AddCars({ getAllCars }) {
     //allTypeCars
     const [allTypeCars, setAllTypeCars] = useState([])
     const [hrefCarTypeValue, sethrefCarTypeValue] = useState('-1')
@@ -119,7 +119,7 @@ export default function AddCars({getAllCars }) {
 
                     return errors;
                 }}
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(values, { resetForm }) => {
 
                     let newObj = {
                         id: uuidv4(),
@@ -195,6 +195,8 @@ export default function AddCars({getAllCars }) {
                             setShowAddNewCar(false)
                             getAllCars()
                         })
+
+                    resetForm();
 
 
                 }}

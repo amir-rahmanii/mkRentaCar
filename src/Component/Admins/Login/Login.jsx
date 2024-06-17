@@ -46,7 +46,7 @@ export default function Login() {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        onSubmit={(values, {resetForm}) => {
           allUsers.filter((data) => {
             if (data.email == values.email && data.password == values.password) {
               authContext.login(data, data.token)
@@ -55,8 +55,8 @@ export default function Login() {
               setshowErrorMessage(true)
             }
           })
-
-
+          resetForm()
+          
         }}
       >
         {({ isSubmitting }) => (

@@ -9,9 +9,10 @@ import AuthContext from '../../Context/AuthContext';
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { HiOutlineLogout } from "react-icons/hi";
+import SearchBar from '../Admins/SearchBar/SearchBar';
 
 export default function Header() {
-    const [showBorderInputSearch, setshowBorderInputSearch] = useState(false)
+ 
     const [showWidgetAuth, setShowWidgetAuth] = useState(false)
     const authContext = useContext(AuthContext)
 
@@ -48,12 +49,7 @@ export default function Header() {
                             </div>
 
                             {/* input search */}
-                            <div className={`flex items-center  gap-1.5 bg-neutral-700  text-white rounded-[15px] py-1.5 px-3 ${showBorderInputSearch ? 'border-4 border-[#031C3F]' : ''}`}>
-                                <input type="text" placeholder='Search' className=' bg-neutral-700 w-32 outline-none' onBlur={() => setshowBorderInputSearch(false)} onFocus={() => setshowBorderInputSearch(true)} />
-                                <Link to="#">
-                                    <IoSearch className='w-[21px] h-[25px]' />
-                                </Link>
-                            </div>
+                            <SearchBar />
 
                             {/* Book Now */}
                             {authContext.isLoggedIn ? (
@@ -98,7 +94,7 @@ export default function Header() {
                         {/* logo whatsapp */}
                         <Link to='#' className='flex items-center gap-[5px]'>
                             <img className='w-7 h-7' src="https://mkrentacar.com/public/assets/images/whatsapp-icon.png" alt="whatsappimg" />
-                            <span className='text-[15px]/[22px]'>Chat With Us</span>
+                            <span className='text-[15px]/[22px] hidden md:block'>Chat With Us</span>
                         </Link>
                         <div>
                             {/* Book Now */}
@@ -118,7 +114,7 @@ export default function Header() {
                                             </button>
                                         </div>
                                     )}
-                                    <Button link='#' classes='bg-neutral-700 w-[80px] text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] gap-2'>
+                                    <Button link='#' classes='bg-neutral-700 w-auto text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] gap-2'>
                                         <IoMdArrowDropleft />
                                         <span>{authContext.userInfo[0].username}</span>
                                     </Button>

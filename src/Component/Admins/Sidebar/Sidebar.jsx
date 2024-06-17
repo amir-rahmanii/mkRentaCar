@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { FaHome } from "react-icons/fa";
 import { GiArchiveRegister } from "react-icons/gi";
 import { IoCarSport } from "react-icons/io5";
+import { FaUsers } from "react-icons/fa";
 
 export default function Sidebar() {
     return (
@@ -22,6 +23,10 @@ export default function Sidebar() {
                     <NavLink to='cars' className={({ isActive }) =>
                         isActive ? " w-full bg-orangeCus2 flex items-center gap-2" : "text-white flex items-center gap-2"
                     }>Cars <IoCarSport /></NavLink>
+
+                    <NavLink to='users' className={({ isActive }) =>
+                        isActive ? " w-full bg-orangeCus2 flex items-center gap-2" : "text-white flex items-center gap-2"
+                    }>Users <FaUsers /></NavLink>
 
 
                     <NavLink to='carType' className={({ isActive }) =>

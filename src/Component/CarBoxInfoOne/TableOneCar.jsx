@@ -55,8 +55,10 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
     const addRentalCar = () => {
         if (authContext.isLoggedIn) {
+            let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
+            let uuid = uuidv4();
             let newObj = {
-                id: uuidv4(),
+                id: uuid,
                 name: authContext.userInfo[0].username,
                 telephone: authContext.userInfo[0].cellNumber,
                 email: authContext.userInfo[0].email,
@@ -70,6 +72,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
                 register: 0,
                 dateFull: fullYear
             }
+            authRegisteredRent.push(newObj)
             fetch(`http://localhost:5000/registeredRent`, {
                 method: "POST",
                 headers: {
@@ -89,13 +92,11 @@ export default function TableOneCar({ oneBrand, allCars }) {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    registeredRent : [newObj]
-            })
+                    registeredRent: authRegisteredRent
+                })
             })
                 .then((res) => {
-                    if (res.status === 201) {
-                        setShowSubmitRegestrid(true)
-                    }
+                    return res.json()
                 })
 
         } else {
@@ -180,14 +181,14 @@ export default function TableOneCar({ oneBrand, allCars }) {
                         <p className='pt-1.5'>If you have a problem with the registration and need more explanations, contact our support. <span className='text-orangeCus font-medium'>(+9999999999)</span></p>
                         <button onClick={() => {
                             setShowSubmitRegestrid(false)
-                            navigate('/')
+                            window.location.href = "/paneluser/rental";
                         }} className='bg-green-600 mt-3 p-2 rounded-md'>Ok</button>
                     </div>
                 </div>
             </div>
 
-            {/* is Deleted */}
-            <Modal width="w-[400px]" height="h-auto" closedBox={showMessageErrorLogin} setClosedBox={SetShowMessageErrorLogin} title={`Login Or Register`}>
+            {/* is First Login */}
+            <Modal width="w-auto md:w-[400px]" height="h-auto" closedBox={showMessageErrorLogin} setClosedBox={SetShowMessageErrorLogin} title={`Login Or Register`}>
                 <p className='text-[20px] my-5'>To rent a car, you must first <Link className='text-[#188FFF] font-bold underline' to="/login">login</Link> or <Link className='text-[#188FFF] font-bold line underline' to="/register">register</Link> .</p>
             </Modal>
         </>

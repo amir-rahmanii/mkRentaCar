@@ -12,6 +12,9 @@ import AdminCars from "./Page/Admin/AdminCars/AdminCars"
 import AdminCreateRegister from "./Page/Register/AdminCreateRegister"
 import Error404 from "./Page/Error404/Error404"
 import PanelUser from "./Page/PanelUser/PanelUser"
+import PanelUserIndex from "./Page/PanelUser/PanelUserIndex"
+import PanelUserRental from "./Page/PanelUser/PanelUserRental"
+import AdminUsers from "./Page/Admin/AdminUsers/AdminUsers"
 
 
 
@@ -30,12 +33,16 @@ let routes = [
     { path: '/login', element: <AdminLogin /> },
     { path: '/Register', element: <AdminCreateRegister /> },
 
-    { path: '/paneluser', element: <PanelUser /> },
+    { path: '/paneluser', element: <PanelUser /> , children:[
+        { path: '', element: <PanelUserIndex /> },
+        { path: 'rental', element: <PanelUserRental /> },
+    ] },
     {
         path: '/dashbord', element: <Dashbord />, children: [
             { path: '', element: <DashboardIndex /> },
             { path: 'registers', element: <AdminRegidters /> },
             { path: 'cars', element: <AdminCars /> },
+            { path: 'users', element: <AdminUsers /> },
         ]
     }
 ]

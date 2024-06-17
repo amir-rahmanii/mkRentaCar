@@ -12,7 +12,7 @@ import Modal from '../../../Component/Admins/Modal/Modal';
 
 export default function AdminRegidters() {
   const [allRental, setAllRental] = useState([])
-
+  const [allUsers, setAllUsers] = useState([])
   // info car
   const [showInfoCar, setShowInfoCar] = useState(false)
   const [infocar, setInfoCar] = useState({})
@@ -29,6 +29,13 @@ export default function AdminRegidters() {
   //for Date
   const [fullYear, setFullYear] = useState("")
 
+  const getAllUsers = () => {
+    fetch(`http://localhost:5000/users`)
+      .then(res => res.json())
+      .then(result => {
+        setAllUsers(result)
+      })
+  }
 
   const getAllregisteredRent = () => {
     fetch(`http://localhost:5000/registeredRent`)
@@ -88,6 +95,15 @@ export default function AdminRegidters() {
     }
   }
 
+  // get user info
+  const getUserInfos = () => {
+    let userArray = [...allUsers]
+    let userFiltered = userArray.filter((data) => data.email == infocar.email)
+    let userIdAuth = userFiltered[0].id
+    let registeredAllRent = userFiltered[0].registeredRent
+    return { userIdAuth, registeredAllRent }
+  }
+
 
 
   useEffect(() => {
@@ -98,9 +114,34 @@ export default function AdminRegidters() {
     changeFilterdAction()
   }, [filteredValue])
 
+  useEffect(() => {
+    getAllUsers()
+  } , [DeleteUserShow])
+
 
   //  For register
   const registeredUser = () => {
+    let userInfos = getUserInfos();
+    userInfos.registeredAllRent.forEach((data) => {
+      if (data.id == idUser) {
+        data.register = 1
+      }
+    })
+
+    fetch(`http://localhost:5000/users/${userInfos.userIdAuth}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        registeredRent: userInfos.registeredAllRent
+      })
+    })
+      .then((res) => {
+        return res.json();
+      })
+
+
     fetch(`http://localhost:5000/registeredRent/${idUser}`, {
       method: "PATCH",
       headers: {
@@ -114,11 +155,32 @@ export default function AdminRegidters() {
         setShowIsRegestr(false)
         changeFilterdAction()
       })
+
   }
 
 
   //  For register No
   const registeredUserNo = () => {
+    let userInfos = getUserInfos();
+    userInfos.registeredAllRent.forEach((data) => {
+      if (data.id == idUser) {
+        data.register = 0
+      }
+    })
+
+    fetch(`http://localhost:5000/users/${userInfos.userIdAuth}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        registeredRent: userInfos.registeredAllRent
+      })
+    })
+      .then((res) => {
+        return res.json();
+      })
+
     fetch(`http://localhost:5000/registeredRent/${idUser}`, {
       method: "PATCH",
       headers: {
@@ -138,19 +200,57 @@ export default function AdminRegidters() {
   //Delete user
 
   const deleteUser = () => {
+    let userInfos = getUserInfos();
+    let userInfosDelted = userInfos.registeredAllRent.filter((data) => {
+      return data.id !== idUser
+    })
+
+    fetch(`http://localhost:5000/users/${userInfos.userIdAuth}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        registeredRent: userInfosDelted
+      })
+    })
+      .then((res) => {
+        return res.json();
+      })
+
+      
     fetch(`http://localhost:5000/registeredRent/${idUser}`, {
       method: "Delete",
     })
       .then((res) => {
         setDeleteUserShow(false)
         changeFilterdAction()
-
       })
   }
 
   //Update user
 
   const updateUser = () => {
+    let userInfos = getUserInfos();
+    userInfos.registeredAllRent.forEach((data) => {
+      if (data.id == idUser) {
+        data.dateFull = fullYear
+      }
+    })
+    fetch(`http://localhost:5000/users/${userInfos.userIdAuth}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        registeredRent: userInfos.registeredAllRent
+      })
+    })
+      .then((res) => {
+        return res.json();
+      })
+
+
     fetch(`http://localhost:5000/registeredRent/${idUser}`, {
       method: "PATCH",
       headers: {
@@ -180,31 +280,33 @@ export default function AdminRegidters() {
         </div>
         {allRental.length > 0 ? (
           <div className='shadow-lg mx-4 mt-4 rounded-lg overflow-auto h-[430px] mb-5'>
-            <table className='w-full text-center border-collapse border border-slate-500 '>
+            <table className='w-full text-center text-[15px] border-collapse border border-slate-500 '>
               <thead className='font-bold'>
                 <tr className='child:p-4 sticky top-0 child:text-orangeCus2 child:bg-[#454545]'>
-                  <th className='border border-slate-600'>Row</th>
-                  <th className='border border-slate-600'>Name</th>
-                  <th className='border border-slate-600'>Email</th>
-                  <th className='border border-slate-600'>Code & Phone</th>
-                  <th className='border border-slate-600'>Country</th>
-                  <th className='border border-slate-600'>Date</th>
-                  <th className='border border-slate-600'>InfoCars</th>
-                  <th className='border border-slate-600'>Status</th>
-                  <th className='border border-slate-600'>Update</th>
-                  <th className='border border-slate-600'>Delete</th>
+                  <th>Row</th>
+                  <th>Name</th>
+                  <th>Photo</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Country</th>
+                  <th>Date</th>
+                  <th>InfoCars</th>
+                  <th>Status</th>
+                  <th>Update</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
                 {allRental.map((user, index) => (
                   <tr key={user.id} className='child:p-2'>
                     <td className={`border border-slate-600 ${user.register ? "bg-green-400" : "bg-red-400"}`}>{index + 1}</td>
-                    <td className='border border-slate-600'>{user.name}</td>
-                    <td className='border border-slate-600'>{user.email}</td>
-                    <td className='border border-slate-600'><Link to={`tel:${user.countryCode + user.telephone}`}>{user.countryCode + user.telephone}</Link></td>
-                    <td className='border border-slate-600'>{user.country}</td>
-                    <td className='border border-slate-600'>{user.dateFull.slice(0, 10)}</td>
-                    <td className='border border-slate-600'>
+                    <td>{user.name}</td>
+                    <td><img width="80" src={user.carimg} alt="img" /></td>
+                    <td>{user.email}</td>
+                    <td><Link to={`tel:${user.countryCode + user.telephone}`}>{user.countryCode + user.telephone}</Link></td>
+                    <td>{user.country}</td>
+                    <td>{user.dateFull.slice(0, 10)}</td>
+                    <td>
                       <button className='bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoCar(user)
                         setShowInfoCar(true)
@@ -213,7 +315,7 @@ export default function AdminRegidters() {
                         <BiShow />
                       </button>
                     </td>
-                    <td className='border border-slate-600'>
+                    <td>
                       {user.register ? (
                         <button className='bg-red-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                           setInfoCar(user)
@@ -232,7 +334,7 @@ export default function AdminRegidters() {
                         </button>
                       )}
                     </td>
-                    <td className='border border-slate-600'>
+                    <td>
                       <button className='bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoCar(user)
                         setUpdateUserShow(true)
@@ -240,7 +342,7 @@ export default function AdminRegidters() {
                         setIdUser(user.id)
                       }} ><RxUpdate /></button>
                     </td>
-                    <td className='border border-slate-600'>
+                    <td>
                       <button className='bg-red-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoCar(user)
                         setDeleteUserShow(true)
@@ -263,38 +365,38 @@ export default function AdminRegidters() {
 
       {/* info cars */}
       <Modal width="w-[700px]" height="h-auto" closedBox={showInfoCar} setClosedBox={setShowInfoCar} title={`Car Info`}>
-      <div className='flex gap-8 mt-2'>
-              <div className='rounded-xl overflow-hidden'>
-                <img className='w-[350px]' src={infocar.carimg} alt="img" />
-              </div>
-              <div className='text-white flex flex-col gap-2'>
-                <p className='font-bold text-xl'>{infocar.carName}</p>
-                <p className='font-medium'>{infocar.carBrand}</p>
-                <p className='font-medium'>{infocar.carType}</p>
-                <p className='font-bolditalic text-[30px]'>{infocar.price} AED</p>
-              </div>
+        <div className='flex gap-8 mt-2'>
+          <div className='rounded-xl overflow-hidden'>
+            <img className='w-[350px]' src={infocar.carimg} alt="img" />
+          </div>
+          <div className='text-white flex flex-col gap-2'>
+            <p className='font-bold text-xl'>{infocar.carName}</p>
+            <p className='font-medium'>{infocar.carBrand}</p>
+            <p className='font-medium'>{infocar.carType}</p>
+            <p className='font-bolditalic text-[30px]'>{infocar.price} AED</p>
+          </div>
 
-            </div>
+        </div>
       </Modal>
 
       {/* is regestired */}
       <Modal width="w-[400px]" height="h-auto" closedBox={showIsRegestr} setClosedBox={setShowIsRegestr} title={`${infocar.name} rental registration`}>
-      <p className='text-[20px] mt-5'>Do you intend to register the user's car rental?</p>
-            <div className='flex gap-4 mt-5'>
-              <button onClick={registeredUser} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
-                Yes
-              </button>
-            </div>
+        <p className='text-[20px] mt-5'>Do you intend to register the user's car rental?</p>
+        <div className='flex gap-4 mt-5'>
+          <button onClick={registeredUser} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+            Yes
+          </button>
+        </div>
       </Modal>
 
       {/* is regestired No */}
       <Modal width="w-[400px]" height="h-auto" closedBox={showIsRegestrNo} setClosedBox={setShowIsRegestrNo} title={`Cancel ${infocar.name} rental registration`}>
-      <p className='text-[20px] mt-5'>Do you intend to cancel register the user's car rental?</p>
-            <div className='flex gap-4 mt-5'>
-              <button onClick={registeredUserNo} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
-                Yes
-              </button>
-            </div>
+        <p className='text-[20px] mt-5'>Do you intend to cancel register the user's car rental?</p>
+        <div className='flex gap-4 mt-5'>
+          <button onClick={registeredUserNo} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+            Yes
+          </button>
+        </div>
       </Modal>
 
 

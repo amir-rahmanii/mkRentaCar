@@ -273,30 +273,32 @@ export default function AdminCars() {
         </div>
         {allcars.length > 0 ? (
           <div className='shadow-lg mx-4 rounded-lg overflow-auto h-[430px]'>
-            <table className='w-full text-center border-collapse border border-slate-500 '>
+            <table className='w-full text-center text-[15px] border-collapse border border-slate-500 '>
               <thead className='font-bold'>
                 <tr className='child:p-4 child:text-orangeCus2 sticky top-0 child:bg-[#454545]'>
-                  <th className='border border-slate-600'>Row</th>
-                  <th className='border border-slate-600'>Name</th>
-                  <th className='border border-slate-600'>PriceOf_Price</th>
-                  <th className='border border-slate-600'>Car Type</th>
-                  <th className='border border-slate-600'>Brand</th>
-                  <th className='border border-slate-600'>Body</th>
-                  <th className='border border-slate-600'>InfoCars</th>
-                  <th className='border border-slate-600'>Status</th>
-                  <th className='border border-slate-600'>Update</th>
-                  <th className='border border-slate-600'>Delete</th>
+                  <th>Row</th>
+                  <th>Name</th>
+                  <th>Photo</th>
+                  <th>PriceOf_Price</th>
+                  <th>Car Type</th>
+                  <th>Brand</th>
+                  <th>Body</th>
+                  <th>InfoCars</th>
+                  <th>Status</th>
+                  <th>Update</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
                 {allcars.map((car, index) => (
                   <tr key={car.id} className='child:p-2'>
                     <td className={`border border-slate-600 ${car.isRegister ? "bg-green-400" : "bg-red-400"}`}>{index + 1}</td>
-                    <td className='border border-slate-600 '>{car.title}</td>
-                    <td className='border border-slate-600'><span className='line-through font-light text-sm'>{car.priceOffer}</span> _ {car.price} AED</td>
-                    <td className='border border-slate-600'>{car.carType}</td>
-                    <td className='border border-slate-600'>{car.brand}</td>
-                    <td className='border border-slate-600'>
+                    <td>{car.title}</td>
+                    <td><img width="80" src={car.cover[0].img} alt="img" /></td>
+                    <td><span className='line-through font-light text-sm'>{car.priceOffer}</span> _ {car.price} AED</td>
+                    <td>{car.carType}</td>
+                    <td>{car.brand}</td>
+                    <td>
                       <button className='bg-purple-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setBody(car.body)
                         setInfoCar(car)
@@ -307,7 +309,7 @@ export default function AdminCars() {
                         <BiShow />
                       </button>
                     </td>
-                    <td className='border border-slate-600'>
+                    <td>
                       <button className='bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoCar(car)
                         setBody(car.body)
@@ -317,7 +319,7 @@ export default function AdminCars() {
                         <BiShow />
                       </button>
                     </td>
-                    <td className='border border-slate-600'>
+                    <td>
                       {car.isRegister ? (
                         <button className='bg-red-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                           setInfoCar(car)
@@ -336,7 +338,7 @@ export default function AdminCars() {
                         </button>
                       )}
                     </td>
-                    <td className='border border-slate-600'>
+                    <td>
                       <button className='bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoCar(car)
                         setPriceUppdated(car.price)
@@ -345,7 +347,7 @@ export default function AdminCars() {
                         setIdCar(car.id)
                       }} ><RxUpdate /></button>
                     </td>
-                    <td className='border border-slate-600'>
+                    <td>
                       <button className='bg-red-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoCar(car)
                         setDeleteCarShow(true)
