@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { IoSearch } from "react-icons/io5";
 
@@ -6,6 +6,19 @@ export default function SearchBar({ searchValueHandler }) {
     const [showBorderInputSearch, setshowBorderInputSearch] = useState(false)
     //Search Value
     const [searchValue, setSearchValue] = useState("")
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeydown);
+        return () => {
+            window.removeEventListener('keydown', handleKeydown);
+        }
+    })
+
+    const handleKeydown = (e) => {
+        if (e.keyCode === 13) {
+            searchValueHandler(searchValue)
+        }
+    }
 
     const submitSearchValue = () => {
         searchValueHandler(searchValue)

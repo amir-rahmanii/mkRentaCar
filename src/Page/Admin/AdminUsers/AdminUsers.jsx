@@ -14,6 +14,7 @@ export default function AdminUsers() {
   const authContext = useContext(AuthContext)
 
   const [allUsers, setAllUsers] = useState([])
+  const [allUsersFilters, setAllUsersFilters] = useState([])
   const [allRegisteredRent, setAllRegisteredRent] = useState([])
   // info car
   const [showInfoCar, setShowInfoCar] = useState(false)
@@ -29,6 +30,7 @@ export default function AdminUsers() {
       .then(res => res.json())
       .then(result => {
         setAllUsers(result)
+        setAllUsersFilters(result)
       })
   }
 
@@ -45,14 +47,24 @@ export default function AdminUsers() {
     getAllUsers();
   }, [])
 
+
+  //search Handler
+  const searchValueHandler = (value) => {
+    let filterArray = [...allUsersFilters]
+    if (value.trim()) {
+      let userFilterValue = filterArray.filter(data => data.username.toLowerCase().includes(value.toLowerCase()) || data.email.toLowerCase().includes(value.toLowerCase()) || data.cellNumber.toLowerCase().includes(value.toLowerCase()))
+      setAllUsers(userFilterValue)
+    } else {
+      getAllUsers();
+    }
+  }
+
+
   useEffect(() => {
     getAllRegisteredRent();
   }, [DeleteUserShow])
 
-  //search Handler
-  const searchValueHandler = (value) => {
-    
-  }
+
 
 
   //Delete user
@@ -101,13 +113,13 @@ export default function AdminUsers() {
 
   return (
     <>
-      <div className='px-4 font-medium'>
-        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg mx-4'>
+      <div className='container font-medium'>
+        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg'>
           <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2'>List Users</p>
           <SearchBar searchValueHandler={searchValueHandler} />
         </div>
         {allUsers.length > 0 ? (
-          <div className='shadow-lg mx-4 mt-4 rounded-lg overflow-auto h-[430px] mb-5'>
+          <div className='shadow-lg mt-4 rounded-lg overflow-auto h-[430px] mb-5'>
             <table className='w-full text-center border-collapse border border-slate-500 '>
               <thead className='font-bold'>
                 <tr className='child:p-4 sticky top-0 child:text-orangeCus2 child:bg-[#454545]'>
@@ -172,7 +184,7 @@ export default function AdminUsers() {
             </table>
           </div>
         ) : (
-          <h2 className='bg-black/80 text-orangeCus2 text-[30px] text-center p-5 font-bold rounded-lg mt-5'>This filter was not found 😩</h2>
+          <h2 className='bg-black/80 mx-4 text-orangeCus2 text-[30px] text-center p-5 font-bold rounded-lg mt-5'>This filter was not found 😩</h2>
         )}
 
       </div>

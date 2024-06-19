@@ -711,7 +711,7 @@
       "Doors": 2,
       "Luggage": 2,
       "SecurityType": "Credit Card & Cash",
-      "isRegister": 0,
+      "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
       "MileageDailyKM": 250,
       "CostofExtraKm": 250,
@@ -1443,7 +1443,7 @@
       "Doors": 2,
       "Luggage": 2,
       "SecurityType": "Credit Card & Cash",
-      "isRegister": 1,
+      "isRegister": 0,
       "PaymentType": " Credit Card & Cash",
       "MileageDailyKM": 250,
       "CostofExtraKm": 250,
@@ -1504,7 +1504,7 @@
       "Doors": 2,
       "Luggage": 2,
       "SecurityType": "Credit Card & Cash",
-      "isRegister": 0,
+      "isRegister": 1,
       "PaymentType": " Credit Card & Cash",
       "MileageDailyKM": 250,
       "CostofExtraKm": 250,
@@ -2674,28 +2674,40 @@
   ],
   "comments": [
     {
-      "id": "1",
-      "name": "jacob",
-      "date": "2023-08-17",
-      "body": "I have been in Dubai for over 10 years and I have never driven an exotic car. My friend suggested that I rent a car from Masterkey Luxury Car Rentals and I am extremely glad I listened to him. The Lamborghini Huracan which I rented was exceptional. I will definitely rent again from you guys!"
+      "id": "890cdedc-7a97-441d-a977-f1aa72c3c860",
+      "carName": "Ferrari 488 Spider",
+      "score": "Very Bad",
+      "name": "hamidreza",
+      "isRegister": 1,
+      "body": "Hi my friend i am Hamid and this car is awful and you should fixed this car. thank.",
+      "date": "2024-06-19T22:00:24.582Z"
     },
     {
-      "id": "2",
-      "name": "katrina",
-      "date": "2023-08-15",
-      "body": "I wanted to drive a Ferrari 488 Spyder and experience the raw power that this machine commands. At MK Rent a Car, I found that the car of my dreams is available at an affordable rent. The process of renting the car was really easy."
+      "id": "3658a332-5f98-4b36-8edd-56a37fd7424a",
+      "carName": "Bentley Bentayga",
+      "score": "Excellent",
+      "name": "hamidreza",
+      "isRegister": 1,
+      "body": "Hi everybody this car is amazing and interesting . Bentley best in the world .",
+      "date": "2024-06-19T22:03:03.619Z"
     },
     {
-      "id": "3",
-      "name": "alex",
-      "date": "2023-03-27",
-      "body": "I rented an exotic and sports car - Ferrari 488 spider. Chic salon, absolutely perfect condition. The service was awesome. Awais is an amazing guy who guides me all the time!"
+      "id": "888c2c53-6733-4faf-b0ba-d413ddef2c8c",
+      "carName": "Cheverolet Tahoe",
+      "score": "VeryGood",
+      "name": "amiwrr",
+      "isRegister": 1,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus ve",
+      "date": "2024-06-19T22:05:12.925Z"
     },
     {
-      "id": "4",
-      "name": "ali",
-      "date": "2023-08-05",
-      "body": "My father has always wanted to drive a Mercedes as he tells me it is the perfect machine. I surprised him on his birthday by renting a Mercedes S-Class. He absolutely enjoyed the feeling of driving through Dubai like royalty. The car rental process was extremely hassle-free at MK Rent a Car."
+      "id": "712d0113-ad92-4680-94f3-f42cb37948d4",
+      "carName": "Bmw 420i",
+      "score": "VeryGood",
+      "name": "amiwrr",
+      "isRegister": 1,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cc feugiat sed lectus ve",
+      "date": "2024-06-19T22:05:12.925Z"
     }
   ],
   "blogs": [
@@ -4902,6 +4914,51 @@
       "country": "Afghanistan",
       "register": 1,
       "dateFull": "2024-06-17T17:25:27.441Z"
+    },
+    {
+      "id": "e801f0ad-b8ce-43f5-9dc2-f4a3df7c71fb",
+      "name": "amiwrr",
+      "telephone": "09233133131",
+      "email": "amirbabble@gmail.com",
+      "carType": "Sports Cars",
+      "carName": "Cadilac Scaled",
+      "carBrand": "Cadilac",
+      "carimg": "/images/cars/cadillac.jpeg",
+      "price": 2500,
+      "countryCode": "+352",
+      "country": "Luxembourg",
+      "register": 1,
+      "dateFull": "2024-06-20T20:30:00.000Z"
+    },
+    {
+      "id": "3ab6d616-f3f2-4750-8706-1a788ffb11e0",
+      "name": "amiwrr",
+      "telephone": "09233133131",
+      "email": "amirbabble@gmail.com",
+      "carType": "Economy Cars",
+      "carName": "Lamborghini Huracan",
+      "carBrand": "Lamborghini",
+      "carimg": "/images/cars/lamborghiniHuracan.jpg",
+      "price": "6500",
+      "countryCode": "+677",
+      "country": "Solomon Islands",
+      "register": 0,
+      "dateFull": "2024-06-20T20:30:00.000Z"
+    },
+    {
+      "id": "682e8ce6-336e-4488-b737-622fb4b9ad3c",
+      "name": "amiwrr",
+      "telephone": "09233133131",
+      "email": "amirbabble@gmail.com",
+      "carType": "Sports Cars",
+      "carName": "Ferrari 488 Spider",
+      "carBrand": "Ferrari",
+      "carimg": "/images/cars/ferrari.jpg",
+      "price": 3000,
+      "countryCode": "+972",
+      "country": "Israel",
+      "register": 0,
+      "dateFull": "2024-06-21T20:30:00.000Z"
     }
   ],
   "users": [
@@ -4928,6 +4985,51 @@
           "country": "Afghanistan",
           "register": 1,
           "dateFull": "2024-06-17T16:54:50.186Z"
+        },
+        {
+          "id": "e801f0ad-b8ce-43f5-9dc2-f4a3df7c71fb",
+          "name": "amiwrr",
+          "telephone": "09233133131",
+          "email": "amirbabble@gmail.com",
+          "carType": "Sports Cars",
+          "carName": "Cadilac Scaled",
+          "carBrand": "Cadilac",
+          "carimg": "/images/cars/cadillac.jpeg",
+          "price": 2500,
+          "countryCode": "+352",
+          "country": "Luxembourg",
+          "register": 1,
+          "dateFull": "2024-06-20T20:30:00.000Z"
+        },
+        {
+          "id": "3ab6d616-f3f2-4750-8706-1a788ffb11e0",
+          "name": "amiwrr",
+          "telephone": "09233133131",
+          "email": "amirbabble@gmail.com",
+          "carType": "Economy Cars",
+          "carName": "Lamborghini Huracan",
+          "carBrand": "Lamborghini",
+          "carimg": "/images/cars/lamborghiniHuracan.jpg",
+          "price": "6500",
+          "countryCode": "+677",
+          "country": "Solomon Islands",
+          "register": 0,
+          "dateFull": "2024-06-20T20:30:00.000Z"
+        },
+        {
+          "id": "682e8ce6-336e-4488-b737-622fb4b9ad3c",
+          "name": "amiwrr",
+          "telephone": "09233133131",
+          "email": "amirbabble@gmail.com",
+          "carType": "Sports Cars",
+          "carName": "Ferrari 488 Spider",
+          "carBrand": "Ferrari",
+          "carimg": "/images/cars/ferrari.jpg",
+          "price": 3000,
+          "countryCode": "+972",
+          "country": "Israel",
+          "register": 0,
+          "dateFull": "2024-06-21T20:30:00.000Z"
         }
       ]
     },
@@ -4938,7 +5040,7 @@
       "password": "Qazmlp1@",
       "cellNumber": "09221458775",
       "token": "4240c4b3-2595-4570-b903-286d11463983",
-      "role": "admin",
+      "role": "user",
       "registeredRent": [
         {
           "id": "27d1348d-67aa-4dba-8baa-d96757e2fb5a",

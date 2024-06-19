@@ -15,6 +15,8 @@ import PanelUser from "./Page/PanelUser/PanelUser"
 import PanelUserIndex from "./Page/PanelUser/PanelUserIndex"
 import PanelUserRental from "./Page/PanelUser/PanelUserRental"
 import AdminUsers from "./Page/Admin/AdminUsers/AdminUsers"
+import PanelUserComment from "./Page/PanelUser/PanelUserComment"
+import AdminComments from "./Page/Admin/AdminComments/AdminComments"
 
 
 
@@ -36,6 +38,7 @@ let routes = [
     { path: '/paneluser', element: <PanelUser /> , children:[
         { path: '', element: <PanelUserIndex /> },
         { path: 'rental', element: <PanelUserRental /> },
+        { path: 'Comment', element: <PanelUserComment /> },
     ] },
     {
         path: '/dashbord', element: <Dashbord />, children: [
@@ -43,6 +46,7 @@ let routes = [
             { path: 'registers', element: <AdminRegidters /> },
             { path: 'cars', element: <AdminCars /> },
             { path: 'users', element: <AdminUsers /> },
+            { path: 'comments', element: <AdminComments /> },
         ]
     }
 ]

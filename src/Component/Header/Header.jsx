@@ -12,7 +12,7 @@ import { HiOutlineLogout } from "react-icons/hi";
 import SearchBar from '../Admins/SearchBar/SearchBar';
 
 export default function Header() {
- 
+
     const [showWidgetAuth, setShowWidgetAuth] = useState(false)
     const authContext = useContext(AuthContext)
 
@@ -53,25 +53,27 @@ export default function Header() {
 
                             {/* Book Now */}
                             {authContext.isLoggedIn ? (
-                                <div className='relative' onClick={() => setShowWidgetAuth(prevstate => !prevstate)}>
-                                    <Button link='#' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] gap-2'>
-                                        <span>{authContext.userInfo[0].username}</span>
-                                        <IoMdArrowDropdown />
-                                    </Button>
-                                    {showWidgetAuth && (
-                                        <div className='absolute top-[40px] bg-black flex flex-col gap-1'>
-                                            <Link to={"/paneluser"} className='bg-orangeCus2 w-full text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
-                                                MY PANEL
-                                            </Link>
-                                            <button onClick={logOutHandler} className='bg-red-700 w-full  text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
-                                                LOG OUT
-                                                <div className='text-[13px]'>
-                                                    <HiOutlineLogout />
-                                                </div>
-                                            </button>
+                                <div>
+                                    <div className='relative flex flex-col items-center' onClick={() => setShowWidgetAuth(prevstate => !prevstate)}>
+                                        <Button link='#' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] gap-2'>
+                                            <span>{authContext.userInfo[0].username}</span>
+                                            <IoMdArrowDropdown />
+                                        </Button>
+                                        {showWidgetAuth && (
+                                            <div className='absolute top-[40px] bg-black flex flex-col gap-1'>
+                                                <Link to={"/paneluser"} className='bg-orangeCus2 w-full text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
+                                                    MY PANEL
+                                                </Link>
+                                                <button onClick={logOutHandler} className='bg-red-700 w-full  text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
+                                                    LOG OUT
+                                                    <div className='text-[13px]'>
+                                                        <HiOutlineLogout />
+                                                    </div>
+                                                </button>
 
-                                        </div>
-                                    )}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             ) : (
                                 <Button link='/login' classes='bg-neutral-700 text-[13px]/[35px] px-[5px] xl:px-[11px] tracking-[1px]'>
@@ -104,7 +106,7 @@ export default function Header() {
                                     {showWidgetAuth && (
                                         <div className='flex gap-2 items-center'>
                                             <Link to={"/paneluser"} className='bg-orangeCus2 w-[80px] justify-center text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
-                                              PANEL
+                                                PANEL
                                             </Link>
                                             <button onClick={logOutHandler} className='bg-red-700 w-[100px] justify-center text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
                                                 LOG OUT

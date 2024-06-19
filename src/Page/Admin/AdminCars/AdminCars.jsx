@@ -10,10 +10,12 @@ import { FaPlus } from "react-icons/fa";
 import AddCars from '../../../Component/Admins/AddCars/AddCars';
 import Modal from '../../../Component/Admins/Modal/Modal';
 import FilterBar from '../../../Component/Admins/FilterBar/FilterBar';
+import SearchBar from '../../../Component/Admins/SearchBar/SearchBar';
 
 
 export default function AdminCars() {
   const [allcars, setAllcars] = useState([])
+  const [allcarsFilters, setAllcarsFilters] = useState([])
 
   // info car
   const [showInfoCar, setShowInfoCar] = useState(false)
@@ -46,11 +48,14 @@ export default function AdminCars() {
   //Add new car
   const [showAddNewCar, setShowAddNewCar,] = useState(false)
 
+
+
   const getAllBrands = () => {
     fetch(`http://localhost:5000/allBrands`)
       .then(res => res.json())
       .then(result => {
         setAllBrands(result)
+
       })
   }
 
@@ -60,6 +65,7 @@ export default function AdminCars() {
       .then(result => {
         let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
         setAllcars(newArray)
+        setAllcarsFilters(result.reverse())
       })
   }
 
@@ -246,6 +252,15 @@ export default function AdminCars() {
     }
   }
 
+  const searchValueHandler = (value) => {
+    let filterArray = [...allcarsFilters]
+    if (value.trim()) {
+      let userFilterValue = filterArray.filter(data => data.title.toLowerCase().includes(value.toLowerCase()) || data.brand.toLowerCase().includes(value.toLowerCase()) || data.carType.toLowerCase().includes(value.toLowerCase()))
+      setAllcars(userFilterValue)
+    } else {
+      changeFilterdAction();
+    }
+  }
 
 
   useEffect(() => {
@@ -254,10 +269,11 @@ export default function AdminCars() {
 
   return (
     <>
-      <div className='px-4 font-medium '>
-        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg mx-4'>
+      <div className='container font-medium '>
+        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg '>
           <p className='text-[25px] mt-4 mb-6 font-bold text-center text-orangeCus2'>List registration Cars</p>
           <div className=' flex gap-4'>
+            <SearchBar searchValueHandler={searchValueHandler} />
             <button onClick={() => setShowFilteredBrand(true)} className='bg-orangeCus2 p-2 text-white rounded-lg'>
               Filter Brand
             </button>
@@ -268,11 +284,11 @@ export default function AdminCars() {
           </div>
 
         </div>
-        <div className='mx-4 my-2'>
+        <div className=' my-2'>
           <button onClick={() => setShowAddNewCar(true)} className='text-orangeCus2 p-2 rounded-md text-[25px] font-bold bg-[#454545] flex justify-center items-center gap-2'>Add New Car <FaPlus /> </button>
         </div>
         {allcars.length > 0 ? (
-          <div className='shadow-lg mx-4 rounded-lg overflow-auto h-[430px]'>
+          <div className='shadow-lg  rounded-lg overflow-auto h-[430px]'>
             <table className='w-full text-center text-[15px] border-collapse border border-slate-500 '>
               <thead className='font-bold'>
                 <tr className='child:p-4 child:text-orangeCus2 sticky top-0 child:bg-[#454545]'>
@@ -363,55 +379,55 @@ export default function AdminCars() {
             </table>
           </div>
         ) : (
-          <h2 className='bg-black/80 text-orangeCus2 text-[30px] text-center p-5 font-bold rounded-lg mt-5'>This filter was not found 😩</h2>
+          <h2 className='bg-black/80 mx-4 text-orangeCus2 text-[30px] text-center p-5 font-bold rounded-lg mt-5'>This filter was not found 😩</h2>
         )}
       </div>
 
       {/* info cars */}
       <Modal width="w-[850px]" height="h-auto" closedBox={showInfoCar} setClosedBox={setShowInfoCar} title={`${infocar.title} Info`}>
-      <div className='flex items-center gap-12 mt-2'>
-              {infocar.cover && (
-                <div className='grid grid-cols-2 gap-3'>
-                  {infocar.cover.map((car) => (
-                    <div key={car.id} className='rounded-xl overflow-hidden'>
-                      <img className='w-[150px]' src={car.img} alt="img" />
-                    </div>
-                  ))}
+        <div className='flex items-center gap-12 mt-2'>
+          {infocar.cover && (
+            <div className='grid grid-cols-2 gap-3'>
+              {infocar.cover.map((car) => (
+                <div key={car.id} className='rounded-xl overflow-hidden'>
+                  <img className='w-[150px]' src={car.img} alt="img" />
                 </div>
-              )}
-              <div className='text-white flex flex-col gap-2'>
-                <p className='text-orangeCus2 font-medium text-[25px]'>Technical Specifications</p>
-                <div className={`overflow-hidden cursor-pointer w-full grid grid-cols-2 gap-x-20 transition-all duration-500`}>
-                  <p className='text-[9px]/7 font-medium'>Car Name : <span className='text-orangeCus font-bold text-[11px]'>{infocar.title}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Href : <span className='text-orangeCus font-bold text-[11px]'>{infocar.href}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Href CarType : <span className='text-orangeCus font-bold text-[11px]'>{infocar.hrefCarType}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Href CarBrand : <span className='text-orangeCus font-bold text-[11px]'>{infocar.hrefBrand}</span></p>
-                  <p className='text-[9px]/7 font-medium'>COLOR : <span className='text-orangeCus font-bold text-[11px]'>{infocar.color}</span></p>
-                  <p className='text-[9px]/7 font-medium'>ENGINE : <span className='text-orangeCus font-bold text-[11px]'>{infocar.engine}</span></p>
-                  <p className='text-[9px]/7 font-medium'>FREE PICKUP-DROP OFF : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Freepickup}</span></p>
-                  <p className='text-[9px]/7 font-medium'>AUX : <span className='text-orangeCus font-bold text-[11px]'>{infocar.aux}</span></p>
-                  <p className='text-[9px]/7 font-medium'>USB : <span className='text-orangeCus font-bold text-[11px]'>{infocar.usb}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Bluetooth : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Bluetooth}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Automotic : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Automotic}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Parking Sensor  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Parksensor}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Navigation : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Navigation}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Front & Reverse Camera  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.frontReverseCamera}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Full Insurance  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.FullInsurance}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Free Cancellation  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.FreeCancellation}</span></p>
-                  <p className='text-[9px]/7 font-medium'>24/7 Customer Service : <span className='text-orangeCus font-bold text-[11px]'>{infocar.CustomerService}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Seats : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Seats}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Doors  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Doors}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Luggage  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Luggage}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Security Type  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.SecurityType}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Payment Type  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.PaymentType}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Mileage Daily, KM  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.MileageDailyKM}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Cost of Extra Km  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.CostofExtraKm}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Security Amount, AED  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.SecurityAmountAED}</span></p>
-                  <p className='text-[9px]/7 font-medium'>Cruise Control  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.CruiseControl}</span></p>
-                </div>
-              </div>
-
+              ))}
             </div>
+          )}
+          <div className='text-white flex flex-col gap-2'>
+            <p className='text-orangeCus2 font-medium text-[25px]'>Technical Specifications</p>
+            <div className={`overflow-hidden cursor-pointer w-full grid grid-cols-2 gap-x-20 transition-all duration-500`}>
+              <p className='text-[9px]/7 font-medium'>Car Name : <span className='text-orangeCus font-bold text-[11px]'>{infocar.title}</span></p>
+              <p className='text-[9px]/7 font-medium'>Href : <span className='text-orangeCus font-bold text-[11px]'>{infocar.href}</span></p>
+              <p className='text-[9px]/7 font-medium'>Href CarType : <span className='text-orangeCus font-bold text-[11px]'>{infocar.hrefCarType}</span></p>
+              <p className='text-[9px]/7 font-medium'>Href CarBrand : <span className='text-orangeCus font-bold text-[11px]'>{infocar.hrefBrand}</span></p>
+              <p className='text-[9px]/7 font-medium'>COLOR : <span className='text-orangeCus font-bold text-[11px]'>{infocar.color}</span></p>
+              <p className='text-[9px]/7 font-medium'>ENGINE : <span className='text-orangeCus font-bold text-[11px]'>{infocar.engine}</span></p>
+              <p className='text-[9px]/7 font-medium'>FREE PICKUP-DROP OFF : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Freepickup}</span></p>
+              <p className='text-[9px]/7 font-medium'>AUX : <span className='text-orangeCus font-bold text-[11px]'>{infocar.aux}</span></p>
+              <p className='text-[9px]/7 font-medium'>USB : <span className='text-orangeCus font-bold text-[11px]'>{infocar.usb}</span></p>
+              <p className='text-[9px]/7 font-medium'>Bluetooth : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Bluetooth}</span></p>
+              <p className='text-[9px]/7 font-medium'>Automotic : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Automotic}</span></p>
+              <p className='text-[9px]/7 font-medium'>Parking Sensor  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Parksensor}</span></p>
+              <p className='text-[9px]/7 font-medium'>Navigation : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Navigation}</span></p>
+              <p className='text-[9px]/7 font-medium'>Front & Reverse Camera  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.frontReverseCamera}</span></p>
+              <p className='text-[9px]/7 font-medium'>Full Insurance  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.FullInsurance}</span></p>
+              <p className='text-[9px]/7 font-medium'>Free Cancellation  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.FreeCancellation}</span></p>
+              <p className='text-[9px]/7 font-medium'>24/7 Customer Service : <span className='text-orangeCus font-bold text-[11px]'>{infocar.CustomerService}</span></p>
+              <p className='text-[9px]/7 font-medium'>Seats : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Seats}</span></p>
+              <p className='text-[9px]/7 font-medium'>Doors  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Doors}</span></p>
+              <p className='text-[9px]/7 font-medium'>Luggage  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.Luggage}</span></p>
+              <p className='text-[9px]/7 font-medium'>Security Type  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.SecurityType}</span></p>
+              <p className='text-[9px]/7 font-medium'>Payment Type  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.PaymentType}</span></p>
+              <p className='text-[9px]/7 font-medium'>Mileage Daily, KM  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.MileageDailyKM}</span></p>
+              <p className='text-[9px]/7 font-medium'>Cost of Extra Km  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.CostofExtraKm}</span></p>
+              <p className='text-[9px]/7 font-medium'>Security Amount, AED  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.SecurityAmountAED}</span></p>
+              <p className='text-[9px]/7 font-medium'>Cruise Control  : <span className='text-orangeCus font-bold text-[11px]'>{infocar.CruiseControl}</span></p>
+            </div>
+          </div>
+
+        </div>
       </Modal>
 
       {/* is body */}

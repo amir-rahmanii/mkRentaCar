@@ -9,7 +9,7 @@ export default function PanelUserRental() {
   const authContext = useContext(AuthContext)
 
   return (
-    <div className='h-full overflow-auto w-full mx-auto'>
+    <div className='h-full font-light overflow-auto w-full mx-auto'>
       {authContext.userInfo[0].registeredRent.length !== 0 ? (
         <table>
           <tr className='child:p-2 child:text-[11px] md:child:text-[16px] md:child:p-4 sticky top-0 child:text-orangeCus2 child:bg-[#454545] rounded-md'>

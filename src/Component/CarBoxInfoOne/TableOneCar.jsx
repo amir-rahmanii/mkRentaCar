@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { SlArrowDown } from "react-icons/sl";
 import MyCalendar from './MyCalendar';
 import { v4 as uuidv4 } from 'uuid';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import AuthContext from '../../Context/AuthContext';
 import Modal from '../Admins/Modal/Modal'
 
@@ -21,9 +21,10 @@ export default function TableOneCar({ oneBrand, allCars }) {
     //for Date
     const [fullYear, setFullYear] = useState(new Date())
     const [showSubmitRegestrid, setShowSubmitRegestrid] = useState(false)
-
-    const navigate = useNavigate();
     const authContext = useContext(AuthContext)
+
+    //for show erorr in date
+    const [showErrorDate , setShowErrorDate] = useState(false)
 
 
     const getallbrand = () => {
@@ -49,55 +50,60 @@ export default function TableOneCar({ oneBrand, allCars }) {
     }, [])
 
     useEffect(() => {
-        let searchFiltered = countreyCodes.slice().filter(code => code.name.includes(searchValue))
+        let searchFiltered = countreyCodes.slice().filter(code => code.name.toLowerCase().includes(searchValue.toLowerCase()))
         setCountreyCodesSaerched(searchFiltered)
     }, [searchValue])
 
     const addRentalCar = () => {
         if (authContext.isLoggedIn) {
-            let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
-            let uuid = uuidv4();
-            let newObj = {
-                id: uuid,
-                name: authContext.userInfo[0].username,
-                telephone: authContext.userInfo[0].cellNumber,
-                email: authContext.userInfo[0].email,
-                carType: allCars.carType,
-                carName: allCars.title,
-                carBrand: oneBrandsInfo.title,
-                carimg: allCars.cover[0].img,
-                price: allCars.price,
-                countryCode: countryDialCode,
-                country: countryCodeValue,
-                register: 0,
-                dateFull: fullYear
+            if(fullYear !== null){
+                setShowErrorDate(false)
+                let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
+                let uuid = uuidv4();
+                let newObj = {
+                    id: uuid,
+                    name: authContext.userInfo[0].username,
+                    telephone: authContext.userInfo[0].cellNumber,
+                    email: authContext.userInfo[0].email,
+                    carType: allCars.carType,
+                    carName: allCars.title,
+                    carBrand: oneBrandsInfo.title,
+                    carimg: allCars.cover[0].img,
+                    price: allCars.price,
+                    countryCode: countryDialCode,
+                    country: countryCodeValue,
+                    register: 0,
+                    dateFull: fullYear
+                }
+                authRegisteredRent.push(newObj)
+                fetch(`http://localhost:5000/registeredRent`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newObj)
+                })
+                    .then((res) => {
+                        if (res.status === 201) {
+                            setShowSubmitRegestrid(true)
+                        }
+                    })
+    
+                fetch(`http://localhost:5000/users/${authContext.userInfo[0].id}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        registeredRent: authRegisteredRent
+                    })
+                })
+                    .then((res) => {
+                        return res.json()
+                    })
+            }else{
+                setShowErrorDate(true)
             }
-            authRegisteredRent.push(newObj)
-            fetch(`http://localhost:5000/registeredRent`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newObj)
-            })
-                .then((res) => {
-                    if (res.status === 201) {
-                        setShowSubmitRegestrid(true)
-                    }
-                })
-
-            fetch(`http://localhost:5000/users/${authContext.userInfo[0].id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    registeredRent: authRegisteredRent
-                })
-            })
-                .then((res) => {
-                    return res.json()
-                })
 
         } else {
             SetShowMessageErrorLogin(true);
@@ -160,6 +166,9 @@ export default function TableOneCar({ oneBrand, allCars }) {
                                 {/* Contry code */}
 
                                 <MyCalendar fullYear={fullYear} setFullYear={setFullYear} />
+                                {showErrorDate && (
+                                    <p className='text-red-500'>Please fill in the date</p>
+                                )}
 
                                 <button onClick={addRentalCar} className='bg-neutral-700 text-sm w-[160px] px-4 py-2.5 rounded-sm tracking-[1px] text-white hover:bg-orangeCus transition-all duration-300 flex items-center justify-center' type="submit">
                                     Book Now

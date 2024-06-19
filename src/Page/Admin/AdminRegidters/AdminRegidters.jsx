@@ -9,10 +9,12 @@ import { BiShow } from "react-icons/bi";
 import MyCalendar from '../../../Component/CarBoxInfoOne/MyCalendar';
 import FilterBar from '../../../Component/Admins/FilterBar/FilterBar';
 import Modal from '../../../Component/Admins/Modal/Modal';
+import SearchBar from '../../../Component/Admins/SearchBar/SearchBar';
 
 export default function AdminRegidters() {
   const [allRental, setAllRental] = useState([])
   const [allUsers, setAllUsers] = useState([])
+  const [allUsersFilters, setAllUsersFilters] = useState([])
   // info car
   const [showInfoCar, setShowInfoCar] = useState(false)
   const [infocar, setInfoCar] = useState({})
@@ -42,6 +44,7 @@ export default function AdminRegidters() {
       .then(res => res.json())
       .then(result => {
         setAllRental(result.reverse())
+        setAllUsersFilters(result.reverse())
       })
   }
   const getAllregisteredRentOld = () => {
@@ -116,7 +119,7 @@ export default function AdminRegidters() {
 
   useEffect(() => {
     getAllUsers()
-  } , [DeleteUserShow])
+  }, [DeleteUserShow])
 
 
   //  For register
@@ -218,7 +221,7 @@ export default function AdminRegidters() {
         return res.json();
       })
 
-      
+
     fetch(`http://localhost:5000/registeredRent/${idUser}`, {
       method: "Delete",
     })
@@ -268,18 +271,30 @@ export default function AdminRegidters() {
       })
   }
 
+  const searchValueHandler = (value) => {
+    let filterArray = [...allUsersFilters]
+    if (value.trim()) {
+      let userFilterValue = filterArray.filter(data => data.name.toLowerCase().includes(value.toLowerCase()) || data.email.toLowerCase().includes(value.toLowerCase()) || data.telephone.toLowerCase().includes(value.toLowerCase()) || data.country.toLowerCase().includes(value.toLowerCase()))
+      setAllRental(userFilterValue)
+    } else {
+      changeFilterdAction();
+    }
+  }
+
   return (
     <>
-      <div className='px-4 font-medium'>
-        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg mx-4'>
+      <div className='container font-medium'>
+        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg'>
           <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2'>List rental Cars</p>
-          {/* filter */}
-          <FilterBar setShowFiltered={setShowFiltered} showFiltered={showFiltered} setFilteredValue={setFilteredValue} filteredValue={filteredValue} />
-          {/* filter */}
-
+          <div className='flex gap-5'>
+            <SearchBar searchValueHandler={searchValueHandler} />
+            {/* filter */}
+            <FilterBar setShowFiltered={setShowFiltered} showFiltered={showFiltered} setFilteredValue={setFilteredValue} filteredValue={filteredValue} />
+            {/* filter */}
+          </div>
         </div>
         {allRental.length > 0 ? (
-          <div className='shadow-lg mx-4 mt-4 rounded-lg overflow-auto h-[430px] mb-5'>
+          <div className='shadow-lg mt-4 rounded-lg overflow-auto h-[430px] mb-5'>
             <table className='w-full text-center text-[15px] border-collapse border border-slate-500 '>
               <thead className='font-bold'>
                 <tr className='child:p-4 sticky top-0 child:text-orangeCus2 child:bg-[#454545]'>
@@ -358,7 +373,7 @@ export default function AdminRegidters() {
             </table>
           </div>
         ) : (
-          <h2 className='bg-black/80 text-orangeCus2 text-[30px] text-center p-5 font-bold rounded-lg mt-5'>This filter was not found 😩</h2>
+          <h2 className='bg-black/80 mx-4 text-orangeCus2 text-[30px] text-center p-5 font-bold rounded-lg mt-5'>This filter was not found 😩</h2>
         )}
 
       </div>

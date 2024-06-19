@@ -14,7 +14,7 @@ export default function PanelUserIndex() {
     }
     return (
         <>
-            <div className='overflow-auto h-full'>
+            <div className='overflow-auto h-full font-medium'>
 
                 <Formik
                     initialValues={{
@@ -61,7 +61,7 @@ export default function PanelUserIndex() {
                     }}
                 >
                     {({ isSubmitting }) => (
-                        <Form className='flex flex-col gap-10 xl:gap-28 items-center'>
+                        <Form className='flex flex-col items-center gap-10 xl:gap-28'>
                             <div>
                                 <p className='text-[20px]'>{authContext.userInfo[0].username} Select the desired section in the left sidebar ❤️</p>
                                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  mt-5 gap-5 md:gap-8 xl:gap-10'>

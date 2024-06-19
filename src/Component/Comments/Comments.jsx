@@ -19,15 +19,15 @@ export default function Comments() {
 
     const getallcomments = () => {
         fetch(`http://localhost:5000/comments`)
-          .then(res => res.json())
-          .then(result => {
-            setAllComents(result)
-          })
-      }
+            .then(res => res.json())
+            .then(result => {
+                setAllComents(result)
+            })
+    }
 
-      useEffect(() => {
-         getallcomments()
-      } , [])
+    useEffect(() => {
+        getallcomments()
+    }, [])
     const pagination = {
         clickable: true,
         renderBullet: function (index, className) {
@@ -63,29 +63,30 @@ export default function Comments() {
                         }}
                     >
 
-                        {allComents.map((comment) => (
-                        <SwiperSlide key={comment.id} className='mb-[55px] flex justify-center items-center'>
-                            <div className='text-white bg-[#454545] p-2.5 md:p-10 rounded-2xl flex flex-col gap-10'>
-                                <span className='line-clamp-3 text-base md:text-xs/[21px] tracking-[1px]'>
-                                  {comment.body}
-                                </span>
+                        {allComents.filter(comment => comment.isRegister === 1).map((comment) => (
+                            <SwiperSlide key={comment.id} className='mb-[55px]  flex justify-center items-center'>
+                                <div className='text-white bg-[#454545] w-full h-[283px] p-2.5 md:p-10 rounded-2xl flex flex-col gap-10'>
+                                    <span className='line-clamp-3 h-[63px] text-base md:text-xs/[21px] tracking-[1px]'>
+                                        {comment.body}
+                                    </span>
 
-                                {/* img and name and date*/}
-                                <div className='flex items-center gap-3'>
-                                    <img className='rounded-full' src="https://mkrentacar.com/public/assets/images/testimonial.jpg" alt="1" />
-                                    <div className='flex flex-col gap-2'>
-                                        <span className='text-xs md:text-base'>{comment.name.toUpperCase()}</span>
-                                        <span className='text-xs md:text-base'>{comment.date}</span>
+                                    {/* img and name and date*/}
+                                    <div className='flex items-center gap-3'>
+                                        <img className='rounded-full' src="https://mkrentacar.com/public/assets/images/testimonial.jpg" alt="1" />
+                                        <div className='flex flex-col gap-2'>
+                                            <span className='text-xs md:text-base line-clamp-1'>{comment.carName.toUpperCase()}</span>
+                                            <span className='text-xs md:text-base line-clamp-1'>{comment.name.toUpperCase()}</span>
+                                            <span className='text-xs md:text-base'>{comment.date.slice(0, 10)}</span>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>
+                            </SwiperSlide>
                         ))}
-                   
-              
-                
-                  
+
+
+
+
 
                     </Swiper>
                 </SwiperAllCarType>
