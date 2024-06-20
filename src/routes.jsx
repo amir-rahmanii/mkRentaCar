@@ -17,6 +17,7 @@ import PanelUserRental from "./Page/PanelUser/PanelUserRental"
 import AdminUsers from "./Page/Admin/AdminUsers/AdminUsers"
 import PanelUserComment from "./Page/PanelUser/PanelUserComment"
 import AdminComments from "./Page/Admin/AdminComments/AdminComments"
+import CarsSearch from "./Page/CarsSearch/CarsSearch"
 
 
 
@@ -27,6 +28,7 @@ let routes = [
     { path: '/', element: <Index /> },
     { path: '/all-cars', element: <AllCars /> },
     { path: '/cars', element: <Cars /> },
+    { path: '/cars-search', element: <CarsSearch /> },
     { path: '/cars/:type', element: <CarInfos /> },
     { path: '/cars/:type/:carInfo', element: <CarsTypeCar /> },
     { path: '/brands/:brand', element: <CarBrand /> },
@@ -43,7 +45,7 @@ let routes = [
     {
         path: '/dashbord', element: <Dashbord />, children: [
             { path: '', element: <DashboardIndex /> },
-            { path: 'registers', element: <AdminRegidters /> },
+            { path: 'rental', element: <AdminRegidters /> },
             { path: 'cars', element: <AdminCars /> },
             { path: 'users', element: <AdminUsers /> },
             { path: 'comments', element: <AdminComments /> },

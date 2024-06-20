@@ -271,7 +271,8 @@ export default function AdminRegidters() {
       })
   }
 
-  const searchValueHandler = (value) => {
+  const searchValueHandler = (e , value) => {
+    e.preventDefault()
     let filterArray = [...allUsersFilters]
     if (value.trim()) {
       let userFilterValue = filterArray.filter(data => data.name.toLowerCase().includes(value.toLowerCase()) || data.email.toLowerCase().includes(value.toLowerCase()) || data.telephone.toLowerCase().includes(value.toLowerCase()) || data.country.toLowerCase().includes(value.toLowerCase()))

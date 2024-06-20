@@ -49,7 +49,8 @@ export default function AdminUsers() {
 
 
   //search Handler
-  const searchValueHandler = (value) => {
+  const searchValueHandler = (e , value) => {
+    e.preventDefault()
     let filterArray = [...allUsersFilters]
     if (value.trim()) {
       let userFilterValue = filterArray.filter(data => data.username.toLowerCase().includes(value.toLowerCase()) || data.email.toLowerCase().includes(value.toLowerCase()) || data.cellNumber.toLowerCase().includes(value.toLowerCase()))
@@ -238,7 +239,7 @@ export default function AdminUsers() {
 
 
       {/* is Deleted */}
-      <Modal width="w-[400px]" height="h-auto" closedBox={DeleteUserShow} setClosedBox={setDeleteUserShow} title={`Delete ${infoUser.username} rental`}>
+      <Modal width="w-[400px]" height="h-auto" closedBox={DeleteUserShow} setClosedBox={setDeleteUserShow} title={`Delete ${infoUser.username}`}>
         <p className='text-[20px] mt-5'>Do you intend to Delete the user?</p>
         <div className='flex gap-4 mt-5'>
           <button onClick={deleteUser} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>

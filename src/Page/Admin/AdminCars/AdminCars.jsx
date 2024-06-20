@@ -252,7 +252,8 @@ export default function AdminCars() {
     }
   }
 
-  const searchValueHandler = (value) => {
+  const searchValueHandler = (e , value) => {
+    e.preventDefault()
     let filterArray = [...allcarsFilters]
     if (value.trim()) {
       let userFilterValue = filterArray.filter(data => data.title.toLowerCase().includes(value.toLowerCase()) || data.brand.toLowerCase().includes(value.toLowerCase()) || data.carType.toLowerCase().includes(value.toLowerCase()))

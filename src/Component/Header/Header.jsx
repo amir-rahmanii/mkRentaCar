@@ -1,26 +1,53 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { BsTelephone } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import Button from '../Button/Button';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
 import InputLanguage from '../InputLanguage/InputLanguage';
 import AuthContext from '../../Context/AuthContext';
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { HiOutlineLogout } from "react-icons/hi";
 import SearchBar from '../Admins/SearchBar/SearchBar';
+import Modal from '../Admins/Modal/Modal';
 
 export default function Header() {
-
+    const [allCars, setAllCars] = useState([])
     const [showWidgetAuth, setShowWidgetAuth] = useState(false)
     const authContext = useContext(AuthContext)
+    const [ShowLogOut, setShowLogOut] = useState(false)
+    const navigate = useNavigate() 
 
-    const logOutHandler = () => {
+    const logOutHandler = (e) => {
+        e.preventDefault()
         authContext.logout();
         window.location.href = "/";
     }
 
+    const getAllCars = () => {
+        fetch(`http://localhost:5000/cars`)
+            .then(res => res.json())
+            .then(result => {
+                setAllCars(result)
+            })
+    }
+
+    useEffect(() => {
+        getAllCars()
+    }, [])
+
+    const searchValueHandler = (e , value) => {
+        e.preventDefault()
+        let filterArray = [...allCars]
+        if (value.trim()) {
+            let carsFilterValue = filterArray.filter(data => data.title.toLowerCase().includes(value.toLowerCase()) || data.brand.toLowerCase().includes(value.toLowerCase()) || data.carType.toLowerCase().includes(value.toLowerCase()))
+            authContext.searchFunc(carsFilterValue)
+        } else {
+            authContext.searchFunc([])
+        }
+        navigate("/cars-search")
+    }
 
     return (
         <>
@@ -49,7 +76,7 @@ export default function Header() {
                             </div>
 
                             {/* input search */}
-                            <SearchBar />
+                            <SearchBar searchValueHandler={searchValueHandler} />
 
                             {/* Book Now */}
                             {authContext.isLoggedIn ? (
@@ -64,7 +91,7 @@ export default function Header() {
                                                 <Link to={"/paneluser"} className='bg-orangeCus2 w-full text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
                                                     MY PANEL
                                                 </Link>
-                                                <button onClick={logOutHandler} className='bg-red-700 w-full  text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
+                                                <button onClick={() => setShowLogOut(true)} className='bg-red-700 w-full  text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
                                                     LOG OUT
                                                     <div className='text-[13px]'>
                                                         <HiOutlineLogout />
@@ -108,7 +135,7 @@ export default function Header() {
                                             <Link to={"/paneluser"} className='bg-orangeCus2 w-[80px] justify-center text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
                                                 PANEL
                                             </Link>
-                                            <button onClick={logOutHandler} className='bg-red-700 w-[100px] justify-center text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
+                                            <button onClick={() => setShowLogOut(true)} className='bg-red-700 w-[100px] justify-center text-white text-[11px]/[35px] px-[5px] xl:px-[11px] tracking-[1px] flex items-center gap-0.5 transition-all duration-300 hover:opacity-80'>
                                                 LOG OUT
                                                 <div className='text-[13px] hidden md:block'>
                                                     <HiOutlineLogout />
@@ -131,6 +158,16 @@ export default function Header() {
                     </div>
                 </div>
             </div>
+
+            {/* is Logout */}
+            <Modal width="w-[400px]" height="h-auto" closedBox={ShowLogOut} setClosedBox={setShowLogOut} title={`Logout`}>
+                <p className='text-[20px] mt-5'>Do you want to logout?</p>
+                <div className='flex gap-4 mt-5'>
+                    <button onClick={logOutHandler} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+                        Yes
+                    </button>
+                </div>
+            </Modal>
         </>
     )
 }

@@ -40,7 +40,8 @@ export default function AdminComments() {
 
 
     //search Handler
-    const searchValueHandler = (value) => {
+    const searchValueHandler = (e , value) => {
+        e.preventDefault()
         let filterArray = [...allCommentsFilters]
         if (value.trim()) {
             let commentsFilterValue = filterArray.filter(data => data.name.toLowerCase().includes(value.toLowerCase()) || data.carName.toLowerCase().includes(value.toLowerCase()))
@@ -192,7 +193,7 @@ export default function AdminComments() {
 
 
             {/* is Deleted */}
-            <Modal width="w-[400px]" height="h-auto" closedBox={DeleteCommentShow} setClosedBox={setDeleteCommentShow} title={`Delete ${infoComment.name} rental`}>
+            <Modal width="w-[400px]" height="h-auto" closedBox={DeleteCommentShow} setClosedBox={setDeleteCommentShow} title={`Delete ${infoComment.name}`}>
                 <p className='text-[20px] mt-5'>Do you intend to Delete the Comment?</p>
                 <div className='flex gap-4 mt-5'>
                     <button onClick={deleteComment} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>

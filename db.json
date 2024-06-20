@@ -5058,6 +5058,16 @@
           "dateFull": "2024-06-17T17:25:27.441Z"
         }
       ]
+    },
+    {
+      "id": "28c87342-5f04-4cd2-9be3-0e9e9bfeb537",
+      "username": "Mohsen",
+      "email": "Mohsenkhodabakhsi@gmail.com",
+      "password": "Qazmlp1@",
+      "cellNumber": "09305441478",
+      "token": "6c9f8c5e-9877-41ce-b63d-03854f4bd325",
+      "role": "user",
+      "registeredRent": []
     }
   ]
 }

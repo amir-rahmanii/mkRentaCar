@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import AuthContext from '../../../Context/AuthContext';
 import Modal from '../Modal/Modal';
+import { IoIosEye } from "react-icons/io";
+import { IoIosEyeOff } from "react-icons/io";
 
 export default function Register() {
     const [allUsers, setAllUsers] = useState();
@@ -11,6 +13,9 @@ export default function Register() {
     const [showWrongEmailAndisCellNumber, setShowWrongEmailAndisCellNumber] = useState(false)
     const [showWrongCellNumber, setShowWrongCellNumber] = useState(false)
     const authContext = useContext(AuthContext);
+    
+    //change type password
+    const [changeTypePassword, setChangeTypePassword] = useState(false)
 
     const getAllUsers = () => {
         fetch(`http://localhost:5000/users`)
@@ -72,7 +77,7 @@ export default function Register() {
                     onSubmit={(values, { resetForm }) => {
                         let arrayUsers = [...allUsers]
                         let isEmail = arrayUsers.find((data) => data.email == values.email)
-                        let isCellNumber= arrayUsers.find((data) => data.cellNumber == values.cellNumber)
+                        let isCellNumber = arrayUsers.find((data) => data.cellNumber == values.cellNumber)
                         if (!isEmail && !isCellNumber) {
                             let newObj = {
                                 id: uuidv4(),
@@ -99,11 +104,11 @@ export default function Register() {
                                     window.location.href = "/";
                                 })
                         } else {
-                            if(isEmail && isCellNumber){
+                            if (isEmail && isCellNumber) {
                                 setShowWrongEmailAndisCellNumber(true)
-                            }else if(isEmail){
+                            } else if (isEmail) {
                                 setShowWrongEmail(true)
-                            }else{
+                            } else {
                                 setShowWrongCellNumber(true)
                             }
                         }
@@ -142,10 +147,15 @@ export default function Register() {
                             <ErrorMessage className='text-red-600 text-[13px]/[19px] pt-1' name="email" component="div" />
 
                             <label htmlFor="password" className='text-black font-medium text-[13px]/[19px] mt-7 pb-1'>Password</label>
-                            <Field className="outline-none border border-[#CDE4DA] py-2 px-[14px] rounded-md"
-                                type="password"
-                                placeholder="Enter Password"
-                                name="password" />
+                            <div className='flex items-center justify-between outline-none border border-[#CDE4DA] py-2 px-[14px] rounded-md'>
+                                <Field className="outline-none flex-1"
+                                    type={`${changeTypePassword ? 'text' : 'password'}`}
+                                    placeholder="Enter Password"
+                                    name="password" />
+                                <div onClick={() => setChangeTypePassword(prevstate => !prevstate)} className='text-[20px] cursor-pointer'>
+                                    {changeTypePassword ? <IoIosEyeOff /> : <IoIosEye />}
+                                </div>
+                            </div>
                             <ErrorMessage className='text-red-600 text-[13px]/[19px] pt-1' name="password" component="div" />
 
                             <button className='bg-[#45CB85] text-[15px]/[19px] text-white px-[14px] py-2 cursor-pointer mt-7 rounded-md transition-all duration-300 hover:bg-[#3aa76f]' type="submit" disabled={isSubmitting}>

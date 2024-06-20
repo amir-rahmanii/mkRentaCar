@@ -8,6 +8,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState(false);
   const [userInfo, setUserInfo] = useState({});
+  const [searchCars , setSearchCars] = useState([])
   const router = useRoutes(routes)
 
 
@@ -37,6 +38,10 @@ function App() {
     }
   }, []);
 
+  const searchFunc = (array) => {
+    setSearchCars(array)
+  }
+
 
   return (
     <AuthContext.Provider
@@ -44,6 +49,8 @@ function App() {
         isLoggedIn,
         token,
         userInfo,
+        searchCars,
+        searchFunc,
         login,
         logout,
       }}

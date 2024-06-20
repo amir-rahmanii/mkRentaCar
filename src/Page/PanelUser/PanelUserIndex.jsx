@@ -2,16 +2,38 @@ import React, { useState } from 'react'
 import { useContext } from 'react'
 import AuthContext from '../../Context/AuthContext'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import Modal from '../../Component/Admins/Modal/Modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { MdError } from "react-icons/md";
+import { FaCheckCircle } from 'react-icons/fa';
+import { IoIosEye } from "react-icons/io";
+import { IoIosEyeOff } from "react-icons/io";
 
 export default function PanelUserIndex() {
     const authContext = useContext(AuthContext)
-    const [showChangePassword, setShowChangePassword] = useState(false)
-    const [showWrongPassword, setShowWrongPassword] = useState(false)
+    //change type password
+    const [changeTypePasswordCurrent, setChangeTypePasswordCurrent] = useState(false)
+    const [changeTypePasswordNew, setChangeTypePasswordNew] = useState(false)
 
-    const changePasswordHandler = () => {
-        window.location.href = "/paneluser";
+
+    //Toast
+    const notify = () => {
+        toast('Password Changed successfully , After three seconds, the page will reload!', {
+            icon: <FaCheckCircle color="green" />,
+            type: 'success',
+            theme: 'dark'
+        });
     }
+
+    //Toast wrong password
+    const notifyWrong = () => {
+        toast('Your Password does not match!', {
+            icon: <MdError color="red" />,
+            type: 'error',
+            theme: 'dark'
+        });
+    }
+
     return (
         <>
             <div className='overflow-auto h-full font-medium'>
@@ -51,17 +73,23 @@ export default function PanelUserIndex() {
                                 })
                             })
                                 .then(res => {
-                                    setShowChangePassword(true)
-                                }
-                                )
+                                    return res.json()
+                                })
+                                .then(result => {
+                                    notify()
+                                    resetForm()
+                                    setTimeout(() => {
+                                        window.location.href = "/paneluser"
+                                    }, 3000);
+                                })
                         } else {
-                            setShowWrongPassword(true)
+                            notifyWrong()
+                            resetForm()
                         }
-                        resetForm();
                     }}
                 >
                     {({ isSubmitting }) => (
-                        <Form className='flex flex-col items-center gap-10 xl:gap-28'>
+                        <Form className='flex flex-col items-center gap-10 xl:gap-18'>
                             <div>
                                 <p className='text-[20px]'>{authContext.userInfo[0].username} Select the desired section in the left sidebar ❤️</p>
                                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  mt-5 gap-5 md:gap-8 xl:gap-10'>
@@ -77,21 +105,31 @@ export default function PanelUserIndex() {
                                         <label className='w-[95px] text-center hidden md:block' htmlFor="">CellNumber</label>
                                         <Field name="cellNumber" id="cellNumber" type="text" className='text-black/70 bg-white/80 p-3 rounded-lg' value={authContext.userInfo[0].cellNumber} disabled />
                                     </div>
-                                    <div className='flex items-center gap-2'>
-                                        <label className='w-[95px] text-center hidden md:block' htmlFor="">Role</label>
+                                    <div className='flex items-start gap-2'>
+                                        <label className='w-[95px] text-center hidden md:block mt-3' htmlFor="">Role</label>
                                         <Field name="role" id="role" type="text" className='text-black/70 bg-white/80 p-3 rounded-lg' value={authContext.userInfo[0].role} disabled />
                                     </div>
-                                    <div className='flex items-center gap-2'>
+                                    <div className='flex items-start gap-2'>
                                         <label className='w-[95px] text-center hidden md:block' htmlFor="password">Current password</label>
-                                        <div className='flex flex-col'>
-                                            <Field name="password" id="password" type="password" className='text-black/70 p-3 rounded-lg outline-none' placeholder='Current password' />
+                                        <div className='flex flex-col items-start'>
+                                            <div className='flex justify-between items-center p-3 rounded-lg bg-white'>
+                                                <Field name="password" id="password" type={`${changeTypePasswordCurrent ? 'text' : 'password'}`} className='text-black/70 outline-none' placeholder='Current password' />
+                                                <div onClick={() => setChangeTypePasswordCurrent(prevstate => !prevstate)} className='text-black text-[20px]'>
+                                                    {changeTypePasswordCurrent ? <IoIosEyeOff /> : <IoIosEye />}
+                                                </div>
+                                            </div>
                                             <ErrorMessage className='text-red-600 text-[16px]/[19px] pt-1' name="password" component="div" />
                                         </div>
                                     </div>
-                                    <div className='flex items-center gap-2'>
+                                    <div className='flex items-start gap-2'>
                                         <label className='w-[95px] text-center hidden md:block' htmlFor="newpassword">New password</label>
-                                        <div className='flex flex-col'>
-                                            <Field name="newpassword" id="newpassword" type="password" className='text-black/70 p-3 rounded-lg outline-none' placeholder='New password' />
+                                        <div className='flex flex-col items-start'>
+                                            <div className='flex justify-between items-center p-3 rounded-lg bg-white'>
+                                                <Field name="newpassword" id="newpassword" type={`${changeTypePasswordNew ? 'text' : 'password'}`} className='text-black/70 outline-none' placeholder='New password' />
+                                                <div onClick={() => setChangeTypePasswordNew(prevstate => !prevstate)} className='text-black text-[20px]'>
+                                                    {changeTypePasswordNew ? <IoIosEyeOff /> : <IoIosEye />}
+                                                </div>
+                                            </div>
                                             <ErrorMessage className='text-red-600 text-[16px]/[19px] pt-1' name="newpassword" component="div" />
                                         </div>
                                     </div>
@@ -105,19 +143,8 @@ export default function PanelUserIndex() {
                     )}
                 </Formik>
             </div>
-
-            {/* Show Change Password */}
-            <Modal width="w-auto md:w-[400px]" height="h-auto" closedBox={showChangePassword} setClosedBox={setShowChangePassword} title={`Do you want to change your password?`}>
-                <div className='flex gap-4 mt-5'>
-                    <button onClick={changePasswordHandler} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
-                        Yes
-                    </button>
-                </div>
-            </Modal>
-
-            {/* Wrong Password */}
-            <Modal width="w-auto md:w-[400px]" height="h-auto" closedBox={showWrongPassword} setClosedBox={setShowWrongPassword} title={`Your password does not match`}>
-            </Modal>
+            {/* notfy */}
+            <ToastContainer />
         </>
     )
 }

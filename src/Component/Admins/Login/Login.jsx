@@ -2,11 +2,16 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from 'react-router-dom';
 import AuthContext from '../../../Context/AuthContext';
+import { IoIosEye } from "react-icons/io";
+import { IoIosEyeOff } from "react-icons/io";
 
 export default function Login() {
 
   const [allUsers, setAllUsers] = useState([])
   const [showErrorMessage, setshowErrorMessage] = useState(false)
+
+  //change type password
+  const [changeTypePassword , setChangeTypePassword ] = useState(false)
   const authContext = useContext(AuthContext)
 
 
@@ -46,7 +51,7 @@ export default function Login() {
           }
           return errors;
         }}
-        onSubmit={(values, {resetForm}) => {
+        onSubmit={(values, { resetForm }) => {
           allUsers.filter((data) => {
             if (data.email == values.email && data.password == values.password) {
               authContext.login(data, data.token)
@@ -56,7 +61,7 @@ export default function Login() {
             }
           })
           resetForm()
-          
+
         }}
       >
         {({ isSubmitting }) => (
@@ -72,10 +77,15 @@ export default function Login() {
             <ErrorMessage className='text-red-600 text-[13px]/[19px] pt-1' name="email" component="div" />
 
             <label htmlFor="password" className='text-black font-medium text-[13px]/[19px] mt-7 pb-1'>Password</label>
-            <Field className="outline-none border border-[#CDE4DA] py-2 px-[14px] rounded-md"
-              type="password"
-              placeholder="Enter Password"
-              name="password" />
+            <div className='flex items-center justify-between outline-none border border-[#CDE4DA] py-2 px-[14px] rounded-md'>
+              <Field className="outline-none flex-1"
+                type={`${changeTypePassword ? 'text' : 'password'}`}
+                placeholder="Enter Password"
+                name="password" />
+              <div onClick={() => setChangeTypePassword(prevstate => !prevstate)} className='text-[20px] cursor-pointer'>
+                {changeTypePassword ? <IoIosEyeOff /> : <IoIosEye /> }
+              </div>
+            </div>
             <ErrorMessage className='text-red-600 text-[13px]/[19px] pt-1' name="password" component="div" />
 
             <button className='bg-[#45CB85] text-[15px]/[19px] text-white px-[14px] py-2 cursor-pointer mt-7 rounded-md transition-all duration-300 hover:bg-[#3aa76f]' type="submit" disabled={isSubmitting}>
