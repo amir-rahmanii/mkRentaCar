@@ -204,7 +204,7 @@ export default function AddCars({ getAllCars }) {
                 {({ isSubmitting }) => (
                     <Form className='flex flex-col gap-4 w-full px-[25px] pt-[25px] text-base' >
                         <div>
-                            <div className='grid grid-cols-3 gap-6'>
+                            <div className='grid grid-cols-1 xl:grid-cols-3 gap-3 xl:gap-6'>
                                 {/* title */}
                                 <div>
                                     <Field className="px-4 py-2.5 w-full text-black/70 outline-none rounded-md" type="text" name="title" placeholder='title' />
@@ -316,7 +316,7 @@ export default function AddCars({ getAllCars }) {
                             </div>
                             <div className='my-8'>
                                 <p className='text-orangeCus2 text-center font-medium text-[22px]'>Technical Specifications</p>
-                                <div className='grid grid-cols-5 gap-x-4 gap-y-8 mt-4'>
+                                <div className='grid grid-cols-1 xl:grid-cols-5 gap-x-4 gap-y-8 mt-4'>
                                     {/* color */}
                                     <div>
                                         <Field className="px-4 py-2.5 w-full text-black/70 outline-none rounded-md" type="text" name="color" placeholder='color' />

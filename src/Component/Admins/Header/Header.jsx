@@ -39,7 +39,7 @@ export default function Header() {
             </span>
           </div>
         </div>
-        <p className='text-orangeCus2 text-[15px] font-bold rounded-lg p-3'> <span className='pr-4'>{dateDay}</span>{dateMonth} / {dateDate} / {dateYear} </p>
+        <p className='text-orangeCus2 text-[15px] font-bold rounded-lg p-3 hidden xl:block'> <span className='pr-4'>{dateDay}</span>{dateMonth} / {dateDate} / {dateYear} </p>
       </div>
     </div>
   )

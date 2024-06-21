@@ -271,11 +271,12 @@ export default function AdminCars() {
   return (
     <>
       <div className='container font-medium '>
-        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg '>
-          <p className='text-[25px] mt-4 mb-6 font-bold text-center text-orangeCus2'>List registration Cars</p>
+        <div className='flex justify-between shadow-lg px-4 w-[300px] sm:w-auto  items-center bg-black/80 mt-4 rounded-lg '>
+          <p className='text-[25px] mt-4 mb-6 font-bold text-center text-orangeCus2 hidden md:block'>List registration Cars</p>
+          <p className='text-[16px] mt-4 mb-6 font-bold text-center text-orangeCus2 block md:hidden'> Cars</p>
           <div className=' flex gap-4'>
             <SearchBar searchValueHandler={searchValueHandler} />
-            <button onClick={() => setShowFilteredBrand(true)} className='bg-orangeCus2 p-2 text-white rounded-lg'>
+            <button onClick={() => setShowFilteredBrand(true)} className='bg-orangeCus2 hidden md:block p-2 text-white rounded-lg'>
               Filter Brand
             </button>
             {/* Filter */}
@@ -286,10 +287,10 @@ export default function AdminCars() {
 
         </div>
         <div className=' my-2'>
-          <button onClick={() => setShowAddNewCar(true)} className='text-orangeCus2 p-2 rounded-md text-[25px] font-bold bg-[#454545] flex justify-center items-center gap-2'>Add New Car <FaPlus /> </button>
+          <button onClick={() => setShowAddNewCar(true)} className='text-orangeCus2 p-2 rounded-md text-[16px] sm:text-[25px] font-bold bg-[#454545] flex justify-center items-center gap-2'>Add New Car <FaPlus /> </button>
         </div>
         {allcars.length > 0 ? (
-          <div className='shadow-lg  rounded-lg overflow-auto h-[430px]'>
+          <div className='shadow-lg  rounded-lg overflow-auto h-[500px] sm:h-[480px] w-[300px] sm:w-auto '>
             <table className='w-full text-center text-[15px] border-collapse border border-slate-500 '>
               <thead className='font-bold'>
                 <tr className='child:p-4 child:text-orangeCus2 sticky top-0 child:bg-[#454545]'>
@@ -300,7 +301,7 @@ export default function AdminCars() {
                   <th>Car Type</th>
                   <th>Brand</th>
                   <th>Body</th>
-                  <th>InfoCars</th>
+                  <th className='hidden xl:table-cell'>InfoCars</th>
                   <th>Status</th>
                   <th>Update</th>
                   <th>Delete</th>
@@ -326,8 +327,8 @@ export default function AdminCars() {
                         <BiShow />
                       </button>
                     </td>
-                    <td>
-                      <button className='bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
+                    <td className='hidden xl:table-cell'>
+                      <button className=' bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoCar(car)
                         setBody(car.body)
                         setShowInfoCar(true)
@@ -432,7 +433,7 @@ export default function AdminCars() {
       </Modal>
 
       {/* is body */}
-      <Modal width="w-[650px]" height="h-auto" closedBox={showBody} setClosedBox={setShowBody} title={`${infocar.title} body`}>
+      <Modal width="w-[400px] xl:w-[650px]" height="h-auto" closedBox={showBody} setClosedBox={setShowBody} title={`${infocar.title} body`}>
         <div className='flex items-center justify-between'>
           <div onClick={() => setEditBodyMode(prevstate => !prevstate)} className='bg-purple-500 font-bold text-[25px] p-3 flex justify-center items-center rounded-lg cursor-pointer'><FaRegEdit /></div>
         </div>
@@ -525,7 +526,7 @@ export default function AdminCars() {
       </Modal>
 
       {/* Add New Car */}
-      <Modal width="w-[1300px]" height="h-[550px]" closedBox={showAddNewCar} setClosedBox={setShowAddNewCar} title="Add Car">
+      <Modal width="w-[400px] xl:w-[1300px]" height="h-[550px]" closedBox={showAddNewCar} setClosedBox={setShowAddNewCar} title="Add Car">
         <AddCars getAllCars={getAllCars} />
       </Modal>
 

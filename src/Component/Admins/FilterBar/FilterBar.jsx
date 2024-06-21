@@ -3,7 +3,7 @@ import { SlArrowDown } from "react-icons/sl";
 
 export default function FilterBar({setShowFiltered,showFiltered , setFilteredValue , filteredValue}) {
   return (
-    <div onClick={() => setShowFiltered(prevstate => !prevstate)} className='w-[200px]'>
+    <div onClick={() => setShowFiltered(prevstate => !prevstate)} className='w-[200px] hidden xl:block'>
     <div className='w-[200px] bg-[#cccccc] cursor-pointer h-[42px] px-[5px] border  border-bg-[#cccccc] flex justify-between items-center'>
       <div className='flex items-center'>
         <span className='text-black/70 line-clamp-1'>{filteredValue}</span>

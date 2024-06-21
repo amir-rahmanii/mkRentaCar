@@ -285,8 +285,9 @@ export default function AdminRegidters() {
   return (
     <>
       <div className='container font-medium'>
-        <div className='flex justify-between shadow-lg px-4 items-center bg-black/80 mt-4 rounded-lg'>
-          <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2'>List rental Cars</p>
+        <div className='flex justify-between shadow-lg px-4 w-[300px] sm:w-auto  items-center bg-black/80 mt-4 rounded-lg'>
+          <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2 hidden sm:block'>List rental Cars</p>
+          <p className='text-[16px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2 block sm:hidden'>rental</p>
           <div className='flex gap-5'>
             <SearchBar searchValueHandler={searchValueHandler} />
             {/* filter */}
@@ -295,8 +296,8 @@ export default function AdminRegidters() {
           </div>
         </div>
         {allRental.length > 0 ? (
-          <div className='shadow-lg mt-4 rounded-lg overflow-auto h-[430px] mb-5'>
-            <table className='w-full text-center text-[15px] border-collapse border border-slate-500 '>
+          <div className='shadow-lg mt-4 rounded-lg overflow-auto h-[500px] sm:h-[480px] w-[300px] sm:w-auto mb-5'>
+            <table className='w-full text-center text-[11px] xl:text-[15px] border-collapse border border-slate-500 '>
               <thead className='font-bold'>
                 <tr className='child:p-4 sticky top-0 child:text-orangeCus2 child:bg-[#454545]'>
                   <th>Row</th>

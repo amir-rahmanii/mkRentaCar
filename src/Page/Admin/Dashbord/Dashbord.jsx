@@ -15,11 +15,11 @@ export default function Dashbord() {
                     {authContext.userInfo[0].role == "user"  ? (
                         <Error404 />
                     ) : (
-                        <div className='flex h-screen w-full'>
-                            <div>
+                        <div className='flex w-full'>
+                            <div className=''>
                                 <Sidebar />
                             </div>
-                            <div className='w-full'>
+                            <div className='w-full ml-[80px] xl:ml-[285px]'>
                                 <Header />
                                 <Outlet />
                             </div>
