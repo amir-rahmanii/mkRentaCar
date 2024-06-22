@@ -124,6 +124,9 @@ export default function TableOneCar({ oneBrand, allCars }) {
                         }
                         return res.json()
                     })
+                    .then((result => {
+                        setShowSubmitRegestrid(true)
+                    }))
                     .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
             } else {

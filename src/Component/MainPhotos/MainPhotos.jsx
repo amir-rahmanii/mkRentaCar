@@ -114,7 +114,7 @@ export default function MainPhotos() {
 
                     {/* searchBox Handler */}
                     <div onClick={searchValueHandler}>
-                        <Button link="#" classes='bg-neutral-700 text-[15px]/[40px] rounded-md md:rounded-none font-light tracking-[1px] w-full md:w-[228px]' >
+                        <Button link="#" classes='bg-neutral-700 px-4 md:px-0 text-[15px]/[40px] rounded-md md:rounded-none font-light tracking-[1px] w-full md:w-[228px]' >
                             <span>Search</span>
                         </Button>
                     </div>

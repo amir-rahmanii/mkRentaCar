@@ -74,7 +74,7 @@ export default function Comments() {
                         {allComents.filter(comment => comment.isRegister === 1).map((comment) => (
                             <SwiperSlide key={comment.id} className='mb-[55px]  flex justify-center items-center'>
                                 <div className='text-white bg-[#454545] w-full h-[283px] p-2.5 md:p-10 rounded-2xl flex flex-col gap-10'>
-                                    <span className='line-clamp-3 h-[63px] text-base md:text-xs/[21px] tracking-[1px]'>
+                                    <span className='line-clamp-3 h-[76px] md:h-[63px] text-base md:text-xs/[21px] tracking-[1px]'>
                                         {comment.body}
                                     </span>
 

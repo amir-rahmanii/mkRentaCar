@@ -116,7 +116,7 @@ export default function PanelUserComment() {
         <p className='text-[20px]'>Register your desired comment about our cars ❤️</p>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 h-auto mx-auto'>
           <div className='flex flex-col md:flex-row gap-6'>
-            <div className='relative w-[200px] text-black'>
+            <div className='relative w-[250px] md:w-auto text-black'>
               <div onClick={() => setShowCarsName(prevstate => !prevstate)} className='w-full h-[60px] bg-white cursor-pointer px-[5px] border  border-white flex justify-between items-center'>
                 <div className='flex items-center gap-1'>
                   <img loading='lazy' className='w-16 h-14' src={carsImgValue} alt="img" />
@@ -145,7 +145,7 @@ export default function PanelUserComment() {
                 </div>
               </div>
             </div>
-            <div className='relative w-[200px] md:w-[150px] text-black'>
+            <div className='relative w-[200px] md:w-auto text-black'>
               <div onClick={() => setshowScore(prevstate => !prevstate)} className='w-full h-[60px] bg-white cursor-pointer px-[5px] border  border-white flex justify-between items-center'>
                 <div className='flex items-center gap-1'>
                   <span className='text-black/70 line-clamp-1'>{scoreValue}</span>
