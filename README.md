@@ -21,4 +21,4 @@
 -...
 
 **Attention:**
-This project is only a sample of work for Amir Rahmani and will not have any commercial use of this website.
+<h2>This project is only a sample of work for Amir Rahmani and will not have any commercial use of this website.</h2>
