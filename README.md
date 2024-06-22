@@ -1,8 +1,24 @@
-# React + Vite
+![image](https://github.com/amir-rahmanii/mkRentaCar/blob/main/public/images/screen/Screenshot%202024-06-23%20025803.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <a href="https://mk-front.liara.run">View online</a>
+</p>
 
-Currently, two official plugins are available:
+<br/><br/>
+Luxury Car Rental In Dubai
+This website is developed using Html, Css, JavaScript, React, Tailwind, Json-server with responsive design.
+I hope you enjoy my website ❤️. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Technologies used on this website :**
+
+- Swiper
+- Formik
+- React-chart-js
+- uuid
+- react-date-picker
+- react-icons
+- react-router-dom
+-...
+
+**Attention:**
+This project is only a sample of work for Amir Rahmani and will not have any commercial use of this website.
