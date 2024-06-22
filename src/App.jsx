@@ -8,7 +8,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState(false);
   const [userInfo, setUserInfo] = useState({});
-  const [searchCars , setSearchCars] = useState([])
+  const [searchCars, setSearchCars] = useState([])
   const router = useRoutes(routes)
 
 
@@ -28,13 +28,19 @@ function App() {
   useEffect(() => {
     const localStorageData = JSON.parse(localStorage.getItem("user"));
     if (localStorageData) {
-      fetch(`http://localhost:5000/users`)
-        .then((res) => res.json())
+      fetch(`https://mkrentacar.liara.run/users`)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json();
+        })
         .then((userData) => {
           let userFiltered = userData.filter(data => data.token == localStorageData.token)
           setIsLoggedIn(true);
           setUserInfo(userFiltered);
-        });
+        })
+        .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
   }, []);
 
@@ -56,7 +62,7 @@ function App() {
       }}
     >
       {router}
-   </AuthContext.Provider>
+    </AuthContext.Provider>
 
 
   )

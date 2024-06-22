@@ -13,16 +13,23 @@ export default function Register() {
     const [showWrongEmailAndisCellNumber, setShowWrongEmailAndisCellNumber] = useState(false)
     const [showWrongCellNumber, setShowWrongCellNumber] = useState(false)
     const authContext = useContext(AuthContext);
-    
+
     //change type password
     const [changeTypePassword, setChangeTypePassword] = useState(false)
 
     const getAllUsers = () => {
-        fetch(`http://localhost:5000/users`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/users`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then((result => {
                 setAllUsers(result)
             }))
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }
 
     useEffect(() => {
@@ -90,19 +97,26 @@ export default function Register() {
                                 registeredRent: []
                             }
 
-                            fetch(`http://localhost:5000/users`, {
+                            fetch(`https://mkrentacar.liara.run/users`, {
+
                                 method: "POST",
                                 headers: {
-                                    "Content-Type": "application/json"
+                                    'Content-Type': 'application/json',
                                 },
                                 body: JSON.stringify(newObj)
                             })
-                                .then(res => res.json())
+                                .then(res => {
+                                    if (!res.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
+                                    return res.json()
+                                })
                                 .then(result => {
                                     console.log(result);
                                     authContext.login(result, result.token);
                                     window.location.href = "/";
                                 })
+                                .catch(error => console.error('There has been a problem with your fetch operation:', error));
                         } else {
                             if (isEmail && isCellNumber) {
                                 setShowWrongEmailAndisCellNumber(true)

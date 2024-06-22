@@ -10,26 +10,38 @@ import SwiperBrand from '../../Component/SwiperBrand/SwiperBrand'
 
 
 export default function Cars() {
-   
+
     const [allCars, setAllCars] = useState([])
     const [allBrands, setAllBrands] = useState([])
 
 
     const getallbrands = () => {
-      fetch(`http://localhost:5000/allBrands`)
-        .then(res => res.json())
-        .then(result => {
-          setAllBrands(result)
-        })
+        fetch(`https://mkrentacar.liara.run/allBrands`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
+            .then(result => {
+                setAllBrands(result)
+            })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
-   
+
 
     const getallcars = () => {
-        fetch(`http://localhost:5000/cars`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/cars`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllCars(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
     useEffect(() => {
@@ -41,7 +53,7 @@ export default function Cars() {
             <Header />
             <Menu />
             <img loading='lazy' src="images/carsimg.png" alt="cars" />
-            <PaginatedItems allCars ={allCars} itemsPerPage={8}  />
+            <PaginatedItems allCars={allCars} itemsPerPage={8} />
             <SwiperBrand allBrands={allBrands} />
             <Footer />
             <CopyRight />

@@ -24,12 +24,18 @@ export default function AdminComments() {
 
 
     const getAllComments = () => {
-        fetch(`http://localhost:5000/comments`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/comments`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
             .then(result => {
                 setAllComments(result)
                 setAllCommentsFilters(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
 
@@ -40,7 +46,7 @@ export default function AdminComments() {
 
 
     //search Handler
-    const searchValueHandler = (e , value) => {
+    const searchValueHandler = (e, value) => {
         e.preventDefault()
         let filterArray = [...allCommentsFilters]
         if (value.trim()) {
@@ -59,48 +65,72 @@ export default function AdminComments() {
 
     //Delete user
     const deleteComment = () => {
-        fetch(`http://localhost:5000/comments/${idComment}`, {
+        fetch(`https://mkrentacar.liara.run/comments/${idComment}`, {
             method: "DELETE",
         })
             .then((res) => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(result => {
                 setDeleteCommentShow(false)
                 getAllComments();
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
     //  For register
     const registeredComment = () => {
-        fetch(`http://localhost:5000/comments/${idComment}`, {
+        fetch(`https://mkrentacar.liara.run/comments/${idComment}`, {
+
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 isRegister: 1
             })
         })
             .then((res) => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(result => {
                 setShowIsRegestr(false)
                 getAllComments()
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
 
     //  For register No
     const registeredCommentNo = () => {
-        fetch(`http://localhost:5000/comments/${idComment}`, {
+        fetch(`https://mkrentacar.liara.run/comments/${idComment}`, {
+
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 isRegister: 0
             })
         })
             .then((res) => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(result => {
                 setShowIsRegestrNo(false)
                 getAllComments()
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }
 
 

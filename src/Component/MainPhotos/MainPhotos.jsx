@@ -1,4 +1,4 @@
-import React, { useEffect, useState , useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { SlArrowDown } from "react-icons/sl";
 import Button from '../Button/Button';
 import AuthContext from '../../Context/AuthContext';
@@ -11,26 +11,40 @@ export default function MainPhotos() {
     const [allOfCarBrands, setAllOfCarBrands] = useState(' All Car Brands')
     const [showAllOfCarBrands, setShowAllOfCarBrands] = useState(false)
     const [allCarType, setAllCarType] = useState([])
-   //context
+    //context
     const authContext = useContext(AuthContext)
 
     //navigate
     const navigate = useNavigate()
 
     const getAllCars = () => {
-        fetch(`http://localhost:5000/cars`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/cars`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllCars(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }
 
     const getAllCarType = () => {
-        fetch(`http://localhost:5000/carType`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/carType`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllCarType(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }
 
 

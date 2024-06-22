@@ -20,11 +20,18 @@ export default function Menu() {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/menus`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/menus`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllMenuItem(result)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
   }, [])
 
   return (
@@ -167,9 +174,9 @@ export default function Menu() {
             {authContext.userInfo[0] && (
               <>
                 {authContext.userInfo[0].role == "admin" && (
-                     <li className='py-2.5 border-b border-[#393939]' >
-                       <Link to={'/dashbord'} className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]`}>DASHBORD</Link>
-                     </li>
+                  <li className='py-2.5 border-b border-[#393939]' >
+                    <Link to={'/dashbord'} className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]`}>DASHBORD</Link>
+                  </li>
                 )}
               </>
             )}

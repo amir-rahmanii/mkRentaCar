@@ -9,25 +9,46 @@ export default function DashboardIndex() {
   const [allUsersLength, setAllUsersLength] = useState('')
 
   const getAllCars = () => {
-    fetch(`http://localhost:5000/cars`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllCarsLength(result.length)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
   }
   const getAllRental = () => {
-    fetch(`http://localhost:5000/registeredRent`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/registeredRent`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllRentalLength(result.length)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
   }
   const getAllUsers = () => {
-    fetch(`http://localhost:5000/users`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/users`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllUsersLength(result.length)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
   }
 
   useEffect(() => {

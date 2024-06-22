@@ -63,16 +63,19 @@ export default function PanelUserIndex() {
 
                     onSubmit={(values, { resetForm }) => {
                         if (authContext.userInfo[0].password == values.password) {
-                            fetch(`http://localhost:5000/users/${authContext.userInfo[0].id}`, {
+                            fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
                                 method: "PATCH",
                                 headers: {
-                                    "Content-type": "application/json"
+                                    'Content-Type': 'application/json',
                                 },
                                 body: JSON.stringify({
                                     password: values.newpassword
                                 })
                             })
                                 .then(res => {
+                                    if (!res.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
                                     return res.json()
                                 })
                                 .then(result => {
@@ -82,6 +85,7 @@ export default function PanelUserIndex() {
                                         window.location.href = "/paneluser"
                                     }, 3000);
                                 })
+                                .catch(error => console.error('There has been a problem with your fetch operation:', error));
                         } else {
                             notifyWrong()
                             resetForm()

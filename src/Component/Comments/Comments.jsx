@@ -18,11 +18,19 @@ export default function Comments() {
     const [allComents, setAllComents] = useState([])
 
     const getallcomments = () => {
-        fetch(`http://localhost:5000/comments`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/comments`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllComents(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+
     }
 
     useEffect(() => {

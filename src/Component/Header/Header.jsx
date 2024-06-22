@@ -3,7 +3,7 @@ import { BsTelephone } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import Button from '../Button/Button';
-import { Link , useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import InputLanguage from '../InputLanguage/InputLanguage';
 import AuthContext from '../../Context/AuthContext';
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -17,7 +17,7 @@ export default function Header() {
     const [showWidgetAuth, setShowWidgetAuth] = useState(false)
     const authContext = useContext(AuthContext)
     const [ShowLogOut, setShowLogOut] = useState(false)
-    const navigate = useNavigate() 
+    const navigate = useNavigate()
 
     const logOutHandler = (e) => {
         e.preventDefault()
@@ -26,18 +26,25 @@ export default function Header() {
     }
 
     const getAllCars = () => {
-        fetch(`http://localhost:5000/cars`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/cars`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllCars(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }
 
     useEffect(() => {
         getAllCars()
     }, [])
 
-    const searchValueHandler = (e , value) => {
+    const searchValueHandler = (e, value) => {
         e.preventDefault()
         let filterArray = [...allCars]
         if (value.trim()) {

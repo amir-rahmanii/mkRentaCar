@@ -27,8 +27,13 @@ const BarChart = () => {
     const [allRegisteredRentDecember, setAllRegisteredRentDecember] = useState('')
 
     const getAllRegisteredRent = () => {
-        fetch(`http://localhost:5000/registeredRent`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/registeredRent`)
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return res.json()
+        })
             .then(result => {
                 let filteredDateJanuary = result.filter(rent => rent.dateFull.slice(5 , 7) ==  "01")
                 setAllRegisteredRentJanuary(filteredDateJanuary.length)
@@ -67,6 +72,8 @@ const BarChart = () => {
                 setAllRegisteredRentDecember(filteredDateDecember.length)
           
             }) 
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }
 
     useEffect(() => {

@@ -19,21 +19,34 @@ export default function CarsTypeCar() {
 
 
     const getallbrands = () => {
-        fetch(`http://localhost:5000/allBrands`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/allBrands`)
+             .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllBrands(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
 
     const getallcars = () => {
-        fetch(`http://localhost:5000/cars?href=${params.carInfo}`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/cars?href=${params.carInfo}`)
+             .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllCars(result)
                 setOneBrand(result[0].hrefBrand)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }
     useEffect(() => {
         getallcars()

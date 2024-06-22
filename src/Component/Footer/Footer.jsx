@@ -5,14 +5,21 @@ import SocialMedia from '../SocialMedia/SocialMedia'
 
 export default function Footer() {
 
-    const [allBrands , setAllBrands] = useState([])
+    const [allBrands, setAllBrands] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/allBrands`)
-        .then(res => res.json())
-        .then(result => {
-          setAllBrands(result)
-        })
-    } , [])
+        fetch(`https://mkrentacar.liara.run/allBrands`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
+            .then(result => {
+                setAllBrands(result)
+            })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+    }, [])
     return (
         <div className='bg-[#1C1E20] py-3 md:pt-[25px] md:pb-[65px] font-light text-white'>
             <div className='container'>

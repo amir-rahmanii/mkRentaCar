@@ -51,69 +51,120 @@ export default function AdminCars() {
 
 
   const getAllBrands = () => {
-    fetch(`http://localhost:5000/allBrands`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/allBrands`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         setAllBrands(result)
 
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   const getAllCars = () => {
-    fetch(`http://localhost:5000/cars`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
         setAllcars(newArray)
         setAllcarsFilters(result.reverse())
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   const getAllCarsOld = () => {
-    fetch(`http://localhost:5000/cars`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         let newArray = result.filter(item => filteredValueBrand.includes(item.brand));
         setAllcars(newArray)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
+
   const getAllcarsHightoLow = () => {
-    fetch(`http://localhost:5000/cars?_sort=price`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars?_sort=price`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
         setAllcars(newArray)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
+
   const getAllcarsLowtoHigh = () => {
-    fetch(`http://localhost:5000/cars?_sort=price`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars?_sort=price`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         let newArray = result.filter(item => filteredValueBrand.includes(item.brand));
         setAllcars(newArray)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
+
   const getAllcarsisRegistered = () => {
-    fetch(`http://localhost:5000/cars?isRegister=1`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars?isRegister=1`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
         setAllcars(newArray)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
+
   const getAllcarsisNoRegistered = () => {
-    fetch(`http://localhost:5000/cars?isRegister=0`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars?isRegister=0`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
         setAllcars(newArray)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   const filterPriceCars = () => {
     let arrayPushedFilters = []
-    fetch(`http://localhost:5000/allBrands`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/allBrands`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         result.filter(data => {
           if (data.searchFilter) {
@@ -124,6 +175,7 @@ export default function AdminCars() {
         setShowFilteredBrand(false)
         changeFilterdAction()
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   const changeFilterdAction = () => {
@@ -152,73 +204,106 @@ export default function AdminCars() {
   //chageInputBranding
   const chageInputBranding = (e, id) => {
     let itemValue = e.target.checked
-    fetch(`http://localhost:5000/allBrands/${id}`, {
+    fetch(`https://mkrentacar.liara.run/allBrands/${id}`, {
+
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         searchFilter: itemValue
       })
     })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
 
   //  For register
   const registeredCar = () => {
-    fetch(`http://localhost:5000/cars/${idCar}`, {
+    fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         isRegister: 1
       })
     })
       .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
+      .then(result => {
         setShowIsRegestr(false)
         changeFilterdAction()
+
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
 
   //  For register No
   const registeredCarNo = () => {
-    fetch(`http://localhost:5000/cars/${idCar}`, {
+    fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         isRegister: 0
       })
     })
       .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
+      .then(result => {
         setShowIsRegestrNo(false)
         changeFilterdAction()
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   //Delete user
 
   const deleteCar = () => {
-    fetch(`http://localhost:5000/cars/${idCar}`, {
+    fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+
       method: "Delete",
     })
       .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
+      .then(result => {
         setDeleteCarShow(false)
         changeFilterdAction()
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   //UpdatePriceCars
   const UpdatePriceCars = () => {
     if (priceUppdated.trim() && priceOfferUppdated.trim()) {
-      fetch(`http://localhost:5000/cars/${idCar}`, {
+      fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+
         method: "PATCH",
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           price: priceUppdated,
@@ -226,33 +311,48 @@ export default function AdminCars() {
         })
       })
         .then((res) => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json()
+        })
+        .then(result => {
           setUpdateCarShow(false)
           changeFilterdAction()
+
         })
+        .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
   }
 
   //Update body 
   const updateBody = () => {
     if (body.trim()) {
-      fetch(`http://localhost:5000/cars/${idCar}`, {
+      fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+
         method: "PATCH",
         headers: {
-          "Content-Type": "application/json"
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           body: body
         })
       })
         .then((res) => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json()
+        })
+        .then(result => {
           setShowBody(false)
           changeFilterdAction()
-
         })
+        .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
   }
 
-  const searchValueHandler = (e , value) => {
+  const searchValueHandler = (e, value) => {
     e.preventDefault()
     let filterArray = [...allcarsFilters]
     if (value.trim()) {

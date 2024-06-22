@@ -11,16 +11,23 @@ export default function Login() {
   const [showErrorMessage, setshowErrorMessage] = useState(false)
 
   //change type password
-  const [changeTypePassword , setChangeTypePassword ] = useState(false)
+  const [changeTypePassword, setChangeTypePassword] = useState(false)
   const authContext = useContext(AuthContext)
 
 
   const getAllUsers = () => {
-    fetch(`http://localhost:5000/users`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/users`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then((result) => {
         setAllUsers(result)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
   }
 
   useEffect(() => {
@@ -83,7 +90,7 @@ export default function Login() {
                 placeholder="Enter Password"
                 name="password" />
               <div onClick={() => setChangeTypePassword(prevstate => !prevstate)} className='text-[20px] cursor-pointer'>
-                {changeTypePassword ? <IoIosEyeOff /> : <IoIosEye /> }
+                {changeTypePassword ? <IoIosEyeOff /> : <IoIosEye />}
               </div>
             </div>
             <ErrorMessage className='text-red-600 text-[13px]/[19px] pt-1' name="password" component="div" />

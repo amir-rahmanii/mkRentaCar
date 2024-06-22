@@ -17,19 +17,31 @@ export default function AddCars({ getAllCars }) {
     const [bodyValue, setBodyValue] = useState('')
 
     const getAllCarType = () => {
-        fetch(`http://localhost:5000/carType`)
-            .then((res => res.json()))
+        fetch(`https://mkrentacar.liara.run/carType`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllTypeCars(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
     const getAllCarBrand = () => {
-        fetch(`http://localhost:5000/allBrands`)
-            .then((res => res.json()))
+        fetch(`https://mkrentacar.liara.run/allBrands`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllBrandCars(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
     useEffect(() => {
@@ -183,18 +195,26 @@ export default function AddCars({ getAllCars }) {
                         SecurityType: "Credit Card & Cash",
                         body: bodyValue
                     }
-                    fetch(`http://localhost:5000/cars`, {
+                    fetch(`https://mkrentacar.liara.run/cars`, {
+
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json"
+                            'Content-Type': 'application/json',
                         },
                         body: JSON.stringify(newObj)
                     })
                         .then((res) => {
-                            console.log(res);
+                            if (!res.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return res.json()
+
+                        })
+                        .then(result => {
                             setShowAddNewCar(false)
                             getAllCars()
                         })
+                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
                     resetForm();
 

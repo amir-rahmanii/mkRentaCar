@@ -10,17 +10,22 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const MyPieChart = () => {
-  const [filteredSuvCarsLength , setFilteredSuvCarsLength] = useState('')
-  const [filteredLuxuryCarsLength , setFilteredLuxuryCarsLength] = useState('')
-  const [filteredSportsCarsLength , setFilteredSportsCarsLength] = useState('')
-  const [filteredEconomyCarsLength , setFilteredEconomyCarsLength] = useState('')
-  const [filteredConvertibleCarsLength , setFilteredConvertibleCarsLength] = useState('')
-  const [filteredExoticCarsLength , setFilteredExoticCarsLength] = useState('')
+  const [filteredSuvCarsLength, setFilteredSuvCarsLength] = useState('')
+  const [filteredLuxuryCarsLength, setFilteredLuxuryCarsLength] = useState('')
+  const [filteredSportsCarsLength, setFilteredSportsCarsLength] = useState('')
+  const [filteredEconomyCarsLength, setFilteredEconomyCarsLength] = useState('')
+  const [filteredConvertibleCarsLength, setFilteredConvertibleCarsLength] = useState('')
+  const [filteredExoticCarsLength, setFilteredExoticCarsLength] = useState('')
 
 
   const getAllCars = () => {
-    fetch(`http://localhost:5000/cars`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         let filteredSuvCars = result.filter(data => data.carType === "Suv Cars");
         setFilteredSuvCarsLength(filteredSuvCars.length);
@@ -40,12 +45,14 @@ const MyPieChart = () => {
         let filteredExoticCars = result.filter(data => data.carType === "Exotic Cars");
         setFilteredExoticCarsLength(filteredExoticCars.length);
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
   }
 
   useEffect(() => {
     getAllCars()
-  } , [])
-  
+  }, [])
+
   const data = {
     labels: ['Suv', 'Luxury', 'Sport', 'Economy', 'Convertible', 'Exotic'],
     datasets: [

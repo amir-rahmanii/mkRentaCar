@@ -10,11 +10,17 @@ export default function AllCars() {
   const [allCars, setAllCars] = useState([])
 
   const getallcars = () => {
-    fetch(`http://localhost:5000/cars`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then(result => {
         setAllCars(result)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
 

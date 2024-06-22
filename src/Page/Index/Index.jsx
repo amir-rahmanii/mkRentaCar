@@ -22,29 +22,49 @@ export default function Index() {
   const [allCars, setAllCars] = useState([])
 
   const getallcars = () => {
-    fetch(`http://localhost:5000/cars`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/cars`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllCars(result)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   const getallbrands = () => {
-    fetch(`http://localhost:5000/allBrands`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/allBrands`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllBrands(result)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
   }
   const getallcartype = () => {
-    fetch(`http://localhost:5000/carType`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/carType`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllCarType(result)
       })
-  
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+
   }
- 
+
   useEffect(() => {
     getallbrands()
     getallcartype()
@@ -58,17 +78,17 @@ export default function Index() {
       <MainPhotos />
       <SwiperBrand allBrands={allBrands} allCarType={allCarType} />
       <FeaturedCars title="Featured Cars" select="Select A Luxury & Sports Car Brand" body="We have luxury cars that will help you experience the royal life that Dubai has to offer." />
-      <SwiperBrandNav allInputs={allBrands} allCars={allCars} filtered = {true}/>
+      <SwiperBrandNav allInputs={allBrands} allCars={allCars} filtered={true} />
       <LuxuryCar />
       <FeaturedCars title="Best Deal Cars" select="BEST OFFER ON A SUV CAR BRAND" body="We have SUV cars that will help you experience the royal life that Dubai has to offer." />
-      <SwiperBrandNav allInputs={allCarType} allCars={allCars} filtered={false}/>
+      <SwiperBrandNav allInputs={allCarType} allCars={allCars} filtered={false} />
       <OurRendalPackage />
       <FeaturedCars title="Featured Cars" select="Select An Exotic & Convertible Car Brand" body="We have exotic cars that will help you experience the royal life that Dubai has to offer." />
-      <SwiperBrandNav allInputs={allBrands} allCars={allCars} filtered = {true} />
+      <SwiperBrandNav allInputs={allBrands} allCars={allCars} filtered={true} />
       <Comments />
       <Blogs />
       <Video />
-      <Footer  />
+      <Footer />
       <CopyRight />
       <ScroolTop />
     </>

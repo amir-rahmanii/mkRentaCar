@@ -19,11 +19,18 @@ export default function Blogs() {
     const [allBlogs, setAllBlogs] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/blogs`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllBlogs(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }, [])
     return (
         <div className='bg-black font-medium pt-6 text-white md:pt-[65px] md:pb-[70px] pb-[25px]'>
@@ -41,11 +48,11 @@ export default function Blogs() {
                             </Link>
                             {/* body */}
                             <div className='pt-4 mt-2.5'>
-                                <Link  to={`/blog/${blog.href}`} className='text-xl/[24px] font-bold line-clamp-1 hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 hover:underline'>{blog.title}</Link>
+                                <Link to={`/blog/${blog.href}`} className='text-xl/[24px] font-bold line-clamp-1 hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 hover:underline'>{blog.title}</Link>
                                 <p className='text-[#B7B7B7] line-clamp-2 text-[13px]/[19.5px] mt-2'>{blog.body}</p>
                             </div>
                             <div className=' mt-2 md:mt-6 pt-1 md:pt-2.5 border-t border-white/20'>
-                                <Link  to={`/blog/${blog.href}`} className='hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 underline text-[13px] md:text-base'>Read More</Link>
+                                <Link to={`/blog/${blog.href}`} className='hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 underline text-[13px] md:text-base'>Read More</Link>
                             </div>
                         </div>
                     ))}

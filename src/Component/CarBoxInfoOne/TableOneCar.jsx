@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { SlArrowDown } from "react-icons/sl";
 import MyCalendar from './MyCalendar';
 import { v4 as uuidv4 } from 'uuid';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AuthContext from '../../Context/AuthContext';
 import Modal from '../Admins/Modal/Modal'
 
@@ -24,24 +24,39 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const authContext = useContext(AuthContext)
 
     //for show erorr in date
-    const [showErrorDate , setShowErrorDate] = useState(false)
+    const [showErrorDate, setShowErrorDate] = useState(false)
 
 
     const getallbrand = () => {
-        fetch(`http://localhost:5000/allBrands?href=${oneBrands}`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/allBrands?href=${oneBrands}`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setOneBrandsInfo(result[0])
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
     }
 
     const getallcountreyCodes = () => {
-        fetch(`http://localhost:5000/countreyCodes`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/countreyCodes`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setCountreyCodes(result)
                 setCountreyCodesSaerched(result)
             })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+
     }
 
     useEffect(() => {
@@ -56,7 +71,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
     const addRentalCar = () => {
         if (authContext.isLoggedIn) {
-            if(fullYear !== null){
+            if (fullYear !== null) {
                 setShowErrorDate(false)
                 let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
                 let uuid = uuidv4();
@@ -76,32 +91,42 @@ export default function TableOneCar({ oneBrand, allCars }) {
                     dateFull: fullYear
                 }
                 authRegisteredRent.push(newObj)
-                fetch(`http://localhost:5000/registeredRent`, {
+                fetch(`https://mkrentacar.liara.run/registeredRent`, {
+
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(newObj)
                 })
                     .then((res) => {
-                        if (res.status === 201) {
-                            setShowSubmitRegestrid(true)
+                        if (!res.ok) {
+                            throw new Error('Network response was not ok');
                         }
+                        return res.json()
                     })
-    
-                fetch(`http://localhost:5000/users/${authContext.userInfo[0].id}`, {
+                    .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+
+                fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+
                     method: "PATCH",
                     headers: {
-                        "Content-Type": "application/json"
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
                         registeredRent: authRegisteredRent
                     })
                 })
                     .then((res) => {
+                        if (!res.ok) {
+                            throw new Error('Network response was not ok');
+                        }
                         return res.json()
                     })
-            }else{
+                    .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+            } else {
                 setShowErrorDate(true)
             }
 

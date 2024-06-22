@@ -26,20 +26,32 @@ export default function AdminUsers() {
 
 
   const getAllUsers = () => {
-    fetch(`http://localhost:5000/users`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/users`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllUsers(result)
         setAllUsersFilters(result)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   const getAllRegisteredRent = () => {
-    fetch(`http://localhost:5000/registeredRent`)
-      .then(res => res.json())
+    fetch(`https://mkrentacar.liara.run/registeredRent`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
       .then(result => {
         setAllRegisteredRent(result)
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
 
@@ -49,7 +61,7 @@ export default function AdminUsers() {
 
 
   //search Handler
-  const searchValueHandler = (e , value) => {
+  const searchValueHandler = (e, value) => {
     e.preventDefault()
     let filterArray = [...allUsersFilters]
     if (value.trim()) {
@@ -74,42 +86,58 @@ export default function AdminUsers() {
     let filteredArray = infoUser.filter(data => data.email == infoUser.email)
     console.log(filteredArray);
     filteredArray.forEach((data) => {
-      fetch(`http://localhost:5000/registeredRent/${data.id}`, {
+      fetch(`https://mkrentacar.liara.run/registeredRent/${data.id}`, {
+
         method: "DELETE",
       })
         .then((res) => {
-          console.log(res);
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json()
         })
+        .catch(error => console.error('There has been a problem with your fetch operation:', error));
     })
 
-    fetch(`http://localhost:5000/users/${idUser}`, {
+    fetch(`https://mkrentacar.liara.run/users/${idUser}`, {
       method: "DELETE",
     })
       .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
+      .then(result => {
         setDeleteUserShow(false)
         getAllUsers();
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   //change Role 
   const changeRoleHandler = () => {
-    fetch(`http://localhost:5000/users/${idUser}`, {
+    fetch(`https://mkrentacar.liara.run/users/${idUser}`, {
+
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         role: infoUser.role === "admin" ? "user" : "admin"
       })
     })
       .then((res) => {
-        console.log(res);
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
         return res.json();
       })
       .then(result => {
         setUpdateUserShow(false)
         getAllUsers()
       })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   return (

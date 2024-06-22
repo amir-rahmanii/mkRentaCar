@@ -19,29 +19,47 @@ export default function CarInfos() {
 
     const getonerandomBanerForCarType = () => {
         let randomNumber = Math.floor(Math.random() * 6);
-        fetch(`http://localhost:5000/randomBanerForCarType`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/randomBanerForCarType`)
+             .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setRandomBanerForCarType(result[randomNumber].img)
             })
+             .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
     const getallbrands = () => {
-        fetch(`http://localhost:5000/allBrands`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/allBrands`)
+             .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllBrands(result)
             })
+             .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
 
 
 
     const getallcars = () => {
-        fetch(`http://localhost:5000/cars?hrefCarType=${params.type}`)
-            .then(res => res.json())
+        fetch(`https://mkrentacar.liara.run/cars?hrefCarType=${params.type}`)
+             .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
             .then(result => {
                 setAllCars(result)
             })
+             .catch(error => console.error('There has been a problem with your fetch operation:', error));
     }
     useEffect(() => {
         getallbrands()
