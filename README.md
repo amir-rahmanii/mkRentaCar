@@ -5,9 +5,9 @@
 </p>
 
 <br/><br/>
-Luxury Car Rental In Dubai
-This website is developed using Html, Css, JavaScript, React, Tailwind, Json-server with responsive design.
-I hope you enjoy my website ❤️. 
+<h2>Luxury Car Rental In Dubai</h2>
+<h2>This website is developed using Html, Css, JavaScript, React, Tailwind, Json-server with responsive design.</h2>
+<h2>I hope you enjoy my website ❤️. </h2>
 
 **Technologies used on this website :**
 
