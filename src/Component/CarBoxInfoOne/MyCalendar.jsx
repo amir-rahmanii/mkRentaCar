@@ -14,6 +14,7 @@ const MyCalendar = ({ fullYear , setFullYear }) => {
             className='w-full text-black/70 bg-white px-4 py-2.5'
             selected={fullYear}
             onChange={handleDataChange}
+            minDate={new Date()}
             dateFormat="dd/MM/yyyy"
             monthPlaceholder="mm"
             yearPlaceholder='yyyy'

@@ -19,6 +19,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const [showMessageErrorLogin, SetShowMessageErrorLogin] = useState(false)
 
     //for Date
+    const [dateNow, setDateNow] = useState(new Date())
     const [fullYear, setFullYear] = useState(new Date())
     const [showSubmitRegestrid, setShowSubmitRegestrid] = useState(false)
     const authContext = useContext(AuthContext)
@@ -65,74 +66,75 @@ export default function TableOneCar({ oneBrand, allCars }) {
     }, [])
 
     useEffect(() => {
-        let searchFiltered = countreyCodes.slice().filter(code => code.name.toLowerCase().includes(searchValue.toLowerCase()))
+        let arraySearch = [...countreyCodes]
+        let searchFiltered = arraySearch.filter(code => code.name.toLowerCase().includes(searchValue.trim().toLowerCase()))
         setCountreyCodesSaerched(searchFiltered)
     }, [searchValue])
 
     const addRentalCar = () => {
         if (authContext.isLoggedIn) {
             if (fullYear !== null) {
-                setShowErrorDate(false)
-                let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
-                let uuid = uuidv4();
-                let newObj = {
-                    id: uuid,
-                    name: authContext.userInfo[0].username,
-                    telephone: authContext.userInfo[0].cellNumber,
-                    email: authContext.userInfo[0].email,
-                    carType: allCars.carType,
-                    carName: allCars.title,
-                    carBrand: oneBrandsInfo.title,
-                    carimg: allCars.cover[0].img,
-                    price: allCars.price,
-                    countryCode: countryDialCode,
-                    country: countryCodeValue,
-                    register: 0,
-                    dateFull: fullYear
-                }
-                authRegisteredRent.push(newObj)
-                fetch(`https://mkrentacar.liara.run/registeredRent`, {
+                    setShowErrorDate(false)
+                    let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
+                    let uuid = uuidv4();
+                    let newObj = {
+                        id: uuid,
+                        name: authContext.userInfo[0].username,
+                        telephone: authContext.userInfo[0].cellNumber,
+                        email: authContext.userInfo[0].email,
+                        carType: allCars.carType,
+                        carName: allCars.title,
+                        carBrand: oneBrandsInfo.title,
+                        carimg: allCars.cover[0].img,
+                        price: allCars.price,
+                        countryCode: countryDialCode,
+                        country: countryCodeValue,
+                        register: 0,
+                        dateFull: fullYear
+                    }
+                    authRegisteredRent.push(newObj)
+                    fetch(`https://mkrentacar.liara.run/registeredRent`, {
 
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(newObj)
-                })
-                    .then((res) => {
-                        if (!res.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return res.json()
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(newObj)
                     })
-                    .catch(error => console.error('There has been a problem with your fetch operation:', error));
+                        .then((res) => {
+                            if (!res.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return res.json()
+                        })
+                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
 
-                fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+                    fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
 
-                    method: "PATCH",
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        registeredRent: authRegisteredRent
+                        method: "PATCH",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            registeredRent: authRegisteredRent
+                        })
                     })
-                })
-                    .then((res) => {
-                        if (!res.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return res.json()
-                    })
-                    .then((result => {
-                        setShowSubmitRegestrid(true)
-                    }))
-                    .catch(error => console.error('There has been a problem with your fetch operation:', error));
-
+                        .then((res) => {
+                            if (!res.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return res.json()
+                        })
+                        .then((result => {
+                            setFullYear(null)
+                            setCountryCodeValue('Afghanistan')
+                            setShowSubmitRegestrid(true)
+                        }))
+                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
             } else {
                 setShowErrorDate(true)
             }
-
         } else {
             SetShowMessageErrorLogin(true);
         }
@@ -218,6 +220,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
                         <p className='pt-1.5'>If you have a problem with the registration and need more explanations, contact our support. <span className='text-orangeCus font-medium'>(+9999999999)</span></p>
                         <button onClick={() => {
                             setShowSubmitRegestrid(false)
+                            setFullYear(null)
                             window.location.href = "/paneluser/rental";
                         }} className='bg-green-600 mt-3 p-2 rounded-md'>Ok</button>
                     </div>
