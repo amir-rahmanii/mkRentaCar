@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-export default function Modal({width, height , closedBox, setClosedBox, title, children }) {
+export default memo(function Modal({width, height , closedBox, setClosedBox, title, children }) {
     return (
         <div onClick={() => {
             setClosedBox(false)
@@ -20,4 +20,4 @@ export default function Modal({width, height , closedBox, setClosedBox, title, c
             </div>
         </div>
     )
-}
+}) 

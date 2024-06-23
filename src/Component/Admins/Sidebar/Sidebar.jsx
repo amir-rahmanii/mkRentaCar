@@ -23,7 +23,7 @@ export default function Sidebar() {
                 <div className='bg-[#454545] w-20 xl:w-72 overflow-y-auto z-50 fixed top-0 bottom-0 text-white font-medium p-4'>
                     <div className='flex justify-center'>
                         <Link to='/'>
-                            <img className='w-[155px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="logo" />
+                            <img loading='lazy' className='w-[155px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="logo" />
                         </Link>
                     </div>
                     <div className='mt-5'>

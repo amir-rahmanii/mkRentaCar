@@ -28,7 +28,7 @@ export default function DataTableBrand() {
                 <div className='p-[25px] divide-y-2 divide-white/20'>
                     {allBrands.map((brand) => (
                         <Link key={brand.id} to={`/brands/${brand.href}`} className='flex gap-[15px] py-2.5'>
-                            <img className='w-[30px] h-[30px]' src={brand.cover} alt="img" />
+                            <img loading='lazy' className='w-[30px] h-[30px]' src={brand.cover} alt="img" />
                             <p>{brand.title}</p>
                         </Link>
                     ))}

@@ -28,7 +28,7 @@ export default function Footer() {
                         <div className='flex flex-col gap-[25px] pr-3'>
                             {/* img */}
                             <div>
-                                <img className=' w-[165px] h-[62px] md:w-[235px] md:h-[88px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="1" />
+                                <img loading='lazy' className=' w-[165px] h-[62px] md:w-[235px] md:h-[88px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="1" />
                             </div>
                             {/* menus */}
 
@@ -82,7 +82,7 @@ export default function Footer() {
                             {/* Mobile */}
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
-                                    <img className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/call-icon.png" alt="1" />
+                                    <img loading='lazy' className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/call-icon.png" alt="1" />
                                     <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Mobile:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px] child:group-hover:text-orangeCus2 child:cursor-pointer child:transition-all child:duration-300'>
@@ -95,7 +95,7 @@ export default function Footer() {
                             {/* Address */}
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
-                                    <img className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/location.png" alt="1" />
+                                    <img loading='lazy' className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/location.png" alt="1" />
                                     <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Address:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
@@ -105,7 +105,7 @@ export default function Footer() {
                             {/* Timing */}
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
-                                    <img className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/service-24-7.png" alt="1" />
+                                    <img loading='lazy' className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/service-24-7.png" alt="1" />
                                     <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Timing:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
@@ -143,10 +143,10 @@ export default function Footer() {
                 <div className='mt-5 flex justify-between items-center'>
                     <SocialMedia border={true} />
                     <div className='flex gap-2.5 md:px-7'>
-                        <img className='w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/visa.png" alt="1" />
-                        <img className='w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/mastercard.png" alt="1" />
-                        <img className=' w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/crypto.png" alt="1" />
-                        <img className=' w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/tabby.png" alt="1" />
+                        <img loading='lazy' className='w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/visa.png" alt="1" />
+                        <img loading='lazy' className='w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/mastercard.png" alt="1" />
+                        <img loading='lazy' className=' w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/crypto.png" alt="1" />
+                        <img loading='lazy' className=' w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/tabby.png" alt="1" />
                     </div>
                 </div>
             </div>

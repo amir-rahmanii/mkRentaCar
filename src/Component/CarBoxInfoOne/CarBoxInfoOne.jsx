@@ -63,10 +63,10 @@ export default function CarBoxInfoOne({allCars}) {
                                         <div>{isActive ? (
                                             <>
                                                 {setSrcDefaultValueSwiper(cov.img)}
-                                                <img className='w-auto' src={cov.img} alt="img" />
+                                                <img  loading='lazy' className='w-auto' src={cov.img} alt="img" />
                                             </>
                                         ) : (
-                                            <img className='w-auto' src={cov.img} alt="img" />
+                                            <img loading='lazy' className='w-auto' src={cov.img} alt="img" />
                                         )}</div>
                                     )}
                                 </SwiperSlide>
@@ -106,7 +106,7 @@ export default function CarBoxInfoOne({allCars}) {
                             {allCars.cover.map((cov) => (
                                 <SwiperSlide key={cov.id} >
                                     <div onClick={() => setSrcDefaultValueSwiper(cov.img)} className={`border-2  cursor-pointer ${srcDefaultValueSwiper == cov.img ? " border-[#63FA55]" : "border-white"}`}>
-                                        <img className='w-auto' src={cov.img} alt="img" />
+                                        <img loading='lazy' className='w-auto' src={cov.img} alt="img" />
                                     </div>
                                 </SwiperSlide>
                             ))}

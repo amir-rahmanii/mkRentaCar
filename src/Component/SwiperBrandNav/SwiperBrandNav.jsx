@@ -78,7 +78,7 @@ const SwiperBrandNav = ({allInputs , allCars , filtered}) => {
                                         setValueOfBrand(data.title)
                                 }} className='w-[190px]'>
                                     <Button link='#' classes={`gap-1  py-2.5 ${valueOfBrand  == `${data.title}`? "bg-orangeCus" : "bg-neutral-700"} }`}>
-                                            <img className='w-[40px] h-[25px]' src={data.cover} alt="1" />
+                                            <img loading='lazy' className='w-[40px] h-[25px]' src={data.cover} alt="1" />
                                         <span className='text-xs'>{data.title.toUpperCase()}</span>
                                     </Button>
                                 </SwiperSlide>

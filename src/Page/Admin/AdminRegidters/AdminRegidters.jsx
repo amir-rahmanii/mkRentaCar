@@ -415,7 +415,7 @@ export default function AdminRegidters() {
                   <tr key={user.id} className='child:p-2'>
                     <td className={`border border-slate-600 ${user.register ? "bg-green-400" : "bg-red-400"}`}>{index + 1}</td>
                     <td>{user.name}</td>
-                    <td><img width="80" src={user.carimg} alt="img" /></td>
+                    <td><img loading='lazy' width="80" src={user.carimg} alt="img" /></td>
                     <td>{user.email}</td>
                     <td><Link to={`tel:${user.countryCode + user.telephone}`}>{user.countryCode + user.telephone}</Link></td>
                     <td>{user.country}</td>
@@ -481,7 +481,7 @@ export default function AdminRegidters() {
       <Modal width="w-[700px]" height="h-auto" closedBox={showInfoCar} setClosedBox={setShowInfoCar} title={`Car Info`}>
         <div className='flex gap-8 mt-2'>
           <div className='rounded-xl overflow-hidden'>
-            <img className='w-[350px]' src={infocar.carimg} alt="img" />
+            <img loading='lazy' className='w-[350px]' src={infocar.carimg} alt="img" />
           </div>
           <div className='text-white flex flex-col gap-2'>
             <p className='font-bold text-xl'>{infocar.carName}</p>

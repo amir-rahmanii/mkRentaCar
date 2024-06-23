@@ -412,7 +412,7 @@ export default function AdminCars() {
                   <tr key={car.id} className='child:p-2'>
                     <td className={`border border-slate-600 ${car.isRegister ? "bg-green-400" : "bg-red-400"}`}>{index + 1}</td>
                     <td>{car.title}</td>
-                    <td><img width="80" src={car.cover[0].img} alt="img" /></td>
+                    <td><img loading='lazy' width="80" src={car.cover[0].img} alt="img" /></td>
                     <td><span className='line-through font-light text-sm'>{car.priceOffer}</span> _ {car.price} AED</td>
                     <td>{car.carType}</td>
                     <td>{car.brand}</td>
@@ -492,7 +492,7 @@ export default function AdminCars() {
             <div className='grid grid-cols-2 gap-3'>
               {infocar.cover.map((car) => (
                 <div key={car.id} className='rounded-xl overflow-hidden'>
-                  <img className='w-[150px]' src={car.img} alt="img" />
+                  <img loading='lazy' className='w-[150px]' src={car.img} alt="img" />
                 </div>
               ))}
             </div>
@@ -612,7 +612,7 @@ export default function AdminCars() {
           {allBrands.map((brand) => (
             <div className='flex items-center gap-2' key={brand.id}>
               <input type="checkbox" className="w-[14px] h-[14px] accent-orangeCus" defaultChecked={brand.searchFilter} onChange={(e) => chageInputBranding(e, brand.id)} />
-              <img className='w-[20px] h-[20px]' src={brand.cover} alt="img" />
+              <img loading='lazy' className='w-[20px] h-[20px]' src={brand.cover} alt="img" />
               <p className='text-xl'>{brand.title}</p>
             </div>
           ))}

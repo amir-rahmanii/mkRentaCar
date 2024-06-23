@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useCallback } from 'react'
 import { BsTelephone } from "react-icons/bs";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
@@ -44,18 +44,18 @@ export default function Header() {
         getAllCars()
     }, [])
 
-    const searchValueHandler = (e, value) => {
-        e.preventDefault()
-        let filterArray = [...allCars]
-        if (value.trim()) {
-            let carsFilterValue = filterArray.filter(data => data.title.toLowerCase().includes(value.toLowerCase()) || data.brand.toLowerCase().includes(value.toLowerCase()) || data.carType.toLowerCase().includes(value.toLowerCase()))
-            authContext.searchFunc(carsFilterValue)
-        } else {
-            authContext.searchFunc([])
+    const searchValueHandler = useCallback((e, value) => {
+            e.preventDefault()
+            let filterArray = [...allCars]
+            if (value.trim()) {
+                let carsFilterValue = filterArray.filter(data => data.title.toLowerCase().includes(value.toLowerCase()) || data.brand.toLowerCase().includes(value.toLowerCase()) || data.carType.toLowerCase().includes(value.toLowerCase()))
+                authContext.searchFunc(carsFilterValue)
+            } else {
+                authContext.searchFunc([])
+            }
+            navigate("/cars-search")
         }
-        navigate("/cars-search")
-    }
-
+    )
     return (
         <>
             <header className='bg-black w-full pb-2.5 font-light hidden md:block'>
@@ -68,7 +68,7 @@ export default function Header() {
                     <div className='flex justify-between items-center pt-2.5'>
                         {/* img logo */}
                         <Link to='/'>
-                            <img className='w-[185px] xl:w-[265px] h-[80px] xl:h-[100px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="logo" />
+                            <img loading='lazy' className='w-[185px] xl:w-[265px] h-[80px] xl:h-[100px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="logo" />
                         </Link>
                         <div className='flex items-center gap-2 xl:gap-5 text-[15px] font-medium'>
                             {/* phone */}
@@ -129,7 +129,7 @@ export default function Header() {
                     <div className='flex items-start justify-between'>
                         {/* logo whatsapp */}
                         <Link to='#' className='flex items-center gap-[5px]'>
-                            <img className='w-7 h-7' src="https://mkrentacar.com/public/assets/images/whatsapp-icon.png" alt="whatsappimg" />
+                            <img loading='lazy' className='w-7 h-7' src="https://mkrentacar.com/public/assets/images/whatsapp-icon.png" alt="whatsappimg" />
                             <span className='text-[15px]/[22px] hidden md:block'>Chat With Us</span>
                         </Link>
                         <div>

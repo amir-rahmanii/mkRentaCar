@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { v4 as uuidv4 } from 'uuid';
 import './AddCars.css'
 
-export default function AddCars({ getAllCars }) {
+
+export default memo(function AddCars({ getAllCars }) {
     //allTypeCars
     const [allTypeCars, setAllTypeCars] = useState([])
     const [hrefCarTypeValue, sethrefCarTypeValue] = useState('-1')
@@ -595,3 +596,4 @@ export default function AddCars({ getAllCars }) {
         </div>
     )
 }
+) 

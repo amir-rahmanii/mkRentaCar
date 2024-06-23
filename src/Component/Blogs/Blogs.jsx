@@ -44,7 +44,7 @@ export default function Blogs() {
                     {allBlogs.map((blog) => (
                         <div key={blog.id} className=' bg-black '>
                             <Link to={`/blog/${blog.href}`}>
-                                <img className='w-full rounded-2xl hover:brightness-75 transition-all duration-300' src={blog.cover} alt="1" />
+                                <img loading='lazy' className='w-full rounded-2xl hover:brightness-75 transition-all duration-300' src={blog.cover} alt="1" />
                             </Link>
                             {/* body */}
                             <div className='pt-4 mt-2.5'>

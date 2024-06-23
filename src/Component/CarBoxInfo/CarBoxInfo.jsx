@@ -68,10 +68,10 @@ export default function CarBoxInfo(props) {
                       <div>{isActive ? (
                         <>
                           {setSrcDefaultValueSwiper(cov.img)}
-                          <img className='w-auto' src={cov.img} alt="img" />
+                          <img loading='lazy' className='w-auto' src={cov.img} alt="img" />
                         </>
                       ) : (
-                        <img className='w-auto' src={cov.img} alt="img" />
+                        <img loading='lazy' className='w-auto' src={cov.img} alt="img" />
                       )}</div>
                     )}
                   </SwiperSlide>
@@ -111,7 +111,7 @@ export default function CarBoxInfo(props) {
                 {props.cover.map((cov) => (
                   <SwiperSlide key={cov.id} >
                     <div onClick={() => setSrcDefaultValueSwiper(cov.img)} className={`border-2 cursor-pointer ${srcDefaultValueSwiper == cov.img ? " border-[#63FA55]" : "border-white"}`}>
-                      <img className='w-auto' src={cov.img} alt="img" />
+                      <img loading='lazy' className='w-auto' src={cov.img} alt="img" />
                     </div>
                   </SwiperSlide>
                 ))}
@@ -187,7 +187,7 @@ export default function CarBoxInfo(props) {
 
             {/* logo whatsapp */}
             <Link to='#' className='flex items-center justify-center gap-[5px] bg-[#05BB00] px-4 py-2.5 rounded-md'>
-              <img className='w-6 h-6' src="https://mkrentacar.com/public/assets/images/whatsapp-icon.png" alt="whatsappimg" />
+              <img loading='lazy' className='w-6 h-6' src="https://mkrentacar.com/public/assets/images/whatsapp-icon.png" alt="whatsappimg" />
               <span className='text-[15px]/[22px]'>Chat With Us</span>
             </Link>
           </div>

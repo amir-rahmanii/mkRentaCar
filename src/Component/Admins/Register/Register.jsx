@@ -45,7 +45,7 @@ export default function Register() {
     return (
         <>
             <div className="bg-[url('/images/admin/banner.png')] bg-cover h-screen bg-[center_top] w-full aspect-[2/1] bg-no-repeat flex flex-col items-center  text-white font-light">
-                <Link to='/'><img className='w-[132px] h-[50px] mt-5' src="https://mkrentacar.com/public/assets/images/logo.png" alt="img" /></Link>
+                <Link to='/'><img loading='lazy' className='w-[132px] h-[50px] mt-5' src="https://mkrentacar.com/public/assets/images/logo.png" alt="img" /></Link>
                 <p className='my-4 text-[15px]/[22.5px]'>Register</p>
                 <Formik
                     initialValues={{ username: "", cellNumber: "", email: "", password: "" }}

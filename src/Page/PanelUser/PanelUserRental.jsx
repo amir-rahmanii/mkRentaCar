@@ -27,7 +27,7 @@ export default function PanelUserRental() {
             <tr key={data.id} className='child:p-1 child:text-[11px] md:child:text-[16px] md:child:p-2 xl:child:p-3.5 child:text-center'>
               <td>{index + 1}</td>
               <td>{data.carName}</td>
-              <td className='flex justify-center'><img width='80' src={data.carimg} alt="img" /></td>
+              <td className='flex justify-center'><img loading='lazy' width='80' src={data.carimg} alt="img" /></td>
               <td className='hidden sm:table-cell'>{data.carBrand}</td>
               <td className='hidden sm:table-cell'>{data.carType}</td>
               <td className='hidden xl:table-cell'>{data.country}</td>

@@ -22,7 +22,7 @@ export default function Header() {
     <div className='w-full bg-[#454545] font-medium px-4 py-2 flex justify-between items-center'>
       <div className='flex items-center gap-2'>
         <div className='rounded-full overflow-hidden '>
-          <img className='w-[50px] h-[50px]' src='/images/adminImage/user.png'></img>
+          <img loading='lazy' className='w-[50px] h-[50px]' src='/images/adminImage/user.png'></img>
         </div>
         <div className='flex flex-col items-center text-orangeCus2 font-bold'>
           <p>{authContext.userInfo[0].username}</p>

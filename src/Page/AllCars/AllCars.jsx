@@ -32,7 +32,7 @@ export default function AllCars() {
     <>
       <Header />
       <Menu />
-      <img loading='lazy' src="images/allcars.png" alt="allcar" />
+      <img  loading='lazy' src="images/allcars.png" alt="allcar" />
       <div className='bg-black py-14'>
         <div className='container'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-x-[15px] md:gap-y-14 gap-[15px] sm:gap-y-6'>
