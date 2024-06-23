@@ -36,7 +36,7 @@ export default function Login() {
 
   return (
     <div className="bg-[url('/images/admin/banner.png')] bg-cover h-screen bg-[center_top] w-full aspect-[2/1] bg-no-repeat flex flex-col items-center  text-white font-light">
-      <Link to='/'><img loading='lazy' className='w-[132px] h-[50px] mt-16' src="https://mkrentacar.com/public/assets/images/logo.png" alt="img" /></Link>
+      <Link to='/'><img loading='lazy' className='w-[132px] h-[50px] mt-16' src="/images/logos/login.png" alt="img" /></Link>
       <p className='my-4 text-[15px]/[22.5px]'>Login</p>
       <Formik
         initialValues={{ email: "", password: "" }}

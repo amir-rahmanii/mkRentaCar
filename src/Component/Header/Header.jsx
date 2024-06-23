@@ -68,7 +68,7 @@ export default function Header() {
                     <div className='flex justify-between items-center pt-2.5'>
                         {/* img logo */}
                         <Link to='/'>
-                            <img loading='lazy' className='w-[185px] xl:w-[265px] h-[80px] xl:h-[100px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="logo" />
+                            <img loading='lazy' className='w-[185px] xl:w-[265px] h-[80px] xl:h-[100px]' src="/images/logos/logofirst.png" alt="logo" />
                         </Link>
                         <div className='flex items-center gap-2 xl:gap-5 text-[15px] font-medium'>
                             {/* phone */}

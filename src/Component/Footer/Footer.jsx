@@ -28,7 +28,7 @@ export default function Footer() {
                         <div className='flex flex-col gap-[25px] pr-3'>
                             {/* img */}
                             <div>
-                                <img loading='lazy' className=' w-[165px] h-[62px] md:w-[235px] md:h-[88px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="1" />
+                                <img loading='lazy' className=' w-[165px] h-[62px] md:w-[235px] md:h-[88px]' src="/images/logos/logofirst.png" alt="1" />
                             </div>
                             {/* menus */}
 
@@ -82,7 +82,7 @@ export default function Footer() {
                             {/* Mobile */}
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
-                                    <img loading='lazy' className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/call-icon.png" alt="1" />
+                                    <img loading='lazy' className='w-[35px] h-[35px]' src="/images/Footer/call-icon.png" alt="1" />
                                     <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Mobile:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px] child:group-hover:text-orangeCus2 child:cursor-pointer child:transition-all child:duration-300'>
@@ -95,7 +95,7 @@ export default function Footer() {
                             {/* Address */}
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
-                                    <img loading='lazy' className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/location.png" alt="1" />
+                                    <img loading='lazy' className='w-[35px] h-[35px]' src="/images/Footer/location.png" alt="1" />
                                     <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Address:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
@@ -105,7 +105,7 @@ export default function Footer() {
                             {/* Timing */}
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
-                                    <img loading='lazy' className='w-[35px] h-[35px]' src="https://mkrentacar.com/public/assets/images/service-24-7.png" alt="1" />
+                                    <img loading='lazy' className='w-[35px] h-[35px]' src="/images/Footer/service-24-7.png" alt="1" />
                                     <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Timing:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
@@ -134,7 +134,7 @@ export default function Footer() {
                     <ul className='flex flex-wrap md:gap-1.5'>
                         {allBrands.map((brand) => (
                             <li key={brand.id} className='px-[5px] py-2.5'>
-                                <Link to={brand.href} className='text-[11px]/[16px] md:text-[15px]/[22.5px] hover:text-orangeCus transition-all duration-300'>{brand.title}</Link>
+                                <Link to={`brands/${brand.href}`} className='text-[11px]/[16px] md:text-[15px]/[22.5px] hover:text-orangeCus transition-all duration-300'>{brand.title}</Link>
                             </li>
                         ))}
                     </ul>
@@ -143,10 +143,10 @@ export default function Footer() {
                 <div className='mt-5 flex justify-between items-center'>
                     <SocialMedia border={true} />
                     <div className='flex gap-2.5 md:px-7'>
-                        <img loading='lazy' className='w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/visa.png" alt="1" />
-                        <img loading='lazy' className='w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/mastercard.png" alt="1" />
-                        <img loading='lazy' className=' w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/crypto.png" alt="1" />
-                        <img loading='lazy' className=' w-7 h-7 md:w-10 md:h-10' src="https://mkrentacar.com/public/assets/images/tabby.png" alt="1" />
+                        <img loading='lazy' className='w-7 h-7 md:w-10 md:h-10' src="/images/Footer/visa.png" alt="1" />
+                        <img loading='lazy' className='w-7 h-7 md:w-10 md:h-10' src="/images/Footer/tabby.png" alt="1" />
+                        <img loading='lazy' className=' w-7 h-7 md:w-10 md:h-10' src="/images/Footer/mastercard.png" alt="1" />
+                        <img loading='lazy' className=' w-7 h-7 md:w-10 md:h-10' src="/images/Footer/crypto.png" alt="1" />
                     </div>
                 </div>
             </div>

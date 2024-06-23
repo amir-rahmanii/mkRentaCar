@@ -80,7 +80,7 @@ export default function Comments() {
 
                                     {/* img and name and date*/}
                                     <div className='flex items-center gap-3'>
-                                        <img loading='lazy' className='rounded-full' src="https://mkrentacar.com/public/assets/images/testimonial.jpg" alt="1" />
+                                        <img loading='lazy' className='rounded-full' src="/images/comment/testimonial.jpg" alt="1" />
                                         <div className='flex flex-col gap-2'>
                                             <span className='text-xs md:text-base line-clamp-1'>{comment.carName.toUpperCase()}</span>
                                             <span className='text-xs md:text-base line-clamp-1'>{comment.name.toUpperCase()}</span>

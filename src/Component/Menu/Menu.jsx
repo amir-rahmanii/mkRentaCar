@@ -108,7 +108,7 @@ export default function Menu() {
         <div className='container'>
           <div className='flex justify-between items-center'>
             <Link to='/'>
-              <img loading='lazy' className='w-[120px] h-[45px]' src="https://mkrentacar.com/public/assets/images/logo.png" alt="imglogo" />
+              <img loading='lazy' className='w-[120px] h-[45px]' src="/images/logos/logomini.png" alt="imglogo" />
             </Link>
             <div onClick={() => setShowNavBarMobile(true)} className='bg-orangeCus2  px-[7.5px] py-[3px] cursor-pointer group hover:bg-[#293957] transition-all duration-300'>
               <FaBars className='w-[15px] h-[25px] text-white group-hover:text-orangeCus2 transition-all duration-300' />

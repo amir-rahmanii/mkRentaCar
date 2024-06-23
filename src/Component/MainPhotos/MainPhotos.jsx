@@ -67,7 +67,7 @@ export default function MainPhotos() {
     }
 
     return (
-        <div className={`bg-[url('https://mkrentacar.com/public/uploads/Banner/j4juq3hjUl.jpg')] bg-[center_top] w-full h-[300px] xs:h-auto aspect-[2/1] bg-no-repeat bg-cover flex justify-center items-end text-white font-light pb-3 md:pb-8`}>
+        <div className={`bg-[url('/images/0.png')] bg-[center_top] w-full h-[300px] xs:h-auto aspect-[2/1] bg-no-repeat bg-cover flex justify-center items-end text-white font-light pb-3 md:pb-8`}>
 
 
             <div>
