@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import './AddCars.css'
 
 
-export default memo(function AddCars({ getAllCars }) {
+export default memo(function AddCars({ getAllCars , setShowAddNewCar }) {
     //allTypeCars
     const [allTypeCars, setAllTypeCars] = useState([])
     const [hrefCarTypeValue, sethrefCarTypeValue] = useState('-1')
@@ -16,6 +16,11 @@ export default memo(function AddCars({ getAllCars }) {
 
     //valueBody
     const [bodyValue, setBodyValue] = useState('')
+    
+    //ShowErrorMessage
+    const [errorMessageBrandOrType, setErrorMessageBrandOrType] = useState(false)
+
+
 
     const getAllCarType = () => {
         fetch(`https://mkrentacar.liara.run/carType`)
@@ -49,6 +54,24 @@ export default memo(function AddCars({ getAllCars }) {
         getAllCarType()
         getAllCarBrand()
     }, [])
+
+    useEffect(() => {
+        let filterArrayCarType = [...allTypeCars]
+        if (CarTypeValue !== "-1") {
+            let filteredHrefType = filterArrayCarType.filter(data => data.title === CarTypeValue)
+            sethrefCarTypeValue(filteredHrefType[0].href)
+        }
+    }, [CarTypeValue])
+
+
+    useEffect(() => {
+        let filterArraybrand = [...allBrandCars]
+        if (CarBrandValue !== "-1") {
+            let filtredBrand = filterArraybrand.filter(data => data.title === CarBrandValue)
+            sethrefCarBrandValue(filtredBrand[0].href)
+        }
+    }, [CarBrandValue])
+
     return (
         <div className='font-medium'>
 
@@ -58,7 +81,7 @@ export default memo(function AddCars({ getAllCars }) {
                     MileageDailyKM: '', CostofExtraKm: '', SecurityAmountAED: '', Freepickup: 'Yes',
                     aux: 'Yes', usb: 'Yes', Bluetooth: 'Yes', Automotic: 'Yes', frontReverseCamera: 'Yes', Parksensor: 'Yes',
                     Navigation: 'Yes', CustomerService: 'Yes', FreeCancellation: 'Yes', FullInsurance: 'Yes', CruiseControl: 'Yes',
-                    Luggage: '2', Doors: '4', Seats: '4', isRegister: '1', img1: '', img2: '', img3: '', img4: '', img5: '', img6: ''
+                    Luggage: '2', Doors: '4', Seats: '4', isRegister: '1', img1: '/images/cars/ferrari.jpg', img2: '/images/cars/ferrari.jpg', img3: '/images/cars/back.jpg', img4: '/images/cars/farmon.jpg', img5: '/images/cars/front.jpg', img6: '/images/cars/view360.jpg'
                 }}
                 validate={values => {
                     const errors = {};
@@ -73,7 +96,7 @@ export default memo(function AddCars({ getAllCars }) {
 
                     if (!values.priceOffer) {
                         errors.priceOffer = 'Required *';
-                    } else if (!/^[1-9][0-9]{1,8}$/i.test(values.priceOffer)) {
+                    } else if (!/^(0|[1-9]\d{0,8})$/i.test(values.priceOffer)) {
                         errors.priceOffer = 'Invalid priceOffer';
                     }
 
@@ -133,98 +156,104 @@ export default memo(function AddCars({ getAllCars }) {
                     return errors;
                 }}
                 onSubmit={(values, { resetForm }) => {
+                    if(CarTypeValue !== "-1" && CarBrandValue !== "-1" ){
+                        setErrorMessageBrandOrType(false)
+                        let newObj = {
+                            id: uuidv4(),
+                            title: values.title,
+                            href: values.href,
+                            hrefCarType: hrefCarTypeValue,
+                            carType: CarTypeValue,
+                            hrefBrand: hrefCarBrandValue,
+                            brand: CarBrandValue,
+                            priceOffer: values.priceOffer,
+                            price: values.price,
+                            color: values.color,
+                            engine: values.engine,
+                            Freepickup: values.Freepickup,
+                            aux: values.aux,
+                            usb: values.usb,
+                            Bluetooth: values.Bluetooth,
+                            Automotic: values.Automotic,
+                            Parksensor: values.Parksensor,
+                            Navigation: values.Navigation,
+                            frontReverseCamera: values.frontReverseCamera,
+                            FullInsurance: values.FullInsurance,
+                            FreeCancellation: values.FreeCancellation,
+                            CustomerService: values.CustomerService,
+                            Luggage: Number(values.Luggage),
+                            Doors: Number(values.Doors),
+                            Seats: Number(values.Seats),
+                            CruiseControl: values.CruiseControl,
+                            isRegister: Number(values.isRegister),
+                            CostofExtraKm: Number(values.CostofExtraKm),
+                            MileageDailyKM: Number(values.MileageDailyKM),
+                            SecurityAmountAED: Number(values.SecurityAmountAED),
+    
+                            cover: [
+                                {
+                                    id: uuidv4(),
+                                    img: values.img1
+                                },
+                                {
+                                    id: uuidv4(),
+                                    img: values.img2
+                                },
+                                {
+                                    id: uuidv4(),
+                                    img: values.img3
+                                },
+                                {
+                                    id: uuidv4(),
+                                    img: values.img4
+                                },
+                                {
+                                    id: uuidv4(),
+                                    img: values.img5
+                                },
+                                {
+                                    id: uuidv4(),
+                                    img: values.img6
+                                }
+                            ],
+                            PaymentType: "Credit Card & Cash",
+                            SecurityType: "Credit Card & Cash",
+                            body: bodyValue
+                        }
 
-                    let newObj = {
-                        id: uuidv4(),
-                        title: values.title,
-                        href: values.href,
-                        hrefCarType: hrefCarTypeValue,
-                        carType: CarTypeValue,
-                        hrefBrand: hrefCarBrandValue,
-                        brand: CarBrandValue,
-                        priceOffer: Number(values.priceOffer),
-                        price: Number(values.price),
-                        color: values.color,
-                        engine: values.engine,
-                        Freepickup: values.Freepickup,
-                        aux: values.aux,
-                        usb: values.usb,
-                        Bluetooth: values.Bluetooth,
-                        Automotic: values.Automotic,
-                        Parksensor: values.Parksensor,
-                        Navigation: values.Navigation,
-                        frontReverseCamera: values.frontReverseCamera,
-                        FullInsurance: values.FullInsurance,
-                        FreeCancellation: values.FreeCancellation,
-                        CustomerService: values.CustomerService,
-                        Luggage: Number(values.Luggage),
-                        Doors: Number(values.Doors),
-                        Seats: Number(values.Seats),
-                        CruiseControl: values.CruiseControl,
-                        isRegister: Number(values.isRegister),
-                        CostofExtraKm: Number(values.CostofExtraKm),
-                        MileageDailyKM: Number(values.MileageDailyKM),
-                        SecurityAmountAED: Number(values.SecurityAmountAED),
-
-                        cover: [
-                            {
-                                id: uuidv4(),
-                                img: values.img1
+                        console.log(newObj);
+                        fetch(`https://mkrentacar.liara.run/cars`, {
+                            method: "POST",
+                            headers: {
+                                'Content-Type': 'application/json',
                             },
-                            {
-                                id: uuidv4(),
-                                img: values.img2
-                            },
-                            {
-                                id: uuidv4(),
-                                img: values.img3
-                            },
-                            {
-                                id: uuidv4(),
-                                img: values.img4
-                            },
-                            {
-                                id: uuidv4(),
-                                img: values.img5
-                            },
-                            {
-                                id: uuidv4(),
-                                img: values.img6
-                            }
-                        ],
-                        PaymentType: "Credit Card & Cash",
-                        SecurityType: "Credit Card & Cash",
-                        body: bodyValue
-                    }
-                    fetch(`https://mkrentacar.liara.run/cars`, {
-
-                        method: "POST",
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(newObj)
-                    })
-                        .then((res) => {
-                            if (!res.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return res.json()
-
+                            body: JSON.stringify(newObj)
                         })
-                        .then(result => {
-                            setShowAddNewCar(false)
-                            getAllCars()
-                        })
-                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
-
-                    resetForm();
-
-
+                            .then((res) => {
+                                if (!res.ok) {
+                                    throw new Error('Network response was not ok');
+                                }
+                                return res.json()
+    
+                            })
+                            .then(result => {
+                                setShowAddNewCar(false)
+                                getAllCars()
+                            })
+                            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+                        }
+                        else{
+                            setErrorMessageBrandOrType(true)
+                        }
+                        resetForm();
                 }}
             >
                 {({ isSubmitting }) => (
                     <Form className='flex flex-col gap-4 w-full px-[25px] pt-[25px] text-base' >
                         <div>
+                            {errorMessageBrandOrType && (
+                                <p className='text-red-500 mb-5 text-[25px]'>Please Select Brand Or CarType</p>
+                            )}
                             <div className='grid grid-cols-1 xl:grid-cols-3 gap-3 xl:gap-6'>
                                 {/* title */}
                                 <div>
@@ -240,16 +269,7 @@ export default memo(function AddCars({ getAllCars }) {
                                 </div>
                                 {/*finish href */}
 
-                                {/* hrefCarType */}
-                                <div>
-                                    <select onChange={(e) => sethrefCarTypeValue(e.target.value)} name="carType" id="carType" className='text-black/70 w-full px-4 py-2.5 outline-none rounded-md'>
-                                        <option value="-1">Choose href CarType</option>
-                                        {allTypeCars.map((type) => (
-                                            <option key={type.id} value={type.href}>{type.href}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                                {/* finish hrefCarType */}
+                        
 
                                 {/* CarType */}
                                 <div>
@@ -271,16 +291,7 @@ export default memo(function AddCars({ getAllCars }) {
                                     </select>
                                 </div>
                                 {/* finish CarBrand */}
-                                {/* hrefCarBrand */}
-                                <div>
-                                    <select onChange={(e) => sethrefCarBrandValue(e.target.value)} name="hrefcarBrand" id="hrefcarBrand" className='text-black/70 w-full px-4 py-2.5 outline-none rounded-md'>
-                                        <option value="-1">Choose href CarBrand</option>
-                                        {allBrandCars.map((brand) => (
-                                            <option key={brand.id} value={brand.href}>{brand.href}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                                {/* finish hrefCarBrand */}
+                           
                                 {/* priceOffer */}
                                 <div>
                                     <Field className="px-4 py-2.5 w-full text-black/70 outline-none rounded-md" type="text" name="priceOffer" placeholder='priceOffer' />
@@ -582,7 +593,7 @@ export default memo(function AddCars({ getAllCars }) {
                             </div>
                             <div className='my-8'>
                                 <p className='text-orangeCus2 text-center font-medium text-[22px]'>body</p>
-                                <textarea onChange={(e) => setBodyValue(e.target.value)} value={bodyValue} className='w-full text-black h-40 outline-none mt-4'>
+                                <textarea placeholder='type Body...❤️' onChange={(e) => setBodyValue(e.target.value)} value={bodyValue} className='w-full text-black h-40 p-2 rounded-md outline-none mt-4'>
                                 </textarea>
                             </div>
                         </div>

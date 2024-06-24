@@ -280,8 +280,7 @@ export default function AdminCars() {
 
   const deleteCar = () => {
     fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
-
-      method: "Delete",
+      method: "DELETE",
     })
       .then((res) => {
         if (!res.ok) {
@@ -298,7 +297,7 @@ export default function AdminCars() {
 
   //UpdatePriceCars
   const UpdatePriceCars = () => {
-    if (priceUppdated.trim() && priceOfferUppdated.trim()) {
+    if (priceUppdated && priceOfferUppdated) {
       fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
 
         method: "PATCH",
@@ -627,7 +626,7 @@ export default function AdminCars() {
 
       {/* Add New Car */}
       <Modal width="w-[400px] xl:w-[1300px]" height="h-[550px]" closedBox={showAddNewCar} setClosedBox={setShowAddNewCar} title="Add Car">
-        <AddCars getAllCars={getAllCars} />
+        <AddCars getAllCars={getAllCars} setShowAddNewCar={setShowAddNewCar} />
       </Modal>
 
     </>
