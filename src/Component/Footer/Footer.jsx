@@ -134,7 +134,7 @@ export default function Footer() {
                     <ul className='flex flex-wrap md:gap-1.5'>
                         {allBrands.map((brand) => (
                             <li key={brand.id} className='px-[5px] py-2.5'>
-                                <Link to={`brands/${brand.href}`} className='text-[11px]/[16px] md:text-[15px]/[22.5px] hover:text-orangeCus transition-all duration-300'>{brand.title}</Link>
+                                <Link to={`/brands/${brand.href}`} className='text-[11px]/[16px] md:text-[15px]/[22.5px] hover:text-orangeCus transition-all duration-300'>{brand.title}</Link>
                             </li>
                         ))}
                     </ul>
