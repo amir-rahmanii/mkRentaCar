@@ -35,7 +35,7 @@ export default function PanelUser() {
           <Menu />
           <div className={`bg-black font-medium ${i18n.language === "ar" ? "rtlArabic" : ''}`}>
             <div className='container pt-[50px] pb-[200px]'>
-              <div className='flex border h-[400px] border-white/50 rounded-xl'>
+              <div className='flex border h-auto border-white/50 rounded-xl'>
                 {/* SideBar */}
                 <div className={`${i18n.language === "ar" ? "border-l" : "border-r"} border-white/50 text-white flex flex-col py-2 px-2 gap-4`}>
                   <NavLink className={`text-[18px]/[30px] bg-[#454545] text-white px-4 md:px-10 py-2 rounded-xl hover:opacity-85 transition-all duration-300 flex justify-center items-center gap-1`} to='/paneluser'> <span className='hidden md:block'>{t("Home")}</span> <FaHome /></NavLink>

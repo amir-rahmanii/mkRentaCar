@@ -72,6 +72,12 @@ const en = {
         "Home" : "Home",
         "Rental" : "Rental",
         "Comments" : "Comments",
+        "Select the desired section in the left sidebar" : "Select the desired section in the left sidebar",
+        "SUBMIT" : "SUBMIT",
+        "Write your Comment" : "Write your Comment",
+        "Register your desired comment about our cars" : "Register your desired comment about our cars",
+        "Please fill in the comment section" : "Please fill in the comment section",
+        "Do you intend to submit comment" : "Do you intend to submit comment"
 
 
         

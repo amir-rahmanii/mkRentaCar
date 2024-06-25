@@ -8,13 +8,16 @@ import { MdError } from "react-icons/md";
 import { FaCheckCircle } from 'react-icons/fa';
 import { IoIosEye } from "react-icons/io";
 import { IoIosEyeOff } from "react-icons/io";
+import { useTranslation } from 'react-i18next'
+import i18n from '../../i18n';
 
 export default function PanelUserIndex() {
     const authContext = useContext(AuthContext)
     //change type password
     const [changeTypePasswordCurrent, setChangeTypePasswordCurrent] = useState(false)
     const [changeTypePasswordNew, setChangeTypePasswordNew] = useState(false)
-
+    //translate
+    const { t } = useTranslation()
 
     //Toast
     const notify = () => {
@@ -95,7 +98,7 @@ export default function PanelUserIndex() {
                     {({ isSubmitting }) => (
                         <Form className='flex flex-col items-center gap-10 xl:gap-18'>
                             <div>
-                                <p className='text-[20px]'>{authContext.userInfo[0].username} Select the desired section in the left sidebar ❤️</p>
+                                <p className={`text-[20px] ${i18n.language === "ar" ? "rtlArabic" : ''}`}>{authContext.userInfo[0].username} {t("Select the desired section in the left sidebar")} ❤️</p>
                                 <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  mt-5 gap-5 md:gap-8 xl:gap-10'>
                                     <div className='flex items-center gap-2'>
                                         <label className='w-[95px] text-center hidden md:block' htmlFor="">Username</label>
@@ -141,7 +144,7 @@ export default function PanelUserIndex() {
                             </div>
 
                             <button className='px-4 py-2.5 rounded-md tracking-[1px] bg-green-500 text-white flex items-center justify-center font-medium' type="submit" disabled={isSubmitting}>
-                                SUBMIT
+                                {t("SUBMIT")}
                             </button>
                         </Form>
                     )}

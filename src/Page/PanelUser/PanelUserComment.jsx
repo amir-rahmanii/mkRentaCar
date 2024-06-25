@@ -6,6 +6,7 @@ import Modal from "../../Component/Admins/Modal/Modal"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaCheckCircle } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next'
 
 export default function PanelUserComment() {
   const [allCars, setAllCars] = useState([])
@@ -19,6 +20,8 @@ export default function PanelUserComment() {
   const [commentValue, setCommentValue] = useState("")
 
 
+  //translate
+  const { t } = useTranslation()
   //Toast
 
   const notify = () => {
@@ -112,8 +115,8 @@ export default function PanelUserComment() {
 
   return (
     <>
-      <div className='flex flex-col items-center gap-8 md:gap-14 h-full overflow-auto'>
-        <p className='text-[20px]'>Register your desired comment about our cars ❤️</p>
+      <div className='flex flex-col items-center gap-8 md:gap-14 h-full w-full overflow-auto'>
+        <p className='text-[20px]'>{t("Register your desired comment about our cars")} ❤️</p>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8 h-auto mx-auto'>
           <div className='flex flex-col md:flex-row gap-6'>
             <div className='relative w-[250px] md:w-auto text-black'>
@@ -171,21 +174,21 @@ export default function PanelUserComment() {
           </div>
           {/* Comments */}
           <div className=' w-full xl:w-[500px] text-black/70 flex flex-col gap-0.5'>
-            <textarea onChange={(e) => setCommentValue(e.target.value)} value={commentValue} className='w-full h-[140px] p-3 border-4 border-[#031C3F] outline-none rounded-xl' placeholder='Write your Comment...❤️'></textarea>
+            <textarea onChange={(e) => setCommentValue(e.target.value)} value={commentValue} className='w-full h-[140px] p-3 border-4 border-[#031C3F] outline-none rounded-xl' placeholder={`${t("Write your Comment")}...❤️`}></textarea>
             {showErrorMessage && (
-              <p className='text-red-500'>Please fill in the comment section</p>
+              <p className='text-red-500'>{t("Please fill in the comment section")}</p>
             )}
             <span className={`${commentValue.length >= 30 ? "text-green-500" : "text-red-500"}`}>{commentValue.length} / 30</span>
           </div>
         </div>
         <button onClick={() => setModalAddCommentShow(true)} className='px-4 py-2.5 rounded-md tracking-[1px] bg-green-500 text-white flex items-center justify-center font-medium' type="submit">
-          SUBMIT
+          {t("SUBMIT")}
         </button>
       </div>
 
       {/* is Submmit Comment */}
       <Modal width="w-[400px]" height="h-auto" closedBox={modalAddCommentShow} setClosedBox={setModalAddCommentShow} title={`Comment Submit `}>
-        <p className='text-[20px] mt-5'>Do you intend to submit comment ?</p>
+        <p className='text-[20px] mt-5'>{t("Do you intend to submit comment")} ?</p>
         <div className='flex gap-4 mt-5'>
           <button onClick={addCommentHandler} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
             Yes
