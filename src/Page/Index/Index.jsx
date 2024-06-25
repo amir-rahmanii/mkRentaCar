@@ -14,12 +14,15 @@ import Video from '../../Component/Video/Video'
 import Footer from '../../Component/Footer/Footer'
 import CopyRight from '../../Component/CopyRight/CopyRight'
 import ScroolTop from '../../Component/ScroolTop/ScroolTop'
-import PaginatedItems from '../../Component/CarsInfoContainer/Pagination/PaginatedItems'
+import { useTranslation } from 'react-i18next';
 
 export default function Index() {
   const [allBrands, setAllBrands] = useState([])
   const [allCarType, setAllCarType] = useState([])
   const [allCars, setAllCars] = useState([])
+
+  //translate
+  const { t } = useTranslation()
 
   const getallcars = () => {
     fetch(`https://mkrentacar.liara.run/cars`)
@@ -77,13 +80,13 @@ export default function Index() {
       <Menu />
       <MainPhotos />
       <SwiperBrand allBrands={allBrands} allCarType={allCarType} />
-      <FeaturedCars title="Featured Cars" select="Select A Luxury & Sports Car Brand" body="We have luxury cars that will help you experience the royal life that Dubai has to offer." />
+      <FeaturedCars title={`${t("Featured Cars")}`} select={`${t("Select A Luxury & Sports Car Brand")}`} body={`${t("We have luxury cars that will help you experience the royal life that Dubai has to offer")}`} />
       <SwiperBrandNav allInputs={allBrands} allCars={allCars} filtered={true} />
       <LuxuryCar />
-      <FeaturedCars title="Best Deal Cars" select="BEST OFFER ON A SUV CAR BRAND" body="We have SUV cars that will help you experience the royal life that Dubai has to offer." />
+      <FeaturedCars title={`${t("Best Deal Cars")}`} select={`${t("BEST OFFER ON A SUV CAR BRAND")}`} body={`${t("We have SUV cars that will help you experience the royal life that Dubai has to offer")}`} />
       <SwiperBrandNav allInputs={allCarType} allCars={allCars} filtered={false} />
       <OurRendalPackage />
-      <FeaturedCars title="Featured Cars" select="Select An Exotic & Convertible Car Brand" body="We have exotic cars that will help you experience the royal life that Dubai has to offer." />
+      <FeaturedCars title={`${t("Featured Cars")}`} select={`${t("Select A Luxury & Sports Car Brand")}`} body={`${t("We have luxury cars that will help you experience the royal life that Dubai has to offer")}`} />
       <SwiperBrandNav allInputs={allBrands} allCars={allCars} filtered={true} />
       <Comments />
       <Blogs />

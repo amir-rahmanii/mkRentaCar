@@ -3,19 +3,19 @@ import SwiperAllCarType from '../SwiperAllCarType/SwiperAllCarType'
 import React, { useEffect, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Link } from 'react-router-dom';
-
-// import './SwiperAllCarType.css';
-
 // import required modules
 import { Pagination } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
 
 export default function Comments() {
     const [allComents, setAllComents] = useState([])
+
+    //translate
+    const { t } = useTranslation()
+
 
     const getallcomments = () => {
         fetch(`https://mkrentacar.liara.run/comments`)
@@ -46,9 +46,9 @@ export default function Comments() {
         <div className='bg-black pt-5 md:py-5 font-medium'>
             <div className='container'>
                 <div className='text-white mb-3 md:mb-8 flex flex-col items-center justify-center gap-[15px] font-medium'>
-                    <p className='text-lg/[21px] font-medium text-center'>Latest Testimonial</p>
-                    <p className='text-xl/[24px] md:text-[35px]/[42px] text-center font-bold'>What They Say About Us</p>
-                    <p className='text-[#B8B8B8] text-base font-medium text-center'>"This was our best experience with MASTERKEY"</p>
+                    <p className='text-lg/[21px] font-medium text-center'>{t("Latest Testimonial")}</p>
+                    <p className='text-xl/[24px] md:text-[35px]/[42px] text-center font-bold'>{t("What They Say About Us")}</p>
+                    <p className='text-[#B8B8B8] text-base font-medium text-center'>{t("This was our best experience with MASTERKEY")}</p>
                 </div>
 
                 <SwiperAllCarType bgcolor="bg-black">

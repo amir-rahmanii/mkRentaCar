@@ -2,8 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import { RiWhatsappFill } from "react-icons/ri";
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 export default function CarBox(props) {
+    //translate
+    const { t } = useTranslation()
+
     return (
         <div className='border-2 border-orangeCus rounded-2xl bg-none overflow-hidden'>
             <div className='bg-blackBack p-2.5 relative'>
@@ -11,13 +16,13 @@ export default function CarBox(props) {
                     <img loading='lazy' src={props.cover[0].img} alt="1" />
                 </Link>
                 {props.priceOffer !== "0" && (
-                <div className='bg-orangeCus text-white font-medium text-xs/[23px] px-2 absolute top-[20px] left-0'>
-                    <span>SPECIAL OFFER</span>
-                </div>
+                    <div className={`bg-orangeCus text-white ${i18n.language === "ar" ? "font-bold" : "font-medium"} text-xs/[23px] px-2 absolute top-[20px] left-0`}>
+                        <span>{t("SPECIAL OFFER")}</span>
+                    </div>
                 )}
             </div>
 
-            <div className='bg-[#454545] text-white px-3 py-2.5 font-light'>
+            <div className={`bg-[#454545] text-white px-3 py-2.5 font-light ${i18n.language === "ar" ? "rtlArabic" : ""}`}>
                 {/* car name */}
                 <Link to={`/cars/${props.hrefCarType}/${props.href}`} className='font-bold text-xl/[30px] my-[5px] hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 hover:underline'>{props.title}</Link>
 
@@ -31,17 +36,17 @@ export default function CarBox(props) {
                 <p className='line-through mb-[5px] text-[11px]/[16.5px]'>{props.priceOffer} AED</p>
 
                 {/* Daily */}
-                <p className='text-sm/[21px] mb-[5px] mt-2'>Daily</p>
+                <p className='text-sm/[21px] mb-[5px] mt-2'>{t("Daily")}</p>
 
                 {/* Buttons */}
-                <div className='font-medium text-white flex justify-between mt-5'>
+                <div className={`${i18n.language === "ar" ? "font-bold" : "font-medium"} text-white flex justify-between mt-5`}>
                     <Button link={`/cars/${props.hrefCarType}/${props.href}`} classes='bg-neutral-700 border text-xs/[18px] py-[5px] px-[7px] rounded-md'>
-                        <span>Send Enquiry</span>
+                        <span>{t("Send Enquiry")}</span>
                     </Button>
 
                     <Link to='#' className='bg-[#05BB00] flex items-center gap-1.5 px-1.5 rounded-md text-[18px] group'>
                         <RiWhatsappFill />
-                        <span className='text-[13px]/[19.5px] group-hover:text-orangeCus2 transition-all duration-300'>Chat With Us</span>
+                        <span className='text-[13px]/[19.5px] group-hover:text-orangeCus2 transition-all duration-300'>{t("Chat With Us")}</span>
                     </Link>
 
                 </div>

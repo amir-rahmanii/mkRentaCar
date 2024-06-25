@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../Context/AuthContext';
 import Modal from '../Admins/Modal/Modal'
+import { useTranslation } from 'react-i18next';
+
 
 export default function TableOneCar({ oneBrand, allCars }) {
     const [oneBrands, setOneBrands] = useState(oneBrand)
@@ -26,6 +28,10 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
     //for show erorr in date
     const [showErrorDate, setShowErrorDate] = useState(false)
+
+
+    //translate
+    const { t } = useTranslation()
 
 
     const getallbrand = () => {
@@ -74,64 +80,64 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const addRentalCar = () => {
         if (authContext.isLoggedIn) {
             if (fullYear !== null) {
-                    setShowErrorDate(false)
-                    let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
-                    let uuid = uuidv4();
-                    let newObj = {
-                        id: uuid,
-                        name: authContext.userInfo[0].username,
-                        telephone: authContext.userInfo[0].cellNumber,
-                        email: authContext.userInfo[0].email,
-                        carType: allCars.carType,
-                        carName: allCars.title,
-                        carBrand: oneBrandsInfo.title,
-                        carimg: allCars.cover[0].img,
-                        price: allCars.price,
-                        countryCode: countryDialCode,
-                        country: countryCodeValue,
-                        register: 0,
-                        dateFull: fullYear
-                    }
-                    authRegisteredRent.push(newObj)
-                    fetch(`https://mkrentacar.liara.run/registeredRent`, {
+                setShowErrorDate(false)
+                let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
+                let uuid = uuidv4();
+                let newObj = {
+                    id: uuid,
+                    name: authContext.userInfo[0].username,
+                    telephone: authContext.userInfo[0].cellNumber,
+                    email: authContext.userInfo[0].email,
+                    carType: allCars.carType,
+                    carName: allCars.title,
+                    carBrand: oneBrandsInfo.title,
+                    carimg: allCars.cover[0].img,
+                    price: allCars.price,
+                    countryCode: countryDialCode,
+                    country: countryCodeValue,
+                    register: 0,
+                    dateFull: fullYear
+                }
+                authRegisteredRent.push(newObj)
+                fetch(`https://mkrentacar.liara.run/registeredRent`, {
 
-                        method: "POST",
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(newObj)
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newObj)
+                })
+                    .then((res) => {
+                        if (!res.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return res.json()
                     })
-                        .then((res) => {
-                            if (!res.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return res.json()
-                        })
-                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
+                    .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
 
-                    fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+                fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
 
-                        method: "PATCH",
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            registeredRent: authRegisteredRent
-                        })
+                    method: "PATCH",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        registeredRent: authRegisteredRent
                     })
-                        .then((res) => {
-                            if (!res.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return res.json()
-                        })
-                        .then((result => {
-                            setFullYear(null)
-                            setCountryCodeValue('Afghanistan')
-                            setShowSubmitRegestrid(true)
-                        }))
-                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
+                })
+                    .then((res) => {
+                        if (!res.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return res.json()
+                    })
+                    .then((result => {
+                        setFullYear(null)
+                        setCountryCodeValue('Afghanistan')
+                        setShowSubmitRegestrid(true)
+                    }))
+                    .catch(error => console.error('There has been a problem with your fetch operation:', error));
             } else {
                 setShowErrorDate(true)
             }
@@ -146,7 +152,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
             <div className='p-10 w-auto lg:w-[440px] font-medium'>
                 {oneBrandsInfo && (
                     <div className='border border-orangeCus'>
-                        <p className='border-b-2 p-[25px] border-orangeCus text-[19px]/[22.8px] text-orangeCus'>CAR’S BRAND</p>
+                        <p className='border-b-2 p-[25px] border-orangeCus text-[19px]/[22.8px] text-orangeCus'>{t("CAR’S BRAND")}</p>
                         <div className='flex p-[25px] gap-[15px] items-center'>
                             <img className="w-5 h-7 xl:w-7 xl:h-8" loading='lazy' src={oneBrandsInfo.cover} alt="img" />
                             <p className='text-white'>{oneBrandsInfo.title}</p>
@@ -155,7 +161,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
                 )}
                 {countreyCodes && (
                     <div className='border border-orangeCus mt-[30px]'>
-                        <p className='p-[25px] text-[19px]/[22.8px] text-orangeCus'>SEND ENQUIRY</p>
+                        <p className='p-[25px] text-[19px]/[22.8px] text-orangeCus'>{t("SEND ENQUIRY")}</p>
                         <div>
                             <div className='flex flex-col items-center gap-6 w-full p-[25px] text-base' >
                                 {/* Contry code */}
@@ -197,11 +203,11 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
                                 <MyCalendar fullYear={fullYear} setFullYear={setFullYear} />
                                 {showErrorDate && (
-                                    <p className='text-red-500'>Please fill in the date</p>
+                                    <p className='text-red-500'>{t("Please fill in the date")}</p>
                                 )}
 
                                 <button onClick={addRentalCar} className='bg-neutral-700 text-sm w-[160px] px-4 py-2.5 rounded-sm tracking-[1px] text-white hover:bg-orangeCus transition-all duration-300 flex items-center justify-center' type="submit">
-                                    Book Now
+                                    {t("Book Now")}
                                 </button>
                             </div>
                         </div>
@@ -214,10 +220,10 @@ export default function TableOneCar({ oneBrand, allCars }) {
                     <div onClick={(e) => {
                         e.stopPropagation()
                     }} className='flex flex-col z-50 w-auto m-4 sm:w-[500px] p-3 bg-[#454545] text-white font-light shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px]'>
-                        <p className='text-orangeCus2 font-bold text-[25px]'>successfully registered</p>
-                        <p className='pt-1.5'><span className='font-medium text-orangeCus'>{allCars.title}</span> rental has been successfully registered and our colleagues will call your number in the next 24 hours.</p>
-                        <p className='pt-1.5'>By referring to this section <Link className='text-blue-600 font-medium'>rules</Link> , you can read the rules for renting a car</p>
-                        <p className='pt-1.5'>If you have a problem with the registration and need more explanations, contact our support. <span className='text-orangeCus font-medium'>(+9999999999)</span></p>
+                        <p className='text-orangeCus2 font-bold text-[25px]'>{t("successfully registered")}</p>
+                        <p className='pt-1.5'><span className='font-medium text-orangeCus'>{allCars.title}</span> {t("rental has been successfully registered and our colleagues will call your number in the next 24 hours")}</p>
+                        <p className='pt-1.5'>{t("By referring to this section")} <Link className='text-blue-600 font-medium'>{t("rules")}</Link> , {t("you can read the rules for renting a car")}</p>
+                        <p className='pt-1.5'>{t("If you have a problem with the registration and need more explanations, contact our support")}. <span className='text-orangeCus font-medium rtlEnglish'>(+9999999999)</span></p>
                         <button onClick={() => {
                             setShowSubmitRegestrid(false)
                             setFullYear(null)
@@ -229,7 +235,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
             {/* is First Login */}
             <Modal width="w-auto md:w-[400px]" height="h-auto" closedBox={showMessageErrorLogin} setClosedBox={SetShowMessageErrorLogin} title={`Login Or Register`}>
-                <p className='text-[20px] my-5'>To rent a car, you must first <Link className='text-[#188FFF] font-bold underline' to="/login">login</Link> or <Link className='text-[#188FFF] font-bold line underline' to="/register">register</Link> .</p>
+                <p className='text-[20px] my-5'>{t("To rent a car, you must first")} <Link className='text-[#188FFF] font-bold underline' to="/login">{t("login")}</Link> {t("or")} <Link className='text-[#188FFF] font-bold line underline' to="/register">{t("register")}</Link> .</p>
             </Modal>
         </>
     )

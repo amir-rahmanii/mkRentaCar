@@ -3,6 +3,7 @@ import { SlArrowDown } from "react-icons/sl";
 import Button from '../Button/Button';
 import AuthContext from '../../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function MainPhotos() {
     const [allCars, setAllCars] = useState()
@@ -16,6 +17,9 @@ export default function MainPhotos() {
 
     //navigate
     const navigate = useNavigate()
+
+    //translate
+    const { t } = useTranslation()
 
     const getAllCars = () => {
         fetch(`https://mkrentacar.liara.run/cars`)
@@ -71,10 +75,10 @@ export default function MainPhotos() {
 
 
             <div>
-                <p className='text-center text-[45px]/[54px] hidden md:block'>Luxury Car Rental In Dubai</p>
+                <p className='text-center text-[45px]/[54px] hidden md:block'>{t("Luxury Car Rental In Dubai")}</p>
                 <div className='mt-2.5 text-[18px]/[27px] font-medium hidden md:block'>
-                    <p className='text-center'>If you are the type of person who can spot a supercar</p>
-                    <p className='text-center'>a mile away, then <span className='text-orangeCus'>Masterkey Luxury Car Rentals</span> will help you realize your dream.</p>
+                    <p className='text-center'>{t("If you are the type of person who can spot a supercar")}</p>
+                    <p className='text-center'>{t("a mile away, then")} <span className='text-orangeCus'>{t("Masterkey Luxury Car Rentals")}</span> {t("will help you realize your dream")}</p>
                 </div>
 
                 {/* Serch box type*/}
@@ -115,7 +119,7 @@ export default function MainPhotos() {
                     {/* searchBox Handler */}
                     <div onClick={searchValueHandler}>
                         <Button link="#" classes='bg-neutral-700 px-4 md:px-0 text-[15px]/[40px] rounded-md md:rounded-none font-light tracking-[1px] w-full md:w-[228px]' >
-                            <span>Search</span>
+                            <span>{t("Search")}</span>
                         </Button>
                     </div>
 

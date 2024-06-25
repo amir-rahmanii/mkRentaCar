@@ -55,7 +55,7 @@ export default function AdminRegidters() {
       })
       .then(result => {
         setAllRental(result.reverse())
-        setAllUsersFilters(result.reverse())
+        setAllUsersFilters(result)
       })
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }

@@ -15,7 +15,7 @@ export default function Dashbord() {
                     {authContext.userInfo[0].role == "user"  ? (
                         <Error404 />
                     ) : (
-                        <div className='flex w-full'>
+                        <div className="flex w-full">
                             <div className=''>
                                 <Sidebar />
                             </div>

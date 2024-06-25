@@ -9,6 +9,8 @@ import { FaXmark } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
 import AuthContext from '../../Context/AuthContext';
+import i18n from '../../i18n';
+import { useTranslation } from 'react-i18next';
 
 export default function Menu() {
   const [showNavBarMobile, setShowNavBarMobile] = useState(false)
@@ -18,6 +20,8 @@ export default function Menu() {
   const authContext = useContext(AuthContext)
 
 
+     //translate
+     const { t } = useTranslation()
 
   useEffect(() => {
     fetch(`https://mkrentacar.liara.run/menus`)
@@ -37,7 +41,7 @@ export default function Menu() {
   return (
     <>
       {/* Desktop Menu */}
-      <div className='bg-neutral-700 font-light hidden md:block'>
+      <div className={`bg-neutral-700 font-light hidden md:block ${i18n.language === "ar" ? "rtlArabic" : ''}`}>
         <div className='container'>
           <div className='flex items-center justify-between'>
             {/* Menu  */}
@@ -45,13 +49,13 @@ export default function Menu() {
               {allMenuItem.map((menu) => (
                 <li key={menu.id} className={`pb-0.5 ${menu.submenus != 0 ? 'relative group' : ''} `}>
                   <Button link={menu.href == 'car-brands' ? '#' : `/${menu.href}`} classes={`text-[15px]/[22.5px]  tracking-[0.375px] py-2  px-[13px] lg:px-[15px] ${menu.submenus.length != 0 ? ' gap-2.5' : ''} ${menu.href == "cars" ? 'border-b border-white' : ''}  `}>
-                    <span>{menu.title.toUpperCase()}</span>
+                    <span>{i18n.language === 'ar' ? menu.titlear : menu.title.toUpperCase() }</span>
                     {menu.submenus.length != 0 && (
                       <SlArrowDown className='w-2.5 h-4' />
                     )}
                   </Button>
                   {(menu.submenus.length != 0 && menu.href == "cars") && (
-                    <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-5  gap-0.5 w-[840px] lg:w-[900px] xl:w-[1120px] top-[41px] z-50 left-0 text-white px-2 font-medium'>
+                    <ul className={`absolute hidden transition-all duration-300 group-hover:grid grid-cols-5  gap-0.5 w-[840px] lg:w-[900px] xl:w-[1120px] top-[41px] z-50 ${i18n.language === 'ar' ? 'right-0' : 'left-0'} text-white px-2 font-medium`}>
                       {menu.submenus.map((submenu) => (
                         <li key={submenu.id}>
                           <Link to={`/cars/${submenu.href}`}>
@@ -66,7 +70,7 @@ export default function Menu() {
                   )}
 
                   {(menu.submenus.length != 0 && menu.href == "car-brands") && (
-                    <ul className='absolute hidden transition-all duration-300 group-hover:grid grid-cols-6 gap-px w-[730px] lg:w-[850px] xl:w-[1050px] top-[41px] z-50 left-0 text-white px-2 font-bold'>
+                    <ul className={`absolute hidden transition-all duration-300 group-hover:grid grid-cols-6 gap-px w-[730px] lg:w-[850px] xl:w-[1050px] top-[41px] z-50 ${i18n.language === 'ar' ? 'right-0' : 'left-0'} text-white px-2 font-bold`}>
                       {menu.submenus.map((submenu) => (
                         <li key={submenu.id}>
                           <Link to={`/brands/${submenu.href}`}>
@@ -86,7 +90,7 @@ export default function Menu() {
                   {authContext.userInfo[0].role == "admin" && (
                     <li className='pb-0.5'>
                       <Button link="/dashbord" classes={`text-[15px]/[22.5px]  tracking-[0.375px] py-2  px-[13px] lg:px-[15px]`}>
-                        <span>DASHBORD</span>
+                        <span>{t("dashbord")}</span>
                       </Button>
                     </li>
                   )}
@@ -104,13 +108,13 @@ export default function Menu() {
 
       {/* menu mobile */}
 
-      <div div className='bg-[#1D232D] z-50 block md:hidden relative pt-[18px] pb-5 ' >
+      <div div className={`bg-[#1D232D] z-50 block md:hidden relative pt-[18px] pb-5 ${i18n.language === "ar" ? "rtlArabic" : ''}`} >
         <div className='container'>
           <div className='flex justify-between items-center'>
             <Link to='/'>
               <img loading='lazy' className='w-[120px] h-[45px]' src="/images/logos/logomini.png" alt="imglogo" />
             </Link>
-            <div onClick={() => setShowNavBarMobile(true)} className='bg-orangeCus2  px-[7.5px] py-[3px] cursor-pointer group hover:bg-[#293957] transition-all duration-300'>
+            <div onClick={() => setShowNavBarMobile(prevState => !prevState)} className='bg-orangeCus2  px-[7.5px] py-[3px] cursor-pointer group hover:bg-[#293957] transition-all duration-300'>
               <FaBars className='w-[15px] h-[25px] text-white group-hover:text-orangeCus2 transition-all duration-300' />
             </div>
 
@@ -140,7 +144,7 @@ export default function Menu() {
 
                 }
                   className='flex items-center justify-between cursor-pointer'>
-                  <Link to={menu.href == 'cars' || menu.href == 'car-brands' ? '#' : `/${menu.href}`} className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuOurCars && menu.href == "cars" ? 'text-orangeCus2' : ''} ${showSubNenuCarBrans && menu.href == "car-brands" ? 'text-orangeCus2' : ''}`}>{menu.title.toUpperCase()}</Link>
+                  <Link to={menu.href == 'cars' || menu.href == 'car-brands' ? '#' : `/${menu.href}`} className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px] ${showSubNenuOurCars && menu.href == "cars" ? 'text-orangeCus2' : ''} ${showSubNenuCarBrans && menu.href == "car-brands" ? 'text-orangeCus2' : ''}`}>{i18n.language === 'ar' ? menu.titlear : menu.title.toUpperCase()}</Link>
                   {menu.submenus.length != 0 && (
                     <span>
                       {showSubNenuOurCars ? <FaMinus /> : <FaPlus />}
@@ -175,7 +179,7 @@ export default function Menu() {
               <>
                 {authContext.userInfo[0].role == "admin" && (
                   <li className='py-2.5 border-b border-[#393939]' >
-                    <Link to={'/dashbord'} className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]`}>DASHBORD</Link>
+                    <Link to={'/dashbord'} className={`block hover:text-orangeCus2 transition-all duration-300 text-sm/[21px] tracking-[0.35px]`}>{t('dashbord')}</Link>
                   </li>
                 )}
               </>

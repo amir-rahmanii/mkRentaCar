@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import SocialMedia from '../SocialMedia/SocialMedia'
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 export default function Footer() {
+
+    //translate
+    const { t } = useTranslation()
 
     const [allBrands, setAllBrands] = useState([])
     useEffect(() => {
@@ -21,7 +26,7 @@ export default function Footer() {
 
     }, [])
     return (
-        <div className='bg-[#1C1E20] py-3 md:pt-[25px] md:pb-[65px] font-light text-white'>
+        <div className={`bg-[#1C1E20] py-3 md:pt-[25px] md:pb-[65px] font-light text-white ${i18n.language === "ar" ? "rtlArabic" : ''}`}>
             <div className='container'>
                 <div className='flex flex-col md:flex-row md:items-center justify-between gap-[25px]'>
                     <div className='flex flex-col gap-[25px] md:gap-0 md:flex-row md:items-center'>
@@ -35,43 +40,43 @@ export default function Footer() {
                             <ul className='flex w-auto md:w-[415px] child:text-sm md:child:text-base gap-2.5 font-medium mt-[25px]'>
                                 <li >
                                     <Link to='#'>
-                                        Our Cars
+                                        {t("Our Cars")}
                                     </Link>
                                 </li>
                                 <li  >
                                     <Link to='#'>
-                                        Blog
+                                        {t("Blog")}
                                     </Link>
                                 </li>
                                 <li  >
                                     <Link to='#'>
-                                        Contact Us
+                                        {t("Contact Us")}
                                     </Link>
                                 </li>
                                 <li  >
                                     <Link to='#'>
-                                        Privacy Policy
+                                        {t("Privacy Policy")}
                                     </Link>
                                 </li>
                                 <li  >
                                     <Link to='#'>
-                                        Rental Policy
+                                       {t("Rental Policy")}
                                     </Link>
                                 </li>
                                 <li  >
                                     <Link to='#'>
-                                        Testimonial
+                                        {t("Testimonial")}
                                     </Link>
                                 </li>
                             </ul>
 
                             {/* forms */}
                             <div>
-                                <h3 className='text-[23px]/[27px]'>Subscribe Newsletter</h3>
+                                <h3 className='text-[23px]/[27px]'>{t("Subscribe Newsletter")}</h3>
                                 <div className='flex items-center mt-[30px] gap-8'>
-                                    <input className='text-[15px]/[22.5px] px-[15px] w-[249px] h-11 text-[#C1C1C1] outline-none rounded-md' placeholder='Email address' type="text" />
+                                    <input className='text-[15px]/[22.5px] px-[15px] w-[249px] h-11 text-[#C1C1C1] outline-none rounded-md' placeholder={`${t("Email Address")}`} type="text" />
                                     <Button link='#' classes='bg-[#454545] w-[124px] h-11 p-[5px] text-sm/[21px] rounded-md'>
-                                        <span>Subscribe</span>
+                                        <span>{t("Subscribe")}</span>
                                     </Button>
                                 </div>
                             </div>
@@ -83,33 +88,33 @@ export default function Footer() {
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
                                     <img loading='lazy' className='w-[35px] h-[35px]' src="/images/Footer/call-icon.png" alt="1" />
-                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Mobile:</span>
+                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>{t("Mobile")}:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px] child:group-hover:text-orangeCus2 child:cursor-pointer child:transition-all child:duration-300'>
-                                    <span>+999999999999</span>
-                                    <span>+999999999999</span>
-                                    <span>+999999999999 - French</span>
-                                    <span>+999999999999 - Russian</span>
+                                    <span className='rtlEnglish'>+999999999999</span>
+                                    <span className='rtlEnglish'>+999999999999</span>
+                                    <span className='rtlEnglish'>+999999999999 - French</span>
+                                    <span className='rtlEnglish'>+999999999999 - Russian</span>
                                 </div>
                             </div>
                             {/* Address */}
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
                                     <img loading='lazy' className='w-[35px] h-[35px]' src="/images/Footer/location.png" alt="1" />
-                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Address:</span>
+                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>{t("Address")}:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
-                                    <span className='group-hover:text-orangeCus2 transition-all duration-300 cursor-pointer'>39 Al Rasaas Rd-  Al Quoz, Dubai </span>
+                                    <span className='group-hover:text-orangeCus2 transition-all duration-300 cursor-pointer'>{t("39 Al Rasaas Rd-  Al Quoz, Dubai")}</span>
                                 </div>
                             </div>
                             {/* Timing */}
                             <div className='group'>
                                 <div className='flex gap-2.5 items-center'>
                                     <img loading='lazy' className='w-[35px] h-[35px]' src="/images/Footer/service-24-7.png" alt="1" />
-                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>Timing:</span>
+                                    <span className='text-sm/[26px] font-bold group-hover:text-orangeCus2 transition-all duration-300'>{t("Timing")}:</span>
                                 </div>
                                 <div className='flex flex-col child:text-sm/[26px] ml-[45px]'>
-                                    <span className='group-hover:text-orangeCus2 transition-all duration-300 cursor-pointer'>24/7 service</span>
+                                    <span className='group-hover:text-orangeCus2 transition-all duration-300 cursor-pointer'>{t("24/7 service")}</span>
                                 </div>
                             </div>
 
@@ -126,7 +131,7 @@ export default function Footer() {
 
                 {/* brands */}
                 <div className='flex items-center mt-[50px] gap-2 font-medium'>
-                    <span className='text-orangeCus'>Brands</span>
+                    <span className='text-orangeCus'>{t("Brands")}</span>
                     <div className='w-full h-px bg-orangeCus'></div>
                 </div>
 

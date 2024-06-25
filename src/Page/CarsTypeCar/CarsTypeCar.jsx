@@ -8,6 +8,8 @@ import SwiperBrand from '../../Component/SwiperBrand/SwiperBrand'
 import { useParams } from 'react-router-dom'
 import CarBoxInfoOne from '../../Component/CarBoxInfoOne/CarBoxInfoOne'
 import TableOneCar from '../../Component/CarBoxInfoOne/TableOneCar'
+import i18n from '../../i18n';
+
 
 
 export default function CarsTypeCar() {
@@ -15,6 +17,8 @@ export default function CarsTypeCar() {
     const [allBrands, setAllBrands] = useState([])
     const [oneBrand, setOneBrand] = useState("")
     const params = useParams()
+    
+
 
 
 
@@ -60,7 +64,7 @@ export default function CarsTypeCar() {
                 <Menu />
                 <img loading='lazy' src='/images/allcars.png' alt="cars" />
                 <div className='container py-14'>
-                    <div className='flex flex-col md:flex-row justify-between'>
+                    <div className={`flex flex-col md:flex-row justify-between ${i18n.language === "ar" ? "rtlArabic" : ''}`}>
                             {allCars.length && (
                                 <CarBoxInfoOne allCars={allCars[0]} />
                             )}

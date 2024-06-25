@@ -3,6 +3,7 @@ import './App.css'
 import routes from './routes'
 import AuthContext from './Context/AuthContext'
 import { useRoutes } from 'react-router-dom'
+import i18n from "./i18n";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -10,6 +11,7 @@ function App() {
   const [userInfo, setUserInfo] = useState({});
   const [searchCars, setSearchCars] = useState([])
   const router = useRoutes(routes)
+
 
 
   const login = (userInfo, token) => {
@@ -41,6 +43,12 @@ function App() {
           setUserInfo(userFiltered);
         })
         .catch(error => console.error('There has been a problem with your fetch operation:', error));
+    }
+
+    //language Change
+    const localStorageDataLanguage = JSON.parse(localStorage.getItem("letter"));
+    if(localStorageDataLanguage){
+      i18n.changeLanguage(localStorageDataLanguage)
     }
   }, []);
 

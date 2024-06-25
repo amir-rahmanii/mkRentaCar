@@ -1,20 +1,14 @@
 
-import SwiperAllCarType from '../SwiperAllCarType/SwiperAllCarType'
 import React, { useEffect, useRef, useState } from 'react';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
-
-// import './SwiperAllCarType.css';
-
-// import required modules
-import { Pagination } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 export default function Blogs() {
+    //translate
+    const { t } = useTranslation()
 
     const [allBlogs, setAllBlogs] = useState([])
 
@@ -36,8 +30,8 @@ export default function Blogs() {
         <div className='bg-black font-medium pt-6 text-white md:pt-[65px] md:pb-[70px] pb-[25px]'>
             <div className='container'>
                 <div className=' mb-3 md:mb-8 flex flex-col items-center justify-center gap-[15px] font-medium'>
-                    <p className='text-lg/[21px] font-medium text-center'>Trending Blogs</p>
-                    <p className='text-xl/[24px] md:text-[35px]/[42px] text-center font-bold'>Latest Blogs & Trends</p>
+                    <p className='text-lg/[21px] font-medium text-center'>{t("Trending Blogs")}</p>
+                    <p className='text-xl/[24px] md:text-[35px]/[42px] text-center font-bold'>{t("Latest Blogs & Trends")}</p>
                 </div>
 
                 <div className='font-medium py-3.5 md:pt-5 md:pb-0 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3'>
@@ -51,8 +45,8 @@ export default function Blogs() {
                                 <Link to={`/blog/${blog.href}`} className='text-xl/[24px] font-bold line-clamp-1 hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 hover:underline'>{blog.title}</Link>
                                 <p className='text-[#B7B7B7] line-clamp-2 text-[13px]/[19.5px] mt-2'>{blog.body}</p>
                             </div>
-                            <div className=' mt-2 md:mt-6 pt-1 md:pt-2.5 border-t border-white/20'>
-                                <Link to={`/blog/${blog.href}`} className='hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 underline text-[13px] md:text-base'>Read More</Link>
+                            <div className={`mt-2 md:mt-6 pt-1 md:pt-2.5 border-t border-white/20 ${i18n.language === "ar" ? "rtlArabic" : ''}`}>
+                                <Link to={`/blog/${blog.href}`} className='hover:text-orangeCus2 transition-all duration-300 hover:decoration-orangeCus2 underline text-[13px] md:text-base'>{t("Read More")}</Link>
                             </div>
                         </div>
                     ))}

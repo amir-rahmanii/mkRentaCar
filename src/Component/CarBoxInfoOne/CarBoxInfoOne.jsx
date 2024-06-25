@@ -7,23 +7,20 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 
 
-
-export default function CarBoxInfoOne({allCars}) {
+export default function CarBoxInfoOne({ allCars }) {
     const swiperRefMain = React.useRef(null);
     const swiperRef = React.useRef(null);
     const [srcDefaultValueSwiper, setSrcDefaultValueSwiper] = useState('')
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [showMoreOption, setShowMoreOption] = useState(false)
 
+    //translate
+    const { t } = useTranslation()
 
-    // const goNext = () => {
-    //   swiperRef.current.slideNext();
-    // };
-    // const goPrev = () => {
-    //   swiperRef.current.slidePrev();
-    // };
     const goNextmain = () => {
         swiperRefMain.current.slideNext();
     };
@@ -33,15 +30,15 @@ export default function CarBoxInfoOne({allCars}) {
 
 
 
-    return ( 
+    return (
         <div className={`font-light w-auto md:w-[536px] lg:w-[636px] xl:w-[736px] overflow-hidden text-white flex flex-col gap-3 bg-[#454545] p-4 md:p-[45px] m-[5px] shadow-[0_0px_23px_0px_rgba(253,177,0)] hover:outline hover:outline-orangeCus rounded-[15px] mb-[30px]`}>
             {/* Swipers */}
             <div className='flex flex-col'>
                 {/* sw1 */}
                 <div className='w-auto'>
-                    <div className='mb-3 md:mb-5 relative'>
+                    <div className={`mb-3 md:mb-5 relative`}>
 
-                        <button onClick={goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
+                        <button onClick={i18n.language === "ar" ? goNextmain : goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
 
                         <Swiper
                             initialSlide={0}
@@ -63,7 +60,7 @@ export default function CarBoxInfoOne({allCars}) {
                                         <div>{isActive ? (
                                             <>
                                                 {setSrcDefaultValueSwiper(cov.img)}
-                                                <img  loading='lazy' className='w-auto' src={cov.img} alt="img" />
+                                                <img loading='lazy' className='w-auto' src={cov.img} alt="img" />
                                             </>
                                         ) : (
                                             <img loading='lazy' className='w-auto' src={cov.img} alt="img" />
@@ -78,7 +75,7 @@ export default function CarBoxInfoOne({allCars}) {
                         </Swiper>
 
 
-                        <button onClick={goNextmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] right-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
+                        <button onClick={i18n.language === "ar" ? goPrevmain : goNextmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] right-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
 
 
                     </div>
@@ -147,33 +144,33 @@ export default function CarBoxInfoOne({allCars}) {
                 </div>
 
                 {/* Car infos */}
-                <p className='font-medium text-[18px]/[21px] text-orangeCus py-[8px]'>Technical Specifications</p>
+                <p className='font-medium text-[18px]/[21px] text-orangeCus py-[8px]'>{t("Technical Specifications")}</p>
 
 
-                    <div className={`w-full grid grid-cols-2 xl:grid-cols-3 gap-x-10 transition-all duration-500`}>
-                        <p className='text-[9px]/7 font-medium'>COLOR : <span className='text-orangeCus font-bold text-[11px]'>{allCars.color}</span></p>
-                        <p className='text-[9px]/7 font-medium'>ENGINE : <span className='text-orangeCus font-bold text-[11px]'>{allCars.engine}</span></p>
-                        <p className='text-[9px]/7 font-medium'>FREE PICKUP-DROP OFF : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Freepickup}</span></p>
-                        <p className='text-[9px]/7 font-medium'>AUX : <span className='text-orangeCus font-bold text-[11px]'>{allCars.aux}</span></p>
-                        <p className='text-[9px]/7 font-medium'>USB : <span className='text-orangeCus font-bold text-[11px]'>{allCars.usb}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Bluetooth : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Bluetooth}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Automotic : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Automotic}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Parking Sensor  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Parksensor}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Navigation : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Navigation}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Front & Reverse Camera  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.frontReverseCamera}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Full Insurance  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.FullInsurance}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Free Cancellation  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.FreeCancellation}</span></p>
-                        <p className='text-[9px]/7 font-medium'>24/7 Customer Service : <span className='text-orangeCus font-bold text-[11px]'>{allCars.CustomerService}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Seats : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Seats}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Doors  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Doors}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Luggage  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Luggage}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Security Type  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.SecurityType}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Payment Type  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.PaymentType}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Mileage Daily, KM  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.MileageDailyKM}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Cost of Extra Km  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.CostofExtraKm}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Security Amount, AED  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.SecurityAmountAED}</span></p>
-                        <p className='text-[9px]/7 font-medium'>Cruise Control  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.CruiseControl}</span></p>
-                    </div>
+                <div className={`w-full grid grid-cols-2 xl:grid-cols-3 gap-x-10 transition-all duration-500`}>
+                    <p className='text-[9px]/7 font-medium'>COLOR : <span className='text-orangeCus font-bold text-[11px]'>{allCars.color}</span></p>
+                    <p className='text-[9px]/7 font-medium'>ENGINE : <span className='text-orangeCus font-bold text-[11px]'>{allCars.engine}</span></p>
+                    <p className='text-[9px]/7 font-medium'>FREE PICKUP-DROP OFF : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Freepickup}</span></p>
+                    <p className='text-[9px]/7 font-medium'>AUX : <span className='text-orangeCus font-bold text-[11px]'>{allCars.aux}</span></p>
+                    <p className='text-[9px]/7 font-medium'>USB : <span className='text-orangeCus font-bold text-[11px]'>{allCars.usb}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Bluetooth : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Bluetooth}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Automotic : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Automotic}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Parking Sensor  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Parksensor}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Navigation : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Navigation}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Front & Reverse Camera  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.frontReverseCamera}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Full Insurance  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.FullInsurance}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Free Cancellation  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.FreeCancellation}</span></p>
+                    <p className='text-[9px]/7 font-medium'>24/7 Customer Service : <span className='text-orangeCus font-bold text-[11px]'>{allCars.CustomerService}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Seats : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Seats}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Doors  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Doors}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Luggage  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.Luggage}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Security Type  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.SecurityType}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Payment Type  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.PaymentType}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Mileage Daily, KM  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.MileageDailyKM}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Cost of Extra Km  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.CostofExtraKm}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Security Amount, AED  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.SecurityAmountAED}</span></p>
+                    <p className='text-[9px]/7 font-medium'>Cruise Control  : <span className='text-orangeCus font-bold text-[11px]'>{allCars.CruiseControl}</span></p>
+                </div>
             </div>
         </div>
     )

@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next';
 
 export default function DataTableBrand() {
     const [allBrands, setAllBrands] = useState([])
+    //translate
+    const { t } = useTranslation()
+
     const getallbrands = () => {
         fetch(`https://mkrentacar.liara.run/allBrands`)
             .then(res => {
@@ -24,7 +28,7 @@ export default function DataTableBrand() {
     return (
         <div className='p-10 w-full hidden lg:block font-medium'>
             <div className='border border-orangeCus'>
-                <p className='border-b-2 p-[25px] border-orangeCus text-[19px]/[22.8px] text-orangeCus'>CAR’S BRAND</p>
+                <p className='border-b-2 p-[25px] border-orangeCus text-[19px]/[22.8px] text-orangeCus'>{t("CAR’S BRAND")}</p>
                 <div className='p-[25px] divide-y-2 divide-white/20'>
                     {allBrands.map((brand) => (
                         <Link key={brand.id} to={`/brands/${brand.href}`} className='flex gap-[15px] py-2.5'>
