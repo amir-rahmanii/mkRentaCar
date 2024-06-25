@@ -5,6 +5,7 @@
 </p>
 
 <br/><br/>
+<h2>Bilingual website</h2>
 <h2>Luxury Car Rental In Dubai</h2>
 <h2>This website is developed using Html, Css, JavaScript, React, Tailwind, Json-server with responsive design.</h2>
 <h2>I hope you enjoy my website ❤️. </h2>
@@ -18,6 +19,7 @@
 - react-date-picker
 - react-icons
 - react-router-dom
+- rreact-i18next
 -...
 
 **Attention:**
