@@ -72,7 +72,7 @@ export default function Login() {
         }}
       >
         {({ isSubmitting }) => (
-          <Form className='p-6 bg-white w-auto sm:w-[450px] font-medium flex flex-col text-black/70'>
+          <Form className='p-6 bg-white w-[350px] sm:w-[450px] font-medium flex flex-col text-black/70'>
             <p className='text-[#4B38B3] font-medium text-center mb-6'>Welcome Back!</p>
             <label htmlFor="email" className='text-black font-medium text-[13px]/[19px] pb-1'>Email</label>
             <Field
@@ -93,7 +93,7 @@ export default function Login() {
                 {changeTypePassword ? <IoIosEyeOff /> : <IoIosEye />}
               </div>
             </div>
-            <ErrorMessage className='text-red-600 text-[13px]/[19px] pt-1' name="password" component="div" />
+            <ErrorMessage className='text-red-600 text-[13px]/[19px] pt-1 w-full' name="password" component="div" />
 
             <button className='bg-[#45CB85] text-[15px]/[19px] text-white px-[14px] py-2 cursor-pointer mt-7 rounded-md transition-all duration-300 hover:bg-[#3aa76f]' type="submit" disabled={isSubmitting}>
               Sign in

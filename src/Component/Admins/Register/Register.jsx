@@ -132,7 +132,7 @@ export default function Register() {
                     }}
                 >
                     {({ isSubmitting }) => (
-                        <Form className='p-6 bg-white w-auto sm:w-[450px] font-medium flex flex-col text-black/70'>
+                        <Form className='p-6 bg-white w-[350px] sm:w-[450px] font-medium flex flex-col text-black/70'>
                             <p className='text-[#4B38B3] font-medium text-center mb-6'>Welcome!</p>
                             <label htmlFor="username" className='text-black font-medium text-[13px]/[19px] pb-1'>Username</label>
                             <Field
