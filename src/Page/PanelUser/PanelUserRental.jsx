@@ -137,7 +137,7 @@ export default function PanelUserRental() {
               <p className='flex gap-2'> {t("Favorite Brand")} : <FavoriteBrand cars={authContext.userInfo[0].registeredRent} /></p>
             </div>
             <table>
-              <tr className='child:p-2 child:text-[11px] md:child:text-[16px] md:child:p-4 sticky top-0 child:text-orangeCus2 child:bg-[#454545] rounded-md'>
+              <tr className='child:p-1.5 child:text-[11px] md:child:text-[16px] md:child:p-4 sticky top-0 child:text-orangeCus2 child:bg-[#454545] rounded-md'>
                 <th>#</th>
                 <th>{t("CarName")}</th>
                 <th>{t("CarImage")}</th>
