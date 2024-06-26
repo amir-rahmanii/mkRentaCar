@@ -77,7 +77,22 @@ const en = {
         "Write your Comment" : "Write your Comment",
         "Register your desired comment about our cars" : "Register your desired comment about our cars",
         "Please fill in the comment section" : "Please fill in the comment section",
-        "Do you intend to submit comment" : "Do you intend to submit comment"
+        "Do you intend to submit comment" : "Do you intend to submit comment",
+        "You have not rented any cars yet" : "You have not rented any cars yet",
+        "Do you intend to Delete a Rental Car" : "Do you intend to Delete a Rental Car",
+        "Rental cars" : "Rental cars",
+        "Pending" : "pending",
+        "Favorite Brand" : "Favorite Brand",
+        "CarName" : "CarName",
+        "CarImage" : "CarImage",
+        "CarBrand" : "CarBrand",
+        "CarType" : "CarType",
+        "Country" : "Country",
+        "Price" : "Price",
+        "Date" : "Date",
+        "Status" : "Status",
+        "Delete" : "Delete"
+
 
 
         

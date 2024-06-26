@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import CarsInfoContainer from '../CarsInfoContainer';
+import i18n from '../../../i18n';
 
 
 
@@ -48,7 +49,7 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
     <>
       <div>
         <CarsInfoContainer currentItems={currentItems} />
-        <div className='bg-black'>
+        <div className={`bg-black ${i18n.language === "ar" ? 'rtlArabic' : ""}`}>
           <div className='container text-white'>
             <div className={`w-auto ${pageCount === 1 ? 'hidden' : 'flex'} lg:w-[866px] xl:w-[966px] justify-center pb-[35px]`}>
               <ReactPaginate

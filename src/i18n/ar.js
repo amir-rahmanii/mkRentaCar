@@ -74,10 +74,27 @@ const ar = {
     "Comments": "تعليقات",
     "Select the desired section in the left sidebar": "حدد القسم المطلوب في الشريط الجانبي الأيسر",
     "SUBMIT": "يُقدِّم",
-    "Write your Comment" : "اكتب تعليقك",
-    "Register your desired comment about our cars" : "سجل تعليقك المطلوب حول سياراتنا",
-    "Please fill in the comment section" : "يرجى ملء قسم التعليق",
-    "Do you intend to submit comment" : "هل تنوي تقديم تعليق"
+    "Write your Comment": "اكتب تعليقك",
+    "Register your desired comment about our cars": "سجل تعليقك المطلوب حول سياراتنا",
+    "Please fill in the comment section": "يرجى ملء قسم التعليق",
+    "Do you intend to submit comment": "هل تنوي تقديم تعليق",
+    "You have not rented any cars yet": "لم تقم بتأجير أي سيارة بعد",
+    "Do you intend to Delete a Rental Car": "هل تنوي حذف سيارة مستأجرة",
+    "Rental cars": "سيارت مستأجرة",
+    "Pending": "قيد الانتظار",
+    "Favorite Brand" : "العلامة التجارية المفضلة",
+    "CarName" : "اسم السيارة",
+    "CarImage" : "صورة السيارة",
+    "CarBrand" : "ماركة السيارة",
+    "CarType" : "نوع السيارة",
+    "Country" : "دولة",
+    "Price" : "سعر",
+    "Date" : "تاريخ",
+    "Status" : "حالة",
+    "Delete" : "يمسح"
+
+
+
 
 
 

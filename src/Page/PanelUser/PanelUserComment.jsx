@@ -174,7 +174,7 @@ export default function PanelUserComment() {
           </div>
           {/* Comments */}
           <div className=' w-full xl:w-[500px] text-black/70 flex flex-col gap-0.5'>
-            <textarea onChange={(e) => setCommentValue(e.target.value)} value={commentValue} className='w-full h-[140px] p-3 border-4 border-[#031C3F] outline-none rounded-xl' placeholder={`${t("Write your Comment")}...❤️`}></textarea>
+            <textarea onChange={(e) => setCommentValue(e.target.value)} value={commentValue} className='w-full h-[240px] p-3 border-4 border-[#031C3F] outline-none rounded-xl' placeholder={`${t("Write your Comment")}...❤️`}></textarea>
             {showErrorMessage && (
               <p className='text-red-500'>{t("Please fill in the comment section")}</p>
             )}
