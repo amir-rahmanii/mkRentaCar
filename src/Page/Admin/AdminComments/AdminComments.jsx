@@ -138,8 +138,8 @@ export default function AdminComments() {
         <>
             <div className='container font-medium'>
                 <div className='flex justify-between shadow-lg px-4 items-center w-[300px] sm:w-auto bg-black/80 mt-4 rounded-lg'>
-                    <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2 hidden md:block'>List Users</p>
-                    <p className='text-[16px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2 block md:hidden'>Users</p>
+                    <p className='text-[25px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2 hidden md:block'>List Comments</p>
+                    <p className='text-[16px] mt-4 mb-6 font-bold text-center rounded-md text-orangeCus2 block md:hidden'>Comments</p>
                     <SearchBar searchValueHandler={searchValueHandler} />
                 </div>
                 {allComments.length > 0 ? (

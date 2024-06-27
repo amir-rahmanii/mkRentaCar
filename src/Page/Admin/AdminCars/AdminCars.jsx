@@ -371,7 +371,7 @@ export default function AdminCars() {
     <>
       <div className='container font-medium '>
         <div className='flex justify-between shadow-lg px-4 w-[300px] sm:w-auto  items-center bg-black/80 mt-4 rounded-lg '>
-          <p className='text-[25px] mt-4 mb-6 font-bold text-center text-orangeCus2 hidden md:block'>List registration Cars</p>
+          <p className='text-[25px] mt-4 mb-6 font-bold text-center text-orangeCus2 hidden md:block'>List Cars</p>
           <p className='text-[16px] mt-4 mb-6 font-bold text-center text-orangeCus2 block md:hidden'> Cars</p>
           <div className=' flex gap-4'>
             <SearchBar searchValueHandler={searchValueHandler} />

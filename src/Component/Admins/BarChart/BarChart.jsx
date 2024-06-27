@@ -108,7 +108,7 @@ const BarChart = () => {
     };
 
     return (
-        <div className='hidden lg:block w-[800px] h-[400px]'>
+        <div className='hidden xl:block w-[700px] h-[400px]'>
             <Bar data={data} options={options} />
         </div>
     );

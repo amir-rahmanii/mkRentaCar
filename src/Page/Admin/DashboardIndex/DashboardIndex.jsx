@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import BoxInfoAdmin from '../../../Component/Admins/BoxInfoAdmin/BoxInfoAdmin';
 import MyPieChart from '../../../Component/Admins/MyPieChart/MyPieChart';
 import BarChart from '../../../Component/Admins/BarChart/BarChart';
+import BoxInfoFavorite from '../../../Component/Admins/BoxInfoFavorite/BoxInfoFavorite';
+import BoxInfoUser from '../../../Component/Admins/BoxInfoUser/BoxInfoUser';
 
 export default function DashboardIndex() {
   const [allCarsLength, setAllCarsLength] = useState('')
@@ -59,14 +61,18 @@ export default function DashboardIndex() {
   return (
     <div className='font-medium'>
       <div className='container pb-5 xl:pb-0'>
-        <div className='mt-4 grid grid-cols-1  xl:grid-cols-3 gap-3'>
+        <div className='mt-4 grid grid-cols-1 xl:grid-cols-3 gap-3'>
           <BoxInfoAdmin title="Rental" number={allRentalLength} status="increased" />
           <BoxInfoAdmin title="Cars" number={allCarsLength} status="increased" />
           <BoxInfoAdmin title="Users" number={allUsersLength} status="decreased" />
         </div>
-        <div className='flex flex-col items-center xl:flex-row mt-5 xl:mt-8 bg-[#f1f1f1] rounded-xl p-2'>
-          <MyPieChart />
+        <div className='hidden xl:flex items-center flex-row mt-8 gap-x-16'>
+          <BoxInfoFavorite />
           <BarChart />
+        </div>
+        <div className='flex flex-col gap-4  justify-between items-center xl:flex-row mt-8 xl:mt-8 bg-[#f1f1f1] rounded-xl p-2'>
+          <MyPieChart />
+          <BoxInfoUser />
         </div>
       </div>
     </div>
