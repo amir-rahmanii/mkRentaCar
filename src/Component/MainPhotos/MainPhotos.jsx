@@ -6,12 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 export default function MainPhotos() {
-    const [allCars, setAllCars] = useState()
+    const [allCars, setAllCars] = useState([])
     const [typeOfCar, setTypeOfCar] = useState('All Car Type')
     const [showTypeOfCar, setShowTypeOfCar] = useState(false)
-    const [allOfCarBrands, setAllOfCarBrands] = useState(' All Car Brands')
+    const [allOfCarBrands, setAllOfCarBrands] = useState('All Car Brands')
     const [showAllOfCarBrands, setShowAllOfCarBrands] = useState(false)
     const [allCarType, setAllCarType] = useState([])
+    const [allCarBrand, setAllCarBrand] = useState([])
     //context
     const authContext = useContext(AuthContext)
 
@@ -36,6 +37,21 @@ export default function MainPhotos() {
 
     }
 
+    const getAllCarBrand = () => {
+        fetch(`https://mkrentacar.liara.run/allBrands`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
+            .then(result => {
+                setAllCarBrand(result)
+            })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+    }
+
     const getAllCarType = () => {
         fetch(`https://mkrentacar.liara.run/carType`)
             .then(res => {
@@ -51,20 +67,29 @@ export default function MainPhotos() {
 
     }
 
+    
+
 
     useEffect(() => {
         getAllCars()
         getAllCarType()
+        getAllCarBrand()
     }, [])
 
 
     const searchValueHandler = (e) => {
         e.preventDefault()
         let filterArray = [...allCars]
-        if (typeOfCar === "All Car Type") {
+        if (typeOfCar === "All Car Type" && allOfCarBrands === "All Car Brands") {
             authContext.searchFunc(filterArray)
-        } else {
+        } else if (typeOfCar !== "All Car Type" && allOfCarBrands === "All Car Brands" ) {
             let carsFilterValue = filterArray.filter(data => data.carType.toLowerCase() === typeOfCar.toLowerCase())
+            authContext.searchFunc(carsFilterValue)
+        }else if(allOfCarBrands !== "All Car Brands" && typeOfCar === "All Car Type"){
+            let carsFilterValue = filterArray.filter(data => data.brand.toLowerCase() === allOfCarBrands.toLowerCase())
+            authContext.searchFunc(carsFilterValue)
+        }else{
+            let carsFilterValue = filterArray.filter(data => (data.brand.toLowerCase() === allOfCarBrands.toLowerCase()) && (data.carType.toLowerCase() === typeOfCar.toLowerCase()))
             authContext.searchFunc(carsFilterValue)
         }
         navigate("/cars-search")
@@ -110,7 +135,10 @@ export default function MainPhotos() {
                             </div>
 
                             <div className={`bg-black absolute overflow-auto flex-col w-[150px] z-10 md:w-[285px] h-[90px] child:px-[5px] child:py-0.5 child:cursor-pointer child-hover:bg-orangeCus child:transition-all child:duration-300 border border-white ${showAllOfCarBrands ? 'flex' : 'hidden'}`}>
-                                <span onClick={(e) => setAllOfCarBrands(e.target.innerHTML)}>All Car Brands</span>
+                                <span onClick={() => setTypeOfCar("All Car Brands")}>All Car Brands</span>
+                                {allCarBrand.map(type => (
+                                    <span key={type.id} onClick={() => setAllOfCarBrands(type.title)}>{type.title}</span>
+                                ))}
                             </div>
                         </div>
 
