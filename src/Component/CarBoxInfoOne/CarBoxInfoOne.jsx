@@ -8,7 +8,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { useTranslation } from 'react-i18next';
-import i18n from '../../i18n';
 
 
 export default function CarBoxInfoOne({ allCars }) {
@@ -38,7 +37,7 @@ export default function CarBoxInfoOne({ allCars }) {
                 <div className='w-auto'>
                     <div className={`mb-3 md:mb-5 relative`}>
 
-                        <button onClick={i18n.language === "ar" ? goNextmain : goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
+                        <button onClick= {goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
 
                         <Swiper
                             initialSlide={0}
@@ -75,7 +74,7 @@ export default function CarBoxInfoOne({ allCars }) {
                         </Swiper>
 
 
-                        <button onClick={i18n.language === "ar" ? goPrevmain : goNextmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] right-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
+                        <button onClick={goNextmain} className='w-[30px] h-[30px] z-40 absolute top-[120px] sm:top-[200px] md:top-[145px] lg:top-[185px] xl:top-[217px] right-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
 
 
                     </div>

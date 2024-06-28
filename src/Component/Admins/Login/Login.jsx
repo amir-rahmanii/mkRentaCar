@@ -94,6 +94,8 @@ export default function Login() {
               </div>
             </div>
             <ErrorMessage className='text-red-600 text-[13px]/[19px] pt-1 w-full' name="password" component="div" />
+            <Link to="/forget-password" className='text-[#4B38B3] text-end mt-4'>Forget Password ?</Link>
+
 
             <button className='bg-[#45CB85] text-[15px]/[19px] text-white px-[14px] py-2 cursor-pointer mt-7 rounded-md transition-all duration-300 hover:bg-[#3aa76f]' type="submit" disabled={isSubmitting}>
               Sign in

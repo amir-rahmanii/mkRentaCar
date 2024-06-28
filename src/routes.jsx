@@ -19,6 +19,7 @@ import PanelUserComment from "./Page/PanelUser/PanelUserComment"
 import AdminComments from "./Page/Admin/AdminComments/AdminComments"
 import CarsSearch from "./Page/CarsSearch/CarsSearch"
 import PanelUserWallet from "./Page/PanelUser/PanelUserWallet"
+import AdminForgetPassword from "./Page/AdminForgetPassword/AdminForgetPassword"
 
 
 
@@ -37,6 +38,7 @@ let routes = [
 
     { path: '/login', element: <AdminLogin /> },
     { path: '/Register', element: <AdminCreateRegister /> },
+    { path: '/forget-password', element: <AdminForgetPassword /> },
 
     { path: '/paneluser', element: <PanelUser /> , children:[
         { path: '', element: <PanelUserIndex /> },

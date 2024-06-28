@@ -93,11 +93,13 @@ const ar = {
     "Status": "حالة",
     "Delete": "يمسح",
     "Wallet": "محفظة",
-    "Wallet balance" : "رصيد المحفظة",
+    "Wallet balance": "رصيد المحفظة",
     "Recharge the wallet": "إعادة شحن المحفظة",
-    "Enter the amount" : "أدخل المبلغ",
-    "To rent a car, you must charge your" : "لاستئجار سيارة، يجب عليك تحصيل رسوم",
-    "Please enter the correct values (1 , 999999)" : "الرجاء إدخال القيم الصحيحة (1 ، 999999)"
+    "Enter the amount": "أدخل المبلغ",
+    "To rent a car, you must charge your": "لاستئجار سيارة، يجب عليك تحصيل رسوم",
+    "Please enter the correct values (1 , 999999)": "الرجاء إدخال القيم الصحيحة (1 ، 999999)",
+    "Next": "التالي",
+    "Previous": "سابق"
 
 
 

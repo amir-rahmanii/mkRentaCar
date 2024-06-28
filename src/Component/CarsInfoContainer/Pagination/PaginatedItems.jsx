@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import CarsInfoContainer from '../CarsInfoContainer';
 import i18n from '../../../i18n';
+import { useTranslation } from 'react-i18next';
 
 
 
 export default function PaginatedItems({ allCars, itemsPerPage }) {
+
+  //translate
+  const {t} = useTranslation();
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
@@ -54,11 +58,11 @@ export default function PaginatedItems({ allCars, itemsPerPage }) {
             <div className={`w-auto ${pageCount === 1 ? 'hidden' : 'flex'} lg:w-[866px] xl:w-[966px] justify-center pb-[35px]`}>
               <ReactPaginate
                 breakLabel="..."
-                nextLabel="Next"
+                nextLabel={`${t("Next")}`}
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={5}
                 pageCount={pageCount}
-                previousLabel="Previous"
+                previousLabel={`${t("Previous")}`}
                 renderOnZeroPageCount={null}
                 className='flex items-center divide-x-2 divide-white/20 font-medium text-base border'
                 pageClassName='py-3'

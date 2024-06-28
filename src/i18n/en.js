@@ -97,7 +97,9 @@ const en = {
         "Recharge the wallet": "Recharge the wallet",
         "Enter the amount" : "Enter the amount",
         "To rent a car, you must charge your" : "To rent a car, you must charge your",
-        "Please enter the correct values (1 , 999999)" : "Please enter the correct values (1 , 999999)"
+        "Please enter the correct values (1 , 999999)" : "Please enter the correct values (1 , 999999)",
+        "Next" : "Next",
+        "Previous" : "Previous"
 
 
 

@@ -45,12 +45,12 @@ export default function CarBoxInfo(props) {
 
     <div className={`font-light w-auto lg:w-[866px] xl:w-[966px] overflow-hidden text-white flex flex-col md:flex-row gap-6 bg-[#454545] p-2.5 shadow-[0_0px_10px_0px_rgba(228,166,0)] hover:outline hover:outline-orangeCus rounded-[15px] mb-[30px]`}>
       {/* Swipers */}
-      <div className='flex flex-col'>
+      <div className='flex flex-col rtlEnglish'>
         {/* sw1 */}
         <div className='w-auto md:w-[379px]'>
           <div className='mb-3 md:mb-5 relative'>
 
-            <button onClick={i18n.language === "ar" ? goNextmain : goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[110px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
+            <button onClick={goPrevmain} className='w-[30px] h-[30px] z-40 absolute top-[110px] left-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button>
 
             <Swiper
               initialSlide={0}
@@ -87,7 +87,7 @@ export default function CarBoxInfo(props) {
             </Swiper>
 
 
-            <button onClick={i18n.language === "ar" ? goPrevmain : goNextmain} className='w-[30px] h-[30px] z-40 absolute top-[110px] right-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
+            <button onClick={goNextmain} className='w-[30px] h-[30px] z-40 absolute top-[110px] right-5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button>
 
 
           </div>
@@ -95,8 +95,6 @@ export default function CarBoxInfo(props) {
         {/* sw2 */}
         <div className='w-auto md:w-[379px]'>
           <div className='mb-3 md:mb-5 relative'>
-
-            {/* <button onClick={goPrev} className='w-[25px] h-[25px] z-40 absolute top-[16px] left-2.5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowBack /></button> */}
 
             <Swiper
               onSwiper={
@@ -126,9 +124,6 @@ export default function CarBoxInfo(props) {
 
               {/* Add more slides as needed */}
             </Swiper>
-
-
-            {/* <button onClick={goNext} className='w-[25px] h-[25px] z-40 absolute top-[16px] right-2.5 bg-[#454545] flex justify-center items-center p-2 transition-all duration-300 hover:bg-orangeCus'><IoIosArrowForward /></button> */}
 
 
           </div>
