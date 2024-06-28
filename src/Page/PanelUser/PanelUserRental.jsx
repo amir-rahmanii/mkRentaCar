@@ -157,7 +157,7 @@ export default function PanelUserRental() {
                   <td className='hidden sm:table-cell'>{data.carBrand}</td>
                   <td className='hidden xl:table-cell'>{data.carType}</td>
                   <td className='hidden xl:table-cell'>{data.country}</td>
-                  <td className='hidden md:table-cell'>{data.price} AED</td>
+                  <td className='hidden md:table-cell'>{Number(data.price).toLocaleString()} AED</td>
                   <td>{data.dateFull.slice(0, 10)}</td>
                   <td className='text-[23px]'>{data.register ?
                     (

@@ -21,13 +21,15 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const [showMessageErrorLogin, SetShowMessageErrorLogin] = useState(false)
 
     //for Date
-    const [dateNow, setDateNow] = useState(new Date())
     const [fullYear, setFullYear] = useState(new Date())
     const [showSubmitRegestrid, setShowSubmitRegestrid] = useState(false)
     const authContext = useContext(AuthContext)
 
     //for show erorr in date
     const [showErrorDate, setShowErrorDate] = useState(false)
+
+    //for show erorr in Wallet
+    const [showErrorWallet, setShowErrorWallet] = useState(false)
 
 
     //translate
@@ -80,64 +82,86 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const addRentalCar = () => {
         if (authContext.isLoggedIn) {
             if (fullYear !== null) {
-                setShowErrorDate(false)
-                let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
-                let uuid = uuidv4();
-                let newObj = {
-                    id: uuid,
-                    name: authContext.userInfo[0].username,
-                    telephone: authContext.userInfo[0].cellNumber,
-                    email: authContext.userInfo[0].email,
-                    carType: allCars.carType,
-                    carName: allCars.title,
-                    carBrand: oneBrandsInfo.title,
-                    carimg: allCars.cover[0].img,
-                    price: allCars.price,
-                    countryCode: countryDialCode,
-                    country: countryCodeValue,
-                    register: 0,
-                    dateFull: fullYear
+                if (Number(authContext.userInfo[0].wallet) >= Number(allCars.price)) {
+                    setShowErrorDate(false)
+                    setShowErrorWallet(false)
+                    let authRegisteredRent = [...authContext.userInfo[0].registeredRent]
+                    let uuid = uuidv4();
+                    let newObj = {
+                        id: uuid,
+                        name: authContext.userInfo[0].username,
+                        telephone: authContext.userInfo[0].cellNumber,
+                        email: authContext.userInfo[0].email,
+                        carType: allCars.carType,
+                        carName: allCars.title,
+                        carBrand: oneBrandsInfo.title,
+                        carimg: allCars.cover[0].img,
+                        price: allCars.price,
+                        countryCode: countryDialCode,
+                        country: countryCodeValue,
+                        register: 0,
+                        dateFull: fullYear
+                    }
+                    authRegisteredRent.unshift(newObj)
+                    fetch(`https://mkrentacar.liara.run/registeredRent`, {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(newObj)
+                    })
+                        .then((res) => {
+                            if (!res.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return res.json()
+                        })
+                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+                    //change My charge
+                    fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+                        method: "PATCH",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            wallet: Number(authContext.userInfo[0].wallet) - Number(allCars.price)
+                        })
+                    })
+                        .then(res => {
+                            if (!res.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return res.json()
+                        })
+                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+                    //userinfo
+
+                    fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+                        method: "PATCH",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            registeredRent: authRegisteredRent
+                        })
+                    })
+                        .then((res) => {
+                            if (!res.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return res.json()
+                        })
+                        .then((result => {
+                            setFullYear(null)
+                            setCountryCodeValue('Afghanistan')
+                            setShowSubmitRegestrid(true)
+                        }))
+                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
+                } else {
+                    setShowErrorWallet(true)
                 }
-                authRegisteredRent.push(newObj)
-                fetch(`https://mkrentacar.liara.run/registeredRent`, {
-
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(newObj)
-                })
-                    .then((res) => {
-                        if (!res.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return res.json()
-                    })
-                    .catch(error => console.error('There has been a problem with your fetch operation:', error));
-
-
-                fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
-
-                    method: "PATCH",
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        registeredRent: authRegisteredRent
-                    })
-                })
-                    .then((res) => {
-                        if (!res.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return res.json()
-                    })
-                    .then((result => {
-                        setFullYear(null)
-                        setCountryCodeValue('Afghanistan')
-                        setShowSubmitRegestrid(true)
-                    }))
-                    .catch(error => console.error('There has been a problem with your fetch operation:', error));
             } else {
                 setShowErrorDate(true)
             }
@@ -233,9 +257,14 @@ export default function TableOneCar({ oneBrand, allCars }) {
                 </div>
             </div>
 
-            {/* is First Login */}
+            {/* is show Login */}
             <Modal width="w-auto md:w-[400px]" height="h-auto" closedBox={showMessageErrorLogin} setClosedBox={SetShowMessageErrorLogin} title={`Login Or Register`}>
                 <p className='text-[20px] my-5'>{t("To rent a car, you must first")} <Link className='text-[#188FFF] font-bold underline' to="/login">{t("login")}</Link> {t("or")} <Link className='text-[#188FFF] font-bold line underline' to="/register">{t("register")}</Link> .</p>
+            </Modal>
+
+            {/* is show Error Wallet */}
+            <Modal width="w-auto md:w-[400px]" height="h-auto" closedBox={showErrorWallet} setClosedBox={setShowErrorWallet} title={`Error Wallet`}>
+                <p className='text-[20px] my-5'>{t("To rent a car, you must charge your")} <Link className='text-[#188FFF] font-bold underline' to="/paneluser/Wallet">{t("Wallet")}</Link>.</p>
             </Modal>
         </>
     )

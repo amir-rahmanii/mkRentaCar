@@ -18,6 +18,7 @@ import AdminUsers from "./Page/Admin/AdminUsers/AdminUsers"
 import PanelUserComment from "./Page/PanelUser/PanelUserComment"
 import AdminComments from "./Page/Admin/AdminComments/AdminComments"
 import CarsSearch from "./Page/CarsSearch/CarsSearch"
+import PanelUserWallet from "./Page/PanelUser/PanelUserWallet"
 
 
 
@@ -41,6 +42,7 @@ let routes = [
         { path: '', element: <PanelUserIndex /> },
         { path: 'rental', element: <PanelUserRental /> },
         { path: 'Comment', element: <PanelUserComment /> },
+        { path: 'Wallet', element: <PanelUserWallet /> },
     ] },
     {
         path: '/dashbord', element: <Dashbord />, children: [

@@ -71,7 +71,7 @@ const BoxInfoFavorite = () => {
                         <tr key={brand} className='child:py-2 child:px-3 text-[16px] font-bold'>
                             <td className='text-center'>{brand}</td>
                             <td className='text-center' >{state.brandCount[brand]}</td>
-                            <td>{state.brandPrices[brand]} AED</td>
+                            <td>{state.brandPrices[brand].toLocaleString()} AED</td>
                         </tr>
                     ))}
                 </tbody>

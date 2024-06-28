@@ -157,6 +157,7 @@ export default function AdminUsers() {
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Role</th>
+                  <th>Wallet</th>
                   <th>showRental</th>
                   <th>ChangeRole</th>
                   <th>Delete</th>
@@ -170,6 +171,7 @@ export default function AdminUsers() {
                     <td>{user.email}</td>
                     <td><Link to={`tel:${user.cellNumber}`}>{user.cellNumber}</Link></td>
                     <td>{user.role}</td>
+                    <td>{user.wallet.toLocaleString() } AED</td>
                     <td>
                       <button className='bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoUser(user.registeredRent)

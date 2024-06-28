@@ -82,16 +82,25 @@ const ar = {
     "Do you intend to Delete a Rental Car": "هل تنوي حذف سيارة مستأجرة",
     "Rental cars": "سيارت مستأجرة",
     "Pending": "قيد الانتظار",
-    "Favorite Brand" : "العلامة التجارية المفضلة",
-    "CarName" : "اسم السيارة",
-    "CarImage" : "صورة السيارة",
-    "CarBrand" : "ماركة السيارة",
-    "CarType" : "نوع السيارة",
-    "Country" : "دولة",
-    "Price" : "سعر",
-    "Date" : "تاريخ",
-    "Status" : "حالة",
-    "Delete" : "يمسح"
+    "Favorite Brand": "العلامة التجارية المفضلة",
+    "CarName": "اسم السيارة",
+    "CarImage": "صورة السيارة",
+    "CarBrand": "ماركة السيارة",
+    "CarType": "نوع السيارة",
+    "Country": "دولة",
+    "Price": "سعر",
+    "Date": "تاريخ",
+    "Status": "حالة",
+    "Delete": "يمسح",
+    "Wallet": "محفظة",
+    "Wallet balance" : "رصيد المحفظة",
+    "Recharge the wallet": "إعادة شحن المحفظة",
+    "Enter the amount" : "أدخل المبلغ",
+    "To rent a car, you must charge your" : "لاستئجار سيارة، يجب عليك تحصيل رسوم",
+    "Please enter the correct values (1 , 999999)" : "الرجاء إدخال القيم الصحيحة (1 ، 999999)"
+
+
+
 
 
 

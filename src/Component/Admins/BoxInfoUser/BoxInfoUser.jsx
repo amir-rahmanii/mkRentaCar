@@ -89,7 +89,7 @@ const BoxInfoUser = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
             <div className='p-5 bg-indigo-800 text-white rounded-xl'>
                 <p className='text-[20px]'>Total income : </p>
-                <p className='text-[25px]  py-2 text-orangeCus font-bold'>{state.totalSpent}</p>
+                <p className='text-[25px]  py-2 text-orangeCus font-bold'>{state.totalSpent.toLocaleString()} AED</p>
             </div>
             <div className='p-5 bg-green-800 text-white font-medium rounded-xl'>
                 <p className='text-[16px]'>The user who has rented the most cars : </p>

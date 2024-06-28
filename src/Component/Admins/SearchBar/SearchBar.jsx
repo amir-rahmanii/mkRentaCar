@@ -8,7 +8,9 @@ export default function SearchBar({ searchValueHandler }) {
     const [searchValue, setSearchValue] = useState("")
 
     useEffect(() => {
-        window.addEventListener('keydown', handleKeydown);
+        if (searchValue) {
+            window.addEventListener('keydown', handleKeydown);
+        }
         return () => {
             window.removeEventListener('keydown', handleKeydown);
         }
@@ -16,12 +18,12 @@ export default function SearchBar({ searchValueHandler }) {
 
     const handleKeydown = (e) => {
         if (e.keyCode === 13) {
-            searchValueHandler(e , searchValue)
+            searchValueHandler(e, searchValue)
         }
     }
 
     const submitSearchValue = (e) => {
-        searchValueHandler(e , searchValue)
+        searchValueHandler(e, searchValue)
     }
     return (
         <div className={`flex items-center  gap-1.5 bg-neutral-700  text-white rounded-[15px] py-1.5 px-3 ${showBorderInputSearch ? 'border-4 border-[#031C3F]' : ''}`}>

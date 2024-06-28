@@ -59,8 +59,8 @@ export default function Register() {
 
                         if (!values.username) {
                             errors.username = "Required";
-                        } else if (!/^\w{6,15}$/i.test(values.username)) {
-                            errors.username = "Minimum 6 characters and Maximum 15 characters ";
+                        } else if (!/^\w{4,10}$/i.test(values.username)) {
+                            errors.username = "Minimum 4 characters and Maximum 10 characters ";
                         }
 
                         if (!values.email) {
@@ -94,6 +94,7 @@ export default function Register() {
                                 cellNumber: values.cellNumber,
                                 token: uuidv4(),
                                 role: "user",
+                                wallet: 0 ,
                                 registeredRent: []
                             }
 

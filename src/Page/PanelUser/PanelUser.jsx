@@ -13,6 +13,7 @@ import { BiSolidCommentDetail } from "react-icons/bi";
 import { HiOutlineLogout } from "react-icons/hi";
 import Modal from '../../Component/Admins/Modal/Modal'
 import i18n from '../../i18n'
+import { IoWallet } from "react-icons/io5";
 import { useTranslation } from 'react-i18next'
 
 export default function PanelUser() {
@@ -39,6 +40,7 @@ export default function PanelUser() {
                 {/* SideBar */}
                 <div className={`${i18n.language === "ar" ? "border-l" : "border-r"} border-white/50 text-white flex flex-col py-2 px-2 gap-4`}>
                   <NavLink className={`text-[18px]/[30px] bg-[#454545] text-white px-2.5 sm:px-10 py-2 rounded-xl hover:opacity-85 transition-all duration-300 flex justify-center items-center gap-1`} to='/paneluser'> <span className='hidden sm:block'>{t("Home")}</span> <FaHome /></NavLink>
+                  <NavLink className={({ isActive }) => isActive ? `bg-orangeCus2 text-[18px]/[30px] px-2.5 sm:px-10 py-2 rounded-xl flex justify-center items-center gap-1` : `bg-[#454545] text-[18px]/[30px] hover:bg-orangeCus2   sm:px-10 px-2.5 py-2 rounded-xl transition-all duration-300 flex justify-center items-center gap-1`} to='Wallet'> <span className='hidden sm:block'>{t("Wallet")}</span> <IoWallet /></NavLink>
                   <NavLink className={({ isActive }) => isActive ? `bg-orangeCus2 text-[18px]/[30px] px-2.5 sm:px-10 py-2 rounded-xl flex justify-center items-center gap-1` : `bg-[#454545] text-[18px]/[30px] hover:bg-orangeCus2   sm:px-10 px-2.5 py-2 rounded-xl transition-all duration-300 flex justify-center items-center gap-1`} to='rental'> <span className='hidden sm:block'>{t("Rental")}</span> <IoCarSport /></NavLink>
                   <NavLink className={({ isActive }) => isActive ? `bg-orangeCus2 text-[18px]/[30px] px-2.5 sm:px-10 py-2 rounded-xl flex justify-center items-center gap-1` : `bg-[#454545] text-[18px]/[30px] hover:bg-orangeCus2   sm:px-10 px-2.5 py-2 rounded-xl transition-all duration-300 flex justify-center items-center gap-1`} to='Comment'> <span className='hidden sm:block'>{t("Comments")}</span> <BiSolidCommentDetail /></NavLink>
                   <NavLink onClick={() => setShowLogOut(true)} className="bg-red-500 gap-1 text-[18px]/[30px] hover:bg-red-400   sm:px-10 px-2.5 py-2 rounded-xl transition-all duration-300 flex justify-center items-center"><span className='hidden sm:block'>{t("Logout")}</span> <HiOutlineLogout /></NavLink>
