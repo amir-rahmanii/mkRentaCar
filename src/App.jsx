@@ -7,7 +7,9 @@ import i18n from "./i18n";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isPasswordChange, setIsPasswordChange] = useState(false);
   const [token, setToken] = useState(false);
+  const [idUserForPass, setIdUserForPass] = useState('');
   const [userInfo, setUserInfo] = useState({});
   const [searchCars, setSearchCars] = useState([])
   const router = useRoutes(routes)
@@ -47,13 +49,24 @@ function App() {
 
     //language Change
     const localStorageDataLanguage = JSON.parse(localStorage.getItem("letter"));
-    if(localStorageDataLanguage){
+    if (localStorageDataLanguage) {
       i18n.changeLanguage(localStorageDataLanguage)
     }
   }, []);
 
+  //search
   const searchFunc = (array) => {
     setSearchCars(array)
+  }
+
+  //pass change
+  const passwordChange = (value) => {
+    setIsPasswordChange(value)
+  }
+
+  // pass change ID 
+  const passwordChangeIdUser = (id) => {
+    setIdUserForPass(id)
   }
 
 
@@ -64,6 +77,10 @@ function App() {
         token,
         userInfo,
         searchCars,
+        isPasswordChange,
+        idUserForPass,
+        passwordChangeIdUser,
+        passwordChange,
         searchFunc,
         login,
         logout,

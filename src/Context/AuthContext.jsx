@@ -5,7 +5,11 @@ const AuthContext = createContext({
   token: null,
   userInfo: null,
   searchCars : null,
+  isPasswordChange : null,
+  idUserForPass: null,
   searchFunc:() => {},
+  passwordChange:() => {},
+  passwordChangeIdUser:() => {},
   login: () => {},
   logout: () => {},
 });
