@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Link , useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../../Context/AuthContext';
 import { FaCheckCircle } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,10 +15,19 @@ export default function ForgetPass() {
     const [randumNumber, setRandumNumber] = useState(0)
 
     //for Timer
-    const [seconds, setSeconds] = useState(30);
-    const [isRunning, setIsRunning] = useState(false);
+    const [seconds, setSeconds] = useState(() => {
+        const savedSeconds = localStorage.getItem('seconds');
+        return savedSeconds !== null ? parseInt(savedSeconds, 10) : 30;
+    });
+
+    const [isRunning, setIsRunning] = useState(() => {
+        const savedIsRunning = localStorage.getItem('isRunning');
+        return savedIsRunning !== null ? JSON.parse(savedIsRunning) : false;
+    });
+
+    
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  
+
     //navigate
     let navigate = useNavigate()
 
@@ -79,7 +88,7 @@ export default function ForgetPass() {
         let fillterNumber = usersFiltered.filter(data => data.cellNumber === numberValue)
 
         if (fillterNumber.length > 0) {
-            if (codeValue.trim() && (randumNumber == codeValue.trim())) {
+            if (/^\d{1,4}$/gm.test(codeValue) && (randumNumber == codeValue.trim())) {
                 authContext.passwordChange(true)
                 authContext.passwordChangeIdUser(fillterNumber[0].id)
                 navigate('/change-password')
@@ -98,15 +107,20 @@ export default function ForgetPass() {
 
     //timer
     useEffect(() => {
+        localStorage.setItem('seconds', seconds);
+        localStorage.setItem('isRunning', isRunning);
+
         let timer;
         if (isRunning && seconds > 0) {
-          timer = setTimeout(() => setSeconds(seconds - 1), 1000);
+            timer = setTimeout(() => setSeconds(seconds - 1), 1000);
+            setIsButtonDisabled(true);
         } else if (seconds === 0) {
-          setIsRunning(false);
-          setIsButtonDisabled(false);
+            setIsRunning(false);
+            setIsButtonDisabled(false);
         }
+
         return () => clearTimeout(timer);
-      }, [isRunning, seconds]);
+    }, [isRunning, seconds]);
 
     return (
         <>
@@ -131,7 +145,7 @@ export default function ForgetPass() {
 
 
                     <label htmlFor="code" className='text-black font-medium text-[13px]/[19px] mt-7 pb-1'>Verification code</label>
-                    <div className='flex items-center justify-between outline-none border border-[#CDE4DA] py-2 px-[14px] rounded-md'>
+                    <div className='flex items-center justify-between outline-none border border-[#CDE4DA] py-2 pl-[14px] sm:pr-[14px] pr-10 rounded-md'>
                         <input className="outline-none flex-1"
                             type={`text`}
                             id='code'

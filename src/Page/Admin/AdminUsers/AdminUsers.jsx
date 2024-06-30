@@ -25,6 +25,26 @@ export default function AdminUsers() {
   //Update Change role
   const [updateUserShow, setUpdateUserShow] = useState(false)
 
+  //rechage Wallet
+  const [totalInventoryCompany, setTotalInventoryCompany] = useState(0)
+  const [showRechrgeWallet, setShowRechrgeWallet] = useState(false)
+  const [messageErrorCharge, setMessageErrorCharge] = useState(false)
+  const [messageErrorNoWallet, setMessageErrorNoWallet] = useState(false)
+  const [rechargeValue, setRechargeValue] = useState(0)
+
+  const gettotalInventoryCompany = () => {
+    fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json()
+      })
+      .then(result => {
+        setTotalInventoryCompany(Number(result.price))
+      })
+      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+  }
 
   const getAllUsers = () => {
     fetch(`https://mkrentacar.liara.run/users`)
@@ -56,8 +76,61 @@ export default function AdminUsers() {
   }
 
 
+  const rechargeHandler = () => {
+    if (/^[1-9][0-9]{0,5}$/i.test(rechargeValue)) {
+      setMessageErrorCharge(false)
+      setMessageErrorNoWallet(false)
+      if(totalInventoryCompany >=  rechargeValue){
+        fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`, {
+          method: "PATCH",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            price: totalInventoryCompany - Number(rechargeValue)
+          })
+        })
+          .then(res => {
+            if (!res.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return res.json()
+          })
+          .catch(error => console.error('There has been a problem with your fetch operation:', error));
+  
+        //for user
+        fetch(`https://mkrentacar.liara.run/users/${idUser}`, {
+          method: "PATCH",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            wallet: infoUser.wallet + Number(rechargeValue)
+          })
+        })
+          .then(res => {
+            if (!res.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return res.json()
+          })
+          .then(result => {
+            setShowRechrgeWallet(false)
+            window.location.href = "/dashbord/users"
+          })
+          .catch(error => console.error('There has been a problem with your fetch operation:', error));
+      }else{
+        setMessageErrorNoWallet(true)
+      }
+    } else {
+      setMessageErrorCharge(true)
+    }
+  }
+
+
   useEffect(() => {
     getAllUsers();
+    gettotalInventoryCompany()
   }, [])
 
 
@@ -118,7 +191,6 @@ export default function AdminUsers() {
   //change Role 
   const changeRoleHandler = () => {
     fetch(`https://mkrentacar.liara.run/users/${idUser}`, {
-
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -176,8 +248,9 @@ export default function AdminUsers() {
                     <td>{user.wallet.toLocaleString()} AED</td>
                     <td>
                       <button className='bg-green-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
-                        setInfoUser(user.registeredRent)
-                        setShowInfoCar(true)
+                        setIdUser(user.id)
+                        setInfoUser(user)
+                        setShowRechrgeWallet(true)
                       }
                       }>
                         <FaPlus />
@@ -294,6 +367,27 @@ export default function AdminUsers() {
         <p className='text-[20px] my-5'>Do you want to change the role user?</p>
         <div className='flex gap-4'>
           <button onClick={changeRoleHandler} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
+            Yes
+          </button>
+        </div>
+      </Modal>
+
+
+      {/* is Recharge Wallet */}
+      <Modal width="w-[400px]" height="h-auto" closedBox={showRechrgeWallet} setClosedBox={setShowRechrgeWallet} title={`Recharge Wallet ${infoUser.username}`}>
+        <p>total Inventory Company : <span className='text-orangeCus2 font-bold'>{totalInventoryCompany.toLocaleString()} AED</span></p>
+        <p className={`text-[20px] mt-5`}>Enter the amount.</p>
+        <input onChange={(e) => {
+          setRechargeValue(e.target.value)
+        }} type="text" value={rechargeValue} className='outline-none p-2 rounded-md text-black mt-2' placeholder='amount' />
+        {messageErrorCharge && (
+          <p className='text-red-600 font-medium mt-1'>Please enter the correct values (1 , 999999)</p>
+        )}
+        {messageErrorNoWallet && (
+          <p className='text-red-600 font-medium mt-1'>Your account balance is insufficient. Please top up your account first.</p>
+        )}
+        <div className='flex gap-4 mt-5'>
+          <button onClick={rechargeHandler} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
             Yes
           </button>
         </div>
