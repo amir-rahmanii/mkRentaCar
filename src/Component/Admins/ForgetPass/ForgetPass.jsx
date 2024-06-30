@@ -79,7 +79,7 @@ export default function ForgetPass() {
         let fillterNumber = usersFiltered.filter(data => data.cellNumber === numberValue)
 
         if (fillterNumber.length > 0) {
-            if (codeValue && (randumNumber == codeValue)) {
+            if (codeValue.trim() && (randumNumber == codeValue.trim())) {
                 authContext.passwordChange(true)
                 authContext.passwordChangeIdUser(fillterNumber[0].id)
                 navigate('/change-password')
@@ -143,7 +143,7 @@ export default function ForgetPass() {
                             <span>Send</span>
                         </button>
                         {/* timer */}
-                        {isRunning && <div className='ml-2 mr-3'>{seconds}s</div>}
+                        {isRunning && <div className='text-[13px] pl-1'>{seconds}s</div>}
                     </div>
                     {showErrorMessageCode && (
                         <p className='text-red-600 text-[16px]/[19px] pt-1'>Please enter Code Correctly</p>

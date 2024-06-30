@@ -108,7 +108,7 @@ export default function ChangePass() {
                             <label htmlFor="passwordConfirm" className='text-black font-medium text-[13px]/[19px] mt-7 pb-1'>passwordConfirm</label>
                             <div className='flex items-center justify-between outline-none border border-[#CDE4DA] py-2 px-[14px] rounded-md'>
                                 <Field className="outline-none flex-1"
-                                    type={`${changeTypePasswordConfirm ? 'text' : 'passwordConfirm'}`}
+                                    type={`${changeTypePasswordConfirm ? 'text' : 'password'}`}
                                     placeholder="Enter passwordConfirm"
                                     name="passwordConfirm" />
                                 <div onClick={() => setChangeTypePasswordConfirm(prevstate => !prevstate)} className='text-[20px] cursor-pointer'>

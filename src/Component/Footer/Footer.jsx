@@ -74,7 +74,7 @@ export default function Footer() {
                             <div>
                                 <h3 className='text-[23px]/[27px]'>{t("Subscribe Newsletter")}</h3>
                                 <div className='flex items-center mt-[30px] gap-8'>
-                                    <input className='text-[15px]/[22.5px] px-[15px] w-[249px] h-11 text-[#C1C1C1] outline-none rounded-md' placeholder={`${t("Email Address")}`} type="text" />
+                                    <input disabled className='text-[15px]/[22.5px] px-[15px] w-[249px] h-11 text-[#C1C1C1] outline-none rounded-md' placeholder={`${t("Email Address")}`} type="text" />
                                     <Button link='#' classes='bg-[#454545] w-[124px] h-11 p-[5px] text-sm/[21px] rounded-md'>
                                         <span>{t("Subscribe")}</span>
                                     </Button>
