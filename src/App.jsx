@@ -69,7 +69,6 @@ function App() {
     setIdUserForPass(id)
   }
 
-
   return (
     <AuthContext.Provider
       value={{

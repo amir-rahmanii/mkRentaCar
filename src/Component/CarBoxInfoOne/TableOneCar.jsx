@@ -32,8 +32,25 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const [showErrorWallet, setShowErrorWallet] = useState(false)
 
 
+    //total inventory Company 
+    const [totalInventoryCompany, setTotalInventoryCompany] = useState(0)
+
     //translate
     const { t } = useTranslation()
+
+    const gettotalInventoryCompany = () => {
+        fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json()
+            })
+            .then(result => {
+                setTotalInventoryCompany(Number(result.price))
+            })
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+    }
 
 
     const getallbrand = () => {
@@ -71,6 +88,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
     useEffect(() => {
         getallbrand()
         getallcountreyCodes()
+        gettotalInventoryCompany()
     }, [])
 
     useEffect(() => {
@@ -135,6 +153,26 @@ export default function TableOneCar({ oneBrand, allCars }) {
                             return res.json()
                         })
                         .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
+
+                    //charge inventory  company 
+                    fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`, {
+                        method: "PATCH",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            price: totalInventoryCompany + Number(allCars.price)
+                        })
+                    })
+                        .then(res => {
+                            if (!res.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return res.json()
+                        })
+                        .catch(error => console.error('There has been a problem with your fetch operation:', error));
+
 
                     //userinfo
 

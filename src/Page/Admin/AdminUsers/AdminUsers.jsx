@@ -8,6 +8,7 @@ import { BiShow } from "react-icons/bi";
 import Modal from '../../../Component/Admins/Modal/Modal';
 import { MdOutlinePendingActions } from "react-icons/md";
 import SearchBar from '../../../Component/Admins/SearchBar/SearchBar';
+import { FaPlus } from "react-icons/fa6";
 
 
 export default function AdminUsers() {
@@ -158,6 +159,7 @@ export default function AdminUsers() {
                   <th>Phone</th>
                   <th>Role</th>
                   <th>Wallet</th>
+                  <th>Recharge</th>
                   <th>showRental</th>
                   <th>ChangeRole</th>
                   <th>Delete</th>
@@ -171,7 +173,16 @@ export default function AdminUsers() {
                     <td>{user.email}</td>
                     <td><Link to={`tel:${user.cellNumber}`}>{user.cellNumber}</Link></td>
                     <td>{user.role}</td>
-                    <td>{user.wallet.toLocaleString() } AED</td>
+                    <td>{user.wallet.toLocaleString()} AED</td>
+                    <td>
+                      <button className='bg-green-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
+                        setInfoUser(user.registeredRent)
+                        setShowInfoCar(true)
+                      }
+                      }>
+                        <FaPlus />
+                      </button>
+                    </td>
                     <td>
                       <button className='bg-teal-500 text-white p-3 rounded-md cursor-pointer' onClick={() => {
                         setInfoUser(user.registeredRent)
