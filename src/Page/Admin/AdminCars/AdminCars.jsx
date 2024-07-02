@@ -297,7 +297,7 @@ export default function AdminCars() {
 
   //UpdatePriceCars
   const UpdatePriceCars = () => {
-    if (priceUppdated && priceOfferUppdated) {
+    if (/^[1-9][0-9]{0,8}$/i.test(priceUppdated) && /^(0|[1-9]\d{0,8})$/i.test(priceOfferUppdated)) {
       fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
 
         method: "PATCH",

@@ -319,53 +319,54 @@ export default function AdminRegidters() {
   //Update user
 
   const updateUser = () => {
-    let userInfos = getUserInfos();
-    userInfos.registeredAllRent.forEach((data) => {
-      if (data.id == idUser) {
-        data.dateFull = fullYear
-      }
-    })
-    fetch(`https://mkrentacar.liara.run/users/${userInfos.userIdAuth}`, {
-
-      method: "PATCH",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        registeredRent: userInfos.registeredAllRent
-      })
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Network response was not ok');
+    if (fullYear) {
+      let userInfos = getUserInfos();
+      userInfos.registeredAllRent.forEach((data) => {
+        if (data.id == idUser) {
+          data.dateFull = fullYear
         }
-        return res.json()
       })
-      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+      fetch(`https://mkrentacar.liara.run/users/${userInfos.userIdAuth}`, {
+
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          registeredRent: userInfos.registeredAllRent
+        })
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json()
+        })
+        .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
 
-    fetch(`https://mkrentacar.liara.run/registeredRent/${idUser}`, {
-
-      method: "PATCH",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        dateFull: fullYear
-      }
-      )
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Network response was not ok');
+      fetch(`https://mkrentacar.liara.run/registeredRent/${idUser}`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          dateFull: fullYear
         }
-        return res.json()
+        )
       })
-      .then(result => {
-        setUpdateUserShow(false)
-        changeFilterdAction()
-      })
-      .catch(error => console.error('There has been a problem with your fetch operation:', error));
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json()
+        })
+        .then(result => {
+          setUpdateUserShow(false)
+          changeFilterdAction()
+        })
+        .catch(error => console.error('There has been a problem with your fetch operation:', error));
+    }
   }
 
   const searchValueHandler = (e, value) => {
