@@ -25,7 +25,10 @@ export default function AdminRegidters() {
   const [idUser, setIdUser] = useState('')
   //showFiltered
   const [showFiltered, setShowFiltered] = useState(false)
-  const [filteredValue, setFilteredValue] = useState("Default")
+  const [filteredValue, setFilteredValue] = useState(() => {
+    const savedFilterValue = localStorage.getItem('FilterValueRental');
+    return savedFilterValue !== null ? savedFilterValue : "Default";
+  });
   //Uodate Date
   const [updateUserShow, setUpdateUserShow] = useState(false)
   //for Date
@@ -164,6 +167,7 @@ export default function AdminRegidters() {
   }, [])
 
   useEffect(() => {
+    localStorage.setItem("FilterValueRental", filteredValue);
     changeFilterdAction()
   }, [filteredValue])
 

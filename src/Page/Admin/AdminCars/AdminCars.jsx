@@ -11,6 +11,7 @@ import AddCars from '../../../Component/Admins/AddCars/AddCars';
 import Modal from '../../../Component/Admins/Modal/Modal';
 import FilterBar from '../../../Component/Admins/FilterBar/FilterBar';
 import SearchBar from '../../../Component/Admins/SearchBar/SearchBar';
+import RangeInput from '../../../Component/Admins/RangeInput/RangeInput ';
 
 
 export default function AdminCars() {
@@ -31,7 +32,11 @@ export default function AdminCars() {
   const [idCar, setIdCar] = useState('')
   //showFiltered
   const [showFiltered, setShowFiltered] = useState(false)
-  const [filteredValue, setFilteredValue] = useState("Default")
+
+  const [filteredValue, setFilteredValue] = useState(() => {
+    const savedFilterValue = localStorage.getItem('FilterValue');
+    return savedFilterValue !== null ? savedFilterValue : "Default";
+  });
   //showFilteredBrand
   const [showFilteredBrand, setShowFilteredBrand] = useState(false)
   const [filteredValueBrand, setFilteredValueBrand] = useState([])
@@ -47,6 +52,12 @@ export default function AdminCars() {
 
   //Add new car
   const [showAddNewCar, setShowAddNewCar,] = useState(false)
+
+  //RangeFilter 
+  const [rangePriceValue, setRangePriceValue] = useState(() => {
+    const savedPriceFilter = localStorage.getItem('priceFilter');
+    return savedPriceFilter !== null ? parseInt(savedPriceFilter) : 10000;
+  });
 
 
 
@@ -74,7 +85,7 @@ export default function AdminCars() {
         return res.json();
       })
       .then(result => {
-        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand) && +item.price <= rangePriceValue);
         setAllcars(newArray)
         setAllcarsFilters(result.reverse())
       })
@@ -90,7 +101,7 @@ export default function AdminCars() {
         return res.json();
       })
       .then(result => {
-        let newArray = result.filter(item => filteredValueBrand.includes(item.brand));
+        let newArray = result.filter(item => filteredValueBrand.includes(item.brand) && +item.price <= rangePriceValue);
         setAllcars(newArray)
       })
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
@@ -105,7 +116,7 @@ export default function AdminCars() {
         return res.json();
       })
       .then(result => {
-        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand) && +item.price <= rangePriceValue);
         setAllcars(newArray)
       })
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
@@ -120,7 +131,7 @@ export default function AdminCars() {
         return res.json();
       })
       .then(result => {
-        let newArray = result.filter(item => filteredValueBrand.includes(item.brand));
+        let newArray = result.filter(item => filteredValueBrand.includes(item.brand) && +item.price <= rangePriceValue);
         setAllcars(newArray)
       })
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
@@ -135,7 +146,7 @@ export default function AdminCars() {
         return res.json();
       })
       .then(result => {
-        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand) && +item.price <= rangePriceValue);
         setAllcars(newArray)
       })
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
@@ -150,13 +161,15 @@ export default function AdminCars() {
         return res.json();
       })
       .then(result => {
-        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand));
+        let newArray = result.reverse().filter(item => filteredValueBrand.includes(item.brand) && +item.price <= rangePriceValue);
         setAllcars(newArray)
       })
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
   }
 
   const filterPriceCars = () => {
+  
+
     let arrayPushedFilters = []
     fetch(`https://mkrentacar.liara.run/allBrands`)
       .then(res => {
@@ -364,6 +377,8 @@ export default function AdminCars() {
 
 
   useEffect(() => {
+    localStorage.setItem("priceFilter", rangePriceValue);
+    localStorage.setItem("FilterValue", filteredValue);
     changeFilterdAction()
   }, [filteredValue, filteredValueBrand])
 
@@ -617,11 +632,16 @@ export default function AdminCars() {
           ))}
 
         </div>
+        <div className='mx-6 my-8 border border-orangeCus p-2 rounded-md'>
+          <RangeInput setRangePriceValue={setRangePriceValue} rangePriceValue={rangePriceValue} />
+        </div>
         <div className='flex gap-4 mt-4'>
           <button onClick={filterPriceCars} className='bg-green-600 mx-6 w-full p-2 rounded-lg'>
             Filter
           </button>
         </div>
+
+
       </Modal>
 
       {/* Add New Car */}
