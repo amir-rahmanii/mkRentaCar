@@ -3,6 +3,7 @@ import { MdOutlineMessage } from "react-icons/md";
 import AuthContext from '../../../Context/AuthContext';
 import { FaPlus } from "react-icons/fa6";
 import Modal from '../Modal/Modal';
+import Svgs from '../svg/Svgs';
 
 export default function Header() {
   const [date, setDate] = useState(new Date())
@@ -38,29 +39,29 @@ export default function Header() {
     if (/^[1-9][0-9]{0,5}$/i.test(rechargeValue)) {
       setMessageErrorCharge(false)
       fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`, {
-          method: "PATCH",
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              price: totalInventoryCompany + Number(rechargeValue)
-          })
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          price: totalInventoryCompany + Number(rechargeValue)
+        })
       })
-          .then(res => {
-              if (!res.ok) {
-                  throw new Error('Network response was not ok');
-              }
-              return res.json()
-          })
-          .then(result => {
-            setShowRechrgeCompany(false)
-            gettotalInventoryCompany()
-            setRechargeValue(0)
-          })
-          .catch(error => console.error('There has been a problem with your fetch operation:', error));
-  } else {
+        .then(res => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json()
+        })
+        .then(result => {
+          setShowRechrgeCompany(false)
+          gettotalInventoryCompany()
+          setRechargeValue(0)
+        })
+        .catch(error => console.error('There has been a problem with your fetch operation:', error));
+    } else {
       setMessageErrorCharge(true)
-  }
+    }
   }
 
 
@@ -80,7 +81,9 @@ export default function Header() {
             <img loading='lazy' className='w-[50px] h-[50px]' src='/images/adminImage/user.png'></img>
           </div>
           <div className='flex flex-col items-center text-orangeCus2 font-bold'>
-            <p>{authContext.userInfo[0].username}</p>
+            <p>{authContext.userInfo[0].username}
+              {/* <Svgs name='insta' width="39" height="38" viewBox="0 0 39 38" stroke='#43FF44' /> */}
+            </p>
           </div>
           <div className='hidden md:flex flex-row gap-3 items-center text-orangeCus2 font-bold'>
             <p className='pl-8 text-white'>Total inventory of the company : <span className='text-orangeCus2 text-[20px]'> {totalInventoryCompany.toLocaleString()} AED </span></p>
