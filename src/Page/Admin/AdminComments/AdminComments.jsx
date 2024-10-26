@@ -24,7 +24,7 @@ export default function AdminComments() {
 
 
     const getAllComments = () => {
-        fetch(`https://mkrentacar.liara.run/comments`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/comments`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -65,7 +65,7 @@ export default function AdminComments() {
 
     //Delete user
     const deleteComment = () => {
-        fetch(`https://mkrentacar.liara.run/comments/${idComment}`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/comments/${idComment}`, {
             method: "DELETE",
         })
             .then((res) => {
@@ -83,7 +83,7 @@ export default function AdminComments() {
 
     //  For register
     const registeredComment = () => {
-        fetch(`https://mkrentacar.liara.run/comments/${idComment}`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/comments/${idComment}`, {
 
             method: "PATCH",
             headers: {
@@ -109,7 +109,7 @@ export default function AdminComments() {
 
     //  For register No
     const registeredCommentNo = () => {
-        fetch(`https://mkrentacar.liara.run/comments/${idComment}`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/comments/${idComment}`, {
 
             method: "PATCH",
             headers: {

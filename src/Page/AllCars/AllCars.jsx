@@ -10,7 +10,7 @@ export default function AllCars() {
   const [allCars, setAllCars] = useState([])
 
   const getallcars = () => {
-    fetch(`https://mkrentacar.liara.run/cars`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');

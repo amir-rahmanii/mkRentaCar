@@ -35,7 +35,7 @@ export default function AdminRegidters() {
   const [fullYear, setFullYear] = useState("")
 
   const getAllUsers = () => {
-    fetch(`https://mkrentacar.liara.run/users`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/users`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -49,7 +49,7 @@ export default function AdminRegidters() {
   }
 
   const getAllregisteredRent = () => {
-    fetch(`https://mkrentacar.liara.run/registeredRent`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -64,7 +64,7 @@ export default function AdminRegidters() {
   }
 
   const getAllregisteredRentOld = () => {
-    fetch(`https://mkrentacar.liara.run/registeredRent`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -78,7 +78,7 @@ export default function AdminRegidters() {
   }
 
   const getAllregisteredRentHightoLow = () => {
-    fetch(`https://mkrentacar.liara.run/registeredRent?_sort=price`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent?_sort=price`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -93,7 +93,7 @@ export default function AdminRegidters() {
   }
 
   const getAllregisteredRentLowtoHigh = () => {
-    fetch(`https://mkrentacar.liara.run/registeredRent?_sort=price`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent?_sort=price`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -108,7 +108,7 @@ export default function AdminRegidters() {
   }
 
   const getAllregisteredRentisRegistered = () => {
-    fetch(`https://mkrentacar.liara.run/registeredRent?register=1`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent?register=1`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -122,7 +122,7 @@ export default function AdminRegidters() {
   }
 
   const getAllregisteredRentisNoRegistered = () => {
-    fetch(`https://mkrentacar.liara.run/registeredRent?register=0`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent?register=0`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -185,7 +185,7 @@ export default function AdminRegidters() {
       }
     })
 
-    fetch(`https://mkrentacar.liara.run/users/${userInfos.userIdAuth}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/users/${userInfos.userIdAuth}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ export default function AdminRegidters() {
 
 
 
-    fetch(`https://mkrentacar.liara.run/registeredRent/${idUser}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent/${idUser}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -237,7 +237,7 @@ export default function AdminRegidters() {
       }
     })
 
-    fetch(`https://mkrentacar.liara.run/users/${userInfos.userIdAuth}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/users/${userInfos.userIdAuth}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -255,7 +255,7 @@ export default function AdminRegidters() {
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
 
-    fetch(`https://mkrentacar.liara.run/registeredRent/${idUser}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent/${idUser}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -285,7 +285,7 @@ export default function AdminRegidters() {
       return data.id !== idUser
     })
 
-    fetch(`https://mkrentacar.liara.run/users/${userInfos.userIdAuth}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/users/${userInfos.userIdAuth}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -303,7 +303,7 @@ export default function AdminRegidters() {
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
 
-    fetch(`https://mkrentacar.liara.run/registeredRent/${idUser}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent/${idUser}`, {
 
       method: "Delete",
     })
@@ -330,7 +330,7 @@ export default function AdminRegidters() {
           data.dateFull = fullYear
         }
       })
-      fetch(`https://mkrentacar.liara.run/users/${userInfos.userIdAuth}`, {
+      fetch(`${import.meta.env.VITE_BASE_URL}/users/${userInfos.userIdAuth}`, {
 
         method: "PATCH",
         headers: {
@@ -349,7 +349,7 @@ export default function AdminRegidters() {
         .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
 
-      fetch(`https://mkrentacar.liara.run/registeredRent/${idUser}`, {
+      fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent/${idUser}`, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',

@@ -33,7 +33,7 @@ export default function AdminUsers() {
   const [rechargeValue, setRechargeValue] = useState(0)
 
   const gettotalInventoryCompany = () => {
-    fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/totalinventoryCompany/1`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -47,7 +47,7 @@ export default function AdminUsers() {
   }
 
   const getAllUsers = () => {
-    fetch(`https://mkrentacar.liara.run/users`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/users`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -62,7 +62,7 @@ export default function AdminUsers() {
   }
 
   const getAllRegisteredRent = () => {
-    fetch(`https://mkrentacar.liara.run/registeredRent`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -81,7 +81,7 @@ export default function AdminUsers() {
       setMessageErrorCharge(false)
       setMessageErrorNoWallet(false)
       if(totalInventoryCompany >=  rechargeValue){
-        fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/totalinventoryCompany/1`, {
           method: "PATCH",
           headers: {
             'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export default function AdminUsers() {
           .catch(error => console.error('There has been a problem with your fetch operation:', error));
   
         //for user
-        fetch(`https://mkrentacar.liara.run/users/${idUser}`, {
+        fetch(`${import.meta.env.VITE_BASE_URL}/users/${idUser}`, {
           method: "PATCH",
           headers: {
             'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ export default function AdminUsers() {
     let filteredArray = infoUsers.filter(data => data.email == infoUser.email)
     console.log(filteredArray);
     filteredArray.forEach((data) => {
-      fetch(`https://mkrentacar.liara.run/registeredRent/${data.id}`, {
+      fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent/${data.id}`, {
         method: "DELETE",
       })
         .then((res) => {
@@ -172,7 +172,7 @@ export default function AdminUsers() {
         .catch(error => console.error('There has been a problem with your fetch operation:', error));
     })
 
-    fetch(`https://mkrentacar.liara.run/users/${idUser}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/users/${idUser}`, {
       method: "DELETE",
     })
       .then((res) => {
@@ -190,7 +190,7 @@ export default function AdminUsers() {
 
   //change Role 
   const changeRoleHandler = () => {
-    fetch(`https://mkrentacar.liara.run/users/${idUser}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/users/${idUser}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',

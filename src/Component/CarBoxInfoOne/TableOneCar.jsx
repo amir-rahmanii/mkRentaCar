@@ -39,7 +39,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
     const { t } = useTranslation()
 
     const gettotalInventoryCompany = () => {
-        fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/totalinventoryCompany/1`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -54,7 +54,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
 
     const getallbrand = () => {
-        fetch(`https://mkrentacar.liara.run/allBrands?href=${oneBrands}`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/allBrands?href=${oneBrands}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -69,7 +69,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
     }
 
     const getallcountreyCodes = () => {
-        fetch(`https://mkrentacar.liara.run/countreyCodes`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/countreyCodes`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -121,7 +121,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
                         dateFull: fullYear
                     }
                     authRegisteredRent.unshift(newObj)
-                    fetch(`https://mkrentacar.liara.run/registeredRent`, {
+                    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent`, {
                         method: "POST",
                         headers: {
                             'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
                         .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
                     //change My charge
-                    fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+                    fetch(`${import.meta.env.VITE_BASE_URL}/users/${authContext.userInfo[0].id}`, {
                         method: "PATCH",
                         headers: {
                             'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
 
                     //charge inventory  company 
-                    fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`, {
+                    fetch(`${import.meta.env.VITE_BASE_URL}/totalinventoryCompany/1`, {
                         method: "PATCH",
                         headers: {
                             'Content-Type': 'application/json',
@@ -176,7 +176,7 @@ export default function TableOneCar({ oneBrand, allCars }) {
 
                     //userinfo
 
-                    fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+                    fetch(`${import.meta.env.VITE_BASE_URL}/users/${authContext.userInfo[0].id}`, {
                         method: "PATCH",
                         headers: {
                             'Content-Type': 'application/json',

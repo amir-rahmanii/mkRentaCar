@@ -27,7 +27,7 @@ const BarChart = () => {
     const [allRegisteredRentDecember, setAllRegisteredRentDecember] = useState('')
 
     const getAllRegisteredRent = () => {
-        fetch(`https://mkrentacar.liara.run/registeredRent`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent`)
         .then(res => {
             if (!res.ok) {
                 throw new Error('Network response was not ok');

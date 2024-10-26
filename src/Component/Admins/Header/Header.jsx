@@ -21,7 +21,7 @@ export default function Header() {
   const [rechargeValue, setRechargeValue] = useState(0)
 
   const gettotalInventoryCompany = () => {
-    fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/totalinventoryCompany/1`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -38,7 +38,7 @@ export default function Header() {
   const rechargeHandler = () => {
     if (/^[1-9][0-9]{0,5}$/i.test(rechargeValue)) {
       setMessageErrorCharge(false)
-      fetch(`https://mkrentacar.liara.run/totalinventoryCompany/1`, {
+      fetch(`${import.meta.env.VITE_BASE_URL}/totalinventoryCompany/1`, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',

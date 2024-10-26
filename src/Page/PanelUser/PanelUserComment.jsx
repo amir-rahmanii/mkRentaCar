@@ -47,7 +47,7 @@ export default function PanelUserComment() {
   const [showErrorMessage, setShowErrorMessage] = useState(false)
 
   const getAllCars = () => {
-    fetch(`https://mkrentacar.liara.run/cars`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -83,7 +83,7 @@ export default function PanelUserComment() {
         date: fullYear
       }
 
-      fetch(`https://mkrentacar.liara.run/comments`, {
+      fetch(`${import.meta.env.VITE_BASE_URL}/comments`, {
 
         method: "POST",
         headers: {

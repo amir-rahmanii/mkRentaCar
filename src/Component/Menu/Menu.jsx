@@ -24,7 +24,7 @@ export default function Menu() {
      const { t } = useTranslation()
 
   useEffect(() => {
-    fetch(`https://mkrentacar.liara.run/menus`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/menus`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');

@@ -30,7 +30,7 @@ export default function Header() {
     }
 
     const getAllCars = () => {
-        fetch(`https://mkrentacar.liara.run/cars`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/cars`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

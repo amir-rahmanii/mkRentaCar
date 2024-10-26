@@ -62,7 +62,7 @@ export default function ChangePass() {
                         if (values.password === values.passwordConfirm) {
                             setshowErrorMessage(false)
 
-                            fetch(`https://mkrentacar.liara.run/users/${authContext.idUserForPass}`, {
+                            fetch(`${import.meta.env.VITE_BASE_URL}/users/${authContext.idUserForPass}`, {
                                 method: "PATCH",
                                 headers: {
                                     "Content-Type": "application/json",

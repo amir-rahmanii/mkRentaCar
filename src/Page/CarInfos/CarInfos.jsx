@@ -19,7 +19,7 @@ export default function CarInfos() {
 
     const getonerandomBanerForCarType = () => {
         let randomNumber = Math.floor(Math.random() * 6);
-        fetch(`https://mkrentacar.liara.run/randomBanerForCarType`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/randomBanerForCarType`)
              .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -33,7 +33,7 @@ export default function CarInfos() {
     }
 
     const getallbrands = () => {
-        fetch(`https://mkrentacar.liara.run/allBrands`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/allBrands`)
              .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -49,7 +49,7 @@ export default function CarInfos() {
 
 
     const getallcars = () => {
-        fetch(`https://mkrentacar.liara.run/cars?hrefCarType=${params.type}`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/cars?hrefCarType=${params.type}`)
              .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

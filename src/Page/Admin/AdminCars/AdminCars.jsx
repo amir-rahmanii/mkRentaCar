@@ -62,7 +62,7 @@ export default function AdminCars() {
 
 
   const getAllBrands = () => {
-    fetch(`https://mkrentacar.liara.run/allBrands`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/allBrands`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -77,7 +77,7 @@ export default function AdminCars() {
   }
 
   const getAllCars = () => {
-    fetch(`https://mkrentacar.liara.run/cars`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -93,7 +93,7 @@ export default function AdminCars() {
   }
 
   const getAllCarsOld = () => {
-    fetch(`https://mkrentacar.liara.run/cars`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -108,7 +108,7 @@ export default function AdminCars() {
   }
 
   const getAllcarsHightoLow = () => {
-    fetch(`https://mkrentacar.liara.run/cars?_sort=price`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars?_sort=price`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -123,7 +123,7 @@ export default function AdminCars() {
   }
 
   const getAllcarsLowtoHigh = () => {
-    fetch(`https://mkrentacar.liara.run/cars?_sort=price`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars?_sort=price`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -138,7 +138,7 @@ export default function AdminCars() {
   }
 
   const getAllcarsisRegistered = () => {
-    fetch(`https://mkrentacar.liara.run/cars?isRegister=1`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars?isRegister=1`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -153,7 +153,7 @@ export default function AdminCars() {
   }
 
   const getAllcarsisNoRegistered = () => {
-    fetch(`https://mkrentacar.liara.run/cars?isRegister=0`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars?isRegister=0`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -171,7 +171,7 @@ export default function AdminCars() {
   
 
     let arrayPushedFilters = []
-    fetch(`https://mkrentacar.liara.run/allBrands`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/allBrands`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -217,7 +217,7 @@ export default function AdminCars() {
   //chageInputBranding
   const chageInputBranding = (e, id) => {
     let itemValue = e.target.checked
-    fetch(`https://mkrentacar.liara.run/allBrands/${id}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/allBrands/${id}`, {
 
       method: "PATCH",
       headers: {
@@ -239,7 +239,7 @@ export default function AdminCars() {
 
   //  For register
   const registeredCar = () => {
-    fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars/${idCar}`, {
 
       method: "PATCH",
       headers: {
@@ -266,7 +266,7 @@ export default function AdminCars() {
 
   //  For register No
   const registeredCarNo = () => {
-    fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars/${idCar}`, {
 
       method: "PATCH",
       headers: {
@@ -292,7 +292,7 @@ export default function AdminCars() {
   //Delete user
 
   const deleteCar = () => {
-    fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars/${idCar}`, {
       method: "DELETE",
     })
       .then((res) => {
@@ -311,7 +311,7 @@ export default function AdminCars() {
   //UpdatePriceCars
   const UpdatePriceCars = () => {
     if (/^[1-9][0-9]{0,8}$/i.test(priceUppdated) && /^(0|[1-9]\d{0,8})$/i.test(priceOfferUppdated)) {
-      fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+      fetch(`${import.meta.env.VITE_BASE_URL}/cars/${idCar}`, {
 
         method: "PATCH",
         headers: {
@@ -340,7 +340,7 @@ export default function AdminCars() {
   //Update body 
   const updateBody = () => {
     if (body.trim()) {
-      fetch(`https://mkrentacar.liara.run/cars/${idCar}`, {
+      fetch(`${import.meta.env.VITE_BASE_URL}/cars/${idCar}`, {
 
         method: "PATCH",
         headers: {

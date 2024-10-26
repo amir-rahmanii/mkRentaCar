@@ -65,7 +65,7 @@ const BoxInfoUser = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
-        fetch(`https://mkrentacar.liara.run/registeredRent`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

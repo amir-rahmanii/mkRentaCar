@@ -23,7 +23,7 @@ export default function MainPhotos() {
     const { t } = useTranslation()
 
     const getAllCars = () => {
-        fetch(`https://mkrentacar.liara.run/cars`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/cars`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -38,7 +38,7 @@ export default function MainPhotos() {
     }
 
     const getAllCarBrand = () => {
-        fetch(`https://mkrentacar.liara.run/allBrands`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/allBrands`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -53,7 +53,7 @@ export default function MainPhotos() {
     }
 
     const getAllCarType = () => {
-        fetch(`https://mkrentacar.liara.run/carType`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/carType`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

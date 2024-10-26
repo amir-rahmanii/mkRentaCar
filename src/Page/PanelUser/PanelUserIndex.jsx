@@ -66,7 +66,7 @@ export default function PanelUserIndex() {
 
                     onSubmit={(values, { resetForm }) => {
                         if (authContext.userInfo[0].password == values.password) {
-                            fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+                            fetch(`${import.meta.env.VITE_BASE_URL}/users/${authContext.userInfo[0].id}`, {
                                 method: "PATCH",
                                 headers: {
                                     'Content-Type': 'application/json',

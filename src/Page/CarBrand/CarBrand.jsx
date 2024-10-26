@@ -16,7 +16,7 @@ export default function CarBrand() {
 
 
     const getallbrands = () => {
-        fetch(`https://mkrentacar.liara.run/allBrands`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/allBrands`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -35,7 +35,7 @@ export default function CarBrand() {
 
 
     const getallcars = () => {
-        fetch(`https://mkrentacar.liara.run/cars?hrefBrand=${params.brand}`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/cars?hrefBrand=${params.brand}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

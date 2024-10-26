@@ -13,7 +13,7 @@ export default function Blogs() {
     const [allBlogs, setAllBlogs] = useState([])
 
     useEffect(() => {
-        fetch(`https://mkrentacar.liara.run/blogs`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/blogs`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

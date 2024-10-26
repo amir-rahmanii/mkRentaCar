@@ -8,7 +8,7 @@ export default function DataTableBrand() {
     const { t } = useTranslation()
 
     const getallbrands = () => {
-        fetch(`https://mkrentacar.liara.run/allBrands`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/allBrands`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

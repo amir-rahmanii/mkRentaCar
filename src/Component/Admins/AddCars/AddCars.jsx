@@ -23,7 +23,7 @@ export default memo(function AddCars({ getAllCars , setShowAddNewCar }) {
 
 
     const getAllCarType = () => {
-        fetch(`https://mkrentacar.liara.run/carType`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/carType`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -37,7 +37,7 @@ export default memo(function AddCars({ getAllCars , setShowAddNewCar }) {
     }
 
     const getAllCarBrand = () => {
-        fetch(`https://mkrentacar.liara.run/allBrands`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/allBrands`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -222,7 +222,7 @@ export default memo(function AddCars({ getAllCars , setShowAddNewCar }) {
                         }
 
                         console.log(newObj);
-                        fetch(`https://mkrentacar.liara.run/cars`, {
+                        fetch(`${import.meta.env.VITE_BASE_URL}/cars`, {
                             method: "POST",
                             headers: {
                                 'Content-Type': 'application/json',

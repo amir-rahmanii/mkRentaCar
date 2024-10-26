@@ -28,7 +28,7 @@ export default function PanelUserWallet() {
     const rechargeHandler = () => {
         if (/^[1-9][0-9]{0,5}$/i.test(rechargeValue)) {
             setMessageErrorCharge(false)
-            fetch(`https://mkrentacar.liara.run/users/${authContext.userInfo[0].id}`, {
+            fetch(`${import.meta.env.VITE_BASE_URL}/users/${authContext.userInfo[0].id}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json',

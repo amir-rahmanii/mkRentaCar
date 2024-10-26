@@ -11,7 +11,7 @@ export default function DashboardIndex() {
   const [allUsersLength, setAllUsersLength] = useState('')
 
   const getAllCars = () => {
-    fetch(`https://mkrentacar.liara.run/cars`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/cars`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -25,7 +25,7 @@ export default function DashboardIndex() {
 
   }
   const getAllRental = () => {
-    fetch(`https://mkrentacar.liara.run/registeredRent`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -39,7 +39,7 @@ export default function DashboardIndex() {
 
   }
   const getAllUsers = () => {
-    fetch(`https://mkrentacar.liara.run/users`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/users`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');

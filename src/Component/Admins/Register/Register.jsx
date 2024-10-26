@@ -18,7 +18,7 @@ export default function Register() {
     const [changeTypePassword, setChangeTypePassword] = useState(false)
 
     const getAllUsers = () => {
-        fetch(`https://mkrentacar.liara.run/users`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/users`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -98,7 +98,7 @@ export default function Register() {
                                 registeredRent: []
                             }
 
-                            fetch(`https://mkrentacar.liara.run/users`, {
+                            fetch(`${import.meta.env.VITE_BASE_URL}/users`, {
 
                                 method: "POST",
                                 headers: {

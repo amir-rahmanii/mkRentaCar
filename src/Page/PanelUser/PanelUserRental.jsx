@@ -50,7 +50,7 @@ export default function PanelUserRental() {
 
   //get all users
   const getAllUsers = () => {
-    fetch(`https://mkrentacar.liara.run/users`)
+    fetch(`${import.meta.env.VITE_BASE_URL}/users`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
@@ -80,7 +80,7 @@ export default function PanelUserRental() {
       return data.id !== carId
     })
 
-    fetch(`https://mkrentacar.liara.run/users/${userInfos.userIdAuth}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/users/${userInfos.userIdAuth}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ export default function PanelUserRental() {
       .catch(error => console.error('There has been a problem with your fetch operation:', error));
 
 
-    fetch(`https://mkrentacar.liara.run/registeredRent/${carId}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/registeredRent/${carId}`, {
       method: "Delete",
     })
       .then((res) => {
